@@ -2,15 +2,16 @@ import UIKit
 
 struct Constant {
     struct Setup {
-        static let NumberOfPagesScrolling = 3.0 as CGFloat
+        static let NumberOfPagesScrolling = 3 as Int
     }
 }
 
 class RGMainViewController: UIViewController {
 
-    var scrollView = UIScrollView()
     let deviceWidth = UIScreen.mainScreen().bounds.width
     let deviceHeight = UIScreen.mainScreen().bounds.height
+    var scrollView = UIScrollView()
+    var arrayWithControllers = []
 
     // MARK: View lifecycle
 
@@ -18,7 +19,7 @@ class RGMainViewController: UIViewController {
         super.viewDidLoad()
 
         self.scrollView = UIScrollView(frame: CGRectMake(0, 0, self.deviceWidth, self.deviceHeight))
-        self.scrollView.contentSize = CGSizeMake(self.deviceWidth * Constant.Setup.NumberOfPagesScrolling, self.deviceHeight)
+        self.scrollView.contentSize = CGSizeMake(self.deviceWidth * CGFloat(Constant.Setup.NumberOfPagesScrolling), self.deviceHeight)
         self.scrollView.backgroundColor = UIColor.whiteColor()
         self.scrollView.pagingEnabled = true
         self.view.addSubview(self.scrollView)
@@ -26,12 +27,13 @@ class RGMainViewController: UIViewController {
 
     // MARK: ScrollView methods
 
-    func loadScrollViewInPage(page: Int32) {
+    func loadScrollViewInPage(page: Int) {
         if page >= Constant.Setup.NumberOfPagesScrolling {
             return
         }
 
-        
+        let viewController = self.arrayWithControllers[page] as? UIViewController
+
     }
 }
 

@@ -10,6 +10,7 @@ class RGMainViewController: UIViewController {
 
     let deviceWidth = UIScreen.mainScreen().bounds.width
     let deviceHeight = UIScreen.mainScreen().bounds.height
+    let viewModel = ViewModel()
     var scrollView = UIScrollView()
     var arrayWithControllers = NSMutableArray()
 
@@ -18,11 +19,7 @@ class RGMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.scrollView = UIScrollView(frame: CGRectMake(0, 0, self.deviceWidth, self.deviceHeight))
-        self.scrollView.contentSize = CGSizeMake(self.deviceWidth * CGFloat(Constant.Setup.NumberOfPagesScrolling), self.deviceHeight)
-        self.scrollView.backgroundColor = UIColor.whiteColor()
-        self.scrollView.pagingEnabled = true
-        self.view.addSubview(self.scrollView)
+        self.scrollView = self.viewModel.initMainScrollViewInView(view)
 
         for index in 0...2 {
             self.arrayWithControllers.addObject(NSNull())

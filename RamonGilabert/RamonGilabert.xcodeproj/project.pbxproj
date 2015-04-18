@@ -16,6 +16,7 @@
 		F6526E651AE2C996007ACF23 /* RGStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E641AE2C996007ACF23 /* RGStoryViewController.swift */; };
 		F6526E671AE2C9AF007ACF23 /* RGProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E661AE2C9AF007ACF23 /* RGProjectsViewController.swift */; };
 		F6526E691AE2C9CA007ACF23 /* RGSkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E681AE2C9CA007ACF23 /* RGSkillsViewController.swift */; };
+		F6A788B61AE2DCE3001B4B73 /* RGMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A788B51AE2DCE3001B4B73 /* RGMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		F6526E641AE2C996007ACF23 /* RGStoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGStoryViewController.swift; sourceTree = "<group>"; };
 		F6526E661AE2C9AF007ACF23 /* RGProjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGProjectsViewController.swift; sourceTree = "<group>"; };
 		F6526E681AE2C9CA007ACF23 /* RGSkillsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGSkillsViewController.swift; sourceTree = "<group>"; };
+		F6A788B51AE2DCE3001B4B73 /* RGMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				F6526E3D1AE2B956007ACF23 /* AppDelegate.swift */,
 				F6526E5F1AE2BC88007ACF23 /* RGMainViewController.swift */,
+				F6A788B51AE2DCE3001B4B73 /* RGMenuViewController.swift */,
 				F6526E641AE2C996007ACF23 /* RGStoryViewController.swift */,
 				F6526E681AE2C9CA007ACF23 /* RGSkillsViewController.swift */,
 				F6526E661AE2C9AF007ACF23 /* RGProjectsViewController.swift */,
@@ -234,6 +237,7 @@
 				F6526E3E1AE2B956007ACF23 /* AppDelegate.swift in Sources */,
 				F6526E651AE2C996007ACF23 /* RGStoryViewController.swift in Sources */,
 				F6526E691AE2C9CA007ACF23 /* RGSkillsViewController.swift in Sources */,
+				F6A788B61AE2DCE3001B4B73 /* RGMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +425,7 @@
 				F6526E591AE2B956007ACF23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F6526E5A1AE2B956007ACF23 /* Build configuration list for PBXNativeTarget "RamonGilabertTests" */ = {
 			isa = XCConfigurationList;
@@ -429,6 +434,7 @@
 				F6526E5C1AE2B956007ACF23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

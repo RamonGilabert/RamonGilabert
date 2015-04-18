@@ -13,6 +13,9 @@
 		F6526E541AE2B956007ACF23 /* RamonGilabertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E531AE2B956007ACF23 /* RamonGilabertTests.swift */; };
 		F6526E601AE2BC88007ACF23 /* RGMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E5F1AE2BC88007ACF23 /* RGMainViewController.swift */; };
 		F6526E621AE2C775007ACF23 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E611AE2C775007ACF23 /* ViewModel.swift */; };
+		F6526E651AE2C996007ACF23 /* RGStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E641AE2C996007ACF23 /* RGStoryViewController.swift */; };
+		F6526E671AE2C9AF007ACF23 /* RGProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E661AE2C9AF007ACF23 /* RGProjectsViewController.swift */; };
+		F6526E691AE2C9CA007ACF23 /* RGSkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E681AE2C9CA007ACF23 /* RGSkillsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		F6526E531AE2B956007ACF23 /* RamonGilabertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamonGilabertTests.swift; sourceTree = "<group>"; };
 		F6526E5F1AE2BC88007ACF23 /* RGMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGMainViewController.swift; sourceTree = "<group>"; };
 		F6526E611AE2C775007ACF23 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		F6526E641AE2C996007ACF23 /* RGStoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGStoryViewController.swift; sourceTree = "<group>"; };
+		F6526E661AE2C9AF007ACF23 /* RGProjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGProjectsViewController.swift; sourceTree = "<group>"; };
+		F6526E681AE2C9CA007ACF23 /* RGSkillsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGSkillsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,9 @@
 			children = (
 				F6526E3D1AE2B956007ACF23 /* AppDelegate.swift */,
 				F6526E5F1AE2BC88007ACF23 /* RGMainViewController.swift */,
+				F6526E641AE2C996007ACF23 /* RGStoryViewController.swift */,
+				F6526E661AE2C9AF007ACF23 /* RGProjectsViewController.swift */,
+				F6526E681AE2C9CA007ACF23 /* RGSkillsViewController.swift */,
 				F6526E611AE2C775007ACF23 /* ViewModel.swift */,
 				F6526E631AE2C77E007ACF23 /* Images */,
 				F6526E3B1AE2B956007ACF23 /* Supporting Files */,
@@ -220,8 +229,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6526E601AE2BC88007ACF23 /* RGMainViewController.swift in Sources */,
+				F6526E671AE2C9AF007ACF23 /* RGProjectsViewController.swift in Sources */,
 				F6526E621AE2C775007ACF23 /* ViewModel.swift in Sources */,
 				F6526E3E1AE2B956007ACF23 /* AppDelegate.swift in Sources */,
+				F6526E651AE2C996007ACF23 /* RGStoryViewController.swift in Sources */,
+				F6526E691AE2C9CA007ACF23 /* RGSkillsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

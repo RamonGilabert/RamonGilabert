@@ -30,7 +30,6 @@ class ViewModel: NSObject {
 
         let scrollView = UIScrollView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight))
         scrollView.contentSize = CGSizeMake(Constant.Size.DeviceWidth, Constant.Size.DeviceHeight * 5)
-        scrollView.backgroundColor = UIColor.redColor()
 
         view.addSubview(scrollView)
 

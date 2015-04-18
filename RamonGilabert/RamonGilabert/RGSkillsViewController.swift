@@ -7,6 +7,8 @@ class RGSkillsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.blackColor()
+
+        self.scrollView = self.viewModel.initChildScrollViewsInView(self.view)
+        self.scrollView.backgroundColor = UIColor.greenColor()
     }
 }

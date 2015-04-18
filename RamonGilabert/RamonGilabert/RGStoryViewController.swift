@@ -9,5 +9,6 @@ class RGStoryViewController: UIViewController {
         super.viewDidLoad()
         
         self.scrollView = self.viewModel.initChildScrollViewsInView(self.view)
+        self.scrollView.backgroundColor = UIColor.redColor()
     }
 }

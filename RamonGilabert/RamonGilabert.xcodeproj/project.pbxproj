@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		F6526E3E1AE2B956007ACF23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E3D1AE2B956007ACF23 /* AppDelegate.swift */; };
 		F6526E401AE2B956007ACF23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E3F1AE2B956007ACF23 /* ViewController.swift */; };
-		F6526E431AE2B956007ACF23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6526E411AE2B956007ACF23 /* Main.storyboard */; };
 		F6526E451AE2B956007ACF23 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6526E441AE2B956007ACF23 /* Images.xcassets */; };
 		F6526E481AE2B956007ACF23 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6526E461AE2B956007ACF23 /* LaunchScreen.xib */; };
 		F6526E541AE2B956007ACF23 /* RamonGilabertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E531AE2B956007ACF23 /* RamonGilabertTests.swift */; };
@@ -30,7 +29,6 @@
 		F6526E3C1AE2B956007ACF23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6526E3D1AE2B956007ACF23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6526E3F1AE2B956007ACF23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F6526E421AE2B956007ACF23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F6526E441AE2B956007ACF23 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F6526E471AE2B956007ACF23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F6526E4D1AE2B956007ACF23 /* RamonGilabertTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RamonGilabertTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,7 +77,6 @@
 			children = (
 				F6526E3D1AE2B956007ACF23 /* AppDelegate.swift */,
 				F6526E3F1AE2B956007ACF23 /* ViewController.swift */,
-				F6526E411AE2B956007ACF23 /* Main.storyboard */,
 				F6526E441AE2B956007ACF23 /* Images.xcassets */,
 				F6526E461AE2B956007ACF23 /* LaunchScreen.xib */,
 				F6526E3B1AE2B956007ACF23 /* Supporting Files */,
@@ -192,7 +189,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6526E431AE2B956007ACF23 /* Main.storyboard in Resources */,
 				F6526E481AE2B956007ACF23 /* LaunchScreen.xib in Resources */,
 				F6526E451AE2B956007ACF23 /* Images.xcassets in Resources */,
 			);
@@ -236,14 +232,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F6526E411AE2B956007ACF23 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F6526E421AE2B956007ACF23 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F6526E461AE2B956007ACF23 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -33,7 +33,7 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     // MARK: Gesture recognizer methods
 
     func onPinchGestureRecognizerDone() {
-        println(self.pinchGestureRecognizer.velocity)
+
         if self.pinchGestureRecognizer.velocity <= -2.0 {
             self.view.removeGestureRecognizer(self.pinchGestureRecognizer)
 

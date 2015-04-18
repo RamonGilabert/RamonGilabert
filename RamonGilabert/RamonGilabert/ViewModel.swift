@@ -1,16 +1,25 @@
 import UIKit
 
-class ViewModel: NSObject {
+struct Constant {
+    struct Setup {
+        static let NumberOfPagesScrolling = 3 as Int
+    }
 
-    let deviceWidth = UIScreen.mainScreen().bounds.width
-    let deviceHeight = UIScreen.mainScreen().bounds.height
+    struct Size {
+        static let DeviceWidth = UIScreen.mainScreen().bounds.width
+        static let DeviceHeight = UIScreen.mainScreen().bounds.height
+    }
+}
+
+class ViewModel: NSObject {
 
     func initMainScrollViewInView(view: UIView) -> UIScrollView {
 
-        let scrollView = UIScrollView(frame: CGRectMake(0, 0, self.deviceWidth, self.deviceHeight))
-        scrollView.contentSize = CGSizeMake(self.deviceWidth * CGFloat(Constant.Setup.NumberOfPagesScrolling), self.deviceHeight)
+        let scrollView = UIScrollView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight))
+        scrollView.contentSize = CGSizeMake(Constant.Size.DeviceWidth * CGFloat(Constant.Setup.NumberOfPagesScrolling), Constant.Size.DeviceHeight)
         scrollView.backgroundColor = UIColor.whiteColor()
         scrollView.pagingEnabled = true
+        scrollView.showsHorizontalScrollIndicator = false
 
         view.addSubview(scrollView)
 

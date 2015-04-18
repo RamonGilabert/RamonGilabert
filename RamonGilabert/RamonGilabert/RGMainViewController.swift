@@ -1,15 +1,7 @@
 import UIKit
 
-struct Constant {
-    struct Setup {
-        static let NumberOfPagesScrolling = 3 as Int
-    }
-}
-
 class RGMainViewController: UIViewController {
-
-    let deviceWidth = UIScreen.mainScreen().bounds.width
-    let deviceHeight = UIScreen.mainScreen().bounds.height
+    
     let viewModel = ViewModel()
     var scrollView = UIScrollView()
     var arrayWithControllers = NSMutableArray()
@@ -26,6 +18,8 @@ class RGMainViewController: UIViewController {
         }
 
         loadScrollViewInPage(0)
+        loadScrollViewInPage(1)
+        loadScrollViewInPage(2)
     }
 
     // MARK: ScrollView methods
@@ -39,12 +33,23 @@ class RGMainViewController: UIViewController {
 
         if !(viewController != nil) {
             if page == 0 {
-
+                loadViewController(RGStoryViewController(), page: page)
             } else if page == 1 {
-
+                loadViewController(RGSkillsViewController(), page: page)
             } else {
-
+                loadViewController(RGProjectsViewController(), page: page)
             }
         }
+    }
+
+    // MARK: Helper methods
+
+    func loadViewController(viewController: UIViewController, page: Int) {
+        viewController.view.frame = CGRectMake(viewController.view.bounds.width * CGFloat(page), 0, viewController.view.bounds.width, viewController.view.bounds.height)
+
+        self.addChildViewController(viewController)
+        self.scrollView.addSubview(viewController.view)
+
+        self.arrayWithControllers.replaceObjectAtIndex(page, withObject: viewController)
     }
 }

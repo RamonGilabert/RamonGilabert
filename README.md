@@ -4,16 +4,16 @@ An app I would call Life. That's my submission for the WWDC scholarship program,
 
 ## Upcoming features
 
-- [] ScrollViews to show different view controllers.
-- [] Scroll down in each view controller.
-- [] Pinch to show the menu with a life front camera.
-- [] Show the video the first time you're in the app.
-- [] Sticky headers everywhere.
-- [] Details matter in Skills.
-- [] Cards with multiple gestures for projects.
-- [] Game.
-- [] Contact in a original way.
-- [] More features?
+- [ ] ScrollViews to show different view controllers.
+- [ ] Scroll down in each view controller.
+- [ ] Pinch to show the menu with a life front camera.
+- [ ] Show the video the first time you're in the app.
+- [ ] Sticky headers everywhere.
+- [ ] Details matter in Skills.
+- [ ] Cards with multiple gestures for projects.
+- [ ] Game.
+- [ ] Contact in a original way.
+- [ ] More features?
 
 ## Featuring
 

@@ -30,7 +30,7 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
             return
         }
 
-        let viewController = self.arrayWithControllers[page] as? UIViewController
+        let viewController = self.arrayWithControllers[page] as? RGStoryViewController
 
         if !(viewController != nil) {
             if page == 0 {
@@ -40,6 +40,8 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
             } else {
                 loadViewController(RGProjectsViewController(), page: page)
             }
+        } else {
+            viewController?.scrollView.setContentOffset(CGPointMake(0, 0), animated: true)
         }
     }
 

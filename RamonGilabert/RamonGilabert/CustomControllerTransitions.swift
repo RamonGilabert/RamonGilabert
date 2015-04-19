@@ -33,24 +33,12 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
         default:
             self.interactive = false
 
-            if (translation < 0.3) {
+            if translation < 0.6 {
                 self.finishInteractiveTransition()
             } else {
                 self.cancelInteractiveTransition()
             }
         }
-    }
-
-    func interactionControllerForPresentation(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return self.interactive ? self : nil
-    }
-
-    func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return self.interactive ? self : nil
-    }
-
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
-        return 0.5
     }
 
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
@@ -64,7 +52,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
         let mainView = mainViewController.view
         let menuView = menuViewController.view
 
-        if (self.presenting){
+        if self.presenting {
             menuView.alpha = 0
         }
 
@@ -74,18 +62,38 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
         let duration = self.transitionDuration(transitionContext)
 
         UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: nil, animations: {
-            if (self.presenting) {
+            if self.presenting {
                 self.onStageMenuController(menuViewController)
             } else {
-                mainView.transform = CGAffineTransformIdentity
                 self.offStageMenuController(menuViewController)
             } }, completion: { finished in
-                if (transitionContext.transitionWasCancelled()) {
+                if transitionContext.transitionWasCancelled() {
                     transitionContext.completeTransition(false)
-                } else {
-                    transitionContext.completeTransition(true)
                 }
         })
+    }
+
+    // MARK: Final position methods
+
+    func offStageMenuController(menuViewController: RGMenuViewController){
+        menuViewController.view.alpha = 0
+        let topRowOffset : CGFloat = 300
+        let middleRowOffset : CGFloat = 150
+        let bottomRowOffset : CGFloat = 50
+    }
+
+    func onStageMenuController(menuViewController: RGMenuViewController){
+        menuViewController.view.alpha = 1
+    }
+
+    // MARK: Delegate methods
+
+    func interactionControllerForPresentation(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return self.interactive ? self : nil
+    }
+
+    func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return self.interactive ? self : nil
     }
 
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -98,19 +106,8 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
         return self
     }
 
-    func offStage(amount: CGFloat) -> CGAffineTransform {
-        return CGAffineTransformMakeTranslation(amount, 0)
-    }
-
-    func offStageMenuController(menuViewController: RGMenuViewController){
-        menuViewController.view.alpha = 0
-        let topRowOffset : CGFloat = 300
-        let middleRowOffset : CGFloat = 150
-        let bottomRowOffset : CGFloat = 50
-    }
-
-    func onStageMenuController(menuViewController: RGMenuViewController){
-        menuViewController.view.alpha = 1
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+        return 0.5
     }
 
 }

@@ -48,7 +48,7 @@ class ViewModel: NSObject {
         return scrollView
     }
 
-    func buttonInMenu(xPosition: CGFloat, yPosition: CGFloat, image: String, text: String, view: UIView) -> UIButton {
+    func buttonInMenu(xPosition: CGFloat, yPosition: CGFloat, image: String, text: String, view: UIView, tag: Int) -> UIButton {
         let button = UIButton(frame: CGRectMake(
             xPosition,
             yPosition,

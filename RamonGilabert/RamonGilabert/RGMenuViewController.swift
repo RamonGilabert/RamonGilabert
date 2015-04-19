@@ -47,41 +47,47 @@ class RGMenuViewController: UIViewController {
             yPosition: Constant.Positioning.MenuButtonsSpacing + 15,
             image: "story-image",
             text: "STORY",
-            view: self.view)
+            view: self.view,
+            tag: 0)
 
         self.projectsButton = self.viewModel.buttonInMenu(
             Constant.Positioning.XPositionRightMenuButton,
             yPosition: Constant.Positioning.MenuButtonsSpacing + 15,
             image: "work-image",
             text: "WORK",
-            view: self.view)
+            view: self.view,
+            tag: 1)
 
         self.skillsetButton = self.viewModel.buttonInMenu(
             Constant.Positioning.XPositionLeftMenuButton,
             yPosition: (Constant.Positioning.MenuButtonsSpacing * 2) + Constant.Positioning.HeightMenuButton + 15,
             image: "skills-image",
             text: "SKILLS",
-            view: self.view)
+            view: self.view,
+            tag: 2)
 
         self.videoButton = self.viewModel.buttonInMenu(
             Constant.Positioning.XPositionRightMenuButton,
             yPosition: (Constant.Positioning.MenuButtonsSpacing * 2) + Constant.Positioning.HeightMenuButton + 15,
             image: "video-image",
             text: "VIDEO",
-            view: self.view)
+            view: self.view,
+            tag: 3)
 
         self.gameButton = self.viewModel.buttonInMenu(
             Constant.Positioning.XPositionLeftMenuButton,
             yPosition: (Constant.Positioning.MenuButtonsSpacing * 3) + (Constant.Positioning.HeightMenuButton * 2) + 15,
             image: "game-image",
             text: "GAME",
-            view: self.view)
+            view: self.view,
+            tag: 4)
 
         self.contactButton = self.viewModel.buttonInMenu(
             Constant.Positioning.XPositionRightMenuButton,
             yPosition: (Constant.Positioning.MenuButtonsSpacing * 3) + (Constant.Positioning.HeightMenuButton * 2) + 15,
             image: "contact-image",
             text: "SOCIAL",
-            view: self.view)
+            view: self.view,
+            tag: 5)
     }
 }

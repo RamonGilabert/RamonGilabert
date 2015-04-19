@@ -9,6 +9,13 @@ struct Constant {
         static let DeviceWidth = UIScreen.mainScreen().bounds.width
         static let DeviceHeight = UIScreen.mainScreen().bounds.height
     }
+
+    struct Positioning {
+        static let WidthMenuButton = 75 * 1.3 as CGFloat
+        static let HeightMenuButton = 94.6 * 1.3 as CGFloat
+        static let XPositionLeftMenuButton = Constant.Size.DeviceWidth / 8
+        static let XPositionRightMenuButton = Constant.Size.DeviceWidth - Constant.Positioning.XPositionLeftMenuButton - Constant.Positioning.WidthMenuButton
+    }
 }
 
 class ViewModel: NSObject {

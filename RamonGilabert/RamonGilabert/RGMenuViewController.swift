@@ -105,7 +105,7 @@ class RGMenuViewController: UIViewController {
             Constant.Positioning.XPositionRightMenuButton,
             yPosition: (Constant.Positioning.MenuButtonsSpacing * 3) + (Constant.Positioning.HeightMenuButton * 2) + 15,
             image: "contact-image",
-            text: "SOCIAL",
+            text: "WEB",
             viewController: self,
             tag: 5)
     }

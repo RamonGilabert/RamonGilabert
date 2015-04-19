@@ -62,7 +62,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
 
                 break
             case UIGestureRecognizerState.Changed:
-                self.updateInteractiveTransition(translation/6)
+                self.updateInteractiveTransition(translation/5)
 
                 break
             default:
@@ -72,6 +72,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
                     self.finishInteractiveTransition()
                 } else {
                     self.cancelInteractiveTransition()
+                    onStageMenuController(self.exitViewController as! RGMenuViewController)
                 }
         }
     }
@@ -157,7 +158,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
     }
 
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
-        return 0.5
+        return 0.75
     }
 
 }

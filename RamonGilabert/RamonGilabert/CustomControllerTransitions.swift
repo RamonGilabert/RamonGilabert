@@ -119,6 +119,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
         menuViewController.view.alpha = 0
 
         menuViewController.crossButton.transform = CGAffineTransformMakeScale(0, 0)
+        menuViewController.titleLabel.transform = CGAffineTransformMakeTranslation(0, -100)
         menuViewController.storyButton.transform = CGAffineTransformMakeTranslation(-120, -75)
         menuViewController.projectsButton.transform = CGAffineTransformMakeTranslation(120, -75)
         menuViewController.skillsetButton.transform = CGAffineTransformMakeTranslation(-120, 0)
@@ -130,13 +131,9 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
     func onStageMenuController(menuViewController: RGMenuViewController){
         menuViewController.view.alpha = 1
 
-        menuViewController.crossButton.transform = CGAffineTransformMakeScale(1, 1)
-        menuViewController.storyButton.transform = CGAffineTransformIdentity
-        menuViewController.projectsButton.transform = CGAffineTransformIdentity
-        menuViewController.skillsetButton.transform = CGAffineTransformIdentity
-        menuViewController.videoButton.transform = CGAffineTransformIdentity
-        menuViewController.gameButton.transform = CGAffineTransformIdentity
-        menuViewController.contactButton.transform = CGAffineTransformIdentity
+        for view in menuViewController.view.subviews as! [UIView] {
+            view.transform = CGAffineTransformIdentity
+        }
     }
 
     // MARK: Delegate methods

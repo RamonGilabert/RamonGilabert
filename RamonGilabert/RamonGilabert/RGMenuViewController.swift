@@ -35,6 +35,24 @@ class RGMenuViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
+    func onMenuButtonTouched(button: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+
+        if button.tag == 0 {
+
+        } else if button.tag == 1 {
+
+        } else if button.tag == 2 {
+
+        } else if button.tag == 3 {
+
+        } else if button.tag == 4 {
+
+        } else {
+
+        }
+    }
+
     // MARK: Helper methods
 
     func instantiateAllButtons() {
@@ -47,23 +65,23 @@ class RGMenuViewController: UIViewController {
             yPosition: Constant.Positioning.MenuButtonsSpacing + 15,
             image: "story-image",
             text: "STORY",
-            view: self.view,
+            viewController: self,
             tag: 0)
 
         self.projectsButton = self.viewModel.buttonInMenu(
             Constant.Positioning.XPositionRightMenuButton,
             yPosition: Constant.Positioning.MenuButtonsSpacing + 15,
-            image: "work-image",
-            text: "WORK",
-            view: self.view,
+            image: "skills-image",
+            text: "SKILLS",
+            viewController: self,
             tag: 1)
 
         self.skillsetButton = self.viewModel.buttonInMenu(
             Constant.Positioning.XPositionLeftMenuButton,
             yPosition: (Constant.Positioning.MenuButtonsSpacing * 2) + Constant.Positioning.HeightMenuButton + 15,
-            image: "skills-image",
-            text: "SKILLS",
-            view: self.view,
+            image: "work-image",
+            text: "WORK",
+            viewController: self,
             tag: 2)
 
         self.videoButton = self.viewModel.buttonInMenu(
@@ -71,7 +89,7 @@ class RGMenuViewController: UIViewController {
             yPosition: (Constant.Positioning.MenuButtonsSpacing * 2) + Constant.Positioning.HeightMenuButton + 15,
             image: "video-image",
             text: "VIDEO",
-            view: self.view,
+            viewController: self,
             tag: 3)
 
         self.gameButton = self.viewModel.buttonInMenu(
@@ -79,7 +97,7 @@ class RGMenuViewController: UIViewController {
             yPosition: (Constant.Positioning.MenuButtonsSpacing * 3) + (Constant.Positioning.HeightMenuButton * 2) + 15,
             image: "game-image",
             text: "GAME",
-            view: self.view,
+            viewController: self,
             tag: 4)
 
         self.contactButton = self.viewModel.buttonInMenu(
@@ -87,7 +105,7 @@ class RGMenuViewController: UIViewController {
             yPosition: (Constant.Positioning.MenuButtonsSpacing * 3) + (Constant.Positioning.HeightMenuButton * 2) + 15,
             image: "contact-image",
             text: "SOCIAL",
-            view: self.view,
+            viewController: self,
             tag: 5)
     }
 }

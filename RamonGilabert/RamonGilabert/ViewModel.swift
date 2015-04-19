@@ -8,7 +8,7 @@ struct Constant {
     struct Size {
         static let DeviceWidth = UIScreen.mainScreen().bounds.width
         static let DeviceHeight = UIScreen.mainScreen().bounds.height
-        static let RelationHeights = Constant.Size.DeviceHeight/480
+        static let RelationHeights = (Constant.Size.DeviceHeight - 75)/480
     }
 
     struct Positioning {
@@ -48,7 +48,7 @@ class ViewModel: NSObject {
         return scrollView
     }
 
-    func buttonInMenu(xPosition: CGFloat, yPosition: CGFloat, image: String, text: String, view: UIView, tag: Int) -> UIButton {
+    func buttonInMenu(xPosition: CGFloat, yPosition: CGFloat, image: String, text: String, viewController: UIViewController, tag: Int) -> UIButton {
         let button = UIButton(frame: CGRectMake(
             xPosition,
             yPosition,
@@ -60,8 +60,10 @@ class ViewModel: NSObject {
         button.titleLabel!.font = UIFont_WWDC.menuButtonFont()
         button.titleEdgeInsets = UIEdgeInsetsMake(125 * Constant.Size.RelationHeights, 0, 0, 0)
         button.setTitleColor(UIColor_WWDC.highlightedColorButtons(), forState: UIControlState.Highlighted)
+        button.addTarget(viewController, action: "onMenuButtonTouched:", forControlEvents: UIControlEvents.TouchUpInside)
+        button.tag = tag
 
-        view.addSubview(button)
+        viewController.view.addSubview(button)
 
         return button
     }

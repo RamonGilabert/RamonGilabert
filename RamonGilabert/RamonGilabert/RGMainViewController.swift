@@ -3,6 +3,7 @@ import UIKit
 class RGMainViewController: UIViewController, UIScrollViewDelegate {
     
     let viewModel = ViewModel()
+    let transitionManager = CustomControllerTransitions()
     let pinchGestureRecognizer = UIPinchGestureRecognizer()
     var scrollView = UIScrollView()
     var arrayWithControllers = NSMutableArray()
@@ -34,11 +35,12 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
 
     func onPinchGestureRecognizerDone() {
 
-        if self.pinchGestureRecognizer.velocity <= -2.0 {
+        if self.pinchGestureRecognizer.velocity <= -0 {
             self.view.removeGestureRecognizer(self.pinchGestureRecognizer)
 
             let menuViewController = RGMenuViewController()
-            menuViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+            menuViewController.transitioningDelegate = self.transitionManager
+            //menuViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
             self.presentViewController(menuViewController, animated: true, completion: nil)
         }
     }

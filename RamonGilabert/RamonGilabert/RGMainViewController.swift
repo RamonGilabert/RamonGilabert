@@ -19,7 +19,11 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
             self.arrayWithControllers.addObject(NSNull())
         }
 
+        let menuViewController = RGMenuViewController()
+        menuViewController.transitioningDelegate = self.transitionManager
+        
         self.transitionManager.sourceViewController = self
+        self.transitionManager.exitViewController = menuViewController
 
         loadScrollViewInPage(0)
         loadScrollViewInPage(1)

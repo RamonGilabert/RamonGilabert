@@ -25,27 +25,24 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
         let translation = pinchGesture.scale
 
         switch pinchGesture.state {
+            case UIGestureRecognizerState.Began:
+                self.interactive = true
 
-        case UIGestureRecognizerState.Began:
-            self.interactive = true
+                self.sourceViewController.presentViewController(self.exitViewController, animated: true, completion: nil)
 
-            let menuViewController = RGMenuViewController()
-            menuViewController.transitioningDelegate = self
-            self.sourceViewController.presentViewController(menuViewController, animated: true, completion: nil)
+                break
+            case UIGestureRecognizerState.Changed:
+                self.updateInteractiveTransition((1 - translation)/2)
 
-            break
-        case UIGestureRecognizerState.Changed:
-            self.updateInteractiveTransition((1 - translation)/2)
+                break
+            default:
+                self.interactive = false
 
-            break
-        default:
-            self.interactive = false
-
-            if translation < 0.6 {
-                self.finishInteractiveTransition()
-            } else {
-                self.cancelInteractiveTransition()
-            }
+                if translation < 0.6 {
+                    self.finishInteractiveTransition()
+                } else {
+                    self.cancelInteractiveTransition()
+                }
         }
     }
 
@@ -53,27 +50,24 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
         let translation = pinchGesture.scale
 
         switch pinchGesture.state {
+            case UIGestureRecognizerState.Began:
+                self.interactive = true
 
-        case UIGestureRecognizerState.Began:
-            self.interactive = true
+                self.exitViewController.dismissViewControllerAnimated(true, completion: nil)
 
-            let menuViewController = RGMenuViewController()
-            menuViewController.transitioningDelegate = self
-            menuViewController.dismissViewControllerAnimated(true, completion: nil)
+                break
+            case UIGestureRecognizerState.Changed:
+                self.updateInteractiveTransition(translation/5)
 
-            break
-        case UIGestureRecognizerState.Changed:
-            self.updateInteractiveTransition(translation/5)
+                break
+            default:
+                self.interactive = false
 
-            break
-        default:
-            self.interactive = false
-
-            if translation < 0.6 {
-                self.finishInteractiveTransition()
-            } else {
-                self.cancelInteractiveTransition()
-            }
+                if translation < 0.6 {
+                    self.finishInteractiveTransition()
+                } else {
+                    self.cancelInteractiveTransition()
+                }
         }
     }
 

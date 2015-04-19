@@ -3,6 +3,7 @@ import UIKit
 class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIViewControllerInteractiveTransitioning {
 
     private let pinchGesture = UIPinchGestureRecognizer()
+    private let pinchGestureExit = UIPinchGestureRecognizer()
     private var presenting = false
     private var interactive = false
 
@@ -13,10 +14,17 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
         }
     }
 
-    func onPinchedGestureRecognizer(pinchGesture: UIPinchGestureRecognizer){
+    var exitViewController: UIViewController! {
+        didSet {
+            self.pinchGestureExit.addTarget(self, action:"onPinchedExitGestureRecognizer:")
+            self.exitViewController.view.addGestureRecognizer(self.pinchGestureExit)
+        }
+    }
+
+    func onPinchedGestureRecognizer(pinchGesture: UIPinchGestureRecognizer) {
         let translation = pinchGesture.scale
 
-        switch (pinchGesture.state) {
+        switch pinchGesture.state {
 
         case UIGestureRecognizerState.Began:
             self.interactive = true
@@ -27,7 +35,35 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
 
             break
         case UIGestureRecognizerState.Changed:
-            self.updateInteractiveTransition(1 - translation)
+            self.updateInteractiveTransition((1 - translation)/2)
+
+            break
+        default:
+            self.interactive = false
+
+            if translation < 0.6 {
+                self.finishInteractiveTransition()
+            } else {
+                self.cancelInteractiveTransition()
+            }
+        }
+    }
+
+    func onPinchedExitGestureRecognizer(pinchGesture: UIPinchGestureRecognizer) {
+        let translation = pinchGesture.scale
+
+        switch pinchGesture.state {
+
+        case UIGestureRecognizerState.Began:
+            self.interactive = true
+
+            let menuViewController = RGMenuViewController()
+            menuViewController.transitioningDelegate = self
+            menuViewController.dismissViewControllerAnimated(true, completion: nil)
+
+            break
+        case UIGestureRecognizerState.Changed:
+            self.updateInteractiveTransition(translation/5)
 
             break
         default:
@@ -43,7 +79,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
 
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         let container = transitionContext.containerView()
-
+        println("Sup")
         let screens : (from:UIViewController, to:UIViewController) = (transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!, transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!)
 
         let mainViewController = !self.presenting ? screens.to as! RGMainViewController : screens.from as! RGMainViewController
@@ -77,9 +113,6 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
 
     func offStageMenuController(menuViewController: RGMenuViewController){
         menuViewController.view.alpha = 0
-        let topRowOffset : CGFloat = 300
-        let middleRowOffset : CGFloat = 150
-        let bottomRowOffset : CGFloat = 50
     }
 
     func onStageMenuController(menuViewController: RGMenuViewController){

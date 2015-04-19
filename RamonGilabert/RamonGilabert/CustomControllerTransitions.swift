@@ -13,37 +13,34 @@ class CustomControllerTransitions: NSObject, UIViewControllerAnimatedTransitioni
 
         let screens : (from:UIViewController, to:UIViewController) = (transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!, transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!)
 
-        let mainViewController = !self.presenting ? screens.from as? RGMainViewController : screens.to as? RGMainViewController
-        let menuViewController = !self.presenting ? screens.to as? RGMenuViewController : screens.from as? RGMenuViewController
+        let mainViewController = !self.presenting ? screens.to as! RGMainViewController : screens.from as! RGMainViewController
+        let menuViewController = !self.presenting ? screens.from as! RGMenuViewController : screens.to as! RGMenuViewController
 
-        if (self.presenting){
-            self.offStageMenuController(mainViewController!)
-        }
+        let mainView = mainViewController.view
+        let menuView = menuViewController.view
 
-        let menuView = mainViewController?.view
-        let bottomView = menuViewController?.view
-
-        container.addSubview(bottomView!)
-        container.addSubview(menuView!)
+        container.addSubview(mainView)
+        container.addSubview(menuView)
 
         let duration = self.transitionDuration(transitionContext)
 
         UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: nil, animations: {
-
             if (self.presenting){
-                self.onStageMenuController(mainViewController!)
+                self.onStageMenuController(menuViewController)
             } else {
-                self.offStageMenuController(mainViewController!)
+                self.offStageMenuController(menuViewController)
             } }, completion: { finished in
                 transitionContext.completeTransition(true)
         })
     }
 
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        self.presenting = true
         return self
     }
 
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        self.presenting = false
         return self
     }
 
@@ -51,15 +48,14 @@ class CustomControllerTransitions: NSObject, UIViewControllerAnimatedTransitioni
         return CGAffineTransformMakeTranslation(amount, 0)
     }
 
-    func offStageMenuController(menuViewController: RGMainViewController){
-
+    func offStageMenuController(menuViewController: RGMenuViewController){
         menuViewController.view.alpha = 0
-        let topRowOffset  :CGFloat = 300
-        let middleRowOffset :CGFloat = 150
-        let bottomRowOffset  :CGFloat = 50
+        let topRowOffset : CGFloat = 300
+        let middleRowOffset : CGFloat = 150
+        let bottomRowOffset : CGFloat = 50
     }
 
-    func onStageMenuController(menuViewController: RGMainViewController){
+    func onStageMenuController(menuViewController: RGMenuViewController){
         menuViewController.view.alpha = 1
     }
 

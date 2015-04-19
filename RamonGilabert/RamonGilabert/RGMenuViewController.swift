@@ -20,26 +20,32 @@ class RGMenuViewController: UIViewController {
 
         self.storyButton.setBackgroundImage(UIImage(named: "menu-button-image"), forState: UIControlState.Normal)
         self.storyButton.setTitle("STORY", forState: UIControlState.Normal)
+        self.storyButton.titleEdgeInsets = UIEdgeInsetsMake(140, 0, 0, 0)
         self.view.addSubview(self.storyButton)
 
         self.projectsButton.setBackgroundImage(UIImage(named: "menu-button-image"), forState: UIControlState.Normal)
         self.storyButton.setTitle("STORY", forState: UIControlState.Normal)
+        self.storyButton.titleEdgeInsets = UIEdgeInsetsMake(140, 0, 0, 0)
         self.view.addSubview(self.projectsButton)
 
         self.skillsetButton.setBackgroundImage(UIImage(named: "menu-button-image"), forState: UIControlState.Normal)
         self.storyButton.setTitle("STORY", forState: UIControlState.Normal)
+        self.storyButton.titleEdgeInsets = UIEdgeInsetsMake(140, 0, 0, 0)
         self.view.addSubview(self.skillsetButton)
 
         self.videoButton.setBackgroundImage(UIImage(named: "menu-button-image"), forState: UIControlState.Normal)
         self.storyButton.setTitle("STORY", forState: UIControlState.Normal)
+        self.storyButton.titleEdgeInsets = UIEdgeInsetsMake(140, 0, 0, 0)
         self.view.addSubview(self.videoButton)
 
         self.gameButton.setBackgroundImage(UIImage(named: "menu-button-image"), forState: UIControlState.Normal)
         self.storyButton.setTitle("STORY", forState: UIControlState.Normal)
+        self.storyButton.titleEdgeInsets = UIEdgeInsetsMake(140, 0, 0, 0)
         self.view.addSubview(self.gameButton)
 
         self.contactButton.setBackgroundImage(UIImage(named: "menu-button-image"), forState: UIControlState.Normal)
         self.storyButton.setTitle("STORY", forState: UIControlState.Normal)
+        self.storyButton.titleEdgeInsets = UIEdgeInsetsMake(140, 0, 0, 0)
         self.view.addSubview(self.contactButton)
     }
 }

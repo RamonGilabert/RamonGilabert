@@ -62,7 +62,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
 
                 break
             case UIGestureRecognizerState.Changed:
-                self.updateInteractiveTransition(translation/5)
+                self.updateInteractiveTransition(translation/6)
 
                 break
             default:

@@ -52,7 +52,7 @@ class RGMenuViewController: UIViewController {
         self.projectsButton = self.viewModel.buttonInMenu(
             Constant.Positioning.XPositionRightMenuButton,
             yPosition: Constant.Size.DeviceHeight / 7.5,
-            image: "projects-image",
+            image: "work-image",
             text: "WORK",
             view: self.view)
 

@@ -50,19 +50,7 @@ class ViewModel: NSObject {
             Constant.Positioning.WidthMenuButton,
             Constant.Positioning.HeightMenuButton))
 
-        let imageView = UIImageView(frame: CGRectMake((
-            Constant.Positioning.WidthMenuButton - 39.5)/2,
-            (Constant.Positioning.HeightMenuButton - 39.5)/2 - 9,
-            39.5,
-            39.5))
-
-        imageView.image = UIImage(named: image)
-        imageView.image = imageView.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-        imageView.tintColor = UIColor.whiteColor()
-        imageView.contentMode = UIViewContentMode.ScaleAspectFill
-
-        button.addSubview(imageView)
-        button.setBackgroundImage(UIImage(named: "menu-button-image"), forState: UIControlState.Normal)
+        button.setBackgroundImage(UIImage(named: image), forState: UIControlState.Normal)
         button.setTitle(text, forState: UIControlState.Normal)
         button.titleLabel!.font = UIFont_WWDC.menuButtonFont()
         button.titleEdgeInsets = UIEdgeInsetsMake(150, 0, 0, 0)

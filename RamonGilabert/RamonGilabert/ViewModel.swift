@@ -58,7 +58,7 @@ class ViewModel: NSObject {
         button.setBackgroundImage(UIImage(named: image), forState: UIControlState.Normal)
         button.setTitle(text, forState: UIControlState.Normal)
         button.titleLabel!.font = UIFont_WWDC.menuButtonFont()
-        button.titleEdgeInsets = UIEdgeInsetsMake(130 * Constant.Size.RelationHeights, 0, 0, 0)
+        button.titleEdgeInsets = UIEdgeInsetsMake(125 * Constant.Size.RelationHeights, 0, 0, 0)
         button.setTitleColor(UIColor_WWDC.highlightedColorButtons(), forState: UIControlState.Highlighted)
 
         view.addSubview(button)

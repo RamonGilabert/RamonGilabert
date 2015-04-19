@@ -11,8 +11,8 @@ struct Constant {
     }
 
     struct Positioning {
-        static let WidthMenuButton = 75 * 1.3 as CGFloat
-        static let HeightMenuButton = 94.6 * 1.3 as CGFloat
+        static let WidthMenuButton = 75 * 1.2 as CGFloat
+        static let HeightMenuButton = 94.6 * 1.2 as CGFloat
         static let XPositionLeftMenuButton = Constant.Size.DeviceWidth / 8
         static let XPositionRightMenuButton = Constant.Size.DeviceWidth - Constant.Positioning.XPositionLeftMenuButton - Constant.Positioning.WidthMenuButton
     }

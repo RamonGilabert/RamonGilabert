@@ -4,6 +4,7 @@ class RGMenuViewController: UIViewController {
 
     let viewModel = ViewModel()
     let crossButton = UIButton(frame: CGRectMake(19, 25, 26.5, 26.5))
+    var titleLabel = UILabel()
     var storyButton = UIButton()
     var projectsButton = UIButton()
     var skillsetButton = UIButton()
@@ -23,7 +24,7 @@ class RGMenuViewController: UIViewController {
 
         instantiateAllButtons()
 
-        self.viewModel.setTitleLabelInView(self.view)
+        self.titleLabel = self.viewModel.setTitleLabelInView(self.view)
 
         self.crossButton.addTarget(self, action: "onCrossButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
     }

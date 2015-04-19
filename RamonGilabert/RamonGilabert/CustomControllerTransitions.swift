@@ -88,7 +88,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
         let menuView = menuViewController.view
 
         if self.presenting {
-            menuView.alpha = 0
+            offStageMenuController(menuViewController)
         }
 
         container.addSubview(mainView)
@@ -117,10 +117,26 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
 
     func offStageMenuController(menuViewController: RGMenuViewController){
         menuViewController.view.alpha = 0
+
+        menuViewController.crossButton.transform = CGAffineTransformMakeScale(0, 0)
+        menuViewController.storyButton.transform = CGAffineTransformMakeTranslation(-120, -75)
+        menuViewController.projectsButton.transform = CGAffineTransformMakeTranslation(120, -75)
+        menuViewController.skillsetButton.transform = CGAffineTransformMakeTranslation(-120, 0)
+        menuViewController.videoButton.transform = CGAffineTransformMakeTranslation(120, 0)
+        menuViewController.gameButton.transform = CGAffineTransformMakeTranslation(-120, 75)
+        menuViewController.contactButton.transform = CGAffineTransformMakeTranslation(120, 75)
     }
 
     func onStageMenuController(menuViewController: RGMenuViewController){
         menuViewController.view.alpha = 1
+
+        menuViewController.crossButton.transform = CGAffineTransformMakeScale(1, 1)
+        menuViewController.storyButton.transform = CGAffineTransformIdentity
+        menuViewController.projectsButton.transform = CGAffineTransformIdentity
+        menuViewController.skillsetButton.transform = CGAffineTransformIdentity
+        menuViewController.videoButton.transform = CGAffineTransformIdentity
+        menuViewController.gameButton.transform = CGAffineTransformIdentity
+        menuViewController.contactButton.transform = CGAffineTransformIdentity
     }
 
     // MARK: Delegate methods

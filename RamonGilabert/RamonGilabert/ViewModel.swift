@@ -68,7 +68,7 @@ class ViewModel: NSObject {
         return button
     }
 
-    func setTitleLabelInView(view: UIView) {
+    func setTitleLabelInView(view: UIView) -> UILabel {
         let label = UILabel(frame: CGRectMake(0, 23, Constant.Size.DeviceWidth, 33))
         label.text = "MENU"
         label.textAlignment = NSTextAlignment.Center
@@ -76,5 +76,7 @@ class ViewModel: NSObject {
         label.font = UIFont(name: "AvenirNext-Regular", size: 24)
 
         view.addSubview(label)
+
+        return label
     }
 }

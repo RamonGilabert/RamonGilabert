@@ -97,7 +97,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
 
         let duration = self.transitionDuration(transitionContext)
 
-        UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: nil, animations: {
+        UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8, options: nil, animations: {
             if self.presenting {
                 self.onStageMenuController(menuViewController)
             } else {

@@ -17,6 +17,7 @@
 		F6526E671AE2C9AF007ACF23 /* RGProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E661AE2C9AF007ACF23 /* RGProjectsViewController.swift */; };
 		F6526E691AE2C9CA007ACF23 /* RGSkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E681AE2C9CA007ACF23 /* RGSkillsViewController.swift */; };
 		F6A323C91AE387AE0026D576 /* CustomControllerTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A323C81AE387AE0026D576 /* CustomControllerTransitions.swift */; };
+		F6A323CC1AE3EDDD0026D576 /* UIColor+WWDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A323CB1AE3EDDD0026D576 /* UIColor+WWDC.swift */; };
 		F6A788B61AE2DCE3001B4B73 /* RGMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A788B51AE2DCE3001B4B73 /* RGMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		F6526E661AE2C9AF007ACF23 /* RGProjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGProjectsViewController.swift; sourceTree = "<group>"; };
 		F6526E681AE2C9CA007ACF23 /* RGSkillsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGSkillsViewController.swift; sourceTree = "<group>"; };
 		F6A323C81AE387AE0026D576 /* CustomControllerTransitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomControllerTransitions.swift; sourceTree = "<group>"; };
+		F6A323CB1AE3EDDD0026D576 /* UIColor+WWDC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+WWDC.swift"; sourceTree = "<group>"; };
 		F6A788B51AE2DCE3001B4B73 /* RGMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +95,7 @@
 				F6526E641AE2C996007ACF23 /* RGStoryViewController.swift */,
 				F6526E681AE2C9CA007ACF23 /* RGSkillsViewController.swift */,
 				F6526E661AE2C9AF007ACF23 /* RGProjectsViewController.swift */,
+				F6A323CD1AE3EDEA0026D576 /* Override classes */,
 				F6A323CA1AE3B5F70026D576 /* Managers */,
 				F6526E631AE2C77E007ACF23 /* Images */,
 				F6526E3B1AE2B956007ACF23 /* Supporting Files */,
@@ -141,6 +144,14 @@
 				F6A323C81AE387AE0026D576 /* CustomControllerTransitions.swift */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		F6A323CD1AE3EDEA0026D576 /* Override classes */ = {
+			isa = PBXGroup;
+			children = (
+				F6A323CB1AE3EDDD0026D576 /* UIColor+WWDC.swift */,
+			);
+			name = "Override classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +260,7 @@
 				F6526E3E1AE2B956007ACF23 /* AppDelegate.swift in Sources */,
 				F6526E651AE2C996007ACF23 /* RGStoryViewController.swift in Sources */,
 				F6526E691AE2C9CA007ACF23 /* RGSkillsViewController.swift in Sources */,
+				F6A323CC1AE3EDDD0026D576 /* UIColor+WWDC.swift in Sources */,
 				F6A788B61AE2DCE3001B4B73 /* RGMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

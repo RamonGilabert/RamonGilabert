@@ -57,11 +57,15 @@ class ViewModel: NSObject {
             39.5))
 
         imageView.image = UIImage(named: image)
+        imageView.image = imageView.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        imageView.tintColor = UIColor.whiteColor()
         imageView.contentMode = UIViewContentMode.ScaleAspectFill
+
         button.addSubview(imageView)
         button.setBackgroundImage(UIImage(named: "menu-button-image"), forState: UIControlState.Normal)
         button.setTitle(text, forState: UIControlState.Normal)
         button.titleEdgeInsets = UIEdgeInsetsMake(140, 0, 0, 0)
+        button.setTitleColor(UIColor_WWDC.highlightedColorButtons(), forState: UIControlState.Highlighted)
 
         view.addSubview(button)
 

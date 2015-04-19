@@ -42,4 +42,28 @@ class ViewModel: NSObject {
 
         return scrollView
     }
+
+    func buttonInMenu(xPosition: CGFloat, yPosition: CGFloat, image: String, text: String, view: UIView) -> UIButton {
+        let button = UIButton(frame: CGRectMake(
+            xPosition,
+            yPosition,
+            Constant.Positioning.WidthMenuButton,
+            Constant.Positioning.HeightMenuButton))
+
+        let imageView = UIImageView(frame: CGRectMake((
+            Constant.Positioning.WidthMenuButton - 39.5)/2,
+            (Constant.Positioning.HeightMenuButton - 39.5)/2 - 9,
+            39.5,
+            39.5))
+
+        imageView.image = UIImage(named: image)
+        button.addSubview(imageView)
+        button.setBackgroundImage(UIImage(named: "menu-button-image"), forState: UIControlState.Normal)
+        button.setTitle(text, forState: UIControlState.Normal)
+        button.titleEdgeInsets = UIEdgeInsetsMake(140, 0, 0, 0)
+
+        view.addSubview(button)
+
+        return button
+    }
 }

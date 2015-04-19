@@ -20,23 +20,25 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
             self.arrayWithControllers.addObject(NSNull())
         }
 
+        self.transitionManager.sourceViewController = self
+
         loadScrollViewInPage(0)
         loadScrollViewInPage(1)
     }
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-
-        self.pinchGestureRecognizer.addTarget(self, action: "onPinchGestureRecognizerDone")
-        self.view.addGestureRecognizer(self.pinchGestureRecognizer)
-    }
+//    override func viewDidAppear(animated: Bool) {
+//        super.viewDidAppear(animated)
+//
+//        self.pinchGestureRecognizer.addTarget(self, action: "onPinchGestureRecognizerDone")
+//        self.view.addGestureRecognizer(self.pinchGestureRecognizer)
+//    }
 
     // MARK: Gesture recognizer methods
 
     func onPinchGestureRecognizerDone() {
 
         if self.pinchGestureRecognizer.velocity <= -0 {
-            self.view.removeGestureRecognizer(self.pinchGestureRecognizer)
+            //self.view.removeGestureRecognizer(self.pinchGestureRecognizer)
 
             let menuViewController = RGMenuViewController()
             menuViewController.transitioningDelegate = self.transitionManager

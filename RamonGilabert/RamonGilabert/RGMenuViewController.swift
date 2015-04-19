@@ -60,7 +60,7 @@ class RGMenuViewController: UIViewController {
             Constant.Positioning.XPositionLeftMenuButton,
             yPosition: Constant.Size.DeviceHeight / 7.5 + Constant.Positioning.HeightMenuButton + 45,
             image: "skills-image",
-            text: "SKILLSET",
+            text: "SKILLS",
             view: self.view)
 
         self.videoButton = self.viewModel.buttonInMenu(
@@ -81,7 +81,7 @@ class RGMenuViewController: UIViewController {
             Constant.Positioning.XPositionRightMenuButton,
             yPosition: Constant.Size.DeviceHeight / 7.5 + (Constant.Positioning.HeightMenuButton * 2) + 90,
             image: "contact-image",
-            text: "CONTACT",
+            text: "SOCIAL",
             view: self.view)
     }
 }

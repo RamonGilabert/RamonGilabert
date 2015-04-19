@@ -64,7 +64,8 @@ class ViewModel: NSObject {
         button.addSubview(imageView)
         button.setBackgroundImage(UIImage(named: "menu-button-image"), forState: UIControlState.Normal)
         button.setTitle(text, forState: UIControlState.Normal)
-        button.titleEdgeInsets = UIEdgeInsetsMake(140, 0, 0, 0)
+        button.titleLabel!.font = UIFont_WWDC.menuButtonFont()
+        button.titleEdgeInsets = UIEdgeInsetsMake(150, 0, 0, 0)
         button.setTitleColor(UIColor_WWDC.highlightedColorButtons(), forState: UIControlState.Highlighted)
 
         view.addSubview(button)
@@ -77,7 +78,7 @@ class ViewModel: NSObject {
         label.text = "MENU"
         label.textAlignment = NSTextAlignment.Center
         label.textColor = UIColor.whiteColor()
-        label.font = UIFont(name: "AvenirNext-Regular", size: 24)
+        label.font = UIFont_WWDC.titleFont()
 
         view.addSubview(label)
 

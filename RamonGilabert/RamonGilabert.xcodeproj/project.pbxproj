@@ -18,6 +18,7 @@
 		F6526E691AE2C9CA007ACF23 /* RGSkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E681AE2C9CA007ACF23 /* RGSkillsViewController.swift */; };
 		F6A323C91AE387AE0026D576 /* CustomControllerTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A323C81AE387AE0026D576 /* CustomControllerTransitions.swift */; };
 		F6A323CC1AE3EDDD0026D576 /* UIColor+WWDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A323CB1AE3EDDD0026D576 /* UIColor+WWDC.swift */; };
+		F6A323CF1AE3F30B0026D576 /* UIFont+WWDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A323CE1AE3F30B0026D576 /* UIFont+WWDC.swift */; };
 		F6A788B61AE2DCE3001B4B73 /* RGMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A788B51AE2DCE3001B4B73 /* RGMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		F6526E681AE2C9CA007ACF23 /* RGSkillsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGSkillsViewController.swift; sourceTree = "<group>"; };
 		F6A323C81AE387AE0026D576 /* CustomControllerTransitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomControllerTransitions.swift; sourceTree = "<group>"; };
 		F6A323CB1AE3EDDD0026D576 /* UIColor+WWDC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+WWDC.swift"; sourceTree = "<group>"; };
+		F6A323CE1AE3F30B0026D576 /* UIFont+WWDC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+WWDC.swift"; sourceTree = "<group>"; };
 		F6A788B51AE2DCE3001B4B73 /* RGMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				F6A323CB1AE3EDDD0026D576 /* UIColor+WWDC.swift */,
+				F6A323CE1AE3F30B0026D576 /* UIFont+WWDC.swift */,
 			);
 			name = "Override classes";
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6526E601AE2BC88007ACF23 /* RGMainViewController.swift in Sources */,
+				F6A323CF1AE3F30B0026D576 /* UIFont+WWDC.swift in Sources */,
 				F6526E671AE2C9AF007ACF23 /* RGProjectsViewController.swift in Sources */,
 				F6526E621AE2C775007ACF23 /* ViewModel.swift in Sources */,
 				F6A323C91AE387AE0026D576 /* CustomControllerTransitions.swift in Sources */,

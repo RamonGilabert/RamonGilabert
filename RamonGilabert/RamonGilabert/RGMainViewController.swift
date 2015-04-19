@@ -4,7 +4,6 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     
     let viewModel = ViewModel()
     let transitionManager = CustomControllerTransitions()
-    let pinchGestureRecognizer = UIPinchGestureRecognizer()
     var scrollView = UIScrollView()
     var arrayWithControllers = NSMutableArray()
 
@@ -24,27 +23,6 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
 
         loadScrollViewInPage(0)
         loadScrollViewInPage(1)
-    }
-
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated)
-//
-//        self.pinchGestureRecognizer.addTarget(self, action: "onPinchGestureRecognizerDone")
-//        self.view.addGestureRecognizer(self.pinchGestureRecognizer)
-//    }
-
-    // MARK: Gesture recognizer methods
-
-    func onPinchGestureRecognizerDone() {
-
-        if self.pinchGestureRecognizer.velocity <= -0 {
-            //self.view.removeGestureRecognizer(self.pinchGestureRecognizer)
-
-            let menuViewController = RGMenuViewController()
-            menuViewController.transitioningDelegate = self.transitionManager
-            //menuViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-            self.presentViewController(menuViewController, animated: true, completion: nil)
-        }
     }
 
     // MARK: ScrollView methods

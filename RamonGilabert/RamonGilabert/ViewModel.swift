@@ -57,6 +57,7 @@ class ViewModel: NSObject {
             39.5))
 
         imageView.image = UIImage(named: image)
+        imageView.contentMode = UIViewContentMode.ScaleAspectFill
         button.addSubview(imageView)
         button.setBackgroundImage(UIImage(named: "menu-button-image"), forState: UIControlState.Normal)
         button.setTitle(text, forState: UIControlState.Normal)

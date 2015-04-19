@@ -3,7 +3,7 @@ import UIKit
 class RGMenuViewController: UIViewController {
 
     let viewModel = ViewModel()
-    let crossButton = UIButton()
+    let crossButton = UIButton(frame: CGRectMake(19, 25, 26.5, 26.5))
     var storyButton = UIButton()
     var projectsButton = UIButton()
     var skillsetButton = UIButton()
@@ -22,11 +22,22 @@ class RGMenuViewController: UIViewController {
         self.view.addSubview(blurrView)
 
         instantiateAllButtons()
+
+        self.crossButton.addTarget(self, action: "onCrossButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+    }
+
+    // MARK: Button handlers
+
+    func onCrossButtonPressed() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
     // MARK: Helper methods
 
     func instantiateAllButtons() {
+        self.crossButton.setBackgroundImage(UIImage(named: "cross-button-image"), forState: UIControlState.Normal)
+        self.view.addSubview(self.crossButton)
+
         self.storyButton = self.viewModel.buttonInMenu(
             Constant.Positioning.XPositionLeftMenuButton,
             yPosition: Constant.Size.DeviceHeight / 7.5,

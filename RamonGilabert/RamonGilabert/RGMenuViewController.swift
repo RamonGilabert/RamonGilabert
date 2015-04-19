@@ -38,7 +38,7 @@ class RGMenuViewController: UIViewController {
     // MARK: Helper methods
 
     func instantiateAllButtons() {
-        self.crossButton.frame = CGRectMake(19, 25, 26.5, 26.5)
+        self.crossButton.frame = CGRectMake(Constant.Positioning.CrossXPosition, Constant.Positioning.CrossYPosition, Constant.Positioning.CrossSize, Constant.Positioning.CrossSize)
         self.crossButton.setBackgroundImage(UIImage(named: "cross-button-image"), forState: UIControlState.Normal)
         self.view.addSubview(self.crossButton)
 

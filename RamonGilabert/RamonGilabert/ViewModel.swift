@@ -11,10 +11,11 @@ struct Constant {
     }
 
     struct Positioning {
-        static let WidthMenuButton = 75 * 1.2 as CGFloat
-        static let HeightMenuButton = 94.6 * 1.2 as CGFloat
+        static let WidthMenuButton = 75 as CGFloat
+        static let HeightMenuButton = 94.6 as CGFloat
         static let XPositionLeftMenuButton = Constant.Size.DeviceWidth / 8
         static let XPositionRightMenuButton = Constant.Size.DeviceWidth - Constant.Positioning.XPositionLeftMenuButton - Constant.Positioning.WidthMenuButton
+        static let MenuButtonsSpacing = (Constant.Size.DeviceHeight - ((Constant.Positioning.HeightMenuButton) * 3) - 33) / 4
     }
 }
 
@@ -53,7 +54,7 @@ class ViewModel: NSObject {
         button.setBackgroundImage(UIImage(named: image), forState: UIControlState.Normal)
         button.setTitle(text, forState: UIControlState.Normal)
         button.titleLabel!.font = UIFont_WWDC.menuButtonFont()
-        button.titleEdgeInsets = UIEdgeInsetsMake(150, 0, 0, 0)
+        button.titleEdgeInsets = UIEdgeInsetsMake(130, 0, 0, 0)
         button.setTitleColor(UIColor_WWDC.highlightedColorButtons(), forState: UIControlState.Highlighted)
 
         view.addSubview(button)

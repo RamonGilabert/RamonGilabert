@@ -44,42 +44,42 @@ class RGMenuViewController: UIViewController {
 
         self.storyButton = self.viewModel.buttonInMenu(
             Constant.Positioning.XPositionLeftMenuButton,
-            yPosition: Constant.Size.DeviceHeight / 7.5,
+            yPosition: Constant.Positioning.MenuButtonsSpacing + 15,
             image: "story-image",
             text: "STORY",
             view: self.view)
 
         self.projectsButton = self.viewModel.buttonInMenu(
             Constant.Positioning.XPositionRightMenuButton,
-            yPosition: Constant.Size.DeviceHeight / 7.5,
+            yPosition: Constant.Positioning.MenuButtonsSpacing + 15,
             image: "work-image",
             text: "WORK",
             view: self.view)
 
         self.skillsetButton = self.viewModel.buttonInMenu(
             Constant.Positioning.XPositionLeftMenuButton,
-            yPosition: Constant.Size.DeviceHeight / 7.5 + Constant.Positioning.HeightMenuButton + 45,
+            yPosition: (Constant.Positioning.MenuButtonsSpacing * 2) + Constant.Positioning.HeightMenuButton + 15,
             image: "skills-image",
             text: "SKILLS",
             view: self.view)
 
         self.videoButton = self.viewModel.buttonInMenu(
             Constant.Positioning.XPositionRightMenuButton,
-            yPosition: Constant.Size.DeviceHeight / 7.5 + Constant.Positioning.HeightMenuButton + 45,
+            yPosition: (Constant.Positioning.MenuButtonsSpacing * 2) + Constant.Positioning.HeightMenuButton + 15,
             image: "video-image",
             text: "VIDEO",
             view: self.view)
 
         self.gameButton = self.viewModel.buttonInMenu(
             Constant.Positioning.XPositionLeftMenuButton,
-            yPosition: Constant.Size.DeviceHeight / 7.5 + (Constant.Positioning.HeightMenuButton * 2) + 90,
+            yPosition: (Constant.Positioning.MenuButtonsSpacing * 3) + (Constant.Positioning.HeightMenuButton * 2) + 15,
             image: "game-image",
             text: "GAME",
             view: self.view)
 
         self.contactButton = self.viewModel.buttonInMenu(
             Constant.Positioning.XPositionRightMenuButton,
-            yPosition: Constant.Size.DeviceHeight / 7.5 + (Constant.Positioning.HeightMenuButton * 2) + 90,
+            yPosition: (Constant.Positioning.MenuButtonsSpacing * 3) + (Constant.Positioning.HeightMenuButton * 2) + 15,
             image: "contact-image",
             text: "SOCIAL",
             view: self.view)

@@ -11,6 +11,8 @@ class RGMenuViewController: UIViewController {
     var gameButton = UIButton()
     var contactButton = UIButton()
 
+    // MARK: View lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

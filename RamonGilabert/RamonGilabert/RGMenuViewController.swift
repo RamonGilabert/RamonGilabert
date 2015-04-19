@@ -23,6 +23,8 @@ class RGMenuViewController: UIViewController {
 
         instantiateAllButtons()
 
+        self.viewModel.setTitleLabelInView(self.view)
+
         self.crossButton.addTarget(self, action: "onCrossButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
     }
 

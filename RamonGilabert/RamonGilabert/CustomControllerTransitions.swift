@@ -26,9 +26,11 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
 
         switch pinchGesture.state {
             case UIGestureRecognizerState.Began:
-                self.interactive = true
+                if pinchGesture.velocity < 0 {
+                    self.interactive = true
 
-                self.sourceViewController.presentViewController(self.exitViewController, animated: true, completion: nil)
+                    self.sourceViewController.presentViewController(self.exitViewController, animated: true, completion: nil)
+                }
 
                 break
             case UIGestureRecognizerState.Changed:
@@ -47,13 +49,16 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
     }
 
     func onPinchedExitGestureRecognizer(pinchGesture: UIPinchGestureRecognizer) {
-        let translation = pinchGesture.scale
+        let translation = pinchGesture.scale/7
 
         switch pinchGesture.state {
             case UIGestureRecognizerState.Began:
-                self.interactive = true
 
-                self.exitViewController.dismissViewControllerAnimated(true, completion: nil)
+                if pinchGesture.velocity > 0 {
+                    self.interactive = true
+
+                    self.exitViewController.dismissViewControllerAnimated(true, completion: nil)
+                }
 
                 break
             case UIGestureRecognizerState.Changed:
@@ -63,7 +68,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
             default:
                 self.interactive = false
 
-                if translation < 0.6 {
+                if translation > 0.6 {
                     self.finishInteractiveTransition()
                 } else {
                     self.cancelInteractiveTransition()
@@ -73,7 +78,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
 
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         let container = transitionContext.containerView()
-        println("Sup")
+
         let screens : (from:UIViewController, to:UIViewController) = (transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!, transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!)
 
         let mainViewController = !self.presenting ? screens.to as! RGMainViewController : screens.from as! RGMainViewController
@@ -99,6 +104,11 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
             } }, completion: { finished in
                 if transitionContext.transitionWasCancelled() {
                     transitionContext.completeTransition(false)
+                    UIApplication.sharedApplication().keyWindow!.addSubview(screens.from.view)
+                } else {
+                    transitionContext.completeTransition(true)
+                    UIApplication.sharedApplication().keyWindow!.addSubview(screens.from.view)
+                    UIApplication.sharedApplication().keyWindow!.addSubview(screens.to.view)
                 }
         })
     }

@@ -18,17 +18,18 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
     private var presenting = false
     private var interactive = false
 
-    var sourceViewController: UIViewController! {
+    var sourceViewController: RGMainViewController! {
         didSet {
             self.pinchGesture.addTarget(self, action:"onPinchedGestureRecognizer:")
             self.sourceViewController.view.addGestureRecognizer(self.pinchGesture)
         }
     }
 
-    var exitViewController: UIViewController! {
+    var exitViewController: RGMenuViewController! {
         didSet {
             self.pinchGestureExit.addTarget(self, action:"onPinchedExitGestureRecognizer:")
             self.exitViewController.view.addGestureRecognizer(self.pinchGestureExit)
+            self.exitViewController.mainViewController = self.sourceViewController
         }
     }
 
@@ -83,7 +84,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
                     self.finishInteractiveTransition()
                 } else {
                     self.cancelInteractiveTransition()
-                    onStageMenuController(self.exitViewController as! RGMenuViewController)
+                    onStageMenuController(self.exitViewController as RGMenuViewController)
                 }
         }
     }

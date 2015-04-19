@@ -11,6 +11,7 @@ class RGMenuViewController: UIViewController {
     var videoButton = UIButton()
     var gameButton = UIButton()
     var contactButton = UIButton()
+    var mainViewController = RGMainViewController()
 
     // MARK: View lifecycle
 
@@ -36,14 +37,12 @@ class RGMenuViewController: UIViewController {
     }
 
     func onMenuButtonTouched(button: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-
         if button.tag == 0 {
-
+            self.mainViewController.scrollView.scrollRectToVisible(CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight), animated: true)
         } else if button.tag == 1 {
-
+            self.mainViewController.scrollView.scrollRectToVisible(CGRectMake(Constant.Size.DeviceWidth, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight), animated: true)
         } else if button.tag == 2 {
-
+            self.mainViewController.scrollView.scrollRectToVisible(CGRectMake(Constant.Size.DeviceWidth * 2, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight), animated: true)
         } else if button.tag == 3 {
 
         } else if button.tag == 4 {
@@ -51,6 +50,8 @@ class RGMenuViewController: UIViewController {
         } else {
 
         }
+
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
     // MARK: Helper methods
@@ -107,5 +108,9 @@ class RGMenuViewController: UIViewController {
             text: "SOCIAL",
             viewController: self,
             tag: 5)
+    }
+
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

@@ -93,8 +93,7 @@
 				F6526E641AE2C996007ACF23 /* RGStoryViewController.swift */,
 				F6526E681AE2C9CA007ACF23 /* RGSkillsViewController.swift */,
 				F6526E661AE2C9AF007ACF23 /* RGProjectsViewController.swift */,
-				F6526E611AE2C775007ACF23 /* ViewModel.swift */,
-				F6A323C81AE387AE0026D576 /* CustomControllerTransitions.swift */,
+				F6A323CA1AE3B5F70026D576 /* Managers */,
 				F6526E631AE2C77E007ACF23 /* Images */,
 				F6526E3B1AE2B956007ACF23 /* Supporting Files */,
 			);
@@ -133,6 +132,15 @@
 				F6526E441AE2B956007ACF23 /* Images.xcassets */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		F6A323CA1AE3B5F70026D576 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				F6526E611AE2C775007ACF23 /* ViewModel.swift */,
+				F6A323C81AE387AE0026D576 /* CustomControllerTransitions.swift */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -1,5 +1,16 @@
 import UIKit
 
+struct Translation {
+    static let SideXTranslation = 120 as CGFloat
+    static let SideYTranslation = 75 as CGFloat
+    static let SideYTranslationTitle = 100 as CGFloat
+}
+
+struct AnimationOptions {
+    static let TimeDurationSegue = 0.75
+    static let MinimumPercentagePerformAnimation = 0.6 as CGFloat
+}
+
 class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIViewControllerInteractiveTransitioning {
 
     private let pinchGesture = UIPinchGestureRecognizer()
@@ -40,7 +51,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
             default:
                 self.interactive = false
 
-                if translation < 0.6 {
+                if translation < AnimationOptions.MinimumPercentagePerformAnimation {
                     self.finishInteractiveTransition()
                 } else {
                     self.cancelInteractiveTransition()
@@ -68,7 +79,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
             default:
                 self.interactive = false
 
-                if translation > 0.6 {
+                if translation > AnimationOptions.MinimumPercentagePerformAnimation {
                     self.finishInteractiveTransition()
                 } else {
                     self.cancelInteractiveTransition()
@@ -120,13 +131,13 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
         menuViewController.view.alpha = 0
 
         menuViewController.crossButton.transform = CGAffineTransformMakeScale(0, 0)
-        menuViewController.titleLabel.transform = CGAffineTransformMakeTranslation(0, -100)
-        menuViewController.storyButton.transform = CGAffineTransformMakeTranslation(-120, -75)
-        menuViewController.projectsButton.transform = CGAffineTransformMakeTranslation(120, -75)
-        menuViewController.skillsetButton.transform = CGAffineTransformMakeTranslation(-120, 0)
-        menuViewController.videoButton.transform = CGAffineTransformMakeTranslation(120, 0)
-        menuViewController.gameButton.transform = CGAffineTransformMakeTranslation(-120, 75)
-        menuViewController.contactButton.transform = CGAffineTransformMakeTranslation(120, 75)
+        menuViewController.titleLabel.transform = CGAffineTransformMakeTranslation(0, -Translation.SideYTranslationTitle)
+        menuViewController.storyButton.transform = CGAffineTransformMakeTranslation(-Translation.SideXTranslation, -Translation.SideYTranslation)
+        menuViewController.projectsButton.transform = CGAffineTransformMakeTranslation(Translation.SideXTranslation, -Translation.SideYTranslation)
+        menuViewController.skillsetButton.transform = CGAffineTransformMakeTranslation(-Translation.SideXTranslation, 0)
+        menuViewController.videoButton.transform = CGAffineTransformMakeTranslation(Translation.SideXTranslation, 0)
+        menuViewController.gameButton.transform = CGAffineTransformMakeTranslation(-Translation.SideXTranslation, Translation.SideYTranslation)
+        menuViewController.contactButton.transform = CGAffineTransformMakeTranslation(Translation.SideXTranslation, Translation.SideYTranslation)
     }
 
     func onStageMenuController(menuViewController: RGMenuViewController){
@@ -158,7 +169,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
     }
 
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
-        return 0.75
+        return AnimationOptions.TimeDurationSegue
     }
 
 }

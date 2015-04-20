@@ -41,6 +41,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
         self.subtitleLabel.textColor = UIColor.whiteColor()
         self.subtitleLabel.adjustsFontSizeToFitWidth = true
         self.subtitleLabel.minimumScaleFactor = 0
+        self.initialFrameSubtitle = self.subtitleLabel.frame
 
         self.view.addSubview(titleLabel)
         self.view.addSubview(subtitleLabel)
@@ -73,13 +74,16 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
 
             self.backgroundImageView.frame = backgroundImageViewFrame
         } else if yOffset < -90 {
-            self.titleLabel.frame.origin.y = self.initialFrameLabel.origin.y - (yOffset + Constant.Size.DeviceHeight)/4
-            println(self.initialFrameLabel)
-            println(self.titleLabel.frame)
+            self.titleLabel.frame.origin.y = self.initialFrameLabel.origin.y - (yOffset + Constant.Size.DeviceHeight) / 1.5
+            self.subtitleLabel.frame.origin.y = self.initialFrameSubtitle.origin.y - (yOffset + Constant.Size.DeviceHeight) / 1.5
+
             if !arrayOfSubviews.containsObject(self.backgroundImageView) {
                 self.backgroundImageView.removeFromSuperview()
                 self.backgroundImageView.frame.origin = CGPointMake(0, 0)
                 self.tableView.addSubview(self.backgroundImageView)
+
+                self.view.addSubview(self.titleLabel)
+                self.view.addSubview(self.subtitleLabel)
             }
             self.blurView.alpha = ((yOffset + Constant.Size.DeviceHeight)/Constant.Size.DeviceHeight) * 3
 
@@ -91,6 +95,9 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
             self.backgroundImageView.removeFromSuperview()
             self.backgroundImageView.frame = CGRectMake(0, 0, Constant.Size.DeviceWidth, 90)
             self.view.addSubview(self.backgroundImageView)
+
+            self.titleLabel.removeFromSuperview()
+            self.subtitleLabel.removeFromSuperview()
         }
     }
 }

@@ -74,8 +74,8 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
 
             self.backgroundImageView.frame = backgroundImageViewFrame
         } else if yOffset < -90 {
-            self.titleLabel.frame.origin.y = self.initialFrameLabel.origin.y - (yOffset + Constant.Size.DeviceHeight) / 1.5
-            self.subtitleLabel.frame.origin.y = self.initialFrameSubtitle.origin.y - (yOffset + Constant.Size.DeviceHeight) / 1.5
+            self.titleLabel.frame.origin.y = (self.backgroundImageView.frame.height - self.titleLabel.frame.height) / 2 - 35
+            self.subtitleLabel.frame.origin.y = self.titleLabel.frame.origin.y + self.titleLabel.frame.height + 19
 
             if !arrayOfSubviews.containsObject(self.backgroundImageView) {
                 self.backgroundImageView.removeFromSuperview()

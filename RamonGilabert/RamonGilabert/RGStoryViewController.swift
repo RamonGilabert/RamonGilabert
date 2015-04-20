@@ -3,14 +3,13 @@ import UIKit
 class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
 
     let viewModel = ViewModel()
-    var tableView = UITableView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight))
+    var tableView = UITableView()
     var blurView = UIVisualEffectView()
     var backgroundImageView = UIImageView()
     var scrollView = UIScrollView()
     var titleLabel = UILabel()
     var subtitleLabel = UILabel()
     var secondaryLabel = UILabel()
-    var arrayWithStory = [Story.FirstFirstParagraph, Story.SecondImagePassion, Story.ThirdCommentFirstImage, Story.FourthSecondParagraph, Story.FifthThirdParagraph, Story.SixthImageChicago, Story.SeventhCommentSecondImage, Story.EigthFourthParagraph, Story.NinthImageWeb, Story.TenthCommentThirdImage, Story.EleventhFifthParagraph, Story.TwelveSixthParagraph, Story.ThirteenImageWWDC, Story.FourthSecondParagraph]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +30,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
     // MARK: TableView methods
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.arrayWithStory.count
+        return Story.ArrayWithStory.count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -41,7 +40,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
             //cell = cell as! BlogImageTableViewCell
         } else {
             cell = cell as UITableViewCell
-            cell.textLabel?.text = self.arrayWithStory[indexPath.row]
+            cell.textLabel?.text = Story.ArrayWithStory[indexPath.row]
             cell.textLabel?.font = UIFont_WWDC.mainTextBlogPost()
             cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
             cell.textLabel?.numberOfLines = 0
@@ -55,7 +54,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
             return 160
         } else {
             let labelOfStory = UILabel(frame: CGRectMake(20, 20, Constant.Size.DeviceWidth - 40, 0))
-            labelOfStory.text = self.arrayWithStory[indexPath.row]
+            labelOfStory.text = Story.ArrayWithStory[indexPath.row]
             labelOfStory.font = UIFont_WWDC.mainTextBlogPost()
             labelOfStory.lineBreakMode = NSLineBreakMode.ByWordWrapping
             labelOfStory.numberOfLines = 0

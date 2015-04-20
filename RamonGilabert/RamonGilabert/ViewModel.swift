@@ -65,6 +65,8 @@ struct Story {
     static let ThirteenImageWWDC = "wwdc-image-logo-by-apple"
 
     static let FourteenCommentFourthImage = "I can't wait for what's next!"
+
+    static let ArrayWithStory = [Story.FirstFirstParagraph, Story.SecondImagePassion, Story.ThirdCommentFirstImage, Story.FourthSecondParagraph, Story.FifthThirdParagraph, Story.SixthImageChicago, Story.SeventhCommentSecondImage, Story.EigthFourthParagraph, Story.NinthImageWeb, Story.TenthCommentThirdImage, Story.EleventhFifthParagraph, Story.TwelveSixthParagraph, Story.ThirteenImageWWDC, Story.FourthSecondParagraph]
 }
 
 class ViewModel: NSObject {

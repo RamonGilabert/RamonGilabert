@@ -23,14 +23,22 @@ class UIFont_WWDC: NSObject {
     }
 
     class internal func titleBlogPost() -> UIFont {
-        return UIFont(name: "AvenirNextCondensed-Bold", size: 21 * Constant.Size.RelationHeights)!
+        return UIFont(name: "AvenirNextCondensed-Bold", size: 25 * Constant.Size.RelationHeights)!
     }
 
     class internal func mainTextBlogPost() -> UIFont {
+        if floor(Constant.Size.RelationHeights) == 0 {
+            return UIFont(name: "HelveticaNeue-Light", size: 15 * 1.15)!
+        }
+
         return UIFont(name: "HelveticaNeue-Light", size: 15 * floor(Constant.Size.RelationHeights) * 1.15)!
     }
 
     class internal func commentTextImageBlogPost() -> UIFont {
+        if floor(Constant.Size.RelationHeights) == 0 {
+            return UIFont(name: "Helvetica-Oblique", size: 13)!
+        }
+        
         return UIFont(name: "Helvetica-Oblique", size: 13 * floor(Constant.Size.RelationHeights))!
     }
 }

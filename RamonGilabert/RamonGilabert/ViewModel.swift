@@ -20,6 +20,7 @@ struct Constant {
         static let CrossSize = 26.5 as CGFloat
         static let CrossXPosition = 19 as CGFloat
         static let CrossYPosition = 25 as CGFloat
+        static let HeightOfHeaderStory = 80 * Constant.Size.RelationHeights
     }
 
     struct TableViewConstants {
@@ -164,7 +165,7 @@ class ViewModel: NSObject {
     }
 
     func setSecondaryBlogPostLabel() -> UILabel {
-        let label = UILabel(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, 90))
+        let label = UILabel(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Positioning.HeightOfHeaderStory))
         label.text = Text.Titles.StorySecondaryTitle
         label.font = UIFont_WWDC.secondaryTitleFont()
         label.textAlignment = NSTextAlignment.Center

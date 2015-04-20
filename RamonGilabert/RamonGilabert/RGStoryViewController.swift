@@ -56,7 +56,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
             backgroundImageViewFrame.size.height = -yOffset
 
             self.backgroundImageView.frame = backgroundImageViewFrame
-        } else if yOffset < -90 {
+        } else if yOffset < -Constant.Positioning.HeightOfHeaderStory {
             self.titleLabel.frame.origin.y = (self.backgroundImageView.frame.height - self.titleLabel.frame.height) / 2 - 35
             self.subtitleLabel.frame.origin.y = self.titleLabel.frame.origin.y + self.titleLabel.frame.height + 19
 
@@ -81,7 +81,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
             self.backgroundImageView.frame = backgroundImageViewFrame
         } else if arrayOfSubviews.containsObject(self.backgroundImageView) && yOffset < 50 {
             self.backgroundImageView.removeFromSuperview()
-            self.backgroundImageView.frame = CGRectMake(0, 0, Constant.Size.DeviceWidth, 90)
+            self.backgroundImageView.frame = CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Positioning.HeightOfHeaderStory)
             self.view.addSubview(self.backgroundImageView)
             self.view.addSubview(self.secondaryLabel)
 

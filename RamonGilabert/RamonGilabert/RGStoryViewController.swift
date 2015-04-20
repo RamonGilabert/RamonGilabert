@@ -14,13 +14,9 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
-        self.blurView = UIVisualEffectView(effect: blurEffect)
-        self.blurView.frame = CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight)
-        self.blurView.alpha = 0
-
         self.backgroundImageView = self.viewModel.setCoverImageWithGradient()
-        self.backgroundImageView.addSubview(self.blurView)
+        self.blurView = self.viewModel.setBlurView(self.backgroundImageView)
+        self.blurView.alpha = 0
 
         self.tableView = self.viewModel.setFullScreenTableView(self.view, delegate: self, dataSource: self)
         self.tableView.addSubview(backgroundImageView)
@@ -39,7 +35,9 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Constant.TableViewConstants.Identifier) as! UITableViewCell
-        cell.textLabel?.text = "Sup"
+        cell.textLabel?.text = Story.FirstParagraph
+        cell.textLabel?.font = UIFont_WWDC.titleFont()
+        cell.textLabel?.numberOfLines = 1000
         return cell
     }
 

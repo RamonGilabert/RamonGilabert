@@ -35,6 +35,15 @@ struct Text {
     }
 }
 
+struct Story {
+    static let FirstParagraph = "I believe everyone has a story to tell, something that would make someone smile, a story that would make other people feel…"
+    static let SecondParagraph = ""
+    static let ThirdParagraph = ""
+    static let FourthParagraph = ""
+    static let FifthParagraph = ""
+    static let SixthParagraph = ""
+}
+
 class ViewModel: NSObject {
 
     func initMainScrollViewInView(view: UIView) -> UIScrollView {
@@ -143,6 +152,7 @@ class ViewModel: NSObject {
         label.textColor = UIColor.whiteColor()
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0
+        view.addSubview(label)
 
         return label
     }
@@ -156,5 +166,14 @@ class ViewModel: NSObject {
         label.transform = CGAffineTransformMakeTranslation(0, -100)
 
         return label
+    }
+
+    func setBlurView(view: UIView) -> UIVisualEffectView {
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight)
+        view.addSubview(blurView)
+
+        return blurView
     }
 }

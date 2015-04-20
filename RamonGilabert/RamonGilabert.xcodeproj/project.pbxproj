@@ -20,7 +20,7 @@
 		F6A323CC1AE3EDDD0026D576 /* UIColor+WWDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A323CB1AE3EDDD0026D576 /* UIColor+WWDC.swift */; };
 		F6A323CF1AE3F30B0026D576 /* UIFont+WWDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A323CE1AE3F30B0026D576 /* UIFont+WWDC.swift */; };
 		F6A788B61AE2DCE3001B4B73 /* RGMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A788B51AE2DCE3001B4B73 /* RGMenuViewController.swift */; };
-		F6BE1CE01AE517F60046AFDD /* BlogImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE1CDF1AE517F60046AFDD /* BlogImageTableViewCell.swift */; };
+		F6BE1CE31AE532200046AFDD /* RGStoryCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE1CE21AE532200046AFDD /* RGStoryCustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +51,7 @@
 		F6A323CB1AE3EDDD0026D576 /* UIColor+WWDC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+WWDC.swift"; sourceTree = "<group>"; };
 		F6A323CE1AE3F30B0026D576 /* UIFont+WWDC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+WWDC.swift"; sourceTree = "<group>"; };
 		F6A788B51AE2DCE3001B4B73 /* RGMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGMenuViewController.swift; sourceTree = "<group>"; };
-		F6BE1CDF1AE517F60046AFDD /* BlogImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogImageTableViewCell.swift; sourceTree = "<group>"; };
+		F6BE1CE21AE532200046AFDD /* RGStoryCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGStoryCustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +163,7 @@
 		F6BE1CE11AE517FC0046AFDD /* Custom cells */ = {
 			isa = PBXGroup;
 			children = (
-				F6BE1CDF1AE517F60046AFDD /* BlogImageTableViewCell.swift */,
+				F6BE1CE21AE532200046AFDD /* RGStoryCustomTableViewCell.swift */,
 			);
 			name = "Custom cells";
 			sourceTree = "<group>";
@@ -270,12 +270,12 @@
 				F6526E601AE2BC88007ACF23 /* RGMainViewController.swift in Sources */,
 				F6A323CF1AE3F30B0026D576 /* UIFont+WWDC.swift in Sources */,
 				F6526E671AE2C9AF007ACF23 /* RGProjectsViewController.swift in Sources */,
+				F6BE1CE31AE532200046AFDD /* RGStoryCustomTableViewCell.swift in Sources */,
 				F6526E621AE2C775007ACF23 /* ViewModel.swift in Sources */,
 				F6A323C91AE387AE0026D576 /* CustomControllerTransitions.swift in Sources */,
 				F6526E3E1AE2B956007ACF23 /* AppDelegate.swift in Sources */,
 				F6526E651AE2C996007ACF23 /* RGStoryViewController.swift in Sources */,
 				F6526E691AE2C9CA007ACF23 /* RGSkillsViewController.swift in Sources */,
-				F6BE1CE01AE517F60046AFDD /* BlogImageTableViewCell.swift in Sources */,
 				F6A323CC1AE3EDDD0026D576 /* UIColor+WWDC.swift in Sources */,
 				F6A788B61AE2DCE3001B4B73 /* RGMenuViewController.swift in Sources */,
 			);

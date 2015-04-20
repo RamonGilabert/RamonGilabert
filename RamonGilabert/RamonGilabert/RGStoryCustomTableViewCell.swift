@@ -38,13 +38,16 @@ class RGStoryCustomTableViewCell: UITableViewCell {
 
     func addParagraph(text: String) {
         self.textStory.text = text
+        self.addSubview(self.textStory)
     }
 
     func addImage(image: String) {
         self.imageViewStory.image = UIImage(named: image)
+        self.addSubview(self.imageViewStory)
     }
 
     func addComment(text: String) {
         self.commentImage.text = text
+        self.addSubview(self.commentImage)
     }
 }

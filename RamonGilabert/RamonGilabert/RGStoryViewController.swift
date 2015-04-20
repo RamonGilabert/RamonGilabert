@@ -38,10 +38,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
 
         if indexPath.row == 1 || indexPath.row == 5 || indexPath.row == 8 || indexPath.row == 12 {
         } else {
-            cell.textLabel?.text = Story.ArrayWithStory[indexPath.row]
-            cell.textLabel?.font = UIFont_WWDC.mainTextBlogPost()
-            cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-            cell.textLabel?.numberOfLines = 0
+
         }
 
         return cell

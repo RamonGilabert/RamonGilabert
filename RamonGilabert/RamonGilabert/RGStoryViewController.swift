@@ -43,6 +43,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
         var backgroundImageViewFrame = self.backgroundImageView.frame
 
         let arrayOfSubviews = self.tableView.subviews as NSArray
+        let arrayOfSubviewsView = self.view.subviews as NSArray
 
         if yOffset < -Constant.Size.DeviceHeight {
             backgroundImageViewFrame.origin.y = yOffset
@@ -62,7 +63,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
             backgroundImageViewFrame.size.height = yOffset
 
             self.backgroundImageView.frame = backgroundImageViewFrame
-        } else if arrayOfSubviews.containsObject(self.backgroundImageView) {
+        } else if arrayOfSubviews.containsObject(self.backgroundImageView) && yOffset < 50 {
             self.backgroundImageView.removeFromSuperview()
             self.backgroundImageView.frame = CGRectMake(0, 0, Constant.Size.DeviceWidth, 90)
             self.view.addSubview(self.backgroundImageView)

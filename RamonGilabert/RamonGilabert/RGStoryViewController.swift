@@ -97,14 +97,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
                 self.backgroundImageView.removeFromSuperview()
                 self.backgroundImageView.frame.origin = CGPointMake(0, 0)
                 self.tableView.addSubview(self.backgroundImageView)
-
-                UIView.animateWithDuration(0.4, animations: { () -> Void in
-                    self.titleLabel.alpha = 1
-                    self.subtitleLabel.alpha = 1
-                    self.secondaryLabel.alpha = 0
-                }, completion: { finished in
-                    self.secondaryLabel.transform = CGAffineTransformMakeTranslation(0, -100)
-                })
+                animateViews(1)
             }
             self.blurView.alpha = ((yOffset + Constant.Size.DeviceHeight)/Constant.Size.DeviceHeight) * 3
 
@@ -117,13 +110,19 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
             self.backgroundImageView.frame = CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Positioning.HeightOfHeaderStory)
             self.view.addSubview(self.backgroundImageView)
             self.view.addSubview(self.secondaryLabel)
-
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
-                self.titleLabel.alpha = 0
-                self.subtitleLabel.alpha = 0
-                self.secondaryLabel.alpha = 1
-                self.secondaryLabel.transform = CGAffineTransformIdentity
-            })
+            self.secondaryLabel.transform = CGAffineTransformMakeTranslation(0, -100)
+            animateViews(0)
         }
+    }
+
+    // MARK: Helper methods
+
+    func animateViews(value: CGFloat) {
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
+            self.titleLabel.alpha = value
+            self.subtitleLabel.alpha = value
+            self.secondaryLabel.alpha = (1 - value)
+            self.secondaryLabel.transform = CGAffineTransformIdentity
+        })
     }
 }

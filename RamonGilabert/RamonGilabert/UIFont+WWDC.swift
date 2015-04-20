@@ -9,5 +9,13 @@ class UIFont_WWDC: NSObject {
     class internal func menuButtonFont() -> UIFont {
         return UIFont(name: "AvenirNext-Regular", size: 20.0 * Constant.Size.RelationHeights)!
     }
-   
+
+    class internal func titleStoryFont() -> UIFont {
+        return UIFont(name: "HelveticaNeue-Bold", size: 40 * Constant.Size.RelationHeights)!
+    }
+
+    class internal func subTitleStoryFont() -> UIFont {
+        return UIFont(name: "HelveticaNeue-Light", size: 16 * Constant.Size.RelationHeights)!
+    }
+
 }

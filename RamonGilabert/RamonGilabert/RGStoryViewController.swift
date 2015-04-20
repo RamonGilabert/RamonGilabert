@@ -43,7 +43,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
         if indexPath.row == 1 || indexPath.row == 5 || indexPath.row == 8 || indexPath.row == 12 {
 
         } else if indexPath.row == 2 || indexPath.row == 6 || indexPath.row == 9 || indexPath.row == 13 {
-            cell.addComment(Story.ArrayWithStory[indexPath.row])
+            //cell.addComment(Story.ArrayWithStory[indexPath.row])
         } else {
             cell.addParagraph(Story.ArrayWithStory[indexPath.row])
         }
@@ -52,16 +52,18 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath == 1 || indexPath == 5 || indexPath == 8 || indexPath == 12 {
-            return 160
+        if indexPath.row == 1 || indexPath.row == 5 || indexPath.row == 8 || indexPath.row == 12 {
+            return Constant.TableViewConstants.HeightOfImages
+        } else if indexPath.row == 2 || indexPath.row == 6 || indexPath.row == 9 || indexPath.row == 13 {
+            return 30
         } else {
-            let labelOfStory = UILabel(frame: CGRectMake(20, 20, Constant.Size.DeviceWidth - 40, 0))
-            labelOfStory.text = Story.ArrayWithStory[indexPath.row]
-            labelOfStory.font = UIFont_WWDC.mainTextBlogPost()
-            labelOfStory.lineBreakMode = NSLineBreakMode.ByWordWrapping
-            labelOfStory.numberOfLines = 0
-            labelOfStory.sizeToFit()
-            return labelOfStory.frame.height
+            var label = UILabel(frame: CGRectMake(Constant.TableViewConstants.MinimumPadding, Constant.TableViewConstants.MinimumPadding, Constant.Size.DeviceWidth - (Constant.TableViewConstants.MinimumPadding * 2), 0))
+            label.font = UIFont_WWDC.mainTextBlogPost()
+            label.numberOfLines = 0
+            label.text = Story.ArrayWithStory[indexPath.row]
+            label.sizeToFit()
+
+            return label.frame.height + Constant.TableViewConstants.MinimumPadding*2
         }
     }
 

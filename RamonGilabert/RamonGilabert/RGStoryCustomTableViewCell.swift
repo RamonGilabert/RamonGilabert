@@ -6,9 +6,9 @@ class RGStoryCustomTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.contentView.addSubview(self.textStory)
-        self.contentView.addSubview(self.imageViewStory)
-        self.contentView.addSubview(self.commentImage)
+        self.addSubview(self.textStory)
+        self.addSubview(self.imageViewStory)
+        self.addSubview(self.commentImage)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -27,6 +27,7 @@ class RGStoryCustomTableViewCell: UITableViewCell {
         var label = UILabel(frame: CGRectMake(Constant.TableViewConstants.MinimumPadding, Constant.TableViewConstants.MinimumPadding, Constant.Size.DeviceWidth - (Constant.TableViewConstants.MinimumPadding * 2), 0))
         label.font = UIFont_WWDC.mainTextBlogPost()
         label.numberOfLines = 0
+        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
 
         return label
     }()
@@ -45,7 +46,7 @@ class RGStoryCustomTableViewCell: UITableViewCell {
     func addParagraph(text: String) {
         self.textStory.text = text
         self.textStory.sizeToFit()
-        self.textStory.frame = CGRectMake(self.textStory.frame.origin.x, self.textStory.frame.origin.y, self.textStory.frame.width, self.textStory.frame.height)
+        self.textStory.frame = CGRectMake(self.textStory.frame.origin.x, self.textStory.frame.origin.y, self.textStory.frame.width, self.textStory.frame.height + Constant.TableViewConstants.MinimumPadding)
         self.addSubview(self.textStory)
     }
 

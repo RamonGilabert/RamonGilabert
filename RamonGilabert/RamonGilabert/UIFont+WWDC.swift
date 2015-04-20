@@ -21,4 +21,12 @@ class UIFont_WWDC: NSObject {
     class internal func secondaryTitleFont() -> UIFont {
         return UIFont(name: "AvenirNextCondensed-Medium", size: 26 * Constant.Size.RelationHeights)!
     }
+
+    class internal func mainTextBlogPost() -> UIFont {
+        return UIFont(name: "HelveticaNeue", size: 18 * Constant.Size.RelationHeights)!
+    }
+
+    class internal func commentTextImageBlogPost() -> UIFont {
+        return UIFont(name: "Helvetica-Oblique", size: 14 * Constant.Size.RelationHeights)!
+    }
 }

@@ -73,7 +73,7 @@ struct Story {
 
     static let Sixteen = "I can't wait for what's next! (Image © Apple Inc.)"
 
-    static let ArrayWithStory = [Story.One, Story.Two, Story.Three, Story.Four, Story.Five, Story.Six, Story.Seven, Story.Eight, Story.Nine, Story.Ten, Story.Eleven, Story.Twelve, Story.Thirteen, Story.Fourteen, Story.Fiveteen]
+    static let ArrayWithStory = [Story.One, Story.Two, Story.Three, Story.Four, Story.Five, Story.Six, Story.Seven, Story.Eight, Story.Nine, Story.Ten, Story.Eleven, Story.Twelve, Story.Thirteen, Story.Fourteen, Story.Fiveteen, Story.Sixteen]
 }
 
 class ViewModel: NSObject {

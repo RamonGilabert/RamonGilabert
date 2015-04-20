@@ -4,10 +4,15 @@ class RGStoryCustomTableViewCell: UITableViewCell {
 
     // MARK: Initializers
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.contentView.addSubview(self.textStory)
+        self.contentView.addSubview(self.imageViewStory)
+        self.contentView.addSubview(self.commentImage)
+    }
 
-
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: Getters
@@ -21,6 +26,7 @@ class RGStoryCustomTableViewCell: UITableViewCell {
     let textStory: UILabel = {
         var label = UILabel(frame: CGRectMake(Constant.TableViewConstants.MinimumPadding, Constant.TableViewConstants.MinimumPadding, Constant.Size.DeviceWidth - (Constant.TableViewConstants.MinimumPadding * 2), 0))
         label.font = UIFont_WWDC.mainTextBlogPost()
+        label.numberOfLines = 0
 
         return label
     }()
@@ -38,6 +44,8 @@ class RGStoryCustomTableViewCell: UITableViewCell {
 
     func addParagraph(text: String) {
         self.textStory.text = text
+        self.textStory.sizeToFit()
+        self.textStory.frame = CGRectMake(self.textStory.frame.origin.x, self.textStory.frame.origin.y, self.textStory.frame.width, self.textStory.frame.height)
         self.addSubview(self.textStory)
     }
 
@@ -48,6 +56,7 @@ class RGStoryCustomTableViewCell: UITableViewCell {
 
     func addComment(text: String) {
         self.commentImage.text = text
+        self.textStory.sizeToFit()
         self.addSubview(self.commentImage)
     }
 }

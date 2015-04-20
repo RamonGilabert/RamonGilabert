@@ -36,9 +36,16 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(Constant.TableViewConstants.Identifier) as! RGStoryCustomTableViewCell
 
-        if indexPath.row == 1 || indexPath.row == 5 || indexPath.row == 8 || indexPath.row == 12 {
-        } else {
+        for view in cell.subviews as! [UIView] {
+            view.removeFromSuperview()
+        }
 
+        if indexPath.row == 1 || indexPath.row == 5 || indexPath.row == 8 || indexPath.row == 12 {
+
+        } else if indexPath.row == 2 || indexPath.row == 6 || indexPath.row == 9 || indexPath.row == 13 {
+            cell.addComment(Story.ArrayWithStory[indexPath.row])
+        } else {
+            cell.addParagraph(Story.ArrayWithStory[indexPath.row])
         }
 
         return cell

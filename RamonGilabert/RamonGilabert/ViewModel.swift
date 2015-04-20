@@ -78,6 +78,8 @@ struct Story {
 
 class ViewModel: NSObject {
 
+    // MARK: Main layout
+
     func initMainScrollViewInView(view: UIView) -> UIScrollView {
 
         let scrollView = UIScrollView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight))
@@ -101,6 +103,8 @@ class ViewModel: NSObject {
         return scrollView
     }
 
+    // MARK: Menu layout
+
     func buttonInMenu(xPosition: CGFloat, yPosition: CGFloat, image: String, text: String, viewController: UIViewController, tag: Int) -> UIButton {
         let button = UIButton(frame: CGRectMake(
             xPosition,
@@ -120,6 +124,8 @@ class ViewModel: NSObject {
 
         return button
     }
+
+    // MENU: Story layout
 
     func setTitleLabelInView(view: UIView) -> UILabel {
         let label = UILabel(frame: CGRectMake(0, 23, Constant.Size.DeviceWidth, 33))
@@ -209,5 +215,19 @@ class ViewModel: NSObject {
         view.addSubview(blurView)
 
         return blurView
+    }
+
+    func textLabelInBlogPost(text: String) -> UILabel {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = Constant.TableViewConstants.LineSpacingStory
+
+        let label = UILabel(frame: CGRectMake(Constant.TableViewConstants.MinimumPadding, Constant.TableViewConstants.MinimumPadding, Constant.Size.DeviceWidth - (Constant.TableViewConstants.MinimumPadding * 2), 0))
+        label.font = UIFont_WWDC.mainTextBlogPost()
+        label.numberOfLines = 0
+        label.attributedText = NSAttributedString(string: text, attributes: [NSParagraphStyleAttributeName : paragraphStyle])
+        label.sizeToFit()
+        label.frame = CGRectMake(label.frame.origin.x, label.frame.origin.y, label.frame.width, label.frame.height)
+
+        return label
     }
 }

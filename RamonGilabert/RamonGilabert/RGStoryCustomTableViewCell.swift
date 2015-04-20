@@ -2,6 +2,9 @@ import UIKit
 
 class RGStoryCustomTableViewCell: UITableViewCell {
 
+    let viewModel = ViewModel()
+    var textStory = UILabel()
+    
     // MARK: Initializers
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -33,14 +36,6 @@ class RGStoryCustomTableViewCell: UITableViewCell {
         return imageView
     }()
 
-    let textStory: UILabel = {
-        let label = UILabel(frame: CGRectMake(Constant.TableViewConstants.MinimumPadding, Constant.TableViewConstants.MinimumPadding, Constant.Size.DeviceWidth - (Constant.TableViewConstants.MinimumPadding * 2), 0))
-        label.font = UIFont_WWDC.mainTextBlogPost()
-        label.numberOfLines = 0
-
-        return label
-    }()
-
     let commentImage: UILabel = {
         let label = UILabel(frame: CGRectMake(Constant.TableViewConstants.MinimumPadding, Constant.TableViewConstants.MinimumPadding, Constant.Size.DeviceWidth - (Constant.TableViewConstants.MinimumPadding * 2), 0))
         label.font = UIFont_WWDC.commentTextImageBlogPost()
@@ -53,12 +48,7 @@ class RGStoryCustomTableViewCell: UITableViewCell {
     // MARK: Methods to layout
 
     func addParagraph(text: String) {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = Constant.TableViewConstants.LineSpacingStory
-
-        self.textStory.attributedText = NSAttributedString(string: text, attributes: [NSParagraphStyleAttributeName : paragraphStyle])
-        self.textStory.sizeToFit()
-        self.textStory.frame = CGRectMake(self.textStory.frame.origin.x, self.textStory.frame.origin.y, self.textStory.frame.width, self.textStory.frame.height)
+        self.textStory = self.viewModel.textLabelInBlogPost(text)
         self.contentView.addSubview(self.textStory)
     }
 

@@ -61,17 +61,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
         } else if indexPath.row == 3 || indexPath.row == 8 {
             return 50
         } else {
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = Constant.TableViewConstants.LineSpacingStory
-
-            let label = UILabel(frame: CGRectMake(Constant.TableViewConstants.MinimumPadding, Constant.TableViewConstants.MinimumPadding, Constant.Size.DeviceWidth - (Constant.TableViewConstants.MinimumPadding * 2), 0))
-
-            label.font = UIFont_WWDC.mainTextBlogPost()
-            label.numberOfLines = 0
-            label.attributedText = NSAttributedString(string: Story.ArrayWithStory[indexPath.row], attributes: [NSParagraphStyleAttributeName : paragraphStyle])
-            label.sizeToFit()
-
-            return label.frame.height + (Constant.TableViewConstants.MinimumPadding * 2)
+            return self.viewModel.textLabelInBlogPost(Story.ArrayWithStory[indexPath.row]).frame.height + (Constant.TableViewConstants.MinimumPadding * 2)
         }
     }
 

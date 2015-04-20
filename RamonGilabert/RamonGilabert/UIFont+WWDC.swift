@@ -23,10 +23,10 @@ class UIFont_WWDC: NSObject {
     }
 
     class internal func mainTextBlogPost() -> UIFont {
-        return UIFont(name: "HelveticaNeue", size: 16 * Constant.Size.RelationHeights)!
+        return UIFont(name: "HelveticaNeue-Light", size: 15 * Constant.Size.RelationHeights)!
     }
 
     class internal func commentTextImageBlogPost() -> UIFont {
-        return UIFont(name: "Helvetica-Oblique", size: 14 * Constant.Size.RelationHeights)!
+        return UIFont(name: "Helvetica-Oblique", size: 12 * Constant.Size.RelationHeights)!
     }
 }

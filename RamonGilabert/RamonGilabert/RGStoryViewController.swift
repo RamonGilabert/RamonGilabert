@@ -36,7 +36,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(Constant.TableViewConstants.Identifier) as! RGStoryCustomTableViewCell
 
-        for view in cell.subviews as! [UIView] {
+        for view in cell.contentView.subviews as! [UIView] {
             view.removeFromSuperview()
         }
 
@@ -57,7 +57,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
         } else if indexPath.row == 2 || indexPath.row == 6 || indexPath.row == 9 || indexPath.row == 13 {
             return 30
         } else {
-            var label = UILabel(frame: CGRectMake(Constant.TableViewConstants.MinimumPadding, Constant.TableViewConstants.MinimumPadding, Constant.Size.DeviceWidth - (Constant.TableViewConstants.MinimumPadding * 2), 0))
+            let label = UILabel(frame: CGRectMake(Constant.TableViewConstants.MinimumPadding, Constant.TableViewConstants.MinimumPadding, Constant.Size.DeviceWidth - (Constant.TableViewConstants.MinimumPadding * 2), 0))
             label.font = UIFont_WWDC.mainTextBlogPost()
             label.numberOfLines = 0
             label.text = Story.ArrayWithStory[indexPath.row]

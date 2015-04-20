@@ -152,7 +152,7 @@ class ViewModel: NSObject {
         let tableView = UITableView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight))
         tableView.registerClass(RGStoryCustomTableViewCell.classForCoder(), forCellReuseIdentifier: Constant.TableViewConstants.Identifier)
         tableView.contentInset = UIEdgeInsetsMake(Constant.Size.DeviceHeight, 0, 0, 0)
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        //tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.allowsSelection = false
         tableView.delegate = delegate
         tableView.dataSource = dataSource

@@ -1,13 +1,9 @@
 import UIKit
 
-struct TableViewConstants {
-    static let Identifier = "CellID"
-}
-
 class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
 
     let viewModel = ViewModel()
-    let tableView = UITableView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight))
+    var tableView = UITableView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight))
     var blurView = UIVisualEffectView()
     var backgroundImageView = UIImageView()
     var scrollView = UIScrollView()
@@ -23,11 +19,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
         self.backgroundImageView = self.viewModel.setCoverImageWithGradient()
         self.backgroundImageView.addSubview(self.blurView)
 
-        self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: TableViewConstants.Identifier)
-        self.tableView.contentInset = UIEdgeInsetsMake(Constant.Size.DeviceHeight, 0, 0, 0)
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.view.addSubview(self.tableView)
+        self.tableView = self.viewModel.setFullScreenTableView(self.view, delegate: self, dataSource: self)
         self.tableView.addSubview(backgroundImageView)
     }
 
@@ -38,7 +30,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(TableViewConstants.Identifier) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(Constant.TableViewConstants.Identifier) as! UITableViewCell
         cell.textLabel?.text = "Sup"
         return cell
     }

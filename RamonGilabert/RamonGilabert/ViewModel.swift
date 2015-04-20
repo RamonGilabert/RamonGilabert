@@ -21,6 +21,10 @@ struct Constant {
         static let CrossXPosition = 19 as CGFloat
         static let CrossYPosition = 25 as CGFloat
     }
+
+    struct TableViewConstants {
+        static let Identifier = "CellID"
+    }
 }
 
 class ViewModel: NSObject {
@@ -98,5 +102,16 @@ class ViewModel: NSObject {
         imageView.layer.addSublayer(gradientLayer)
 
         return imageView
+    }
+
+    func setFullScreenTableView(view: UIView, delegate: UITableViewDelegate, dataSource: UITableViewDataSource) -> UITableView {
+        let tableView = UITableView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight))
+        tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: Constant.TableViewConstants.Identifier)
+        tableView.contentInset = UIEdgeInsetsMake(Constant.Size.DeviceHeight, 0, 0, 0)
+        tableView.delegate = delegate
+        tableView.dataSource = dataSource
+        view.addSubview(tableView)
+
+        return tableView
     }
 }

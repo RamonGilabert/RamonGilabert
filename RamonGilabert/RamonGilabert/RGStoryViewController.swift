@@ -10,6 +10,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
     var titleLabel = UILabel()
     var subtitleLabel = UILabel()
     var secondaryLabel = UILabel()
+    var arrayWithStory = [Story.FirstFirstParagraph, Story.SecondImagePassion, Story.ThirdCommentFirstImage, Story.FourthSecondParagraph, Story.FifthThirdParagraph, Story.SixthImageChicago, Story.SeventhCommentSecondImage, Story.EigthFourthParagraph, Story.NinthImageWeb, Story.TenthCommentThirdImage, Story.EleventhFifthParagraph, Story.TwelveSixthParagraph, Story.ThirteenImageWWDC, Story.FourthSecondParagraph]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,25 +31,37 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
     // MARK: TableView methods
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Constant.TableViewConstants.NumberOfRows
+        return self.arrayWithStory.count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(Constant.TableViewConstants.Identifier) as! UITableViewCell
 
-        if indexPath == 1 || indexPath == 5 || indexPath == 8 || indexPath == 12 {
-            cell = cell as! BlogImageTableViewCell
+        if indexPath.row == 1 || indexPath.row == 5 || indexPath.row == 8 || indexPath.row == 12 {
+            //cell = cell as! BlogImageTableViewCell
         } else {
             cell = cell as UITableViewCell
+            cell.textLabel?.text = self.arrayWithStory[indexPath.row]
+            cell.textLabel?.font = UIFont_WWDC.mainTextBlogPost()
+            cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+            cell.textLabel?.numberOfLines = 0
         }
-//
-//        cell.textLabel?.text = Story.FirstParagraph
-//
-//        cell.textLabel?.font = UIFont_WWDC.mainTextBlogPost()
-//        cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-//        cell.textLabel?.numberOfLines = 0
 
         return cell
+    }
+
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath == 1 || indexPath == 5 || indexPath == 8 || indexPath == 12 {
+            return 160
+        } else {
+            let labelOfStory = UILabel(frame: CGRectMake(20, 20, Constant.Size.DeviceWidth - 40, 0))
+            labelOfStory.text = self.arrayWithStory[indexPath.row]
+            labelOfStory.font = UIFont_WWDC.mainTextBlogPost()
+            labelOfStory.lineBreakMode = NSLineBreakMode.ByWordWrapping
+            labelOfStory.numberOfLines = 0
+            labelOfStory.sizeToFit()
+            return labelOfStory.frame.height
+        }
     }
 
     // MARK: ScrollView methods

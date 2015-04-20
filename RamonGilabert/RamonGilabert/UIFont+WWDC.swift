@@ -18,4 +18,7 @@ class UIFont_WWDC: NSObject {
         return UIFont(name: "HelveticaNeue-Light", size: 16 * Constant.Size.RelationHeights)!
     }
 
+    class internal func secondaryTitleFont() -> UIFont {
+        return UIFont(name: "AvenirNextCondensed-Medium", size: 26 * Constant.Size.RelationHeights)!
+    }
 }

@@ -9,8 +9,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
     var scrollView = UIScrollView()
     var titleLabel = UILabel()
     var subtitleLabel = UILabel()
-    var initialFrameLabel = CGRect()
-    var initialFrameSubtitle = CGRect()
+    var secondaryLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +32,6 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
         self.titleLabel.textColor = UIColor.whiteColor()
         self.titleLabel.sizeToFit()
         self.titleLabel.frame = CGRectMake(20, (Constant.Size.DeviceHeight - titleLabel.frame.height) / 2 - 35, titleLabel.frame.width, titleLabel.frame.height)
-        self.initialFrameLabel = self.titleLabel.frame
 
         self.subtitleLabel = UILabel(frame: CGRectMake(20, titleLabel.frame.origin.y + titleLabel.frame.size.height + 19, Constant.Size.DeviceWidth - 40, 18))
         self.subtitleLabel.text = "Here's a little trip into main, dream..."
@@ -41,7 +39,13 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
         self.subtitleLabel.textColor = UIColor.whiteColor()
         self.subtitleLabel.adjustsFontSizeToFitWidth = true
         self.subtitleLabel.minimumScaleFactor = 0
-        self.initialFrameSubtitle = self.subtitleLabel.frame
+
+        self.secondaryLabel = UILabel(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, 90))
+        self.secondaryLabel.text = "A dream..."
+        self.secondaryLabel.font = UIFont_WWDC.secondaryTitleFont()
+        self.secondaryLabel.textAlignment = NSTextAlignment.Center
+        self.secondaryLabel.textColor = UIColor.whiteColor()
+        self.secondaryLabel.transform = CGAffineTransformMakeTranslation(0, -100)
 
         self.view.addSubview(titleLabel)
         self.view.addSubview(subtitleLabel)
@@ -85,6 +89,9 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
                 UIView.animateWithDuration(0.4, animations: { () -> Void in
                     self.titleLabel.alpha = 1
                     self.subtitleLabel.alpha = 1
+                    self.secondaryLabel.alpha = 0
+                }, completion: { finished in
+                    self.secondaryLabel.transform = CGAffineTransformMakeTranslation(0, -100)
                 })
             }
             self.blurView.alpha = ((yOffset + Constant.Size.DeviceHeight)/Constant.Size.DeviceHeight) * 3
@@ -96,11 +103,14 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
         } else if arrayOfSubviews.containsObject(self.backgroundImageView) && yOffset < 50 {
             self.backgroundImageView.removeFromSuperview()
             self.backgroundImageView.frame = CGRectMake(0, 0, Constant.Size.DeviceWidth, 90)
-            self.view.insertSubview(self.backgroundImageView, belowSubview: self.subtitleLabel)
+            self.view.addSubview(self.backgroundImageView)
+            self.view.addSubview(self.secondaryLabel)
 
             UIView.animateWithDuration(0.4, animations: { () -> Void in
                 self.titleLabel.alpha = 0
                 self.subtitleLabel.alpha = 0
+                self.secondaryLabel.alpha = 1
+                self.secondaryLabel.transform = CGAffineTransformIdentity
             })
         }
     }

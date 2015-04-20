@@ -27,7 +27,6 @@ class RGStoryCustomTableViewCell: UITableViewCell {
         let label = UILabel(frame: CGRectMake(Constant.TableViewConstants.MinimumPadding, Constant.TableViewConstants.MinimumPadding, Constant.Size.DeviceWidth - (Constant.TableViewConstants.MinimumPadding * 2), 0))
         label.font = UIFont_WWDC.mainTextBlogPost()
         label.numberOfLines = 0
-        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
 
         return label
     }()

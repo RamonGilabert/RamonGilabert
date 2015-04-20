@@ -27,6 +27,14 @@ struct Constant {
     }
 }
 
+struct Text {
+    struct Titles {
+        static let StoryTitle = "Everyone has a story"
+        static let StorySubtitle = "Here's mine, called dream..."
+        static let StorySecondaryTitle = "A dream..."
+    }
+}
+
 class ViewModel: NSObject {
 
     func initMainScrollViewInView(view: UIView) -> UIScrollView {
@@ -113,5 +121,18 @@ class ViewModel: NSObject {
         view.addSubview(tableView)
 
         return tableView
+    }
+
+    func setTitleBlogPost(view: UIView) -> UILabel {
+        let label = UILabel(frame: CGRectMake(20, 0, Constant.Size.DeviceWidth - 40, 0))
+        label.text = Text.Titles.StoryTitle
+        label.font = UIFont_WWDC.titleStoryFont()
+        label.numberOfLines = 2
+        label.textColor = UIColor.whiteColor()
+        label.sizeToFit()
+        label.frame = CGRectMake(20, (Constant.Size.DeviceHeight - label.frame.height) / 2 - 35, label.frame.width, label.frame.height)
+        view.addSubview(label)
+
+        return label
     }
 }

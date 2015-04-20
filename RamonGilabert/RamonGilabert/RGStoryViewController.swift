@@ -25,20 +25,11 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
         self.tableView = self.viewModel.setFullScreenTableView(self.view, delegate: self, dataSource: self)
         self.tableView.addSubview(backgroundImageView)
 
-        self.titleLabel = UILabel(frame: CGRectMake(20, 0, Constant.Size.DeviceWidth - 40, 0))
-        self.titleLabel.text = "Everyone has a story"
-        self.titleLabel.font = UIFont_WWDC.titleStoryFont()
-        self.titleLabel.numberOfLines = 2
-        self.titleLabel.textColor = UIColor.whiteColor()
-        self.titleLabel.sizeToFit()
-        self.titleLabel.frame = CGRectMake(20, (Constant.Size.DeviceHeight - titleLabel.frame.height) / 2 - 35, titleLabel.frame.width, titleLabel.frame.height)
+        self.titleLabel = self.viewModel.setTitleBlogPost(self.view)
 
         self.subtitleLabel = UILabel(frame: CGRectMake(20, titleLabel.frame.origin.y + titleLabel.frame.size.height + 19, Constant.Size.DeviceWidth - 40, 18))
-        self.subtitleLabel.text = "Here's a little trip into main, dream..."
-        self.subtitleLabel.font = UIFont_WWDC.subTitleStoryFont()
-        self.subtitleLabel.textColor = UIColor.whiteColor()
-        self.subtitleLabel.adjustsFontSizeToFitWidth = true
-        self.subtitleLabel.minimumScaleFactor = 0
+        self.subtitleLabel.frame.origin.y = self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height + 19
+        
 
         self.secondaryLabel = UILabel(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, 90))
         self.secondaryLabel.text = "A dream..."
@@ -47,7 +38,6 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
         self.secondaryLabel.textColor = UIColor.whiteColor()
         self.secondaryLabel.transform = CGAffineTransformMakeTranslation(0, -100)
 
-        self.view.addSubview(titleLabel)
         self.view.addSubview(subtitleLabel)
     }
 

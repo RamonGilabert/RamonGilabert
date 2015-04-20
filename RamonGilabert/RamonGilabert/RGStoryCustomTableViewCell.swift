@@ -19,7 +19,8 @@ class RGStoryCustomTableViewCell: UITableViewCell {
 
     let imageViewStory: UIImageView = {
         let imageView = UIImageView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.TableViewConstants.HeightOfImages))
-
+        imageView.contentMode = UIViewContentMode.ScaleAspectFit
+        
         return imageView
     }()
 
@@ -32,7 +33,7 @@ class RGStoryCustomTableViewCell: UITableViewCell {
     }()
 
     let commentImage: UILabel = {
-        let label = UILabel(frame: CGRectMake(Constant.TableViewConstants.MinimumPadding, Constant.TableViewConstants.MinimumPadding/2, Constant.Size.DeviceWidth - (Constant.TableViewConstants.MinimumPadding * 2), 0))
+        let label = UILabel(frame: CGRectMake(Constant.TableViewConstants.MinimumPadding, Constant.TableViewConstants.MinimumPadding, Constant.Size.DeviceWidth - (Constant.TableViewConstants.MinimumPadding * 2), 0))
         label.font = UIFont_WWDC.commentTextImageBlogPost()
         label.textColor = UIColor_WWDC.commentsStoryColor()
         label.textAlignment = NSTextAlignment.Center

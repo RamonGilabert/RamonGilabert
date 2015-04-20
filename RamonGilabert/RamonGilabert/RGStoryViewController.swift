@@ -40,10 +40,12 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
             view.removeFromSuperview()
         }
 
-        if indexPath.row == 1 || indexPath.row == 5 || indexPath.row == 8 || indexPath.row == 12 {
-
+        if indexPath.row == 1 || indexPath.row == 5 || indexPath.row == 12 {
+            cell.addImage(Story.ArrayWithStory[indexPath.row])
         } else if indexPath.row == 2 || indexPath.row == 6 || indexPath.row == 9 || indexPath.row == 13 {
             cell.addComment(Story.ArrayWithStory[indexPath.row])
+        } else if indexPath.row == 8 {
+            
         } else {
             cell.addParagraph(Story.ArrayWithStory[indexPath.row])
         }
@@ -55,7 +57,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
         if indexPath.row == 1 || indexPath.row == 5 || indexPath.row == 8 || indexPath.row == 12 {
             return Constant.TableViewConstants.HeightOfImages
         } else if indexPath.row == 2 || indexPath.row == 6 || indexPath.row == 9 || indexPath.row == 13 {
-            return 30
+            return 40
         } else {
             let label = UILabel(frame: CGRectMake(Constant.TableViewConstants.MinimumPadding, Constant.TableViewConstants.MinimumPadding, Constant.Size.DeviceWidth - (Constant.TableViewConstants.MinimumPadding * 2), 0))
             label.font = UIFont_WWDC.mainTextBlogPost()

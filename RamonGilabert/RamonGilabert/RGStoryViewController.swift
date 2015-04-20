@@ -30,14 +30,17 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
     // MARK: TableView methods
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return Constant.TableViewConstants.NumberOfRows
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Constant.TableViewConstants.Identifier) as! UITableViewCell
+
         cell.textLabel?.text = Story.FirstParagraph
-        cell.textLabel?.numberOfLines = 1000
-        cell.textLabel?.font = UIFont_WWDC.titleFont()
+
+        cell.textLabel?.font = UIFont_WWDC.mainTextBlogPost()
+        cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        cell.textLabel?.numberOfLines = 0
 
         return cell
     }
@@ -56,6 +59,9 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
             backgroundImageViewFrame.size.height = -yOffset
 
             self.backgroundImageView.frame = backgroundImageViewFrame
+
+            self.titleLabel.frame.origin.y = (Constant.Size.DeviceHeight - self.titleLabel.frame.height) / 2 - 35
+            self.subtitleLabel.frame.origin.y = self.titleLabel.frame.origin.y + self.titleLabel.frame.height + 19
         } else if yOffset < -Constant.Positioning.HeightOfHeaderStory {
             self.titleLabel.frame.origin.y = (self.backgroundImageView.frame.height - self.titleLabel.frame.height) / 2 - 35
             self.subtitleLabel.frame.origin.y = self.titleLabel.frame.origin.y + self.titleLabel.frame.height + 19

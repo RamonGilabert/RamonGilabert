@@ -20,11 +20,12 @@ struct Constant {
         static let CrossSize = 26.5 as CGFloat
         static let CrossXPosition = 19 as CGFloat
         static let CrossYPosition = 25 as CGFloat
-        static let HeightOfHeaderStory = 80 * Constant.Size.RelationHeights
+        static let HeightOfHeaderStory = 70 * Constant.Size.RelationHeights
     }
 
     struct TableViewConstants {
         static let Identifier = "CellID"
+        static let NumberOfRows = 10
     }
 }
 
@@ -47,7 +48,7 @@ struct Story {
 
     static let FifthParagraph = "After two months and more than 40 small apps, I did my first big project using Multipeer and Geofencing and since then, I know this is my passion, this is what I want to be. Even though I’m in university most of the day, when I get home I try to build something new, combining it with some design and giving some pixels life…"
 
-    static let SixthParagraph = "Buying a mac opened me the doors to what I wanted to become, to what I wanted to be, a designer and a coder, that was my dream and that’s my story."
+    static let SixthParagraph = "Buying a mac opened me the doors to what I wanted to become, to what I wanted to be, a designer and a coder, that was my dream and that’s my story. And I can't wait, for what's next..."
 }
 
 class ViewModel: NSObject {
@@ -132,6 +133,7 @@ class ViewModel: NSObject {
         tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: Constant.TableViewConstants.Identifier)
         tableView.contentInset = UIEdgeInsetsMake(Constant.Size.DeviceHeight, 0, 0, 0)
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        tableView.allowsSelection = false
         tableView.delegate = delegate
         tableView.dataSource = dataSource
         view.addSubview(tableView)

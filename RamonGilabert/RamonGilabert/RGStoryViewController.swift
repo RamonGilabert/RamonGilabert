@@ -16,6 +16,14 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
         self.blurView.frame = CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight)
         self.blurView.alpha = 0
 
+        let titleLabel = UILabel(frame: CGRectMake(20, (Constant.Size.DeviceHeight - 82) / 2, 281, 82))
+        titleLabel.text = "Everyone has a story"
+        titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 40)
+
+        let subtitleLabel = UILabel(frame: CGRectMake(20, titleLabel.frame.origin.y + titleLabel.frame.size.width + 19, 273, 18))
+        subtitleLabel.text = "Here's a little trip into main, called dream..."
+        subtitleLabel.font = UIFont(name: "HelveticaNeue-Light", size: 15)
+
         self.backgroundImageView = self.viewModel.setCoverImageWithGradient()
         self.backgroundImageView.addSubview(self.blurView)
 
@@ -43,7 +51,6 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
         var backgroundImageViewFrame = self.backgroundImageView.frame
 
         let arrayOfSubviews = self.tableView.subviews as NSArray
-        let arrayOfSubviewsView = self.view.subviews as NSArray
 
         if yOffset < -Constant.Size.DeviceHeight {
             backgroundImageViewFrame.origin.y = yOffset

@@ -82,8 +82,10 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
                 self.backgroundImageView.frame.origin = CGPointMake(0, 0)
                 self.tableView.addSubview(self.backgroundImageView)
 
-                self.view.addSubview(self.titleLabel)
-                self.view.addSubview(self.subtitleLabel)
+                UIView.animateWithDuration(0.4, animations: { () -> Void in
+                    self.titleLabel.alpha = 1
+                    self.subtitleLabel.alpha = 1
+                })
             }
             self.blurView.alpha = ((yOffset + Constant.Size.DeviceHeight)/Constant.Size.DeviceHeight) * 3
 
@@ -94,10 +96,12 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
         } else if arrayOfSubviews.containsObject(self.backgroundImageView) && yOffset < 50 {
             self.backgroundImageView.removeFromSuperview()
             self.backgroundImageView.frame = CGRectMake(0, 0, Constant.Size.DeviceWidth, 90)
-            self.view.addSubview(self.backgroundImageView)
+            self.view.insertSubview(self.backgroundImageView, belowSubview: self.subtitleLabel)
 
-            self.titleLabel.removeFromSuperview()
-            self.subtitleLabel.removeFromSuperview()
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                self.titleLabel.alpha = 0
+                self.subtitleLabel.alpha = 0
+            })
         }
     }
 }

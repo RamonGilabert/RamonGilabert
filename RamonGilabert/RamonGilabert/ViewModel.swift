@@ -27,7 +27,7 @@ struct Constant {
         static let Identifier = "CellID"
         static let NumberOfRows = 14
         static let MinimumPadding = 15 as CGFloat
-        static let HeightOfImages = 185 as CGFloat
+        static let HeightOfImages = 180 * Constant.Size.RelationHeights as CGFloat
     }
 }
 

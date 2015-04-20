@@ -27,6 +27,6 @@ class UIFont_WWDC: NSObject {
     }
 
     class internal func commentTextImageBlogPost() -> UIFont {
-        return UIFont(name: "Helvetica-Oblique", size: 12 * Constant.Size.RelationHeights)!
+        return UIFont(name: "Helvetica-Oblique", size: 13 * floor(Constant.Size.RelationHeights))!
     }
 }

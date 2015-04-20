@@ -56,7 +56,8 @@ class RGStoryCustomTableViewCell: UITableViewCell {
 
     func addComment(text: String) {
         self.commentImage.text = text
-        self.textStory.sizeToFit()
+        self.commentImage.sizeToFit()
+        self.commentImage.frame = CGRectMake(0, self.commentImage.frame.origin.y, Constant.Size.DeviceWidth, self.commentImage.frame.height)
         self.contentView.addSubview(self.commentImage)
     }
 }

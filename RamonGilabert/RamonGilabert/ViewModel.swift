@@ -66,9 +66,9 @@ struct Story {
 
     static let ThirteenImageWWDC = "wwdc-image-logo-by-apple"
 
-    static let FourteenCommentFourthImage = "I can't wait for what's next!"
+    static let FourteenCommentFourthImage = "I can't wait for what's next! (Image © Apple Inc.)"
 
-    static let ArrayWithStory = [Story.FirstFirstParagraph, Story.SecondImagePassion, Story.ThirdCommentFirstImage, Story.FourthSecondParagraph, Story.FifthThirdParagraph, Story.SixthImageChicago, Story.SeventhCommentSecondImage, Story.EigthFourthParagraph, Story.NinthImageWeb, Story.TenthCommentThirdImage, Story.EleventhFifthParagraph, Story.TwelveSixthParagraph, Story.ThirteenImageWWDC, Story.FourthSecondParagraph]
+    static let ArrayWithStory = [Story.FirstFirstParagraph, Story.SecondImagePassion, Story.ThirdCommentFirstImage, Story.FourthSecondParagraph, Story.FifthThirdParagraph, Story.SixthImageChicago, Story.SeventhCommentSecondImage, Story.EigthFourthParagraph, Story.NinthImageWeb, Story.TenthCommentThirdImage, Story.EleventhFifthParagraph, Story.TwelveSixthParagraph, Story.ThirteenImageWWDC, Story.FourteenCommentFourthImage]
 }
 
 class ViewModel: NSObject {
@@ -152,7 +152,7 @@ class ViewModel: NSObject {
         let tableView = UITableView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight))
         tableView.registerClass(RGStoryCustomTableViewCell.classForCoder(), forCellReuseIdentifier: Constant.TableViewConstants.Identifier)
         tableView.contentInset = UIEdgeInsetsMake(Constant.Size.DeviceHeight, 0, 0, 0)
-        //tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.allowsSelection = false
         tableView.delegate = delegate
         tableView.dataSource = dataSource

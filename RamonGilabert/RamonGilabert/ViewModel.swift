@@ -93,6 +93,7 @@ class ViewModel: NSObject {
         let imageView = UIImageView(image: UIImage(named: "background-image-menu-simulator"))
         imageView.frame = CGRectMake(0, -Constant.Size.DeviceHeight, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight)
         imageView.contentMode = UIViewContentMode.ScaleAspectFill
+        imageView.clipsToBounds = true
 
         imageView.layer.addSublayer(gradientLayer)
 

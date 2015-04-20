@@ -7,7 +7,7 @@ struct TableViewConstants {
 class RGStoryViewController: UITableViewController, UIScrollViewDelegate {
 
     let viewModel = ViewModel()
-    let blurView = UIVisualEffectView()
+    var blurView = UIVisualEffectView()
     var backgroundImageView = UIImageView()
     var scrollView = UIScrollView()
 
@@ -15,14 +15,12 @@ class RGStoryViewController: UITableViewController, UIScrollViewDelegate {
         super.viewDidLoad()
 
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight)
-        blurView.tintColor = UIColor(white: 0, alpha: 0)
-        self.blurViewContainer.backgroundColor = UIColor.whi
-        self.blurViewContainer.addSubview(blurView)
+        self.blurView = UIVisualEffectView(effect: blurEffect)
+        self.blurView.frame = CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight)
+        self.blurView.alpha = 0
 
         self.backgroundImageView = self.viewModel.setCoverImageWithGradient()
-        self.backgroundImageView.addSubview(self.blurViewContainer)
+        self.backgroundImageView.addSubview(self.blurView)
 
         self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: TableViewConstants.Identifier)
         self.tableView.contentInset = UIEdgeInsetsMake(Constant.Size.DeviceHeight, 0, 0, 0)
@@ -46,12 +44,18 @@ class RGStoryViewController: UITableViewController, UIScrollViewDelegate {
     override func scrollViewDidScroll(scrollView: UIScrollView) {
         let yOffset = scrollView.contentOffset.y
 
-        self.blurViewContainer.alpha = ((yOffset + Constant.Size.DeviceHeight)/Constant.Size.DeviceHeight) * 1.5
+        var backgroundImageViewFrame = self.backgroundImageView.frame
 
         if (yOffset < -Constant.Size.DeviceHeight) {
-            var backgroundImageViewFrame = self.backgroundImageView.frame
             backgroundImageViewFrame.origin.y = yOffset
             backgroundImageViewFrame.size.height = -yOffset
+
+            self.backgroundImageView.frame = backgroundImageViewFrame
+        } else {
+            self.blurView.alpha = ((yOffset + Constant.Size.DeviceHeight)/Constant.Size.DeviceHeight) * 3
+
+            backgroundImageViewFrame.origin.y = 0
+            backgroundImageViewFrame.size.height = yOffset
 
             self.backgroundImageView.frame = backgroundImageViewFrame
         }

@@ -34,12 +34,10 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(Constant.TableViewConstants.Identifier) as! UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier(Constant.TableViewConstants.Identifier) as! RGStoryCustomTableViewCell
 
         if indexPath.row == 1 || indexPath.row == 5 || indexPath.row == 8 || indexPath.row == 12 {
-            //cell = cell as! BlogImageTableViewCell
         } else {
-            cell = cell as UITableViewCell
             cell.textLabel?.text = Story.ArrayWithStory[indexPath.row]
             cell.textLabel?.font = UIFont_WWDC.mainTextBlogPost()
             cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping

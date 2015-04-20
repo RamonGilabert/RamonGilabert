@@ -21,6 +21,7 @@ struct Constant {
         static let CrossXPosition = 19 as CGFloat
         static let CrossYPosition = 25 as CGFloat
         static let HeightOfHeaderStory = 70 * Constant.Size.RelationHeights
+        static let MinimumPadding = 15 as CGFloat
     }
 
     struct TableViewConstants {

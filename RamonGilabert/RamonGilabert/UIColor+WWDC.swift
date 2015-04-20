@@ -6,4 +6,8 @@ class UIColor_WWDC: NSObject {
         return UIColor(red:0.53, green:0.53, blue:0.53, alpha:1)
     }
 
+    class internal func commentsStoryColor() -> UIColor {
+        return UIColor(red:0.53, green:0.53, blue:0.53, alpha:1)
+    }
+
 }

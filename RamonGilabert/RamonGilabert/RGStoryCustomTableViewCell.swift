@@ -1,16 +1,27 @@
-//
-//  RGStoryCustomTableViewCell.swift
-//  RamonGilabert
-//
-//  Created by Ramon Gilabert Llop on 4/20/15.
-//  Copyright (c) 2015 Ramon Gilabert. All rights reserved.
-//
-
 import UIKit
 
 class RGStoryCustomTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+    let imageViewStory = UIImageView()
+
+    // MARK: Getters
+
+    let textStory: UILabel = {
+        var label = UILabel(frame: CGRectMake(Constant.Positioning.MinimumPadding, Constant.Positioning.MinimumPadding, Constant.Size.DeviceWidth - (Constant.Positioning.MinimumPadding * 2), 0))
+        label.font = UIFont_WWDC.mainTextBlogPost()
+
+        return label
+    }()
+
+    let commentImage: UILabel = {
+        var label = UILabel(frame: CGRectMake(Constant.Positioning.MinimumPadding, Constant.Positioning.MinimumPadding/2, Constant.Size.DeviceWidth - (Constant.Positioning.MinimumPadding * 2), 0))
+        label.font = UIFont_WWDC.commentTextImageBlogPost()
+        label.textColor = UIColor_WWDC.commentsStoryColor()
+        label.textAlignment = NSTextAlignment.Center
+
+        return label
+    }()
+
+
+
 }

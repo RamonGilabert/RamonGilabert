@@ -40,10 +40,12 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
             view.removeFromSuperview()
         }
 
-        if indexPath.row == 1 || indexPath.row == 5 || indexPath.row == 8 || indexPath.row == 12 {
+        if indexPath.row == 1 || indexPath.row == 6 || indexPath.row == 10 || indexPath.row == 14 {
             cell.addImage(Story.ArrayWithStory[indexPath.row])
-        } else if indexPath.row == 2 || indexPath.row == 6 || indexPath.row == 9 || indexPath.row == 13 {
+        } else if indexPath.row == 2 || indexPath.row == 7 || indexPath.row == 11 || indexPath.row == 15 {
             cell.addComment(Story.ArrayWithStory[indexPath.row])
+        } else if indexPath.row == 3 || indexPath.row == 8 {
+            
         } else {
             cell.addParagraph(Story.ArrayWithStory[indexPath.row])
         }
@@ -52,9 +54,9 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.row == 1 || indexPath.row == 5 || indexPath.row == 8 || indexPath.row == 12 {
+        if indexPath.row == 1 || indexPath.row == 6 || indexPath.row == 10 || indexPath.row == 14 {
             return Constant.TableViewConstants.HeightOfImages
-        } else if indexPath.row == 2 || indexPath.row == 6 || indexPath.row == 9 || indexPath.row == 13 {
+        } else if indexPath.row == 2 || indexPath.row == 7 || indexPath.row == 11 || indexPath.row == 15 {
             return 40
         } else {
             let paragraphStyle = NSMutableParagraphStyle()
@@ -68,6 +70,16 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
             label.sizeToFit()
 
             return label.frame.height + Constant.TableViewConstants.MinimumPadding*2
+        }
+    }
+
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == 1 || indexPath.row == 6 || indexPath.row == 10 || indexPath.row == 14 {
+            var cell = cell as! RGStoryCustomTableViewCell
+            cell.imageViewStory.transform = CGAffineTransformMakeScale(0.5, 0.5)
+            UIView.animateWithDuration(0.7, animations: { () -> Void in
+                cell.imageViewStory.transform = CGAffineTransformIdentity
+            })
         }
     }
 

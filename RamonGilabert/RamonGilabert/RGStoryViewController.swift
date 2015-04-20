@@ -36,8 +36,9 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Constant.TableViewConstants.Identifier) as! UITableViewCell
         cell.textLabel?.text = Story.FirstParagraph
-        cell.textLabel?.font = UIFont_WWDC.titleFont()
         cell.textLabel?.numberOfLines = 1000
+        cell.textLabel?.font = UIFont_WWDC.titleFont()
+
         return cell
     }
 

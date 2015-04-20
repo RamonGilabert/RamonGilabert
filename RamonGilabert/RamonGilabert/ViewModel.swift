@@ -79,4 +79,23 @@ class ViewModel: NSObject {
 
         return label
     }
+
+    func setCoverImageWithGradient() -> UIImageView {
+        let colorTop = UIColor(hue: 0, saturation: 0, brightness: 1, alpha: 0).CGColor
+        let colorMiddle = UIColor(hue: 0, saturation: 0, brightness: 0.06, alpha: 0.6).CGColor
+        let colorBottom = UIColor.blackColor().CGColor
+
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [ colorTop, colorMiddle, colorBottom ]
+        gradientLayer.locations = [ 0.0, 0.6, 1.0 ]
+        gradientLayer.frame = CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight)
+
+        let imageView = UIImageView(image: UIImage(named: "background-image-menu-simulator"))
+        imageView.frame = CGRectMake(0, -Constant.Size.DeviceHeight, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight)
+        imageView.contentMode = UIViewContentMode.ScaleAspectFill
+
+        imageView.layer.addSublayer(gradientLayer)
+
+        return imageView
+    }
 }

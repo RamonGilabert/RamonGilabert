@@ -135,4 +135,26 @@ class ViewModel: NSObject {
 
         return label
     }
+
+    func setSubtitleBlogPost(view: UIView) -> UILabel {
+        let label = UILabel(frame: CGRectMake(20, 0, Constant.Size.DeviceWidth - 40, 18))
+        label.text = Text.Titles.StorySubtitle
+        label.font = UIFont_WWDC.subTitleStoryFont()
+        label.textColor = UIColor.whiteColor()
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0
+
+        return label
+    }
+
+    func setSecondaryBlogPostLabel() -> UILabel {
+        let label = UILabel(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, 90))
+        label.text = Text.Titles.StorySecondaryTitle
+        label.font = UIFont_WWDC.secondaryTitleFont()
+        label.textAlignment = NSTextAlignment.Center
+        label.textColor = UIColor.whiteColor()
+        label.transform = CGAffineTransformMakeTranslation(0, -100)
+
+        return label
+    }
 }

@@ -26,19 +26,9 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
         self.tableView.addSubview(backgroundImageView)
 
         self.titleLabel = self.viewModel.setTitleBlogPost(self.view)
-
-        self.subtitleLabel = UILabel(frame: CGRectMake(20, titleLabel.frame.origin.y + titleLabel.frame.size.height + 19, Constant.Size.DeviceWidth - 40, 18))
+        self.subtitleLabel = self.viewModel.setSubtitleBlogPost(self.view)
         self.subtitleLabel.frame.origin.y = self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height + 19
-        
-
-        self.secondaryLabel = UILabel(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, 90))
-        self.secondaryLabel.text = "A dream..."
-        self.secondaryLabel.font = UIFont_WWDC.secondaryTitleFont()
-        self.secondaryLabel.textAlignment = NSTextAlignment.Center
-        self.secondaryLabel.textColor = UIColor.whiteColor()
-        self.secondaryLabel.transform = CGAffineTransformMakeTranslation(0, -100)
-
-        self.view.addSubview(subtitleLabel)
+        self.secondaryLabel = self.viewModel.setSecondaryBlogPostLabel()
     }
 
     // MARK: TableView methods

@@ -75,9 +75,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
 
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let yOffset = scrollView.contentOffset.y
-
         var backgroundImageViewFrame = self.backgroundImageView.frame
-
         let arrayOfSubviews = self.tableView.subviews as NSArray
 
         if yOffset < -Constant.Size.DeviceHeight {
@@ -85,7 +83,6 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
             backgroundImageViewFrame.size.height = -yOffset
 
             self.backgroundImageView.frame = backgroundImageViewFrame
-
             self.titleLabel.frame.origin.y = (Constant.Size.DeviceHeight - self.titleLabel.frame.height) / 2 - 35
             self.subtitleLabel.frame.origin.y = self.titleLabel.frame.origin.y + self.titleLabel.frame.height + 19
         } else if yOffset < -Constant.Positioning.HeightOfHeaderStory {

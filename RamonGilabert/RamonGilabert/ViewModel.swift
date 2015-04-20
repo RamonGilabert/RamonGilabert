@@ -25,7 +25,7 @@ struct Constant {
 
     struct TableViewConstants {
         static let Identifier = "CellID"
-        static let NumberOfRows = 10
+        static let NumberOfRows = 14
     }
 }
 
@@ -38,17 +38,33 @@ struct Text {
 }
 
 struct Story {
-    static let FirstParagraph = "I believe everyone has a story to tell, something that would make someone smile, a story that would make other people feel…"
+    static let FirstFirstParagraph = "I believe everyone has a story to tell, something that would make someone smile, a story that would make other people feel…"
 
-    static let SecondParagraph = "My story in programming starts when I was a kid, I used to enter to my dad’s computer to look for some websites. I was amazed by the design on it, how you could see content from everywhere in the world, there I knew that at some point, I would do a website."
+    static let SecondImagePassion = "image-passion-story"
 
-    static let ThirdParagraph = "The same happened when my father bought his first iPhone, the keyboard sensing his big fingers was something awesome, but not as stunning as the animation in the camera, I loved every aspect  of it, and I also knew, that one day I would know how to do an app."
+    static let ThirdCommentFirstImage = "That's my passion, and those are my paths..."
 
-    static let FourthParagraph = "After a summer working every day of the week to have some money in the bank, I bought my first MacBook Pro, I was 17 years old back then. Then it all started, I launched my most personal and big project, my portfolio, I was hungry to do more, I wanted to learn some languages, build some apps… I discovered Xcode, and  I spent lots of afternoons writing small apps, discovering new frameworks, until I was selected to go to an intense iOS academy in Chicago."
+    static let FourthSecondParagraph = "My story in programming starts when I was a kid, I used to enter to my dad’s computer to look for some websites. I was amazed by the design on it, how you could see content from everywhere in the world, there I knew that at some point, I would do a website."
 
-    static let FifthParagraph = "After two months and more than 40 small apps, I did my first big project using Multipeer and Geofencing and since then, I know this is my passion, this is what I want to be. Even though I’m in university most of the day, when I get home I try to build something new, combining it with some design and giving some pixels life…"
+    static let FifthThirdParagraph = "The same happened when my father bought his first iPhone, the keyboard sensing his big fingers was something awesome, but not as stunning as the animation in the camera, I loved every aspect  of it, and I also knew, that one day I would know how to do an app."
 
-    static let SixthParagraph = "Buying a mac opened me the doors to what I wanted to become, to what I wanted to be, a designer and a coder, that was my dream and that’s my story. And I can't wait, for what's next..."
+    static let SixthImageChicago = "image-chicago-story"
+
+    static let SeventhCommentSecondImage = "First time in the US, doing iOS, dream..."
+
+    static let EigthFourthParagraph = "After a summer working every day of the week to have some money in the bank, I bought my first MacBook Pro, I was 17 years old back then. Then it all started, I launched my most personal and big project, my portfolio, I was hungry to do more, I wanted to learn some languages, build some apps… I discovered Xcode, and  I spent lots of afternoons writing small apps, discovering new frameworks, until I was selected to go to an intense iOS academy in Chicago."
+
+    static let NinthImageWeb = "web-image-story"
+
+    static let TenthCommentThirdImage = "My portfolio, my most personal project."
+
+    static let EleventhFifthParagraph = "After two months and more than 40 small apps, I did my first big project using Multipeer and Geofencing and since then, I know this is my passion, this is what I want to be. Even though I’m in university most of the day, when I get home I try to build something new, combining it with some design and giving some pixels life…"
+
+    static let TwelveSixthParagraph = "Buying a mac opened me the doors to what I wanted to become, to what I wanted to be, a designer and a coder, that was my dream and that’s my story. And I can't wait, for what's next..."
+
+    static let ThirteenImageWWDC = "wwdc-image-logo-by-apple"
+
+    static let FourteenCommentFourthImage = "I can't wait for what's next!"
 }
 
 class ViewModel: NSObject {

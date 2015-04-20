@@ -34,13 +34,19 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constant.TableViewConstants.Identifier) as! UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier(Constant.TableViewConstants.Identifier) as! UITableViewCell
 
-        cell.textLabel?.text = Story.FirstParagraph
-
-        cell.textLabel?.font = UIFont_WWDC.mainTextBlogPost()
-        cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        cell.textLabel?.numberOfLines = 0
+        if indexPath == 1 || indexPath == 5 || indexPath == 8 || indexPath == 12 {
+            cell = cell as! BlogImageTableViewCell
+        } else {
+            cell = cell as UITableViewCell
+        }
+//
+//        cell.textLabel?.text = Story.FirstParagraph
+//
+//        cell.textLabel?.font = UIFont_WWDC.mainTextBlogPost()
+//        cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+//        cell.textLabel?.numberOfLines = 0
 
         return cell
     }

@@ -45,7 +45,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
         } else if indexPath.row == 2 || indexPath.row == 7 || indexPath.row == 11 || indexPath.row == 15 {
             cell.addComment(Story.ArrayWithStory[indexPath.row])
         } else if indexPath.row == 3 || indexPath.row == 8 {
-            
+            cell.addTitle(Story.ArrayWithStory[indexPath.row])
         } else {
             cell.addParagraph(Story.ArrayWithStory[indexPath.row])
         }
@@ -58,6 +58,8 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
             return Constant.TableViewConstants.HeightOfImages
         } else if indexPath.row == 2 || indexPath.row == 7 || indexPath.row == 11 || indexPath.row == 15 {
             return 40
+        } else if indexPath.row == 3 || indexPath.row == 8 {
+            return 50
         } else {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = Constant.TableViewConstants.LineSpacingStory
@@ -69,7 +71,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
             label.attributedText = NSAttributedString(string: Story.ArrayWithStory[indexPath.row], attributes: [NSParagraphStyleAttributeName : paragraphStyle])
             label.sizeToFit()
 
-            return label.frame.height + Constant.TableViewConstants.MinimumPadding*2
+            return label.frame.height + (Constant.TableViewConstants.MinimumPadding * 2)
         }
     }
 

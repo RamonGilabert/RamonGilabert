@@ -9,6 +9,7 @@ class RGStoryCustomTableViewCell: UITableViewCell {
         self.contentView.addSubview(self.textStory)
         self.contentView.addSubview(self.imageViewStory)
         self.contentView.addSubview(self.commentImage)
+        self.contentView.addSubview(self.titleStory)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -16,6 +17,14 @@ class RGStoryCustomTableViewCell: UITableViewCell {
     }
 
     // MARK: Getters
+
+    let titleStory: UILabel = {
+        let label = UILabel(frame: CGRectMake(Constant.TableViewConstants.MinimumPadding, Constant.TableViewConstants.MinimumPadding, Constant.Size.DeviceWidth - (Constant.TableViewConstants.MinimumPadding * 2), 0))
+        label.font = UIFont_WWDC.titleBlogPost()
+        label.textColor = UIColor_WWDC.almostBlackColor()
+        
+        return label
+    }()
 
     let imageViewStory: UIImageView = {
         let imageView = UIImageView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.TableViewConstants.HeightOfImages))
@@ -63,5 +72,12 @@ class RGStoryCustomTableViewCell: UITableViewCell {
         self.commentImage.sizeToFit()
         self.commentImage.frame = CGRectMake(0, self.commentImage.frame.origin.y, Constant.Size.DeviceWidth, self.commentImage.frame.height)
         self.contentView.addSubview(self.commentImage)
+    }
+
+    func addTitle(text: String) {
+        self.titleStory.text = text
+        self.titleStory.sizeToFit()
+        self.titleStory.frame = CGRectMake(Constant.TableViewConstants.MinimumPadding, self.titleStory.frame.origin.y, Constant.Size.DeviceWidth, self.titleStory.frame.height)
+        self.contentView.addSubview(self.titleStory)
     }
 }

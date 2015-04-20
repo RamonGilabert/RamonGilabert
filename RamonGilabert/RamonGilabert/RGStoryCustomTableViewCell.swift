@@ -44,7 +44,10 @@ class RGStoryCustomTableViewCell: UITableViewCell {
     // MARK: Methods to layout
 
     func addParagraph(text: String) {
-        self.textStory.text = text
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = Constant.TableViewConstants.LineSpacingStory
+
+        self.textStory.attributedText = NSAttributedString(string: text, attributes: [NSParagraphStyleAttributeName : paragraphStyle])
         self.textStory.sizeToFit()
         self.textStory.frame = CGRectMake(self.textStory.frame.origin.x, self.textStory.frame.origin.y, self.textStory.frame.width, self.textStory.frame.height)
         self.contentView.addSubview(self.textStory)

@@ -7,6 +7,10 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
     var blurView = UIVisualEffectView()
     var backgroundImageView = UIImageView()
     var scrollView = UIScrollView()
+    var titleLabel = UILabel()
+    var subtitleLabel = UILabel()
+    var initialFrameLabel = CGRect()
+    var initialFrameSubtitle = CGRect()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,20 +26,21 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
         self.tableView = self.viewModel.setFullScreenTableView(self.view, delegate: self, dataSource: self)
         self.tableView.addSubview(backgroundImageView)
 
-        let titleLabel = UILabel(frame: CGRectMake(20, 0, Constant.Size.DeviceWidth - 40, 0))
-        titleLabel.text = "Everyone has a story"
-        titleLabel.font = UIFont_WWDC.titleStoryFont()
-        titleLabel.numberOfLines = 2
-        titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.sizeToFit()
-        titleLabel.frame = CGRectMake(20, (Constant.Size.DeviceHeight - titleLabel.frame.height) / 2 - 35, titleLabel.frame.width, titleLabel.frame.height)
+        self.titleLabel = UILabel(frame: CGRectMake(20, 0, Constant.Size.DeviceWidth - 40, 0))
+        self.titleLabel.text = "Everyone has a story"
+        self.titleLabel.font = UIFont_WWDC.titleStoryFont()
+        self.titleLabel.numberOfLines = 2
+        self.titleLabel.textColor = UIColor.whiteColor()
+        self.titleLabel.sizeToFit()
+        self.titleLabel.frame = CGRectMake(20, (Constant.Size.DeviceHeight - titleLabel.frame.height) / 2 - 35, titleLabel.frame.width, titleLabel.frame.height)
+        self.initialFrameLabel = self.titleLabel.frame
 
-        let subtitleLabel = UILabel(frame: CGRectMake(20, titleLabel.frame.origin.y + titleLabel.frame.size.height + 19, Constant.Size.DeviceWidth - 40, 18))
-        subtitleLabel.text = "Here's a little trip into main, dream..."
-        subtitleLabel.font = UIFont_WWDC.subTitleStoryFont()
-        subtitleLabel.textColor = UIColor.whiteColor()
-        subtitleLabel.adjustsFontSizeToFitWidth = true
-        subtitleLabel.minimumScaleFactor = 0
+        self.subtitleLabel = UILabel(frame: CGRectMake(20, titleLabel.frame.origin.y + titleLabel.frame.size.height + 19, Constant.Size.DeviceWidth - 40, 18))
+        self.subtitleLabel.text = "Here's a little trip into main, dream..."
+        self.subtitleLabel.font = UIFont_WWDC.subTitleStoryFont()
+        self.subtitleLabel.textColor = UIColor.whiteColor()
+        self.subtitleLabel.adjustsFontSizeToFitWidth = true
+        self.subtitleLabel.minimumScaleFactor = 0
 
         self.view.addSubview(titleLabel)
         self.view.addSubview(subtitleLabel)
@@ -68,7 +73,9 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
 
             self.backgroundImageView.frame = backgroundImageViewFrame
         } else if yOffset < -90 {
-
+            self.titleLabel.frame.origin.y = self.initialFrameLabel.origin.y - (yOffset + Constant.Size.DeviceHeight)/4
+            println(self.initialFrameLabel)
+            println(self.titleLabel.frame)
             if !arrayOfSubviews.containsObject(self.backgroundImageView) {
                 self.backgroundImageView.removeFromSuperview()
                 self.backgroundImageView.frame.origin = CGPointMake(0, 0)

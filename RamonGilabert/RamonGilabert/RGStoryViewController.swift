@@ -72,10 +72,8 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
             self.backgroundImageView.frame = backgroundImageViewFrame
         } else if arrayOfSubviews.containsObject(self.backgroundImageView) {
             self.backgroundImageView.removeFromSuperview()
-            self.backgroundImageView.frame.origin = CGPointMake(0, 0)
+            self.backgroundImageView.frame = CGRectMake(0, 0, Constant.Size.DeviceWidth, 90)
             self.view.addSubview(self.backgroundImageView)
         }
     }
-
-    
 }

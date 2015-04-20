@@ -4,9 +4,10 @@ struct TableViewConstants {
     static let Identifier = "CellID"
 }
 
-class RGStoryViewController: UITableViewController, UIScrollViewDelegate {
+class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
 
     let viewModel = ViewModel()
+    let tableView = UITableView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight))
     var blurView = UIVisualEffectView()
     var backgroundImageView = UIImageView()
     var scrollView = UIScrollView()
@@ -24,16 +25,19 @@ class RGStoryViewController: UITableViewController, UIScrollViewDelegate {
 
         self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: TableViewConstants.Identifier)
         self.tableView.contentInset = UIEdgeInsetsMake(Constant.Size.DeviceHeight, 0, 0, 0)
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.view.addSubview(self.tableView)
         self.tableView.addSubview(backgroundImageView)
     }
 
     // MARK: TableView methods
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 20
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(TableViewConstants.Identifier) as! UITableViewCell
         cell.textLabel?.text = "Sup"
         return cell
@@ -41,23 +45,37 @@ class RGStoryViewController: UITableViewController, UIScrollViewDelegate {
 
     // MARK: ScrollView methods
 
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(scrollView: UIScrollView) {
         let yOffset = scrollView.contentOffset.y
 
         var backgroundImageViewFrame = self.backgroundImageView.frame
 
-        if (yOffset < -Constant.Size.DeviceHeight) {
+        let arrayOfSubviews = self.tableView.subviews as NSArray
+
+        if yOffset < -Constant.Size.DeviceHeight {
             backgroundImageViewFrame.origin.y = yOffset
             backgroundImageViewFrame.size.height = -yOffset
 
             self.backgroundImageView.frame = backgroundImageViewFrame
-        } else {
+        } else if yOffset < -90 {
+
+            if !arrayOfSubviews.containsObject(self.backgroundImageView) {
+                self.backgroundImageView.removeFromSuperview()
+                self.backgroundImageView.frame.origin = CGPointMake(0, 0)
+                self.tableView.addSubview(self.backgroundImageView)
+            }
             self.blurView.alpha = ((yOffset + Constant.Size.DeviceHeight)/Constant.Size.DeviceHeight) * 3
 
             backgroundImageViewFrame.origin.y = 0
             backgroundImageViewFrame.size.height = yOffset
 
             self.backgroundImageView.frame = backgroundImageViewFrame
+        } else if arrayOfSubviews.containsObject(self.backgroundImageView) {
+            self.backgroundImageView.removeFromSuperview()
+            self.backgroundImageView.frame.origin = CGPointMake(0, 0)
+            self.view.addSubview(self.backgroundImageView)
         }
     }
+
+    
 }

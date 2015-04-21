@@ -2,6 +2,8 @@ import UIKit
 
 class RGSkillsCustomTableViewCell: UITableViewCell {
 
+    let viewModel = ViewModel()
+
     // MARK: Initializers
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -64,20 +66,20 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
         return label
     }()
 
-    let labelExplanation: UILabel = {
+    let separatorView: UIView = {
+        let view = UIView(frame: CGRectMake(Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.MinimumPadding - 0.5, Constant.Size.DeviceWidth - (Constant.TableViewSkillVariables.MinimumPadding * 2), 1))
+        view.backgroundColor = UIColor_WWDC.skillsColor()
+
+        return view
+    }()
+
+    var labelExplanation: UILabel = {
         let label = UILabel(frame: CGRectMake(Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.MinimumPadding/1.5, Constant.Size.DeviceWidth - (Constant.TableViewSkillVariables.MinimumPadding * 2), 0))
         label.font = UIFont_WWDC.explanationInSkills()
         label.textColor = UIColor_WWDC.skillsColor()
         label.numberOfLines = 0
 
         return label
-    }()
-
-    let separatorView: UIView = {
-        let view = UIView(frame: CGRectMake(Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.MinimumPadding - 0.5, Constant.Size.DeviceWidth - (Constant.TableViewSkillVariables.MinimumPadding * 2), 1))
-        view.backgroundColor = UIColor_WWDC.skillsColor()
-
-        return view
     }()
 
     // MARK: Layout methods
@@ -112,11 +114,7 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
     }
 
     func addExplanation(text: String) {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = Constant.TableViewSkillVariables.LineSpacingStory
-        
-        self.labelExplanation.attributedText = NSAttributedString(string: text, attributes: [NSParagraphStyleAttributeName : paragraphStyle])
-        self.labelExplanation.sizeToFit()
+        self.labelExplanation = self.viewModel.setAttributedLabelInExplanation(text)
 
         self.contentView.addSubview(self.labelExplanation)
     }

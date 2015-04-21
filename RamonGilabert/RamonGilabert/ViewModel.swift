@@ -233,4 +233,18 @@ class ViewModel: NSObject {
 
         return imageView
     }
+
+    func setAttributedLabelInExplanation(text: String) -> UILabel {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = Constant.TableViewSkillVariables.LineSpacingStory
+
+        let label = UILabel(frame: CGRectMake(Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.MinimumPadding/1.5, Constant.Size.DeviceWidth - (Constant.TableViewSkillVariables.MinimumPadding * 2), 0))
+        label.textColor = UIColor_WWDC.skillsColor()
+        label.font = UIFont_WWDC.explanationInSkills()
+        label.numberOfLines = 0
+        label.attributedText = NSAttributedString(string: text, attributes: [NSParagraphStyleAttributeName : paragraphStyle])
+        label.sizeToFit()
+
+        return label
+    }
 }

@@ -51,7 +51,7 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.row == 6 {
             return 200 as CGFloat
         } else if indexPath.row == 4 {
-            return 200 as CGFloat
+            return self.viewModel.setAttributedLabelInExplanation(Skills.ArrayWithSkills[indexPath.row] as! String).frame.height + Constant.TableViewSkillVariables.MinimumPadding/1.5
         } else if indexPath.row == 3 || indexPath.row == 5 {
             return Constant.TableViewSkillVariables.MinimumPadding as CGFloat
         } else {

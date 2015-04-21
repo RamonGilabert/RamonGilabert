@@ -35,7 +35,7 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
     }()
 
     let labelSkillLeft: UILabel = {
-        let label = UILabel(frame: CGRectMake(0, (Constant.TableViewSkillVariables.MinimumPadding * 2) + Constant.TableViewSkillVariables.SizeOfGraph, Constant.Size.DeviceWidth/2, Constant.TableViewSkillVariables.MinimumPadding * 1.5))
+        let label = UILabel(frame: CGRectMake(0, Constant.TableViewSkillVariables.MinimumPadding*1.25 + Constant.TableViewSkillVariables.SizeOfGraph, Constant.Size.DeviceWidth/2, Constant.TableViewSkillVariables.MinimumPadding * 1.5))
         label.textAlignment = NSTextAlignment.Center
         label.textColor = UIColor_WWDC.skillsColor()
         label.font = UIFont_WWDC.skillInSkills()
@@ -50,7 +50,7 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
     }()
 
     let labelSkillRight: UILabel = {
-        let label = UILabel(frame: CGRectMake(0, (Constant.TableViewSkillVariables.MinimumPadding * 2) + Constant.TableViewSkillVariables.SizeOfGraph, Constant.Size.DeviceWidth/2, Constant.TableViewSkillVariables.MinimumPadding * 1.5))
+        let label = UILabel(frame: CGRectMake(Constant.Size.DeviceWidth/2, Constant.TableViewSkillVariables.MinimumPadding*1.25 + Constant.TableViewSkillVariables.SizeOfGraph, Constant.Size.DeviceWidth/2, Constant.TableViewSkillVariables.MinimumPadding * 1.5))
         label.textAlignment = NSTextAlignment.Center
         label.textColor = UIColor_WWDC.skillsColor()
         label.font = UIFont_WWDC.skillInSkills()
@@ -74,17 +74,18 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
         self.leftGraph.endArc = 0 as CGFloat
         self.leftGraph.arcColor = dictionary["leftColor"] as! UIColor
         self.leftGraph.backgroundColor = UIColor.clearColor()
+        self.labelSkillLeft.text = dictionary["leftText"] as? String
 
         let percentage = (dictionary["left"] as! CGFloat) * 100
-
-        self.labelSkillLeft.text = dictionary["leftText"] as? String
 
         self.rightGraph.endArc = 0 as CGFloat
         self.rightGraph.arcColor = dictionary["rightColor"] as! UIColor
         self.rightGraph.backgroundColor = UIColor.clearColor()
+        self.labelSkillRight.text = dictionary["rightText"] as? String
 
         self.contentView.addSubview(self.leftGraph)
         self.contentView.addSubview(self.labelSkillLeft)
         self.contentView.addSubview(self.rightGraph)
+        self.contentView.addSubview(self.labelSkillRight)
     }
 }

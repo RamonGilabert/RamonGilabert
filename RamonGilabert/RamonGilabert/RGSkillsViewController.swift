@@ -62,13 +62,7 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         var cell = cell as! RGSkillsCustomTableViewCell
 
-        if indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 {
-            var dictionary = Skills.ArrayWithSkills[indexPath.row] as! NSDictionary
-
-            asyncUpdateOfViews(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), view: cell.leftGraph, label: cell.labelPercentageLeft, finalValue: dictionary["left"] as! CGFloat)
-            asyncUpdateOfViews(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), view: cell.rightGraph, label: cell.labelPercentageRight, finalValue: dictionary["right"] as! CGFloat)
-
-        } else if indexPath.row == 3 || indexPath.row == 5 {
+        if indexPath.row == 3 || indexPath.row == 5 {
             cell.separatorView.frame.size = CGSizeMake(0, 1)
             UIView.animateWithDuration(0.7, animations: { () -> Void in
                 cell.separatorView.frame.size = CGSizeMake(Constant.Size.DeviceWidth - (Constant.TableViewSkillVariables.MinimumPadding * 2), 1)
@@ -133,18 +127,6 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     // MARK: Helper methods
-
-    func asyncUpdateOfViews(backgroundQueue: dispatch_queue_t, view: UIView_Graph, label: UILabel, finalValue: CGFloat) {
-        dispatch_async(backgroundQueue, {
-            for var i = 0 as CGFloat; i < finalValue; i = i + 0.00002 {
-                let string = String("\(Int(i * 100))%")
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    view.endArc = i
-                    label.text = string
-                })
-            }
-        })
-    }
 
     func removeViewUpdatingOrigin(origin: CGFloat, view: UIView, viewToMove: UIView) {
         viewToMove.removeFromSuperview()

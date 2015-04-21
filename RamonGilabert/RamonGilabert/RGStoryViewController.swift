@@ -11,6 +11,8 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
     var subtitleLabel = UILabel()
     var secondaryLabel = UILabel()
 
+    // MARK: View lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

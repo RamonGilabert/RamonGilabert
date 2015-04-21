@@ -25,10 +25,13 @@ struct Constant {
 
     struct TableViewConstants {
         static let Identifier = "CellID"
-        static let NumberOfRows = 14
         static let MinimumPadding = 15 as CGFloat
         static let HeightOfImages = 400 * Constant.Size.RelationHeights/2 as CGFloat
         static let LineSpacingStory = 10 as CGFloat
+    }
+
+    struct TableViewSkillVariables {
+        static let HeightHeaderView = Constant.Size.DeviceHeight * 0.45
     }
 }
 
@@ -229,5 +232,20 @@ class ViewModel: NSObject {
         label.frame = CGRectMake(label.frame.origin.x, label.frame.origin.y, label.frame.width, label.frame.height)
 
         return label
+    }
+
+    // MARK: Skills layout
+
+    func setSkillTableView(view: UIView, delegate: UITableViewDelegate, dataSource: UITableViewDataSource) -> UITableView {
+        let tableView = UITableView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight))
+        tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: Constant.TableViewConstants.Identifier)
+        tableView.contentInset = UIEdgeInsetsMake(Constant.TableViewSkillVariables.HeightHeaderView, 0, 0, 0)
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        tableView.allowsSelection = false
+        tableView.delegate = delegate
+        tableView.dataSource = dataSource
+        view.addSubview(tableView)
+
+        return tableView
     }
 }

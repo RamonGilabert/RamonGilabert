@@ -73,6 +73,14 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
         return view
     }()
 
+    let bottomImage: UIImageView = {
+        let imageView = UIImageView(frame: CGRectMake(Constant.TableViewSkillVariables.MinimumPadding/2, Constant.TableViewSkillVariables.MinimumPadding/1.5, Constant.Size.DeviceWidth - Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.HeightBottomImage))
+        imageView.contentMode = UIViewContentMode.ScaleAspectFit
+        imageView.clipsToBounds = true
+
+        return imageView
+    }()
+
     var labelExplanation: UILabel = {
         let label = UILabel(frame: CGRectMake(Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.MinimumPadding/1.5, Constant.Size.DeviceWidth - (Constant.TableViewSkillVariables.MinimumPadding * 2), 0))
         label.font = UIFont_WWDC.explanationInSkills()
@@ -117,5 +125,11 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
         self.labelExplanation = self.viewModel.setAttributedLabelInExplanation(text)
 
         self.contentView.addSubview(self.labelExplanation)
+    }
+
+    func addBottomImage(image: String) {
+        self.bottomImage.image = UIImage(named: image)
+        
+        self.contentView.addSubview(self.bottomImage)
     }
 }

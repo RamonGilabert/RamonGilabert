@@ -35,7 +35,7 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
         }
 
         if indexPath.row == 6 {
-
+            cell.addBottomImage(Skills.ArrayWithSkills[indexPath.row] as! String)
         } else if indexPath.row == 4 {
             cell.addExplanation(Skills.ArrayWithSkills[indexPath.row] as! String)
         } else if indexPath.row == 3 || indexPath.row == 5 {
@@ -49,13 +49,13 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == 6 {
-            return 200 as CGFloat
+            return Constant.TableViewSkillVariables.HeightBottomImage + Constant.TableViewSkillVariables.MinimumPadding
         } else if indexPath.row == 4 {
             return self.viewModel.setAttributedLabelInExplanation(Skills.ArrayWithSkills[indexPath.row] as! String).frame.height + Constant.TableViewSkillVariables.MinimumPadding/1.5
         } else if indexPath.row == 3 || indexPath.row == 5 {
             return Constant.TableViewSkillVariables.MinimumPadding as CGFloat
         } else {
-            return 200 as CGFloat
+            return Constant.TableViewSkillVariables.HeightCellGraphs
         }
     }
 

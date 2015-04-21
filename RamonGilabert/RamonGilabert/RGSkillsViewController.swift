@@ -39,11 +39,11 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
         let arrayWithSubviewsTableView = self.tableView.subviews as NSArray
         let arrayWithSubviewsView = self.view.subviews as NSArray
 
-        if yOffset < -Constant.TableViewSkillVariables.HeightHeaderView {
-            var backgroundImageViewFrame = self.imageViewHeader.frame
-            backgroundImageViewFrame.origin.y = yOffset
-            backgroundImageViewFrame.size.height = -yOffset
+        var backgroundImageViewFrame = self.imageViewHeader.frame
+        backgroundImageViewFrame.origin.y = yOffset
+        backgroundImageViewFrame.size.height = -yOffset
 
+        if yOffset < -Constant.TableViewSkillVariables.HeightHeaderView {
             var profileImageViewFrame = self.profileImageView.frame
             profileImageViewFrame.size.height = Constant.TableViewSkillVariables.ProfileImageSize + (-yOffset - Constant.TableViewSkillVariables.HeightHeaderView)/2
             profileImageViewFrame.size.width = profileImageViewFrame.height
@@ -56,10 +56,6 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
 
             self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width/2
         } else if yOffset > -Constant.TableViewSkillVariables.HeightHeaderView {
-            var backgroundImageViewFrame = self.imageViewHeader.frame
-            backgroundImageViewFrame.origin.y = yOffset
-            backgroundImageViewFrame.size.height = -yOffset
-            println(self.profileImageView.frame.height)
             if yOffset > -(self.profileImageView.frame.height + 50)/2 && arrayWithSubviewsTableView.containsObject(self.imageViewHeader) {
                 self.imageViewHeader.removeFromSuperview()
                 self.view.insertSubview(self.imageViewHeader, belowSubview: self.profileImageView)
@@ -88,10 +84,6 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
             }
 
             self.networkImageView.alpha = -yOffset/Constant.TableViewSkillVariables.HeightHeaderView
-
-
-        } else {
-            
         }
     }
 }

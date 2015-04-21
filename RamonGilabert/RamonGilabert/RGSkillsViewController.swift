@@ -5,13 +5,28 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
     let viewModel = ViewModel()
     var tableView = UITableView()
     var scrollView = UIScrollView()
+    var imageViewHeader = UIImageView()
+    var networkImageView = UIImageView()
+    var profileImageView = UIImageView()
 
     // MARK: View lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView = self.viewModel
+        self.tableView = self.viewModel.setSkillTableView(self.view, delegate: self, dataSource: self)
+
+        self.imageViewHeader = UIImageView(frame: CGRectMake(0, -Constant.TableViewSkillVariables.HeightHeaderView, Constant.Size.DeviceWidth, Constant.TableViewSkillVariables.HeightHeaderView))
+        self.imageViewHeader.image = UIImage(named: "header-image-skills")
+        self.imageViewHeader.contentMode = UIViewContentMode.ScaleAspectFill
+        self.imageViewHeader.clipsToBounds = true
+        self.tableView.addSubview(self.imageViewHeader)
+
+        self.networkImageView = UIImageView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.TableViewSkillVariables.HeightHeaderView))
+        self.networkImageView.image = UIImage(named: "network-image-skills")
+        self.networkImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        self.networkImageView.clipsToBounds = true
+        self.imageViewHeader.addSubview(self.networkImageView)
     }
 
     // MARK: TableView methods

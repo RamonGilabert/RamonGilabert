@@ -18,8 +18,6 @@ class RGMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let blurView = self.viewModel.setBlurView(self.view)
-
         instantiateAllButtons()
 
         self.crossButton.addTarget(self, action: "onCrossButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)

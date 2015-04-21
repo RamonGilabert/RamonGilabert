@@ -175,13 +175,18 @@ class ViewModel: NSObject {
         return label
     }
 
-    func setBlurView(view: UIView) -> UIVisualEffectView {
+    func setBlurView() -> UIImageView {
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight)
-        view.addSubview(blurView)
 
-        return blurView
+        let imageView = UIImageView(frame: CGRectMake(0, -Constant.Size.DeviceHeight, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight))
+        imageView.image = UIImage(named: "background-image-menu-simulator")
+        imageView.contentMode = UIViewContentMode.ScaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.addSubview(blurView)
+
+        return imageView
     }
 
     func textLabelInBlogPost(text: String) -> UILabel {

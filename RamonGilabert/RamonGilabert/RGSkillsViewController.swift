@@ -60,11 +60,22 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
             backgroundImageViewFrame.origin.y = yOffset
             backgroundImageViewFrame.size.height = -yOffset
 
-            self.imageViewHeader.frame = backgroundImageViewFrame
-            self.networkImageView.frame = backgroundImageViewFrame
+            if yOffset > -(self.profileImageView.frame.height + 50)/2 && arrayWithSubviewsTableView.containsObject(self.imageViewHeader) {
+                self.imageViewHeader.removeFromSuperview()
+                self.view.insertSubview(self.imageViewHeader, belowSubview: self.profileImageView)
+                self.imageViewHeader.frame.origin = CGPoint(x: 0, y: 0)
+            } else if yOffset < -(self.profileImageView.frame.height + 50)/2 && arrayWithSubviewsView.containsObject(self.imageViewHeader) {
+                self.imageViewHeader.removeFromSuperview()
+                self.imageViewHeader.frame.origin.y = -self.imageViewHeader.frame.height
+                self.tableView.addSubview(self.imageViewHeader)
+                self.imageViewHeader.frame = backgroundImageViewFrame
+                self.networkImageView.frame = backgroundImageViewFrame
+            } else if yOffset < -(self.profileImageView.frame.height + 50)/2 {
+                self.imageViewHeader.frame = backgroundImageViewFrame
+                self.networkImageView.frame = backgroundImageViewFrame
+            }
 
             if yOffset > -(self.profileImageView.frame.height + 50) && arrayWithSubviewsTableView.containsObject(self.profileImageView) {
-                println("Sup")
                 self.profileImageView.removeFromSuperview()
                 self.view.addSubview(self.profileImageView)
                 self.profileImageView.frame.origin.y = 31
@@ -77,6 +88,7 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
             }
 
             self.networkImageView.alpha = -yOffset/Constant.TableViewSkillVariables.HeightHeaderView - 0.25
+            self.networkImageView.bringSubviewToFront(self.view)
         } else {
             
         }

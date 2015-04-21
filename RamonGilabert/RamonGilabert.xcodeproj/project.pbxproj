@@ -22,7 +22,7 @@
 		F6A788B61AE2DCE3001B4B73 /* RGMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A788B51AE2DCE3001B4B73 /* RGMenuViewController.swift */; };
 		F6B93C171AE648920085DB2B /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B93C161AE648920085DB2B /* Structures.swift */; };
 		F6B93C191AE64B6C0085DB2B /* RGSkillsCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B93C181AE64B6C0085DB2B /* RGSkillsCustomTableViewCell.swift */; };
-		F6B93C1B1AE64DA30085DB2B /* GraphManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B93C1A1AE64DA30085DB2B /* GraphManager.swift */; };
+		F6B93C1D1AE651540085DB2B /* UIView+Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B93C1C1AE651540085DB2B /* UIView+Graph.swift */; };
 		F6BE1CE31AE532200046AFDD /* RGStoryCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE1CE21AE532200046AFDD /* RGStoryCustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +56,7 @@
 		F6A788B51AE2DCE3001B4B73 /* RGMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGMenuViewController.swift; sourceTree = "<group>"; };
 		F6B93C161AE648920085DB2B /* Structures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
 		F6B93C181AE64B6C0085DB2B /* RGSkillsCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGSkillsCustomTableViewCell.swift; sourceTree = "<group>"; };
-		F6B93C1A1AE64DA30085DB2B /* GraphManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphManager.swift; sourceTree = "<group>"; };
+		F6B93C1C1AE651540085DB2B /* UIView+Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Graph.swift"; sourceTree = "<group>"; };
 		F6BE1CE21AE532200046AFDD /* RGStoryCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGStoryCustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,7 +153,6 @@
 			children = (
 				F6526E611AE2C775007ACF23 /* ViewModel.swift */,
 				F6B93C161AE648920085DB2B /* Structures.swift */,
-				F6B93C1A1AE64DA30085DB2B /* GraphManager.swift */,
 				F6A323C81AE387AE0026D576 /* CustomControllerTransitions.swift */,
 			);
 			name = Managers;
@@ -162,6 +161,7 @@
 		F6A323CD1AE3EDEA0026D576 /* Override classes */ = {
 			isa = PBXGroup;
 			children = (
+				F6B93C1C1AE651540085DB2B /* UIView+Graph.swift */,
 				F6A323CB1AE3EDDD0026D576 /* UIColor+WWDC.swift */,
 				F6A323CE1AE3F30B0026D576 /* UIFont+WWDC.swift */,
 			);
@@ -282,10 +282,10 @@
 				F6BE1CE31AE532200046AFDD /* RGStoryCustomTableViewCell.swift in Sources */,
 				F6526E621AE2C775007ACF23 /* ViewModel.swift in Sources */,
 				F6A323C91AE387AE0026D576 /* CustomControllerTransitions.swift in Sources */,
-				F6B93C1B1AE64DA30085DB2B /* GraphManager.swift in Sources */,
 				F6526E3E1AE2B956007ACF23 /* AppDelegate.swift in Sources */,
 				F6B93C171AE648920085DB2B /* Structures.swift in Sources */,
 				F6B93C191AE64B6C0085DB2B /* RGSkillsCustomTableViewCell.swift in Sources */,
+				F6B93C1D1AE651540085DB2B /* UIView+Graph.swift in Sources */,
 				F6526E651AE2C996007ACF23 /* RGStoryViewController.swift in Sources */,
 				F6526E691AE2C9CA007ACF23 /* RGSkillsViewController.swift in Sources */,
 				F6A323CC1AE3EDDD0026D576 /* UIColor+WWDC.swift in Sources */,

@@ -1,10 +1,10 @@
 import UIKit
 
-class CircleGraphView: UIView {
-
+class UIView_Graph: UIView {
+    
     var endArc = 0 as CGFloat
-    var arcWidth = 10 as CGFloat
-    var arcColor = UIColor.yellowColor()
+    var arcWidth = 0 as CGFloat
+    var arcColor = UIColor()
 
     override func drawRect(rect: CGRect) {
 
@@ -24,5 +24,4 @@ class CircleGraphView: UIView {
         CGContextAddArc(context, centerPoint.x, centerPoint.y, radius, start, end, 0)
         CGContextStrokePath(context)
     }
-    
 }

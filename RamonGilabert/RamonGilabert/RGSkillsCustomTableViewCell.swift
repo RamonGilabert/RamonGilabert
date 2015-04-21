@@ -13,4 +13,20 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
     }
 
     // MARK: Getters
+
+    let leftGraph: UIView_Graph = {
+        let view = UIView_Graph(frame: CGRectMake(Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.SizeOfGraph, Constant.TableViewSkillVariables.SizeOfGraph))
+        view.arcWidth = Constant.TableViewSkillVariables.SizeOfGraphWidth
+
+        return view
+    }()
+
+    let rightGraph: UIView_Graph = {
+        let view = UIView_Graph(frame: CGRectMake(Constant.Size.DeviceWidth - Constant.TableViewSkillVariables.SizeOfGraph - Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.SizeOfGraph, Constant.TableViewSkillVariables.SizeOfGraph))
+        view.arcWidth = Constant.TableViewSkillVariables.SizeOfGraphWidth
+
+        return view
+    }()
+
+    // MARK: Layout methods
 }

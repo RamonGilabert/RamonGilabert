@@ -32,8 +32,11 @@ struct Constant {
 
     struct TableViewSkillVariables {
         static let Identifier = "CellID"
+        static let MinimumPadding = 15 as CGFloat
         static let HeightHeaderView = Constant.Size.DeviceHeight * 0.45
         static let ProfileImageSize = 130 * Constant.Size.RelationHeights/1.15
+        static let SizeOfGraph = 100 * Constant.Size.RelationHeights
+        static let SizeOfGraphWidth = 15 * Constant.Size.RelationHeights
     }
 }
 

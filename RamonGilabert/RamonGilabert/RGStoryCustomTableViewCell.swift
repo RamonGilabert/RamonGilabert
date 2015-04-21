@@ -45,7 +45,7 @@ class RGStoryCustomTableViewCell: UITableViewCell {
         return label
     }()
 
-    // MARK: Methods to layout
+    // MARK: Layout methods
 
     func addParagraph(text: String) {
         self.textStory = self.viewModel.textLabelInBlogPost(text)

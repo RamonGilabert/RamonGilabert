@@ -31,6 +31,7 @@ struct Constant {
     }
 
     struct TableViewSkillVariables {
+        static let Identifier = "CellID"
         static let HeightHeaderView = Constant.Size.DeviceHeight * 0.45
         static let ProfileImageSize = 130 * Constant.Size.RelationHeights/1.15
     }
@@ -195,7 +196,7 @@ class ViewModel: NSObject {
 
     func setSkillTableView(view: UIView, delegate: UITableViewDelegate, dataSource: UITableViewDataSource) -> UITableView {
         let tableView = UITableView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight))
-        tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: Constant.TableViewConstants.Identifier)
+        tableView.registerClass(RGSkillsCustomTableViewCell.classForCoder(), forCellReuseIdentifier: Constant.TableViewConstants.Identifier)
         tableView.contentInset = UIEdgeInsetsMake(Constant.TableViewSkillVariables.HeightHeaderView, 0, 0, 0)
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.allowsSelection = false

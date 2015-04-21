@@ -8,6 +8,7 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
     var imageViewHeader = UIImageView()
     var networkImageView = UIImageView()
     var profileImageView = UIImageView()
+    var circleGraph = CircleGraphView()
 
     // MARK: View lifecycle
 
@@ -19,16 +20,35 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
         self.imageViewHeader = self.viewModel.setHeaderViewSkills(self.tableView, image: "header-image-skills")
         self.networkImageView = self.viewModel.setHeaderViewSkills(self.tableView, image: "network-image-skills")
         self.profileImageView = self.viewModel.setProfileImageSkills(self.tableView)
+
+        circleGraph.arcWidth = 15
+        circleGraph.endArc = 0.5
+        circleGraph.frame = CGRectMake(0, 0, 100, 100)
+        circleGraph.backgroundColor = UIColor.clearColor()
+        
+        self.view.addSubview(circleGraph)
+
     }
 
     // MARK: TableView methods
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 35
+        return Skills.ArrayWithSkills.count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCellWithIdentifier(Constant.TableViewSkillVariables.Identifier) as! RGSkillsCustomTableViewCell
+
+        if indexPath.row == 6 {
+
+        } else if indexPath.row == 4 {
+
+        } else if indexPath.row == 3 || indexPath.row == 5 {
+
+        } else {
+            
+        }
+
         return cell
     }
 

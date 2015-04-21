@@ -14,4 +14,7 @@ class UIColor_WWDC: NSObject {
         return UIColor(red:0.2, green:0.2, blue:0.2, alpha:1)
     }
 
+    class internal func skillsColor() -> UIColor {
+        return UIColor(red:0.61, green:0.6, blue:0.6, alpha:1)
+    }
 }

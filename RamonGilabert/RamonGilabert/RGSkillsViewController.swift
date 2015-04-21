@@ -69,7 +69,7 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
             let qualityOfServiceClass = QOS_CLASS_BACKGROUND
             let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
             dispatch_async(backgroundQueue, {
-                for var i = 0 as CGFloat; i < dictionary["left"] as! CGFloat; i = i + 0.00001 {
+                for var i = -0.3 as CGFloat; i < dictionary["left"] as! CGFloat; i = i + 0.00001 {
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         cell.leftGraph.endArc = i
                     })
@@ -77,7 +77,7 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
             })
 
             dispatch_async(backgroundQueue, {
-                for var i = 0 as CGFloat; i < dictionary["right"] as! CGFloat; i = i + 0.00001 {
+                for var i = -0.3 as CGFloat; i < dictionary["right"] as! CGFloat; i = i + 0.00001 {
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         cell.rightGraph.endArc = i
                     })

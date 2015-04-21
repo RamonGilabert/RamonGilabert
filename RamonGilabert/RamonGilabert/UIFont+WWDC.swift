@@ -41,4 +41,12 @@ class UIFont_WWDC: NSObject {
         
         return UIFont(name: "Helvetica-Oblique", size: 13 * floor(Constant.Size.RelationHeights))!
     }
+
+    class internal func percentageSkills() -> UIFont {
+        return UIFont(name: "AvenirNextCondensed-Medium", size: 32 * Constant.Size.RelationHeights)!
+    }
+
+    class internal func skillInSkills() -> UIFont {
+        return UIFont(name: "HelveticaNeue", size: 18 * Constant.Size.RelationHeights)!
+    }
 }

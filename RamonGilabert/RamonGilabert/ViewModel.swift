@@ -32,7 +32,7 @@ struct Constant {
 
     struct TableViewSkillVariables {
         static let HeightHeaderView = Constant.Size.DeviceHeight * 0.45
-        static let ProfileImageSize = 115 * Constant.Size.RelationHeights/1.15
+        static let ProfileImageSize = 130 * Constant.Size.RelationHeights/1.15
     }
 }
 

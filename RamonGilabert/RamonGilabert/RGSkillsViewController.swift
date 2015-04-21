@@ -45,7 +45,7 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
             backgroundImageViewFrame.size.height = -yOffset
 
             var profileImageViewFrame = self.profileImageView.frame
-            profileImageViewFrame.size.height = (115 * Constant.Size.RelationHeights/1.15) + (-yOffset - Constant.TableViewSkillVariables.HeightHeaderView)/2
+            profileImageViewFrame.size.height = Constant.TableViewSkillVariables.ProfileImageSize + (-yOffset - Constant.TableViewSkillVariables.HeightHeaderView)/2
             profileImageViewFrame.size.width = profileImageViewFrame.height
             profileImageViewFrame.origin.y = yOffset - (yOffset + profileImageViewFrame.height)/2
             profileImageViewFrame.origin.x = (Constant.Size.DeviceWidth - profileImageViewFrame.size.width)/2

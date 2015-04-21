@@ -92,7 +92,15 @@ class ViewModel: NSObject {
         return button
     }
 
-    // MENU: Story layout
+    func setBlurView() -> UIVisualEffectView {
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight)
+
+        return blurView
+    }
+
+    // MARK: Story layout
 
     func setTitleLabelInView(view: UIView) -> UILabel {
         let label = UILabel(frame: CGRectMake(0, 23, Constant.Size.DeviceWidth, 33))
@@ -175,10 +183,8 @@ class ViewModel: NSObject {
         return label
     }
 
-    func setBlurView() -> UIImageView {
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight)
+    func setFakeBlurView() -> UIImageView {
+        let blurView = setBlurView()
 
         let imageView = UIImageView(frame: CGRectMake(0, -Constant.Size.DeviceHeight, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight))
         imageView.image = UIImage(named: "background-image-menu-simulator")

@@ -17,7 +17,7 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
         super.viewDidLoad()
 
         self.backgroundImageView = self.viewModel.setCoverImageWithGradient()
-        self.blurView = self.viewModel.setBlurView()
+        self.blurView = self.viewModel.setFakeBlurView()
         self.blurView.alpha = 0
 
         self.tableView = self.viewModel.setFullScreenTableView(self.view, delegate: self, dataSource: self)

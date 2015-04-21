@@ -29,4 +29,16 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
     }()
 
     // MARK: Layout methods
+
+    func addGraphsForRow(firstValue: CGFloat, secondValue: CGFloat) {
+        self.leftGraph.endArc = firstValue
+        self.leftGraph.arcColor = UIColor.redColor()
+        self.leftGraph.backgroundColor = UIColor.clearColor()
+        self.rightGraph.endArc = secondValue
+        self.rightGraph.arcColor = UIColor.yellowColor()
+        self.rightGraph.backgroundColor = UIColor.clearColor()
+
+        self.addSubview(self.leftGraph)
+        self.addSubview(self.rightGraph)
+    }
 }

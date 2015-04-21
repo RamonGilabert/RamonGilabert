@@ -60,17 +60,6 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
 
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 {
-            var cell = cell as! RGSkillsCustomTableViewCell
-            let dictionary = Skills.ArrayWithSkills[indexPath.row] as! NSDictionary
-
-            UIView.animateWithDuration(2, animations: { () -> Void in
-                cell.leftGraph.setArcEnd(dictionary["left"] as! CGFloat)
-            })
-        }
-    }
-
     // MARK: ScrollView methods
 
     func scrollViewDidScroll(scrollView: UIScrollView) {

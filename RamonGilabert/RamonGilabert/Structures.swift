@@ -45,11 +45,11 @@ struct Story {
 }
 
 struct Skills {
-    static let One: [String: AnyObject] = ["left": 0.85, "right": 0.95, "leftColor": UIColor(red:0.95, green:0.65, blue:0.21, alpha:1), "rightColor": UIColor(red:0.31, green:0.57, blue:0.87, alpha:1), "leftText": "Swift", "rightText": "Objective C"]
+    static let One: [String: AnyObject] = ["left": 0.85 as CGFloat, "right": 0.95 as CGFloat, "leftColor": UIColor(red:0.95, green:0.65, blue:0.21, alpha:1), "rightColor": UIColor(red:0.31, green:0.57, blue:0.87, alpha:1), "leftText": "Swift", "rightText": "Objective C"]
 
-    static let Two: [String: AnyObject] = ["left": 0.7, "right": 0.85, "leftColor": UIColor(red:0.51, green:0.82, blue:0.2, alpha:1), "rightColor": UIColor(red:0.43, green:0.26, blue:0.93, alpha:1), "leftText": "HTML/CSS", "rightText": "Electronics"]
+    static let Two: [String: AnyObject] = ["left": 0.7 as CGFloat, "right": 0.85 as CGFloat, "leftColor": UIColor(red:0.51, green:0.82, blue:0.2, alpha:1), "rightColor": UIColor(red:0.43, green:0.26, blue:0.93, alpha:1), "leftText": "HTML/CSS", "rightText": "Electronics"]
 
-    static let Three: [String: AnyObject] = ["left": 0.8, "right": 0.85, "leftColor": UIColor(red:0.93, green:0.38, blue:0.46, alpha:1), "rightColor": UIColor(red:0.69, green:0.96, blue:0.4, alpha:1), "leftText": "Design", "rightText": "FramerJS"]
+    static let Three: [String: AnyObject] = ["left": 0.8 as CGFloat, "right": 0.85 as CGFloat, "leftColor": UIColor(red:0.93, green:0.38, blue:0.46, alpha:1), "rightColor": UIColor(red:0.69, green:0.96, blue:0.4, alpha:1), "leftText": "Design", "rightText": "FramerJS"]
 
     static let Four = "Separator"
 

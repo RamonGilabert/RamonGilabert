@@ -24,11 +24,16 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
     // MARK: TableView methods
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Skills.ArrayWithSkills.count
+        //return Skills.ArrayWithSkills.count
+        return 50
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Constant.TableViewSkillVariables.Identifier) as! RGSkillsCustomTableViewCell
+
+        for view in cell.contentView.subviews as! [UIView] {
+            view.removeFromSuperview()
+        }
 
         if indexPath.row == 6 {
 
@@ -36,11 +41,34 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
 
         } else if indexPath.row == 3 || indexPath.row == 5 {
 
-        } else {
-            cell.addGraphsForRow(0.5, secondValue: 0.7)
+        } else if indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 {
+            cell.addGraphsForRow(Skills.ArrayWithSkills[indexPath.row] as! NSDictionary)
         }
 
         return cell
+    }
+
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == 6 {
+            return 200 as CGFloat
+        } else if indexPath.row == 4 {
+            return 200 as CGFloat
+        } else if indexPath.row == 3 || indexPath.row == 5 {
+            return 200 as CGFloat
+        } else {
+            return 200 as CGFloat
+        }
+    }
+
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 {
+            var cell = cell as! RGSkillsCustomTableViewCell
+            let dictionary = Skills.ArrayWithSkills[indexPath.row] as! NSDictionary
+
+            UIView.animateWithDuration(2, animations: { () -> Void in
+                cell.leftGraph.setArcEnd(dictionary["left"] as! CGFloat)
+            })
+        }
     }
 
     // MARK: ScrollView methods

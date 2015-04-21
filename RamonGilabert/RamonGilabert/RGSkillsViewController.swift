@@ -59,15 +59,15 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
             var backgroundImageViewFrame = self.imageViewHeader.frame
             backgroundImageViewFrame.origin.y = yOffset
             backgroundImageViewFrame.size.height = -yOffset
-
+            println(self.profileImageView.frame.height)
             if yOffset > -(self.profileImageView.frame.height + 50)/2 && arrayWithSubviewsTableView.containsObject(self.imageViewHeader) {
                 self.imageViewHeader.removeFromSuperview()
                 self.view.insertSubview(self.imageViewHeader, belowSubview: self.profileImageView)
-                self.imageViewHeader.frame.origin = CGPoint(x: 0, y: 0)
+                self.imageViewHeader.frame = CGRectMake(0, 0, Constant.Size.DeviceWidth, (self.profileImageView.frame.height + 50)/2)
             } else if yOffset < -(self.profileImageView.frame.height + 50)/2 && arrayWithSubviewsView.containsObject(self.imageViewHeader) {
                 self.imageViewHeader.removeFromSuperview()
                 self.imageViewHeader.frame.origin.y = -self.imageViewHeader.frame.height
-                self.tableView.addSubview(self.imageViewHeader)
+                self.tableView.insertSubview(self.imageViewHeader, belowSubview: self.networkImageView)
                 self.imageViewHeader.frame = backgroundImageViewFrame
                 self.networkImageView.frame = backgroundImageViewFrame
             } else if yOffset < -(self.profileImageView.frame.height + 50)/2 {
@@ -87,8 +87,9 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
                 self.profileImageView.frame.origin.y = yOffset - (yOffset + self.profileImageView.frame.height)/2
             }
 
-            self.networkImageView.alpha = -yOffset/Constant.TableViewSkillVariables.HeightHeaderView - 0.25
-            self.networkImageView.bringSubviewToFront(self.view)
+            self.networkImageView.alpha = -yOffset/Constant.TableViewSkillVariables.HeightHeaderView
+
+
         } else {
             
         }

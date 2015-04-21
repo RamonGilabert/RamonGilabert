@@ -60,6 +60,32 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
 
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        var cell = cell as! RGSkillsCustomTableViewCell
+
+        if indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 {
+            var dictionary = Skills.ArrayWithSkills[indexPath.row] as! NSDictionary
+
+            let qualityOfServiceClass = QOS_CLASS_BACKGROUND
+            let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
+            dispatch_async(backgroundQueue, {
+                for var i = 0 as CGFloat; i < dictionary["left"] as! CGFloat; i = i + 0.00001 {
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        cell.leftGraph.endArc = i
+                    })
+                }
+            })
+
+            dispatch_async(backgroundQueue, {
+                for var i = 0 as CGFloat; i < dictionary["right"] as! CGFloat; i = i + 0.00001 {
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        cell.rightGraph.endArc = i
+                    })
+                }
+            })
+        }
+    }
+
     // MARK: ScrollView methods
 
     func scrollViewDidScroll(scrollView: UIScrollView) {

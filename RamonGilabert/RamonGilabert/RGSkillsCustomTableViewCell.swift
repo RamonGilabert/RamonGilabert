@@ -31,10 +31,10 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
     // MARK: Layout methods
 
     func addGraphsForRow(dictionary: NSDictionary) {
-        self.leftGraph.endArc = 0
+        self.leftGraph.endArc = 0 as CGFloat
         self.leftGraph.arcColor = dictionary["leftColor"] as! UIColor
         self.leftGraph.backgroundColor = UIColor.clearColor()
-        self.rightGraph.endArc = dictionary["right"] as! CGFloat
+        self.rightGraph.endArc = 0 as CGFloat
         self.rightGraph.arcColor = dictionary["rightColor"] as! UIColor
         self.rightGraph.backgroundColor = UIColor.clearColor()
 

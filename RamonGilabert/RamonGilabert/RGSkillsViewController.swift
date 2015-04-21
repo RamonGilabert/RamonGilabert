@@ -22,11 +22,21 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
         self.imageViewHeader.clipsToBounds = true
         self.tableView.addSubview(self.imageViewHeader)
 
-        self.networkImageView = UIImageView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.TableViewSkillVariables.HeightHeaderView))
+        self.networkImageView = UIImageView(frame: CGRectMake(0, -Constant.TableViewSkillVariables.HeightHeaderView, Constant.Size.DeviceWidth, Constant.TableViewSkillVariables.HeightHeaderView))
         self.networkImageView.image = UIImage(named: "network-image-skills")
         self.networkImageView.contentMode = UIViewContentMode.ScaleAspectFill
         self.networkImageView.clipsToBounds = true
-        self.imageViewHeader.addSubview(self.networkImageView)
+        self.tableView.addSubview(self.networkImageView)
+
+        self.profileImageView = UIImageView(frame: CGRectMake((Constant.Size.DeviceWidth - (115 * Constant.Size.RelationHeights/1.15))/2, -Constant.TableViewSkillVariables.HeightHeaderView + (Constant.TableViewSkillVariables.HeightHeaderView - (115 * Constant.Size.RelationHeights/1.15))/2, 115 * Constant.Size.RelationHeights/1.15, 115 * Constant.Size.RelationHeights/1.15))
+        self.profileImageView.image = UIImage(named: "profile-image-skills")
+        self.profileImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        self.profileImageView.clipsToBounds = true
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width/2
+        self.profileImageView.layer.borderColor = UIColor(red:0.51, green:0.82, blue:0.2, alpha:1).CGColor
+        self.profileImageView.layer.borderWidth = 4
+        self.tableView.addSubview(self.profileImageView)
+
     }
 
     // MARK: TableView methods
@@ -45,36 +55,23 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let yOffset = scrollView.contentOffset.y
 
-//        if yOffset < -Constant.Size.DeviceHeight {
-//            backgroundImageViewFrame.origin.y = yOffset
-//            backgroundImageViewFrame.size.height = -yOffset
-//
-//            self.backgroundImageView.frame = backgroundImageViewFrame
-//            self.titleLabel.frame.origin.y = (Constant.Size.DeviceHeight - self.titleLabel.frame.height) / 2 - 35
-//            self.subtitleLabel.frame.origin.y = self.titleLabel.frame.origin.y + self.titleLabel.frame.height + 19
-//        } else if yOffset < -Constant.Positioning.HeightOfHeaderStory {
-//            self.titleLabel.frame.origin.y = (self.backgroundImageView.frame.height - self.titleLabel.frame.height) / 2 - 35
-//            self.subtitleLabel.frame.origin.y = self.titleLabel.frame.origin.y + self.titleLabel.frame.height + 19
-//
-//            if !arrayOfSubviews.containsObject(self.backgroundImageView) {
-//                self.backgroundImageView.removeFromSuperview()
-//                self.backgroundImageView.frame.origin = CGPointMake(0, 0)
-//                self.tableView.addSubview(self.backgroundImageView)
-//                animateViews(1)
-//            }
-//            self.blurView.alpha = ((yOffset + Constant.Size.DeviceHeight)/Constant.Size.DeviceHeight) * 3
-//
-//            backgroundImageViewFrame.origin.y = 0
-//            backgroundImageViewFrame.size.height = yOffset
-//
-//            self.backgroundImageView.frame = backgroundImageViewFrame
-//        } else if arrayOfSubviews.containsObject(self.backgroundImageView) && yOffset < 50 {
-//            self.backgroundImageView.removeFromSuperview()
-//            self.backgroundImageView.frame = CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Positioning.HeightOfHeaderStory)
-//            self.view.addSubview(self.backgroundImageView)
-//            self.view.addSubview(self.secondaryLabel)
-//            self.secondaryLabel.transform = CGAffineTransformMakeTranslation(0, -100)
-//            animateViews(0)
-//        }
+        if yOffset < -Constant.TableViewSkillVariables.HeightHeaderView {
+            var backgroundImageViewFrame = self.imageViewHeader.frame
+            backgroundImageViewFrame.origin.y = yOffset
+            backgroundImageViewFrame.size.height = -yOffset
+
+            var profileImageViewFrame = self.profileImageView.frame
+            profileImageViewFrame.size.height = (115 * Constant.Size.RelationHeights/1.15) + (-yOffset - Constant.TableViewSkillVariables.HeightHeaderView)
+            profileImageViewFrame.size.width = profileImageViewFrame.height
+            profileImageViewFrame.origin.y = yOffset - (yOffset + profileImageViewFrame.height)/2
+            println(yOffset)
+            profileImageViewFrame.origin.x = (Constant.Size.DeviceWidth - profileImageViewFrame.size.width)/2
+
+            self.imageViewHeader.frame = backgroundImageViewFrame
+            self.networkImageView.frame = backgroundImageViewFrame
+            self.profileImageView.frame = profileImageViewFrame
+
+            self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width/2
+        }
     }
 }

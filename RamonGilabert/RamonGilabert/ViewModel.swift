@@ -38,6 +38,7 @@ struct Constant {
         static let SizeOfGraph = 110 * Constant.Size.RelationHeights
         static let SizeOfGraphWidth = 20 * Constant.Size.RelationHeights
         static let LineSpacingStory = 7 as CGFloat
+        static let HeightBottomImage = 260 * Constant.Size.RelationHeights
     }
 }
 

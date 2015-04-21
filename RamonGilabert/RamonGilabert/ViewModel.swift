@@ -32,6 +32,7 @@ struct Constant {
 
     struct TableViewSkillVariables {
         static let HeightHeaderView = Constant.Size.DeviceHeight * 0.45
+        static let ProfileImageSize = 115 * Constant.Size.RelationHeights/1.15
     }
 }
 
@@ -247,5 +248,28 @@ class ViewModel: NSObject {
         view.addSubview(tableView)
 
         return tableView
+    }
+
+    func setHeaderViewSkills(view: UIView, image: String) -> UIImageView {
+        let imageView = UIImageView(frame: CGRectMake(0, -Constant.TableViewSkillVariables.HeightHeaderView, Constant.Size.DeviceWidth, Constant.TableViewSkillVariables.HeightHeaderView))
+        imageView.image = UIImage(named: image)
+        imageView.contentMode = UIViewContentMode.ScaleAspectFill
+        imageView.clipsToBounds = true
+        view.addSubview(imageView)
+
+        return imageView
+    }
+
+    func setProfileImageSkills(view: UIView) -> UIImageView {
+        let imageView = UIImageView(frame: CGRectMake((Constant.Size.DeviceWidth - Constant.TableViewSkillVariables.ProfileImageSize)/2, -Constant.TableViewSkillVariables.HeightHeaderView + (Constant.TableViewSkillVariables.HeightHeaderView - Constant.TableViewSkillVariables.ProfileImageSize)/2, Constant.TableViewSkillVariables.ProfileImageSize, Constant.TableViewSkillVariables.ProfileImageSize))
+        imageView.image = UIImage(named: "profile-image-skills")
+        imageView.contentMode = UIViewContentMode.ScaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = imageView.frame.width/2
+        imageView.layer.borderColor = UIColor(red:0.51, green:0.82, blue:0.2, alpha:1).CGColor
+        imageView.layer.borderWidth = 4
+        view.addSubview(imageView)
+
+        return imageView
     }
 }

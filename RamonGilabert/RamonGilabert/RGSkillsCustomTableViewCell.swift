@@ -65,7 +65,10 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
     }()
 
     let labelExplanation: UILabel = {
-        let label = UILabel(frame: CGRectMake(0, 0, 0, 0))
+        let label = UILabel(frame: CGRectMake(Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.MinimumPadding, Constant.Size.DeviceWidth - (Constant.TableViewSkillVariables.MinimumPadding * 2), 0))
+        label.font = UIFont_WWDC.explanationInSkills()
+        label.textColor = UIColor_WWDC.skillsColor()
+        label.numberOfLines = 0
 
         return label
     }()
@@ -106,5 +109,15 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
 
     func addSeparator() {
         self.contentView.addSubview(self.separatorView)
+    }
+
+    func addExplanation(text: String) {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = Constant.TableViewConstants.LineSpacingStory
+        
+        self.labelExplanation.attributedText = NSAttributedString(string: text, attributes: [NSParagraphStyleAttributeName : paragraphStyle])
+        self.labelExplanation.sizeToFit()
+
+        self.contentView.addSubview(self.labelExplanation)
     }
 }

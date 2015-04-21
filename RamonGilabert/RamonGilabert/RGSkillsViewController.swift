@@ -37,7 +37,7 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.row == 6 {
 
         } else if indexPath.row == 4 {
-
+            cell.addExplanation(Skills.ArrayWithSkills[indexPath.row] as! String)
         } else if indexPath.row == 3 || indexPath.row == 5 {
             cell.addSeparator()
         } else if indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 {

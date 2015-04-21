@@ -29,7 +29,10 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
     }()
 
     let labelPercentageLeft: UILabel = {
-        let label = UILabel(frame: CGRectMake(0, (Constant.TableViewSkillVariables.MinimumPadding * 2) + Constant.TableViewSkillVariables.SizeOfGraph, Constant.Size.DeviceWidth/2, Constant.TableViewSkillVariables.MinimumPadding * 1.5))
+        let label = UILabel(frame: CGRectMake(Constant.TableViewSkillVariables.MinimumPadding + Constant.TableViewSkillVariables.SizeOfGraphWidth, Constant.TableViewSkillVariables.MinimumPadding + Constant.TableViewSkillVariables.SizeOfGraphWidth, Constant.TableViewSkillVariables.SizeOfGraph - (Constant.TableViewSkillVariables.SizeOfGraphWidth * 2), Constant.TableViewSkillVariables.SizeOfGraph - (Constant.TableViewSkillVariables.SizeOfGraphWidth * 2)))
+        label.textAlignment = NSTextAlignment.Center
+        label.textColor = UIColor_WWDC.skillsColor()
+        label.font = UIFont_WWDC.percentageSkills()
 
         return label
     }()
@@ -44,7 +47,10 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
     }()
 
     let labelPercentageRight: UILabel = {
-        let label = UILabel(frame: CGRectMake(Constant.Size.DeviceWidth/2, (Constant.TableViewSkillVariables.MinimumPadding * 2) + Constant.TableViewSkillVariables.SizeOfGraph, Constant.Size.DeviceWidth/2, Constant.TableViewSkillVariables.MinimumPadding * 1.5))
+        let label = UILabel(frame: CGRectMake(Constant.TableViewSkillVariables.MinimumPadding + Constant.TableViewSkillVariables.SizeOfGraphWidth + Constant.Size.DeviceWidth/2, Constant.TableViewSkillVariables.MinimumPadding + Constant.TableViewSkillVariables.SizeOfGraphWidth, Constant.TableViewSkillVariables.SizeOfGraph - (Constant.TableViewSkillVariables.SizeOfGraphWidth * 2), Constant.TableViewSkillVariables.SizeOfGraph - (Constant.TableViewSkillVariables.SizeOfGraphWidth * 2)))
+        label.textAlignment = NSTextAlignment.Center
+        label.textColor = UIColor_WWDC.skillsColor()
+        label.font = UIFont_WWDC.percentageSkills()
 
         return label
     }()
@@ -71,21 +77,27 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
     // MARK: Layout methods
 
     func addGraphsForRow(dictionary: NSDictionary) {
-        self.leftGraph.endArc = 0 as CGFloat
+        self.leftGraph.endArc = dictionary["left"] as! CGFloat
         self.leftGraph.arcColor = dictionary["leftColor"] as! UIColor
         self.leftGraph.backgroundColor = UIColor.clearColor()
         self.labelSkillLeft.text = dictionary["leftText"] as? String
 
-        let percentage = (dictionary["left"] as! CGFloat) * 100
+        let percentageLeft = Int((dictionary["left"] as! CGFloat) * 100)
+        self.labelPercentageLeft.text = String("\(percentageLeft)%")
 
-        self.rightGraph.endArc = 0 as CGFloat
+        self.rightGraph.endArc = dictionary["right"] as! CGFloat
         self.rightGraph.arcColor = dictionary["rightColor"] as! UIColor
         self.rightGraph.backgroundColor = UIColor.clearColor()
         self.labelSkillRight.text = dictionary["rightText"] as? String
 
+        let percentageRight = Int((dictionary["right"] as! CGFloat) * 100)
+        self.labelPercentageRight.text = String("\(percentageRight)%")
+
         self.contentView.addSubview(self.leftGraph)
         self.contentView.addSubview(self.labelSkillLeft)
+        self.contentView.addSubview(self.labelPercentageLeft)
         self.contentView.addSubview(self.rightGraph)
         self.contentView.addSubview(self.labelSkillRight)
+        self.contentView.addSubview(self.labelPercentageRight)
     }
 }

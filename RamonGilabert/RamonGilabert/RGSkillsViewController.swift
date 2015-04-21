@@ -64,10 +64,14 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
         var cell = cell as! RGSkillsCustomTableViewCell
 
         if indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 {
-            var dictionary = Skills.ArrayWithSkills[indexPath.row] as! NSDictionary
 
+            var dictionary = Skills.ArrayWithSkills[indexPath.row] as! NSDictionary
             let qualityOfServiceClass = QOS_CLASS_BACKGROUND
             let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
+
+            cell.leftGraph.endArc = 0
+            cell.rightGraph.endArc = 0
+
             dispatch_async(backgroundQueue, {
                 for var i = -0.3 as CGFloat; i < dictionary["left"] as! CGFloat; i = i + 0.00001 {
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in

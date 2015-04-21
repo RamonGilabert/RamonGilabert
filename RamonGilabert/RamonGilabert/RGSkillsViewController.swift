@@ -64,28 +64,10 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
 
         if indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 {
             var dictionary = Skills.ArrayWithSkills[indexPath.row] as! NSDictionary
-            let qualityOfServiceClass = QOS_CLASS_BACKGROUND
-            let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
 
-            dispatch_async(backgroundQueue, {
-                for var i = 0 as CGFloat; i < dictionary["left"] as! CGFloat; i = i + 0.00002 {
-                    let string = String("\(Int(i * 100))%")
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        cell.leftGraph.endArc = i
-                        cell.labelPercentageLeft.text = string
-                    })
-                }
-            })
+            asyncUpdateOfViews(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), view: cell.leftGraph, label: cell.labelPercentageLeft, finalValue: dictionary["left"] as! CGFloat)
+            asyncUpdateOfViews(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), view: cell.rightGraph, label: cell.labelPercentageRight, finalValue: dictionary["right"] as! CGFloat)
 
-            dispatch_async(backgroundQueue, {
-                for var i = 0 as CGFloat; i < dictionary["right"] as! CGFloat; i = i + 0.00002 {
-                    let string = String("\(Int(i * 100))%")
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        cell.rightGraph.endArc = i
-                        cell.labelPercentageRight.text = string
-                    })
-                }
-            })
         } else if indexPath.row == 3 || indexPath.row == 5 {
             cell.separatorView.frame.size = CGSizeMake(0, 1)
             UIView.animateWithDuration(0.7, animations: { () -> Void in
@@ -139,18 +121,34 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
             }
 
             if yOffset > -(self.profileImageView.frame.height + 50) && arrayWithSubviewsTableView.containsObject(self.profileImageView) {
-                self.profileImageView.removeFromSuperview()
-                self.view.addSubview(self.profileImageView)
-                self.profileImageView.frame.origin.y = 31
+                removeViewUpdatingOrigin(31, view: self.view, viewToMove: self.profileImageView)
             } else if yOffset < -(self.profileImageView.frame.height + 50) && arrayWithSubviewsView.containsObject(self.profileImageView) {
-                self.profileImageView.removeFromSuperview()
-                self.profileImageView.frame.origin.y = yOffset - (yOffset + self.profileImageView.frame.height)/2
-                self.tableView.addSubview(self.profileImageView)
+                removeViewUpdatingOrigin(yOffset - (yOffset + self.profileImageView.frame.height)/2, view: self.tableView, viewToMove: self.profileImageView)
             } else if yOffset < -(self.profileImageView.frame.height + 50) {
                 self.profileImageView.frame.origin.y = yOffset - (yOffset + self.profileImageView.frame.height)/2
             }
 
             self.networkImageView.alpha = -yOffset/Constant.TableViewSkillVariables.HeightHeaderView
         }
+    }
+
+    // MARK: Helper methods
+
+    func asyncUpdateOfViews(backgroundQueue: dispatch_queue_t, view: UIView_Graph, label: UILabel, finalValue: CGFloat) {
+        dispatch_async(backgroundQueue, {
+            for var i = 0 as CGFloat; i < finalValue; i = i + 0.00002 {
+                let string = String("\(Int(i * 100))%")
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    view.endArc = i
+                    label.text = string
+                })
+            }
+        })
+    }
+
+    func removeViewUpdatingOrigin(origin: CGFloat, view: UIView, viewToMove: UIView) {
+        viewToMove.removeFromSuperview()
+        viewToMove.frame.origin.y = origin
+        view.addSubview(viewToMove)
     }
 }

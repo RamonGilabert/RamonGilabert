@@ -68,7 +68,7 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
             let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
 
             dispatch_async(backgroundQueue, {
-                for var i = 0 as CGFloat; i < dictionary["left"] as! CGFloat; i = i + 0.000015 {
+                for var i = 0 as CGFloat; i < dictionary["left"] as! CGFloat; i = i + 0.00002 {
                     let string = String("\(Int(i * 100))%")
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         cell.leftGraph.endArc = i
@@ -78,13 +78,23 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
             })
 
             dispatch_async(backgroundQueue, {
-                for var i = 0 as CGFloat; i < dictionary["right"] as! CGFloat; i = i + 0.000015 {
+                for var i = 0 as CGFloat; i < dictionary["right"] as! CGFloat; i = i + 0.00002 {
                     let string = String("\(Int(i * 100))%")
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         cell.rightGraph.endArc = i
                         cell.labelPercentageRight.text = string
                     })
                 }
+            })
+        } else if indexPath.row == 3 || indexPath.row == 5 {
+            cell.separatorView.frame.size = CGSizeMake(0, 1)
+            UIView.animateWithDuration(0.7, animations: { () -> Void in
+                cell.separatorView.frame.size = CGSizeMake(Constant.Size.DeviceWidth - (Constant.TableViewSkillVariables.MinimumPadding * 2), 1)
+            })
+        } else if indexPath.row == 6 {
+            cell.bottomImage.transform = CGAffineTransformMakeScale(0.5, 0.5)
+            UIView.animateWithDuration(0.7, animations: { () -> Void in
+                cell.bottomImage.transform = CGAffineTransformIdentity
             })
         }
     }

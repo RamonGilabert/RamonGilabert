@@ -49,7 +49,7 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
     }()
 
     let labelPercentageRight: UILabel = {
-        let label = UILabel(frame: CGRectMake(Constant.TableViewSkillVariables.MinimumPadding + Constant.TableViewSkillVariables.SizeOfGraphWidth + Constant.Size.DeviceWidth/2, Constant.TableViewSkillVariables.MinimumPadding + Constant.TableViewSkillVariables.SizeOfGraphWidth, Constant.TableViewSkillVariables.SizeOfGraph - (Constant.TableViewSkillVariables.SizeOfGraphWidth * 2), Constant.TableViewSkillVariables.SizeOfGraph - (Constant.TableViewSkillVariables.SizeOfGraphWidth * 2)))
+        let label = UILabel(frame: CGRectMake(Constant.Size.DeviceWidth - Constant.TableViewSkillVariables.SizeOfGraph - Constant.TableViewSkillVariables.MinimumPadding + Constant.TableViewSkillVariables.SizeOfGraphWidth, Constant.TableViewSkillVariables.MinimumPadding + Constant.TableViewSkillVariables.SizeOfGraphWidth, Constant.TableViewSkillVariables.SizeOfGraph - (Constant.TableViewSkillVariables.SizeOfGraphWidth * 2), Constant.TableViewSkillVariables.SizeOfGraph - (Constant.TableViewSkillVariables.SizeOfGraphWidth * 2)))
         label.textAlignment = NSTextAlignment.Center
         label.textColor = UIColor_WWDC.skillsColor()
         label.font = UIFont_WWDC.percentageSkills()

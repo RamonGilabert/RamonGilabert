@@ -43,7 +43,7 @@ class UIFont_WWDC: NSObject {
     }
 
     class internal func percentageSkills() -> UIFont {
-        return UIFont(name: "AvenirNextCondensed-Medium", size: 30 * Constant.Size.RelationHeights)!
+        return UIFont(name: "AvenirNextCondensed-Medium", size: 30 * Constant.Size.RelationHeights * 1.15)!
     }
 
     class internal func skillInSkills() -> UIFont {

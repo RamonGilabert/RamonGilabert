@@ -35,9 +35,9 @@ struct Constant {
         static let MinimumPadding = 25 as CGFloat
         static let HeightHeaderView = Constant.Size.DeviceHeight * 0.45
         static let ProfileImageSize = 130 * Constant.Size.RelationHeights/1.15
-        static let SizeOfGraph = 110 * Constant.Size.RelationHeights
-        static let SizeOfGraphWidth = 20 * Constant.Size.RelationHeights
-        static let HeightCellGraphs = 200 as CGFloat
+        static let SizeOfGraph = 110 * Constant.Size.RelationHeights*1.15
+        static let SizeOfGraphWidth = 18 * Constant.Size.RelationHeights*1.15
+        static let HeightCellGraphs = 200 * Constant.Size.RelationHeights
         static let LineSpacingStory = 7 as CGFloat
         static let HeightBottomImage = 260 * Constant.Size.RelationHeights
     }

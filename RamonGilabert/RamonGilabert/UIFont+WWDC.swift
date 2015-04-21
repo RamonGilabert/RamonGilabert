@@ -52,9 +52,9 @@ class UIFont_WWDC: NSObject {
 
     class internal func explanationInSkills() -> UIFont {
         if floor(Constant.Size.RelationHeights) == 0 {
-            return UIFont(name: "AvenirNext-Regular", size: 16 * 1.15)!
+            return UIFont(name: "AvenirNext-Regular", size: 17 * 1.15)!
         }
 
-        return UIFont(name: "AvenirNext-Regular", size: 16 * floor(Constant.Size.RelationHeights) * 1.15)!
+        return UIFont(name: "AvenirNext-Regular", size: 17 * floor(Constant.Size.RelationHeights) * 1.15)!
     }
 }

@@ -53,7 +53,7 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
         } else if indexPath.row == 4 {
             return 200 as CGFloat
         } else if indexPath.row == 3 || indexPath.row == 5 {
-            return (Constant.TableViewSkillVariables.MinimumPadding * 2) as CGFloat
+            return Constant.TableViewSkillVariables.MinimumPadding as CGFloat
         } else {
             return 200 as CGFloat
         }

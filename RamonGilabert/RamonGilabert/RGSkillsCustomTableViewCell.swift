@@ -65,7 +65,7 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
     }()
 
     let labelExplanation: UILabel = {
-        let label = UILabel(frame: CGRectMake(Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.MinimumPadding, Constant.Size.DeviceWidth - (Constant.TableViewSkillVariables.MinimumPadding * 2), 0))
+        let label = UILabel(frame: CGRectMake(Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.MinimumPadding/1.5, Constant.Size.DeviceWidth - (Constant.TableViewSkillVariables.MinimumPadding * 2), 0))
         label.font = UIFont_WWDC.explanationInSkills()
         label.textColor = UIColor_WWDC.skillsColor()
         label.numberOfLines = 0
@@ -113,7 +113,7 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
 
     func addExplanation(text: String) {
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = Constant.TableViewConstants.LineSpacingStory
+        paragraphStyle.lineSpacing = Constant.TableViewSkillVariables.LineSpacingStory
         
         self.labelExplanation.attributedText = NSAttributedString(string: text, attributes: [NSParagraphStyleAttributeName : paragraphStyle])
         self.labelExplanation.sizeToFit()

@@ -289,10 +289,34 @@ class ViewModel: NSObject {
     }
 
     func setMainView(view: UIView) -> UIView {
-        let viewToAdd = UIView(frame: CGRectMake(Constant.ProjectsViewPositioning.MinimumPaddingInsideView, Constant.ProjectsViewPositioning.YPositionMainView, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightOfMainView))
+        let blurView = setBlurView()
+        blurView.frame = CGRectMake(0, 0, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightBlurView)
 
+        let viewToAdd = UIView(frame: CGRectMake(Constant.ProjectsViewPositioning.MinimumPaddingInsideView, Constant.ProjectsViewPositioning.YPositionMainView, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightOfMainView))
+        viewToAdd.clipsToBounds = true
+
+        viewToAdd.addSubview(blurView)
         view.addSubview(viewToAdd)
 
         return view
+    }
+
+    func setTitleProject(view: UIView) -> UILabel {
+        let label = UILabel(frame: CGRectMake(0, 0, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightBlurView/3))
+        label.textAlignment = NSTextAlignment.Center
+        label.textColor = UIColor.whiteColor()
+        
+    }
+
+    func setSubtitleProject(view: UIView) -> UILabel {
+
+    }
+
+    func setImageViewProject(view: UIView) -> UILabel {
+
+    }
+
+    func setExplanationProject(view: UIView) -> UILabel {
+
     }
 }

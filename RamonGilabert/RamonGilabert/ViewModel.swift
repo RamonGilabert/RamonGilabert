@@ -43,9 +43,9 @@ struct Constant {
     }
 
     struct ProjectsViewPositioning {
-        static let MinimumPaddingView = 20 as CGFloat
+        static let MinimumPaddingView = 30 as CGFloat
         static let WidthOfMainView = Constant.Size.DeviceWidth - (Constant.ProjectsViewPositioning.MinimumPaddingView * 2)
-        static let HeightOfMainView = Constant.Size.DeviceHeight - 100
+        static let HeightOfMainView = Constant.Size.DeviceHeight - 150
         static let YPositionMainView = (Constant.Size.DeviceHeight - Constant.ProjectsViewPositioning.HeightOfMainView) / 2
         static let HeightImageViewProject = Constant.ProjectsViewPositioning.HeightOfMainView / 2
         static let MinimumPaddingInsideView = 20 as CGFloat
@@ -277,25 +277,27 @@ class ViewModel: NSObject {
     // MARK: Projects layout
 
     func setBackgroundProjects(view: UIView) -> UIImageView {
-        let blurView = setBlurView()
+        //let blurView = setBlurView()
 
         let imageView = UIImageView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight))
         imageView.contentMode = UIViewContentMode.ScaleAspectFill
         imageView.clipsToBounds = true
 
-        imageView.addSubview(blurView)
+        //imageView.addSubview(blurView)
         view.addSubview(imageView)
 
         return imageView
     }
 
     func setMainView(view: UIView) -> UIView {
-        let blurView = setBlurView()
-        blurView.frame = CGRectMake(0, 0, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightBlurView)
+        let blurView = UIView(frame: CGRectMake(0, 0, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightBlurView))
+        blurView.backgroundColor = UIColor_WWDC.almostBlackColor()
+        blurView.alpha = 0.7
 
-        let viewToAdd = UIView(frame: CGRectMake(Constant.ProjectsViewPositioning.MinimumPaddingInsideView, Constant.ProjectsViewPositioning.YPositionMainView, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightOfMainView))
+        let viewToAdd = UIView(frame: CGRectMake(Constant.ProjectsViewPositioning.MinimumPaddingView, Constant.ProjectsViewPositioning.YPositionMainView, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightOfMainView))
         viewToAdd.clipsToBounds = true
         viewToAdd.layer.cornerRadius = 7
+        viewToAdd.backgroundColor = UIColor_WWDC.titleProjectsColor()
 
         viewToAdd.addSubview(blurView)
         view.addSubview(viewToAdd)

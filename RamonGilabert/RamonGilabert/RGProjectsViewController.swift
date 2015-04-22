@@ -5,7 +5,7 @@ class RGProjectsViewController: UIViewController {
     let viewModel = ViewModel()
     let arrayWithProjects = Projects.ArrayWithProjects
     var scrollView = UIScrollView()
-    var mainView = UIView()
+    var mainView = UIView_Projects()
     var backgroundImageView = UIImageView()
 
     // MARK: View lifecycle
@@ -23,6 +23,7 @@ class RGProjectsViewController: UIViewController {
 
     func prepareCards() {
         let dictionary = self.arrayWithProjects[0] as NSDictionary
+        
         self.backgroundImageView.image = UIImage(named: dictionary["image"] as! String)
     }
 }

@@ -41,6 +41,19 @@ struct Constant {
         static let LineSpacingStory = 7 as CGFloat
         static let HeightBottomImage = 260 * Constant.Size.RelationHeights
     }
+
+    struct ProjectsViewPositioning {
+        static let MinimumPaddingView = 20 as CGFloat
+        static let WidthOfMainView = Constant.Size.DeviceWidth - (Constant.ProjectsViewPositioning.MinimumPaddingView * 2)
+        static let HeightOfMainView = Constant.Size.DeviceHeight - 100
+        static let YPositionMainView = (Constant.Size.DeviceHeight - Constant.ProjectsViewPositioning.HeightOfMainView) / 2
+        static let HeightImageViewProject = Constant.ProjectsViewPositioning.HeightOfMainView / 2
+        static let MinimumPaddingInsideView = 20 as CGFloat
+        static let WidthLabelInside = Constant.ProjectsViewPositioning.WidthOfMainView - (Constant.ProjectsViewPositioning.MinimumPaddingInsideView * 2)
+        static let HeightLabelsInside = Constant.ProjectsViewPositioning.HeightOfMainView - Constant.ProjectsViewPositioning.HeightImageViewProject - (Constant.ProjectsViewPositioning.MinimumPaddingInsideView * 2)
+        static let WidthBlurView = Constant.ProjectsViewPositioning.WidthOfMainView
+        static let HeightBlurView = Constant.ProjectsViewPositioning.HeightImageViewProject / 4
+    }
 }
 
 class ViewModel: NSObject {
@@ -259,5 +272,11 @@ class ViewModel: NSObject {
         label.sizeToFit()
 
         return label
+    }
+
+    // MARK: Projects layout
+
+    func setMainView(view: UIView) -> UIView {
+        let view = UIView(frame: CGRectMake(0, 0, 0, 0))
     }
 }

@@ -63,7 +63,21 @@ struct Skills {
 }
 
 struct Projects {
-    static let One: [String: AnyObject] = ["title": "Linx", "position": "iOS development and design", "image": "linx-app-image", "text": ""]
+    static let Linx: [String: AnyObject] = ["title": "Linx", "position": "iOS development and design", "image": "linx-app-image", "text": "Linx was the first big project I did and my main project after finishing my trining in Chicago. This was a social app to connect with people around using multipeer connectivity and geofencing."]
+
+    static let Ono: [String: AnyObject] = ["title": "ONO", "position": "iOS development and design", "image": "ono-app-image", "text": "ONO was an app to record a voice message and send it to your friends. Send friend requests, update your profile, etc. A real social network."]
+
+    static let Framer: [String: AnyObject] = ["title": "FramerJS", "position": "CoffeeScript development", "image": "framer-js-image", "text": "I tried FramerJS first this year, a prototype by code app, I didn't know about CoffeeScript, but I started to learn it, doing things like the first video of the app!"]
+
+    static let Web: [String: AnyObject] = ["title": "Web", "position": "Web development and design", "image": "web-image", "text": "Web was the first thing I wanted to learn since I was a kid, thank's to some tutorials and lots of passion, I released my main web, my main project, my portfolio."]
+
+    static let Dribbble: [String: AnyObject] = ["title": "Dribbble", "position": "Design", "image": "dribbble-image", "text": "Dribbble, the place where I wanted to show my designs, inspire other people as they were doing to me in my designs, being able to enter to that community was amazing."]
+
+    static let OpenSource: [String: AnyObject] = ["title": "Open source", "position": "iOS development", "image": "open-source-app-image", "text": "Two months ago I started to contribute to some cool open source projects to help other people in their projects, also, I'll open source various parts of this app, and the app itself!"]
+
+    static let Tutorials: [String: AnyObject] = ["title": "Tutorials", "position": "Development and design", "image": "tutorials-image", "text": "As in the open source part, I like to show what I know as they have done to me, I've done a tutorial in FramerJS, and the Swift ones are coming!"]
+
+    static let ArrayWithProjects = [Projects.Linx, Projects.Ono, Projects.Framer, Projects.Web, Projects.Dribbble, Projects.OpenSource, Projects.Tutorials]
 }
 
 class Structures: NSObject {

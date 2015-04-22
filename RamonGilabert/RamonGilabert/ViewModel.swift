@@ -45,16 +45,16 @@ struct Constant {
     struct ProjectsViewPositioning {
         static let MinimumPaddingView = 30 as CGFloat
         static let WidthOfMainView = Constant.Size.DeviceWidth - (Constant.ProjectsViewPositioning.MinimumPaddingView * 2)
-        static let HeightOfMainView = Constant.Size.DeviceHeight - 200
+        static let HeightOfMainView = Constant.Size.DeviceHeight - (140 * Constant.Size.RelationHeights)
         static let YPositionMainView = (Constant.Size.DeviceHeight - Constant.ProjectsViewPositioning.HeightOfMainView) / 2
-        static let HeightImageViewProject = Constant.ProjectsViewPositioning.HeightOfMainView / 1.7
-        static let MinimumPaddingInsideView = 20 as CGFloat
+        static let HeightImageViewProject = Constant.ProjectsViewPositioning.HeightOfMainView / 1.65
+        static let MinimumPaddingInsideView = 15 * Constant.Size.RelationHeights
         static let YPositionLabelExplanation = Constant.ProjectsViewPositioning.HeightImageViewProject + Constant.ProjectsViewPositioning.MinimumPaddingInsideView/2
         static let WidthLabelInside = Constant.ProjectsViewPositioning.WidthOfMainView - (Constant.ProjectsViewPositioning.MinimumPaddingInsideView * 2)
-        static let HeightLabelsInside = Constant.ProjectsViewPositioning.HeightOfMainView - Constant.ProjectsViewPositioning.HeightImageViewProject - Constant.ProjectsViewPositioning.MinimumPaddingInsideView
+        static let HeightLabelsInside = Constant.ProjectsViewPositioning.HeightOfMainView - Constant.ProjectsViewPositioning.HeightImageViewProject - (Constant.ProjectsViewPositioning.MinimumPaddingInsideView * (1.5))
         static let WidthBlurView = Constant.ProjectsViewPositioning.WidthOfMainView
         static let HeightBlurView = Constant.ProjectsViewPositioning.HeightImageViewProject / 4.2
-        static let LineSpacingStory = 5 as CGFloat
+        static let LineSpacingStory = 6 * Constant.Size.RelationHeights
     }
 }
 
@@ -301,7 +301,7 @@ class ViewModel: NSObject {
     }
 
     func setTitleProject(view: UIView, text: String) -> UILabel {
-        let label = UILabel(frame: CGRectMake(0, 0, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightBlurView/3))
+        let label = UILabel(frame: CGRectMake(0, Constant.ProjectsViewPositioning.HeightBlurView/6, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightBlurView/3))
         label.textAlignment = NSTextAlignment.Center
         label.textColor = UIColor_WWDC.titleProjectsColor()
         label.font = UIFont_WWDC.titleInProjects()
@@ -313,7 +313,7 @@ class ViewModel: NSObject {
     }
 
     func setSubtitleProject(view: UIView, text: String) -> UILabel {
-        let label = UILabel(frame: CGRectMake(0, Constant.ProjectsViewPositioning.HeightBlurView/3, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightBlurView - Constant.ProjectsViewPositioning.HeightBlurView/3))
+        let label = UILabel(frame: CGRectMake(0, Constant.ProjectsViewPositioning.HeightBlurView/2.5, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightBlurView - Constant.ProjectsViewPositioning.HeightBlurView/3))
         label.textAlignment = NSTextAlignment.Center
         label.textColor = UIColor_WWDC.titleProjectsColor()
         label.font = UIFont_WWDC.subtitleInProjects()
@@ -349,6 +349,7 @@ class ViewModel: NSObject {
         label.numberOfLines = 0
         label.attributedText = NSAttributedString(string: text, attributes: [NSParagraphStyleAttributeName : paragraphStyle])
         label.sizeToFit()
+        label.frame = CGRectMake(label.frame.origin.x, label.frame.origin.y, label.frame.size.width, Constant.ProjectsViewPositioning.HeightLabelsInside)
 
         view.addSubview(label)
 

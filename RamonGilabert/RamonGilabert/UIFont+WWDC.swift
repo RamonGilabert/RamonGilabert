@@ -59,18 +59,18 @@ class UIFont_WWDC: NSObject {
     }
 
     class internal func titleInProjects() -> UIFont {
-        return UIFont(name: "HelveticaNeue", size: 22 * Constant.Size.RelationHeights)!
+        return UIFont(name: "Libertad", size: 22 * Constant.Size.RelationHeights)!
     }
 
     class internal func subtitleInProjects() -> UIFont {
-        return UIFont(name: "HelveticaNeue", size: 14 * Constant.Size.RelationHeights)!
+        return UIFont(name: "Libertad", size: 14 * Constant.Size.RelationHeights)!
     }
 
     class internal func explanationInProjects() -> UIFont {
         if floor(Constant.Size.RelationHeights) == 0 {
-            return UIFont(name: "HelveticaNeue-Light", size: 15 * 1.15)!
+            return UIFont(name: "Libertad", size: 13 * 1.15)!
         }
 
-        return UIFont(name: "HelveticaNeue-Light", size: 15 * floor(Constant.Size.RelationHeights) * 1.15)!
+        return UIFont(name: "Libertad", size: 12 * floor(Constant.Size.RelationHeights) * 1.55)!
     }
 }

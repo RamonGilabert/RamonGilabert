@@ -78,6 +78,16 @@ struct Projects {
     static let Tutorials: [String: AnyObject] = ["title": "Tutorials", "position": "Development and design", "image": "tutorials-image", "text": "As in the open source part, I like to show what I know as they have done to me, I've done a tutorial in FramerJS, and the Swift ones are coming!"]
 
     static let ArrayWithProjects = [Projects.Linx, Projects.Ono, Projects.Framer, Projects.Web, Projects.Dribbble, Projects.OpenSource, Projects.Tutorials] as NSArray
+
+    struct AnimatorBehaviour {
+        static let MaximumTranslation = 200 as CGFloat
+        static let Gravity = 20 as CGFloat
+        static let SpringAnimationBackgroundDuration = 0.5
+        static let SpringAnimationMainViewDuration = 0.7
+        static let SpringAnimationDamping = 0.4 as CGFloat
+        static let SpringAnimationInitialVelocity = 0.8 as CGFloat
+        static let InitialScaleValue = 0.3 as CGFloat
+    }
 }
 
 class Structures: NSObject {

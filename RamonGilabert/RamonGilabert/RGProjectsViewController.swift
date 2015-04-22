@@ -49,15 +49,15 @@ class RGProjectsViewController: UIViewController {
             self.animator.addBehavior(self.snapBehavior)
 
             let translation = panGestureRecognizer.translationInView(self.view)
-            if translation.y > 250 || translation.y < -250 {
+            if translation.y > Projects.AnimatorBehaviour.MaximumTranslation || translation.y < -Projects.AnimatorBehaviour.MaximumTranslation {
                 self.animator.removeAllBehaviors()
 
                 let gravity = UIGravityBehavior(items: [self.mainView])
 
-                if translation.y > 250 {
-                    gravity.gravityDirection = CGVectorMake(0, 20)
+                if translation.y > Projects.AnimatorBehaviour.MaximumTranslation {
+                    gravity.gravityDirection = CGVectorMake(0, Projects.AnimatorBehaviour.Gravity)
                 } else {
-                    gravity.gravityDirection = CGVectorMake(0, -20)
+                    gravity.gravityDirection = CGVectorMake(0, -Projects.AnimatorBehaviour.Gravity)
                 }
 
                 self.animator.addBehavior(gravity)
@@ -89,15 +89,15 @@ class RGProjectsViewController: UIViewController {
         self.backgroundImageView.alpha = 0
         self.backgroundImageView.image = UIImage(named: "\(imageName)-blur")
 
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
+        UIView.animateWithDuration(Projects.AnimatorBehaviour.SpringAnimationBackgroundDuration, animations: { () -> Void in
             self.backgroundImageView.alpha = 1
         })
 
         self.mainView.addGestureRecognizer(self.panGestureRecognizer)
 
-        self.mainView.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(0.3, 0.3), CGFloat(rand()%RAND_MAX) / CGFloat(RAND_MAX) - 0.5)
+        self.mainView.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(Projects.AnimatorBehaviour.InitialScaleValue, Projects.AnimatorBehaviour.InitialScaleValue), CGFloat(rand()%RAND_MAX) / CGFloat(RAND_MAX) - 0.5)
 
-        UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.4, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+        UIView.animateWithDuration(Projects.AnimatorBehaviour.SpringAnimationMainViewDuration, delay: 0, usingSpringWithDamping: Projects.AnimatorBehaviour.SpringAnimationDamping, initialSpringVelocity: Projects.AnimatorBehaviour.SpringAnimationInitialVelocity, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             self.mainView.transform = CGAffineTransformIdentity
         }, completion: nil)
     }

@@ -3,6 +3,7 @@ import UIKit
 class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let viewModel = ViewModel()
+    var boolValue = false
     var tableView = UITableView()
     var scrollView = UIScrollView()
     var imageViewHeader = UIImageView()
@@ -59,6 +60,10 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
 
+    func giveAValueToProperties(bool: Bool) {
+        self.boolValue = bool
+    }
+
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         var cell = cell as! RGSkillsCustomTableViewCell
 
@@ -72,6 +77,14 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
             UIView.animateWithDuration(0.7, animations: { () -> Void in
                 cell.bottomImage.transform = CGAffineTransformIdentity
             })
+        } else if indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 {
+            if !self.boolValue {
+                cell.leftGraph.arcEnd = 0
+                cell.leftGraph.arcEnd = 0
+            }
+            
+            cell.leftGraph.startAllAnimations()
+            cell.rightGraph.startAllAnimations()
         }
     }
 

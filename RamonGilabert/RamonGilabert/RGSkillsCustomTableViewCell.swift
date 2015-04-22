@@ -16,16 +16,16 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
 
     // MARK: Getters
 
-    let leftGraph: UIView_Graph = {
-        let view = UIView_Graph(frame: CGRectMake(Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.SizeOfGraph, Constant.TableViewSkillVariables.SizeOfGraph))
-        view.arcWidth = Constant.TableViewSkillVariables.SizeOfGraphWidth
+    let leftGraph: CustomView = {
+        let view = CustomView(frame: CGRectMake(Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.SizeOfGraph, Constant.TableViewSkillVariables.SizeOfGraph))
+        view.arcWidth = Constant.TableViewSkillVariables.SizeOfGraphWidth/1.4
 
         return view
     }()
 
-    let rightGraph: UIView_Graph = {
-        let view = UIView_Graph(frame: CGRectMake(Constant.Size.DeviceWidth - Constant.TableViewSkillVariables.SizeOfGraph - Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.SizeOfGraph, Constant.TableViewSkillVariables.SizeOfGraph))
-        view.arcWidth = Constant.TableViewSkillVariables.SizeOfGraphWidth
+    let rightGraph: CustomView = {
+        let view = CustomView(frame: CGRectMake(Constant.Size.DeviceWidth - Constant.TableViewSkillVariables.SizeOfGraph - Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.SizeOfGraph, Constant.TableViewSkillVariables.SizeOfGraph))
+        view.arcWidth = Constant.TableViewSkillVariables.SizeOfGraphWidth/1.4
 
         return view
     }()
@@ -93,7 +93,7 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
     // MARK: Layout methods
 
     func addGraphsForRow(dictionary: NSDictionary) {
-        self.leftGraph.endArc = dictionary["left"] as! CGFloat
+        self.leftGraph.arcEnd = dictionary["left"] as! CGFloat
         self.leftGraph.arcColor = dictionary["leftColor"] as! UIColor
         self.leftGraph.backgroundColor = UIColor.clearColor()
         self.labelSkillLeft.text = dictionary["leftText"] as? String
@@ -101,7 +101,7 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
         let percentageLeft = Int((dictionary["left"] as! CGFloat) * 100)
         self.labelPercentageLeft.text = String("\(percentageLeft)%")
 
-        self.rightGraph.endArc = dictionary["right"] as! CGFloat
+        self.rightGraph.arcEnd = dictionary["right"] as! CGFloat
         self.rightGraph.arcColor = dictionary["rightColor"] as! UIColor
         self.rightGraph.backgroundColor = UIColor.clearColor()
         self.labelSkillRight.text = dictionary["rightText"] as? String

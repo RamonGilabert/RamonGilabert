@@ -4,8 +4,10 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     
     let viewModel = ViewModel()
     let transitionManager = CustomControllerTransitions()
+    let skillsViewController = RGSkillsViewController()
     var scrollView = UIScrollView()
     var arrayWithControllers = NSMutableArray()
+    var currentPage = 0
 
     // MARK: View lifecycle
 
@@ -44,7 +46,7 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
             if page == 0 {
                 loadViewController(RGStoryViewController(), page: page)
             } else if page == 1 {
-                loadViewController(RGSkillsViewController(), page: page)
+                loadViewController(self.skillsViewController, page: page)
             } else {
                 loadViewController(RGProjectsViewController(), page: page)
             }
@@ -53,9 +55,19 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         }
     }
 
+    func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
+        let pageWidth = CGRectGetWidth(self.scrollView.frame)
+        let page = Int(floor((self.scrollView.contentOffset.x - Constant.Size.DeviceWidth) / Constant.Size.DeviceWidth + 1))
+
+        if self.currentPage == 0 || self.currentPage == 2 {
+            self.skillsViewController.giveAValueToProperties(true)
+            self.skillsViewController.tableView.reloadData()
+        }
+    }
+
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         let pageWidth = CGRectGetWidth(self.scrollView.frame)
-        let page = Int(floor(((self.scrollView.contentOffset.x - Constant.Size.DeviceWidth) / 2) / Constant.Size.DeviceWidth + 1))
+        self.currentPage = Int(floor(((self.scrollView.contentOffset.x - Constant.Size.DeviceWidth) / 1) / Constant.Size.DeviceWidth + 1))
     }
 
     func scrollViewDidScroll(scrollView: UIScrollView) {

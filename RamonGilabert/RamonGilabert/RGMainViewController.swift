@@ -27,6 +27,7 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
 
         loadScrollViewInPage(0)
         loadScrollViewInPage(1)
+        loadScrollViewInPage(2)
     }
 
     // MARK: ScrollView methods
@@ -55,9 +56,6 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         let pageWidth = CGRectGetWidth(self.scrollView.frame)
         let page = Int(floor(((self.scrollView.contentOffset.x - Constant.Size.DeviceWidth) / 2) / Constant.Size.DeviceWidth + 1))
-
-        loadScrollViewInPage(page - 1)
-        loadScrollViewInPage(page + 1)
     }
 
     // MARK: Helper methods

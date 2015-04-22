@@ -4,6 +4,7 @@ class RGProjectsViewController: UIViewController {
 
     let viewModel = ViewModel()
     let arrayWithProjects = NSMutableArray(array: Projects.ArrayWithProjects)
+    var panGestureRecognizer = UIPanGestureRecognizer()
     var scrollView = UIScrollView()
     var mainView = UIView()
     var backgroundImageView = UIImageView()
@@ -18,12 +19,9 @@ class RGProjectsViewController: UIViewController {
         super.viewDidLoad()
 
         self.backgroundImageView = self.viewModel.setBackgroundProjects(self.view)
-        self.mainView = self.viewModel.setMainView(self.view)
-
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "onMainViewMoved:")
-        self.mainView.addGestureRecognizer(panGestureRecognizer)
 
         self.animator = UIDynamicAnimator(referenceView: self.view)
+        self.panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "onMainViewMoved:")
 
         prepareCards()
     }
@@ -58,7 +56,7 @@ class RGProjectsViewController: UIViewController {
                 gravity.gravityDirection = CGVectorMake(0, 15)
                 self.animator.addBehavior(gravity)
 
-                self.mainView.removeFromSuperview()
+                self.mainView.removeGestureRecognizer(self.panGestureRecognizer)
                 self.arrayWithProjects.removeObjectAtIndex(0)
 
                 prepareCards()
@@ -72,11 +70,21 @@ class RGProjectsViewController: UIViewController {
         let dictionary = self.arrayWithProjects[0] as! NSDictionary
         let imageName = dictionary["image"] as! String
 
+        self.mainView = self.viewModel.setMainView(self.view)
         self.viewModel.setImageViewProject(self.mainView, image: imageName)
         self.viewModel.setExplanationProject(self.mainView, text: dictionary["text"] as! String)
         self.viewModel.setTitleProject(self.mainView, text: dictionary["title"] as! String)
         self.viewModel.setSubtitleProject(self.mainView, text: dictionary["position"] as! String)
 
         self.backgroundImageView.image = UIImage(named: "\(imageName)-blur")
+
+        self.mainView.addGestureRecognizer(self.panGestureRecognizer)
+
+        self.mainView.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(0.3, 0.3), (CGFloat(arc4random()) / 0.5) * (-0.5))
+        //self.mainView.transform = CGAffineTransformMakeScale(0.3, 0.3)
+
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.4, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            self.mainView.transform = CGAffineTransformIdentity
+        }, completion: nil)
     }
 }

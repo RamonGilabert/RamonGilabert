@@ -10,6 +10,8 @@ class CustomView: UIView {
     // MARK: Initializers
 
     override func drawRect(rect: CGRect) {
+        self.clipsToBounds = true
+        self.transform = CGAffineTransformMakeRotation(-3.14/2)
         setupLayers()
     }
 
@@ -17,7 +19,6 @@ class CustomView: UIView {
 	
 	func setupLayers() {
 		self.ovalShape = CAShapeLayer()
-		self.ovalShape.frame = CGRectMake(15, 15, 120, 120)
 		self.ovalShape.lineCap = kCALineCapRound
 		self.ovalShape.strokeColor = self.arcColor.CGColor
         self.ovalShape.fillColor = UIColor.clearColor().CGColor
@@ -34,9 +35,9 @@ class CustomView: UIView {
 	}
 	
     func ovalAnimation() -> CABasicAnimation {
-		var strokeStartAnimation = CABasicAnimation(keyPath:"strokeStart")
-		strokeStartAnimation.fromValue = 1
-		strokeStartAnimation.toValue = 1 - self.arcEnd
+		var strokeStartAnimation = CABasicAnimation(keyPath:"strokeEnd")
+		strokeStartAnimation.fromValue = 0
+		strokeStartAnimation.toValue = self.arcEnd
 		strokeStartAnimation.duration = 1.2
 		strokeStartAnimation.fillMode = kCAFillModeForwards
 		strokeStartAnimation.removedOnCompletion = false
@@ -47,14 +48,8 @@ class CustomView: UIView {
 	// MARK: Bezier Path
 	
 	func ovalPath() -> UIBezierPath {
-		var ovalPath = UIBezierPath()
-		ovalPath.moveToPoint(CGPointMake(60, 0))
-		ovalPath.addCurveToPoint(CGPointMake(60, 0), controlPoint1:CGPointMake(60, 0), controlPoint2:CGPointMake(60, 0))
-		ovalPath.addCurveToPoint(CGPointMake(0, 60), controlPoint1:CGPointMake(26.863, 0), controlPoint2:CGPointMake(0, 26.863))
-		ovalPath.addCurveToPoint(CGPointMake(60, 120), controlPoint1:CGPointMake(0, 93.137), controlPoint2:CGPointMake(26.863, 120))
-		ovalPath.addCurveToPoint(CGPointMake(120, 60), controlPoint1:CGPointMake(93.137, 120), controlPoint2:CGPointMake(120, 93.137))
-		ovalPath.addCurveToPoint(CGPointMake(60, 0), controlPoint1:CGPointMake(120, 26.863), controlPoint2:CGPointMake(93.137, 0))
-		
-		return ovalPath;
+        var ovalPath = UIBezierPath(ovalInRect: CGRectMake(self.arcWidth, self.arcWidth, self.frame.width - self.arcWidth*2, self.frame.height - self.arcWidth*2))
+
+        return ovalPath;
 	}
 }

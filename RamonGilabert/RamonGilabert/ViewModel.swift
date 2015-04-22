@@ -49,11 +49,12 @@ struct Constant {
         static let YPositionMainView = (Constant.Size.DeviceHeight - Constant.ProjectsViewPositioning.HeightOfMainView) / 2
         static let HeightImageViewProject = Constant.ProjectsViewPositioning.HeightOfMainView / 1.7
         static let MinimumPaddingInsideView = 20 as CGFloat
-        static let YPositionLabelExplanation = Constant.ProjectsViewPositioning.HeightImageViewProject
+        static let YPositionLabelExplanation = Constant.ProjectsViewPositioning.HeightImageViewProject + Constant.ProjectsViewPositioning.MinimumPaddingInsideView/2
         static let WidthLabelInside = Constant.ProjectsViewPositioning.WidthOfMainView - (Constant.ProjectsViewPositioning.MinimumPaddingInsideView * 2)
         static let HeightLabelsInside = Constant.ProjectsViewPositioning.HeightOfMainView - Constant.ProjectsViewPositioning.HeightImageViewProject - Constant.ProjectsViewPositioning.MinimumPaddingInsideView
         static let WidthBlurView = Constant.ProjectsViewPositioning.WidthOfMainView
         static let HeightBlurView = Constant.ProjectsViewPositioning.HeightImageViewProject / 4.2
+        static let LineSpacingStory = 5 as CGFloat
     }
 }
 
@@ -339,11 +340,15 @@ class ViewModel: NSObject {
     }
 
     func setExplanationProject(view: UIView, text: String) -> UILabel {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = Constant.ProjectsViewPositioning.LineSpacingStory
+
         let label = UILabel(frame: CGRectMake(Constant.ProjectsViewPositioning.MinimumPaddingInsideView, Constant.ProjectsViewPositioning.YPositionLabelExplanation, Constant.ProjectsViewPositioning.WidthOfMainView - (Constant.ProjectsViewPositioning.MinimumPaddingInsideView * 2), Constant.ProjectsViewPositioning.HeightLabelsInside))
         label.textColor = UIColor_WWDC.explanationProjectsColor()
         label.font = UIFont_WWDC.explanationInProjects()
         label.numberOfLines = 0
-        label.text = text
+        label.attributedText = NSAttributedString(string: text, attributes: [NSParagraphStyleAttributeName : paragraphStyle])
+        label.sizeToFit()
 
         view.addSubview(label)
 

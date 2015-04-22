@@ -77,7 +77,7 @@ struct Projects {
 
     static let Tutorials: [String: AnyObject] = ["title": "Tutorials", "position": "Development and design", "image": "tutorials-image", "text": "As in the open source part, I like to show what I know as they have done to me, I've done a tutorial in FramerJS, and the Swift ones are coming!"]
 
-    static let ArrayWithProjects = [Projects.Linx, Projects.Ono, Projects.Framer, Projects.Web, Projects.Dribbble, Projects.OpenSource, Projects.Tutorials]
+    static let ArrayWithProjects = [Projects.Linx, Projects.Ono, Projects.Framer, Projects.Web, Projects.Dribbble, Projects.OpenSource, Projects.Tutorials] as NSArray
 }
 
 class Structures: NSObject {

@@ -1,5 +1,15 @@
 import UIKit
 
+struct AnimatorBehaviour {
+    static let MaximumTranslation = 200 as CGFloat
+    static let Gravity = 20 as CGFloat
+    static let SpringAnimationBackgroundDuration = 0.4
+    static let SpringAnimationMainViewDuration = 0.6
+    static let SpringAnimationDamping = 0.5 as CGFloat
+    static let SpringAnimationInitialVelocity = 0.8 as CGFloat
+    static let InitialScaleValue = 0.3 as CGFloat
+}
+
 class RGProjectsViewController: UIViewController {
 
     let viewModel = ViewModel()
@@ -49,15 +59,15 @@ class RGProjectsViewController: UIViewController {
             self.animator.addBehavior(self.snapBehavior)
 
             let translation = panGestureRecognizer.translationInView(self.view)
-            if translation.y > Projects.AnimatorBehaviour.MaximumTranslation || translation.y < -Projects.AnimatorBehaviour.MaximumTranslation {
+            if translation.y > AnimatorBehaviour.MaximumTranslation || translation.y < -AnimatorBehaviour.MaximumTranslation {
                 self.animator.removeAllBehaviors()
 
                 let gravity = UIGravityBehavior(items: [self.mainView])
 
-                if translation.y > Projects.AnimatorBehaviour.MaximumTranslation {
-                    gravity.gravityDirection = CGVectorMake(0, Projects.AnimatorBehaviour.Gravity)
+                if translation.y > AnimatorBehaviour.MaximumTranslation {
+                    gravity.gravityDirection = CGVectorMake(0, AnimatorBehaviour.Gravity)
                 } else {
-                    gravity.gravityDirection = CGVectorMake(0, -Projects.AnimatorBehaviour.Gravity)
+                    gravity.gravityDirection = CGVectorMake(0, -AnimatorBehaviour.Gravity)
                 }
 
                 self.animator.addBehavior(gravity)
@@ -86,18 +96,21 @@ class RGProjectsViewController: UIViewController {
         self.viewModel.setTitleProject(self.mainView, text: dictionary["title"] as! String)
         self.viewModel.setSubtitleProject(self.mainView, text: dictionary["position"] as! String)
 
-        self.backgroundImageView.alpha = 0
+        UIView.animateWithDuration(AnimatorBehaviour.SpringAnimationBackgroundDuration, animations: { () -> Void in
+            self.backgroundImageView.alpha = 0
+        })
+
         self.backgroundImageView.image = UIImage(named: "\(imageName)-blur")
 
-        UIView.animateWithDuration(Projects.AnimatorBehaviour.SpringAnimationBackgroundDuration, animations: { () -> Void in
+        UIView.animateWithDuration(AnimatorBehaviour.SpringAnimationBackgroundDuration, animations: { () -> Void in
             self.backgroundImageView.alpha = 1
         })
 
         self.mainView.addGestureRecognizer(self.panGestureRecognizer)
 
-        self.mainView.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(Projects.AnimatorBehaviour.InitialScaleValue, Projects.AnimatorBehaviour.InitialScaleValue), CGFloat(rand()%RAND_MAX) / CGFloat(RAND_MAX) - 0.5)
+        self.mainView.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(AnimatorBehaviour.InitialScaleValue, AnimatorBehaviour.InitialScaleValue), CGFloat(rand()%RAND_MAX) / CGFloat(RAND_MAX) - 0.5)
 
-        UIView.animateWithDuration(Projects.AnimatorBehaviour.SpringAnimationMainViewDuration, delay: 0, usingSpringWithDamping: Projects.AnimatorBehaviour.SpringAnimationDamping, initialSpringVelocity: Projects.AnimatorBehaviour.SpringAnimationInitialVelocity, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+        UIView.animateWithDuration(AnimatorBehaviour.SpringAnimationMainViewDuration, delay: 0, usingSpringWithDamping: AnimatorBehaviour.SpringAnimationDamping, initialSpringVelocity: AnimatorBehaviour.SpringAnimationInitialVelocity, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             self.mainView.transform = CGAffineTransformIdentity
         }, completion: nil)
     }

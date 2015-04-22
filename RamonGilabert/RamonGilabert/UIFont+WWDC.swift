@@ -57,4 +57,20 @@ class UIFont_WWDC: NSObject {
 
         return UIFont(name: "AvenirNext-Regular", size: 17 * floor(Constant.Size.RelationHeights) * 1.15)!
     }
+
+    class internal func titleInProjects() -> UIFont {
+        return UIFont(name: "HelveticaNeue", size: 28 * Constant.Size.RelationHeights)!
+    }
+
+    class internal func subtitleInProjects() -> UIFont {
+        return UIFont(name: "HelveticaNeue", size: 22 * Constant.Size.RelationHeights)!
+    }
+
+    class internal func explanationInProjects() -> UIFont {
+        if floor(Constant.Size.RelationHeights) == 0 {
+            return UIFont(name: "AvenirNext-Regular", size: 17 * 1.15)!
+        }
+
+        return UIFont(name: "AvenirNext-Regular", size: 17 * floor(Constant.Size.RelationHeights) * 1.15)!
+    }
 }

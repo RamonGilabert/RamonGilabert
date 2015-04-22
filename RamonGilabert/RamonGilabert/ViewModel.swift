@@ -304,19 +304,35 @@ class ViewModel: NSObject {
     func setTitleProject(view: UIView) -> UILabel {
         let label = UILabel(frame: CGRectMake(0, 0, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightBlurView/3))
         label.textAlignment = NSTextAlignment.Center
-        label.textColor = UIColor.whiteColor()
-        
+        label.textColor = UIColor_WWDC.titleProjectsColor()
+        label.font = UIFont_WWDC.titleInProjects()
+
+        return label
     }
 
     func setSubtitleProject(view: UIView) -> UILabel {
+        let label = UILabel(frame: CGRectMake(0, Constant.ProjectsViewPositioning.HeightBlurView/3, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightBlurView - Constant.ProjectsViewPositioning.HeightBlurView/3))
+        label.textAlignment = NSTextAlignment.Center
+        label.textColor = UIColor_WWDC.titleProjectsColor()
+        label.font = UIFont_WWDC.subtitleInProjects()
 
+        return label
     }
 
-    func setImageViewProject(view: UIView) -> UILabel {
+    func setImageViewProject(view: UIView) -> UIImageView {
+        let imageView = UIImageView(frame: CGRectMake(0, 0, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightImageViewProject))
+        imageView.contentMode = UIViewContentMode.ScaleAspectFill
+        imageView.clipsToBounds = true
 
+        return imageView
     }
 
     func setExplanationProject(view: UIView) -> UILabel {
+        let label = UILabel(frame: CGRectMake(Constant.ProjectsViewPositioning.MinimumPaddingInsideView, Constant.ProjectsViewPositioning.HeightImageViewProject + Constant.ProjectsViewPositioning.MinimumPaddingInsideView, Constant.ProjectsViewPositioning.WidthOfMainView - (Constant.ProjectsViewPositioning.MinimumPaddingInsideView * 2), Constant.ProjectsViewPositioning.HeightLabelsInside))
+        label.textColor = UIColor_WWDC.explanationProjectsColor()
+        label.font = UIFont_WWDC.explanationInProjects()
+        label.numberOfLines = 0
 
+        return label
     }
 }

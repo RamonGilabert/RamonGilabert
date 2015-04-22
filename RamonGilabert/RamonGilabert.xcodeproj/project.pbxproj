@@ -24,6 +24,7 @@
 		F6B93C191AE64B6C0085DB2B /* RGSkillsCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B93C181AE64B6C0085DB2B /* RGSkillsCustomTableViewCell.swift */; };
 		F6B93C1D1AE651540085DB2B /* UIView+Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B93C1C1AE651540085DB2B /* UIView+Graph.swift */; };
 		F6BE1CE31AE532200046AFDD /* RGStoryCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE1CE21AE532200046AFDD /* RGStoryCustomTableViewCell.swift */; };
+		F6C4001E1AE79F9B00E1E983 /* Libertad.otf in Resources */ = {isa = PBXBuildFile; fileRef = F6C4001B1AE79ECC00E1E983 /* Libertad.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		F6B93C181AE64B6C0085DB2B /* RGSkillsCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGSkillsCustomTableViewCell.swift; sourceTree = "<group>"; };
 		F6B93C1C1AE651540085DB2B /* UIView+Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Graph.swift"; sourceTree = "<group>"; };
 		F6BE1CE21AE532200046AFDD /* RGStoryCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGStoryCustomTableViewCell.swift; sourceTree = "<group>"; };
+		F6C4001B1AE79ECC00E1E983 /* Libertad.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Libertad.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +110,7 @@
 				F6A323CA1AE3B5F70026D576 /* Managers */,
 				F6A323CD1AE3EDEA0026D576 /* Override classes */,
 				F6BE1CE11AE517FC0046AFDD /* Custom cells */,
-				F6526E631AE2C77E007ACF23 /* Images */,
+				F6C4001C1AE79ED200E1E983 /* Resources */,
 				F6526E3B1AE2B956007ACF23 /* Supporting Files */,
 			);
 			path = RamonGilabert;
@@ -175,6 +177,23 @@
 				F6BE1CE21AE532200046AFDD /* RGStoryCustomTableViewCell.swift */,
 			);
 			name = "Custom cells";
+			sourceTree = "<group>";
+		};
+		F6C4001C1AE79ED200E1E983 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F6526E631AE2C77E007ACF23 /* Images */,
+				F6C4001D1AE79EE200E1E983 /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F6C4001D1AE79EE200E1E983 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F6C4001B1AE79ECC00E1E983 /* Libertad.otf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +276,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6C4001E1AE79F9B00E1E983 /* Libertad.otf in Resources */,
 				F6526E481AE2B956007ACF23 /* LaunchScreen.xib in Resources */,
 				F6526E451AE2B956007ACF23 /* Images.xcassets in Resources */,
 			);

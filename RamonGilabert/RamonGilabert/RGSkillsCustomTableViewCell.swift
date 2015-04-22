@@ -17,21 +17,21 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
     // MARK: Getters
 
     let leftGraph: UIView_GraphView = {
-        let view = UIView_GraphView(frame: CGRectMake(Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.SizeOfGraph, Constant.TableViewSkillVariables.SizeOfGraph))
+        let view = UIView_GraphView(frame: CGRectMake((Constant.Size.DeviceWidth/2 - Constant.TableViewSkillVariables.SizeOfGraph)/2, Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.SizeOfGraph, Constant.TableViewSkillVariables.SizeOfGraph))
         view.arcWidth = Constant.TableViewSkillVariables.SizeOfGraphWidth/1.3
 
         return view
     }()
 
     let rightGraph: UIView_GraphView = {
-        let view = UIView_GraphView(frame: CGRectMake(Constant.Size.DeviceWidth - Constant.TableViewSkillVariables.SizeOfGraph - Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.SizeOfGraph, Constant.TableViewSkillVariables.SizeOfGraph))
+        let view = UIView_GraphView(frame: CGRectMake(Constant.Size.DeviceWidth/2 + (Constant.Size.DeviceWidth/2 - Constant.TableViewSkillVariables.SizeOfGraph)/2, Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.SizeOfGraph, Constant.TableViewSkillVariables.SizeOfGraph))
         view.arcWidth = Constant.TableViewSkillVariables.SizeOfGraphWidth/1.3
 
         return view
     }()
 
     let labelPercentageLeft: UILabel = {
-        let label = UILabel(frame: CGRectMake(Constant.TableViewSkillVariables.MinimumPadding + Constant.TableViewSkillVariables.SizeOfGraphWidth, Constant.TableViewSkillVariables.MinimumPadding + Constant.TableViewSkillVariables.SizeOfGraphWidth, Constant.TableViewSkillVariables.SizeOfGraph - (Constant.TableViewSkillVariables.SizeOfGraphWidth * 2), Constant.TableViewSkillVariables.SizeOfGraph - (Constant.TableViewSkillVariables.SizeOfGraphWidth * 2)))
+        let label = UILabel(frame: CGRectMake(0, Constant.TableViewSkillVariables.MinimumPadding + Constant.TableViewSkillVariables.SizeOfGraphWidth, Constant.Size.DeviceWidth/2, Constant.TableViewSkillVariables.SizeOfGraph - (Constant.TableViewSkillVariables.SizeOfGraphWidth * 2)))
         label.textAlignment = NSTextAlignment.Center
         label.textColor = UIColor_WWDC.skillsColor()
         label.font = UIFont_WWDC.percentageSkills()
@@ -49,7 +49,7 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
     }()
 
     let labelPercentageRight: UILabel = {
-        let label = UILabel(frame: CGRectMake(Constant.Size.DeviceWidth - Constant.TableViewSkillVariables.SizeOfGraph - Constant.TableViewSkillVariables.MinimumPadding + Constant.TableViewSkillVariables.SizeOfGraphWidth, Constant.TableViewSkillVariables.MinimumPadding + Constant.TableViewSkillVariables.SizeOfGraphWidth, Constant.TableViewSkillVariables.SizeOfGraph - (Constant.TableViewSkillVariables.SizeOfGraphWidth * 2), Constant.TableViewSkillVariables.SizeOfGraph - (Constant.TableViewSkillVariables.SizeOfGraphWidth * 2)))
+        let label = UILabel(frame: CGRectMake(Constant.Size.DeviceWidth/2, Constant.TableViewSkillVariables.MinimumPadding + Constant.TableViewSkillVariables.SizeOfGraphWidth, Constant.Size.DeviceWidth/2, Constant.TableViewSkillVariables.SizeOfGraph - (Constant.TableViewSkillVariables.SizeOfGraphWidth * 2)))
         label.textAlignment = NSTextAlignment.Center
         label.textColor = UIColor_WWDC.skillsColor()
         label.font = UIFont_WWDC.percentageSkills()

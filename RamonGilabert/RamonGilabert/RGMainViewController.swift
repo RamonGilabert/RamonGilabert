@@ -58,6 +58,14 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         let page = Int(floor(((self.scrollView.contentOffset.x - Constant.Size.DeviceWidth) / 2) / Constant.Size.DeviceWidth + 1))
     }
 
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if self.scrollView.contentOffset.x < 0 {
+            self.scrollView.setContentOffset(CGPointMake(0, 0), animated: false)
+        } else if self.scrollView.contentOffset.x > Constant.Size.DeviceWidth * 2 {
+            self.scrollView.setContentOffset(CGPointMake(Constant.Size.DeviceWidth * 2, 0), animated: false)
+        }
+    }
+
     // MARK: Helper methods
 
     func loadViewController(viewController: UIViewController, page: Int) {

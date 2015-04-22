@@ -3,7 +3,7 @@ import UIKit
 class RGProjectsViewController: UIViewController {
 
     let viewModel = ViewModel()
-    let arrayWithProjects = Projects.ArrayWithProjects.copy()
+    let arrayWithProjects = NSMutableArray(array: Projects.ArrayWithProjects)
     var scrollView = UIScrollView()
     var mainView = UIView()
     var backgroundImageView = UIImageView()

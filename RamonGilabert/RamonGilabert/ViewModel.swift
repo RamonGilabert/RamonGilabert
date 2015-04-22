@@ -283,8 +283,8 @@ class ViewModel: NSObject {
         imageView.contentMode = UIViewContentMode.ScaleAspectFill
         imageView.clipsToBounds = true
 
-        //imageView.addSubview(blurView)
         view.addSubview(imageView)
+        //view.addSubview(blurView)
 
         return imageView
     }
@@ -302,46 +302,50 @@ class ViewModel: NSObject {
         viewToAdd.addSubview(blurView)
         view.addSubview(viewToAdd)
 
-        return view
+        return viewToAdd
     }
 
-    func setTitleProject(view: UIView) -> UILabel {
+    func setTitleProject(view: UIView, text: String) -> UILabel {
         let label = UILabel(frame: CGRectMake(0, 0, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightBlurView/3))
         label.textAlignment = NSTextAlignment.Center
         label.textColor = UIColor_WWDC.titleProjectsColor()
         label.font = UIFont_WWDC.titleInProjects()
+        label.text = text
 
         view.addSubview(label)
 
         return label
     }
 
-    func setSubtitleProject(view: UIView) -> UILabel {
+    func setSubtitleProject(view: UIView, text: String) -> UILabel {
         let label = UILabel(frame: CGRectMake(0, Constant.ProjectsViewPositioning.HeightBlurView/3, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightBlurView - Constant.ProjectsViewPositioning.HeightBlurView/3))
         label.textAlignment = NSTextAlignment.Center
         label.textColor = UIColor_WWDC.titleProjectsColor()
         label.font = UIFont_WWDC.subtitleInProjects()
+        label.text = text
 
         view.addSubview(label)
 
         return label
     }
 
-    func setImageViewProject(view: UIView) -> UIImageView {
+    func setImageViewProject(view: UIView, image: String) -> UIImageView {
         let imageView = UIImageView(frame: CGRectMake(0, 0, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightImageViewProject))
         imageView.contentMode = UIViewContentMode.ScaleAspectFill
         imageView.clipsToBounds = true
+        imageView.image = UIImage(named: image)
 
         view.addSubview(imageView)
 
         return imageView
     }
 
-    func setExplanationProject(view: UIView) -> UILabel {
+    func setExplanationProject(view: UIView, text: String) -> UILabel {
         let label = UILabel(frame: CGRectMake(Constant.ProjectsViewPositioning.MinimumPaddingInsideView, Constant.ProjectsViewPositioning.HeightImageViewProject + Constant.ProjectsViewPositioning.MinimumPaddingInsideView, Constant.ProjectsViewPositioning.WidthOfMainView - (Constant.ProjectsViewPositioning.MinimumPaddingInsideView * 2), Constant.ProjectsViewPositioning.HeightLabelsInside))
         label.textColor = UIColor_WWDC.explanationProjectsColor()
         label.font = UIFont_WWDC.explanationInProjects()
         label.numberOfLines = 0
+        label.text = text
 
         view.addSubview(label)
 

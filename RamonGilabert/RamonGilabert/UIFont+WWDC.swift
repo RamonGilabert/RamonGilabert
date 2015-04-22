@@ -67,8 +67,8 @@ class UIFont_WWDC: NSObject {
     }
 
     class internal func explanationInProjects() -> UIFont {
-        if floor(Constant.Size.RelationHeights) == 0 {
-            return UIFont(name: "Libertad", size: 13 * 1.15)!
+        if floor(Constant.Size.RelationHeights) == 0 || Constant.Size.RelationHeights < 1.1 {
+            return UIFont(name: "Libertad", size: 14 * (Constant.Size.RelationHeights + 0.2))!
         }
 
         return UIFont(name: "Libertad", size: 12 * floor(Constant.Size.RelationHeights) * 1.55)!

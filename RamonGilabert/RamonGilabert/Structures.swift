@@ -63,7 +63,7 @@ struct Skills {
 }
 
 struct Projects {
-    static let Linx: [String: AnyObject] = ["title": "Linx", "position": "iOS development and design", "image": "linx-app-image", "text": "Linx was the first big project I did and my main project after finishing my trining in Chicago. This was a social app to connect with people around using multipeer connectivity and geofencing."]
+    static let Linx: [String: AnyObject] = ["title": "Linx", "position": "iOS development and design", "image": "linx-app-image", "text": "Linx was the first big project I did after finishing my trining in Chicago. This was a social app to connect with people around using multipeer connectivity and geofencing."]
 
     static let Ono: [String: AnyObject] = ["title": "ONO", "position": "iOS development and design", "image": "ono-app-image", "text": "ONO was an app to record a voice message and send it to your friends. Send friend requests, update your profile, etc. A real social network."]
 

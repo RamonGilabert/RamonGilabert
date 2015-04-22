@@ -15,13 +15,14 @@ class RGProjectsViewController: UIViewController {
 
         self.backgroundImageView = self.viewModel.setBackgroundProjects(self.view)
         self.mainView = self.viewModel.setMainView(self.view)
+
+        prepareCards()
     }
 
     // MARK: Cards
 
     func prepareCards() {
         let dictionary = self.arrayWithProjects[0] as NSDictionary
-        self.backgroundImageView.image = dictionary["image"]
-        
+        self.backgroundImageView.image = UIImage(named: dictionary["image"] as! String)
     }
 }

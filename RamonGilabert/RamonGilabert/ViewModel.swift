@@ -284,6 +284,7 @@ class ViewModel: NSObject {
         imageView.clipsToBounds = true
 
         imageView.addSubview(blurView)
+        view.addSubview(imageView)
 
         return imageView
     }
@@ -294,6 +295,7 @@ class ViewModel: NSObject {
 
         let viewToAdd = UIView(frame: CGRectMake(Constant.ProjectsViewPositioning.MinimumPaddingInsideView, Constant.ProjectsViewPositioning.YPositionMainView, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightOfMainView))
         viewToAdd.clipsToBounds = true
+        viewToAdd.layer.cornerRadius = 7
 
         viewToAdd.addSubview(blurView)
         view.addSubview(viewToAdd)
@@ -307,6 +309,8 @@ class ViewModel: NSObject {
         label.textColor = UIColor_WWDC.titleProjectsColor()
         label.font = UIFont_WWDC.titleInProjects()
 
+        view.addSubview(label)
+
         return label
     }
 
@@ -316,6 +320,8 @@ class ViewModel: NSObject {
         label.textColor = UIColor_WWDC.titleProjectsColor()
         label.font = UIFont_WWDC.subtitleInProjects()
 
+        view.addSubview(label)
+
         return label
     }
 
@@ -323,6 +329,8 @@ class ViewModel: NSObject {
         let imageView = UIImageView(frame: CGRectMake(0, 0, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightImageViewProject))
         imageView.contentMode = UIViewContentMode.ScaleAspectFill
         imageView.clipsToBounds = true
+
+        view.addSubview(imageView)
 
         return imageView
     }
@@ -332,6 +340,8 @@ class ViewModel: NSObject {
         label.textColor = UIColor_WWDC.explanationProjectsColor()
         label.font = UIFont_WWDC.explanationInProjects()
         label.numberOfLines = 0
+
+        view.addSubview(label)
 
         return label
     }

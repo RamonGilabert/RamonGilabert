@@ -49,11 +49,17 @@ class RGProjectsViewController: UIViewController {
             self.animator.addBehavior(self.snapBehavior)
 
             let translation = panGestureRecognizer.translationInView(self.view)
-            if translation.y > 250 {
+            if translation.y > 250 || translation.y < -250 {
                 self.animator.removeAllBehaviors()
 
-                var gravity = UIGravityBehavior(items: [self.mainView])
-                gravity.gravityDirection = CGVectorMake(0, 15)
+                let gravity = UIGravityBehavior(items: [self.mainView])
+
+                if translation.y > 250 {
+                    gravity.gravityDirection = CGVectorMake(0, 20)
+                } else {
+                    gravity.gravityDirection = CGVectorMake(0, -20)
+                }
+
                 self.animator.addBehavior(gravity)
 
                 self.mainView.removeGestureRecognizer(self.panGestureRecognizer)
@@ -83,7 +89,7 @@ class RGProjectsViewController: UIViewController {
         self.backgroundImageView.alpha = 0
         self.backgroundImageView.image = UIImage(named: "\(imageName)-blur")
 
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
             self.backgroundImageView.alpha = 1
         })
 
@@ -91,7 +97,7 @@ class RGProjectsViewController: UIViewController {
 
         self.mainView.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(0.3, 0.3), CGFloat(rand()%RAND_MAX) / CGFloat(RAND_MAX) - 0.5)
 
-        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.4, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+        UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.4, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             self.mainView.transform = CGAffineTransformIdentity
         }, completion: nil)
     }

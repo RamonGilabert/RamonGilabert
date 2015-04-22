@@ -8,5 +8,7 @@ class RGProjectsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.mainView = self.viewModel.setMainView(self.view)
     }
 }

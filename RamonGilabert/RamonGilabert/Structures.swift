@@ -62,6 +62,10 @@ struct Skills {
     static let ArrayWithSkills = [Skills.One, Skills.Two, Skills.Three, Skills.Four, Skills.Five, Skills.Six, Skills.Seven]
 }
 
+struct Projects {
+    static let One: [String: AnyObject] = ["title": "Linx", "position": "iOS development and design", "image": "linx-app-image", "text": ""]
+}
+
 class Structures: NSObject {
    
 }

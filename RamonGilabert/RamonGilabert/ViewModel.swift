@@ -276,7 +276,23 @@ class ViewModel: NSObject {
 
     // MARK: Projects layout
 
+    func setBackgroundProjects(view: UIView) -> UIImageView {
+        let blurView = setBlurView()
+
+        let imageView = UIImageView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight))
+        imageView.contentMode = UIViewContentMode.ScaleAspectFill
+        imageView.clipsToBounds = true
+
+        imageView.addSubview(blurView)
+
+        return imageView
+    }
+
     func setMainView(view: UIView) -> UIView {
-        let view = UIView(frame: CGRectMake(0, 0, 0, 0))
+        let viewToAdd = UIView(frame: CGRectMake(Constant.ProjectsViewPositioning.MinimumPaddingInsideView, Constant.ProjectsViewPositioning.YPositionMainView, Constant.ProjectsViewPositioning.WidthOfMainView, Constant.ProjectsViewPositioning.HeightOfMainView))
+
+        view.addSubview(viewToAdd)
+
+        return view
     }
 }

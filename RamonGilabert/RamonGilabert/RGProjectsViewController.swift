@@ -23,12 +23,13 @@ class RGProjectsViewController: UIViewController {
 
     func prepareCards() {
         let dictionary = self.arrayWithProjects[0] as NSDictionary
+        let imageName = dictionary["image"] as! String
 
         self.viewModel.setTitleProject(self.mainView, text: dictionary["title"] as! String)
         self.viewModel.setSubtitleProject(self.mainView, text: dictionary["position"] as! String)
-        self.viewModel.setImageViewProject(self.mainView, image: dictionary["image"] as! String)
+        self.viewModel.setImageViewProject(self.mainView, image: imageName)
         self.viewModel.setExplanationProject(self.mainView, text: dictionary["text"] as! String)
-        
-        self.backgroundImageView.image = UIImage(named: dictionary["image"] as! String)
+
+        self.backgroundImageView.image = UIImage(named: "\(imageName)-blur")
     }
 }

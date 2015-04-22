@@ -16,15 +16,15 @@ class RGSkillsCustomTableViewCell: UITableViewCell {
 
     // MARK: Getters
 
-    let leftGraph: CustomView = {
-        let view = CustomView(frame: CGRectMake(Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.SizeOfGraph, Constant.TableViewSkillVariables.SizeOfGraph))
+    let leftGraph: UIView_GraphView = {
+        let view = UIView_GraphView(frame: CGRectMake(Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.SizeOfGraph, Constant.TableViewSkillVariables.SizeOfGraph))
         view.arcWidth = Constant.TableViewSkillVariables.SizeOfGraphWidth/1.3
 
         return view
     }()
 
-    let rightGraph: CustomView = {
-        let view = CustomView(frame: CGRectMake(Constant.Size.DeviceWidth - Constant.TableViewSkillVariables.SizeOfGraph - Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.SizeOfGraph, Constant.TableViewSkillVariables.SizeOfGraph))
+    let rightGraph: UIView_GraphView = {
+        let view = UIView_GraphView(frame: CGRectMake(Constant.Size.DeviceWidth - Constant.TableViewSkillVariables.SizeOfGraph - Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.MinimumPadding, Constant.TableViewSkillVariables.SizeOfGraph, Constant.TableViewSkillVariables.SizeOfGraph))
         view.arcWidth = Constant.TableViewSkillVariables.SizeOfGraphWidth/1.3
 
         return view

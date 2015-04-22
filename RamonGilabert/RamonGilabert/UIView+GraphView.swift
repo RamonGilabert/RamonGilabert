@@ -1,6 +1,6 @@
 import UIKit
 
-class CustomView: UIView {
+class UIView_GraphView: UIView {
 
 	var ovalShape = CAShapeLayer()
     var arcWidth = 0 as CGFloat

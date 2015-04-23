@@ -26,8 +26,6 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         let menuViewController = RGMenuViewController()
         menuViewController.transitioningDelegate = self.transitionManager
         menuViewController.skillsViewController = self.skillsViewController
-
-        self.videoViewController.transitioningDelegate = self.transitionVideoManager
         
         self.transitionManager.sourceViewController = self
         self.transitionManager.exitViewController = menuViewController

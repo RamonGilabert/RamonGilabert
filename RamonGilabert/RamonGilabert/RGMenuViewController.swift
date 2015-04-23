@@ -54,6 +54,7 @@ class RGMenuViewController: UIViewController {
         } else if button.tag == 3 {
             self.dismissViewControllerAnimated(true, completion: nil)
             self.mainViewController.presentViewController(self.mainViewController.videoViewController, animated: true, completion: nil)
+            return
         } else if button.tag == 4 {
 
         } else {

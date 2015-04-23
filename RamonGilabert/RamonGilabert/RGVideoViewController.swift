@@ -5,6 +5,7 @@ import UIKit
 class RGVideoViewController: UIViewController {
 
     let session = AVAudioSession.sharedInstance()
+    let transitionManager = CustomVideoTransition()
     var moviePlayerController = MPMoviePlayerController()
 
     // MARK: View lifecycle
@@ -12,6 +13,8 @@ class RGVideoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.transitioningDelegate = self.transitionManager
+        
         let fileURL: NSURL = NSBundle.mainBundle().URLForResource("intro_video", withExtension: "m4v")!
 
         self.session.setCategory(AVAudioSessionCategoryPlayback, error: nil)

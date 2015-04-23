@@ -35,7 +35,7 @@ class CustomTipsTransition: UIPercentDrivenInteractiveTransition, UIViewControll
 
             break
         case UIGestureRecognizerState.Changed:
-            self.updateInteractiveTransition(-translation.x/Constant.Size.DeviceWidth/5)
+            self.updateInteractiveTransition((-translation.x + 25)/Constant.Size.DeviceWidth/10)
 
             break
         default:

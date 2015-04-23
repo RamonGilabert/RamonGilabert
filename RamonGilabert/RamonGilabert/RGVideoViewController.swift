@@ -17,6 +17,7 @@ class RGVideoViewController: UIViewController {
         self.session.setCategory(AVAudioSessionCategoryPlayback, error: nil)
 
         self.moviePlayerController = MPMoviePlayerController(contentURL: fileURL)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "moviePlayerDidFinishPlaying:" , name: MPMoviePlayerPlaybackDidFinishNotification, object: self.moviePlayerController)
         self.moviePlayerController.scalingMode = MPMovieScalingMode.AspectFill
         self.moviePlayerController.controlStyle = MPMovieControlStyle.None
         self.moviePlayerController.backgroundView.backgroundColor = UIColor(red:0.11, green:0.1, blue:0.11, alpha:1)
@@ -32,6 +33,12 @@ class RGVideoViewController: UIViewController {
         crossButton.addTarget(self, action: "onCrossButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
         crossButton.setBackgroundImage(UIImage(named: "cross-button-shadow"), forState: UIControlState.Normal)
         self.view.addSubview(crossButton)
+    }
+
+    // MARK: Notification methods
+
+    func moviePlayerDidFinishPlaying(notification: NSNotification) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
     // MARK: UIButton handler

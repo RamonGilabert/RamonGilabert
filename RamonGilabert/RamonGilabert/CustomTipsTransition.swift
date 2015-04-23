@@ -35,13 +35,14 @@ class CustomTipsTransition: UIPercentDrivenInteractiveTransition, UIViewControll
 
             break
         case UIGestureRecognizerState.Changed:
-            self.updateInteractiveTransition(-translation.x/(Constant.Size.DeviceWidth * 2))
+            println((-translation.x + 50)/Constant.Size.DeviceWidth)
+            self.updateInteractiveTransition((-translation.x + 50)/Constant.Size.DeviceWidth)
 
             break
         default:
             self.interactive = false
 
-            if -translation.x/100 > 2.2 {
+            if -translation.x/100 > 2 {
                 self.finishInteractiveTransition()
             } else {
                 self.cancelInteractiveTransition()
@@ -71,7 +72,7 @@ class CustomTipsTransition: UIPercentDrivenInteractiveTransition, UIViewControll
 
         let duration = self.transitionDuration(transitionContext)
 
-        UIView.animateWithDuration(duration/1.5, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8, options: nil, animations: {
+        UIView.animateWithDuration(duration/1.5, delay: 0.0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.8, options: nil, animations: {
             if self.presenting {
                 self.onStageMenuController(tipsViewController)
             } else {
@@ -89,7 +90,7 @@ class CustomTipsTransition: UIPercentDrivenInteractiveTransition, UIViewControll
     }
 
     func offStageMenuController(tipsViewController: RGTipsViewController) {
-        tipsViewController.view.alpha = 0
+        tipsViewController.backgroundView.alpha = 0
 
         tipsViewController.swipeSidesIcon.transform = CGAffineTransformMakeTranslation(-200, 0)
         tipsViewController.swipeSidesLabel.transform = CGAffineTransformMakeTranslation(-200, 0)
@@ -100,7 +101,7 @@ class CustomTipsTransition: UIPercentDrivenInteractiveTransition, UIViewControll
     }
 
     func onStageMenuController(tipsViewController: RGTipsViewController) {
-        tipsViewController.view.alpha = 0.7
+        tipsViewController.backgroundView.alpha = 0.85
 
         for view in tipsViewController.view.subviews as! [UIView] {
             view.transform = CGAffineTransformIdentity

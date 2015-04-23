@@ -35,14 +35,13 @@ class CustomTipsTransition: UIPercentDrivenInteractiveTransition, UIViewControll
 
             break
         case UIGestureRecognizerState.Changed:
-            println((-translation.x + 50)/Constant.Size.DeviceWidth)
-            self.updateInteractiveTransition((-translation.x + 50)/Constant.Size.DeviceWidth)
+            self.updateInteractiveTransition(-translation.x/Constant.Size.DeviceWidth/5)
 
             break
         default:
             self.interactive = false
 
-            if -translation.x/100 > 2 {
+            if -translation.x/100 > 1.75 {
                 self.finishInteractiveTransition()
             } else {
                 self.cancelInteractiveTransition()
@@ -92,12 +91,12 @@ class CustomTipsTransition: UIPercentDrivenInteractiveTransition, UIViewControll
     func offStageMenuController(tipsViewController: RGTipsViewController) {
         tipsViewController.backgroundView.alpha = 0
 
-        tipsViewController.swipeSidesIcon.transform = CGAffineTransformMakeTranslation(-200, 0)
-        tipsViewController.swipeSidesLabel.transform = CGAffineTransformMakeTranslation(-200, 0)
-        tipsViewController.scrollDownIcon.transform = CGAffineTransformMakeTranslation(200, 0)
-        tipsViewController.scrollDownLabel.transform = CGAffineTransformMakeTranslation(200, 0)
-        tipsViewController.pinchMenuIcon.transform = CGAffineTransformMakeTranslation(-200, 0)
-        tipsViewController.pinchMenuLabel.transform = CGAffineTransformMakeTranslation(-200, 0)
+        tipsViewController.swipeSidesIcon.transform = CGAffineTransformMakeTranslation(-400, 0)
+        tipsViewController.swipeSidesLabel.transform = CGAffineTransformMakeTranslation(-400, 0)
+        tipsViewController.scrollDownIcon.transform = CGAffineTransformMakeTranslation(400, 0)
+        tipsViewController.scrollDownLabel.transform = CGAffineTransformMakeTranslation(400, 0)
+        tipsViewController.pinchMenuIcon.transform = CGAffineTransformMakeTranslation(-400, 0)
+        tipsViewController.pinchMenuLabel.transform = CGAffineTransformMakeTranslation(-400, 0)
     }
 
     func onStageMenuController(tipsViewController: RGTipsViewController) {

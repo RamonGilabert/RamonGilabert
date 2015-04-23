@@ -108,6 +108,16 @@
 			name = Sounds;
 			sourceTree = "<group>";
 		};
+		F64895EF1AE991B300CC4F9E /* Custom transitions */ = {
+			isa = PBXGroup;
+			children = (
+				F6A323C81AE387AE0026D576 /* CustomControllerTransitions.swift */,
+				F64895E71AE9561600CC4F9E /* CustomVideoTransition.swift */,
+				F64895EB1AE9814B00CC4F9E /* CustomTipsTransition.swift */,
+			);
+			name = "Custom transitions";
+			sourceTree = "<group>";
+		};
 		F6526E2F1AE2B956007ACF23 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +148,7 @@
 				F66117191AE9057C00A30E55 /* RGVideoViewController.swift */,
 				F64895E91AE9711000CC4F9E /* RGTipsViewController.swift */,
 				F6A323CA1AE3B5F70026D576 /* Managers */,
+				F64895EF1AE991B300CC4F9E /* Custom transitions */,
 				F6A323CD1AE3EDEA0026D576 /* Override classes */,
 				F6BE1CE11AE517FC0046AFDD /* Custom cells */,
 				F6C4001C1AE79ED200E1E983 /* Resources */,
@@ -194,9 +205,6 @@
 				F64895D41AE9402600CC4F9E /* SoundManager.swift */,
 				F661171D1AE905FF00A30E55 /* ViewModel.swift */,
 				F6B93C161AE648920085DB2B /* Structures.swift */,
-				F6A323C81AE387AE0026D576 /* CustomControllerTransitions.swift */,
-				F64895E71AE9561600CC4F9E /* CustomVideoTransition.swift */,
-				F64895EB1AE9814B00CC4F9E /* CustomTipsTransition.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";

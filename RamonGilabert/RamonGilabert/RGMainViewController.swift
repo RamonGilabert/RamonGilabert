@@ -40,6 +40,20 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         loadScrollViewInPage(2)
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        // TODO: First time in app
+
+//        if !self.checkFirstLunch {
+//            let checkFirstLunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunch")
+//
+//            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
+//            self.presentViewController(self.videoViewController, animated: true, completion: nil)
+//            self.presentViewController(self.tipsViewController, animated: true, completion: nil)
+//        }
+    }
+
     // MARK: ScrollView methods
 
     func loadScrollViewInPage(page: Int) {
@@ -64,7 +78,6 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     }
 
     func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
-        self.presentViewController(self.tipsViewController, animated: true, completion: nil)
         let pageWidth = CGRectGetWidth(self.scrollView.frame)
         let page = Int(floor((self.scrollView.contentOffset.x - Constant.Size.DeviceWidth) / Constant.Size.DeviceWidth + 1))
 

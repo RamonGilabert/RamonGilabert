@@ -1,8 +1,47 @@
 import UIKit
 
-class CustomTipsTransition: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
+class CustomTipsTransition: UIPercentDrivenInteractiveTransition, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIViewControllerInteractiveTransitioning {
 
+    private var panGestureRecognizer = UIPanGestureRecognizer()
     private var presenting = false
+    private var interactive = false
+
+    // MARK: Setters
+
+    var exitViewController: RGTipsViewController! {
+        didSet {
+            self.panGestureRecognizer.addTarget(self, action:"onPanGestureRecognizer:")
+            self.exitViewController.view.addGestureRecognizer(self.panGestureRecognizer)
+        }
+    }
+
+    // MARK: UIPanGestureHandlers
+
+    func onPanGestureRecognizer(panGesture: UIPinchGestureRecognizer) {
+        let translation = panGesture.scale
+
+        switch panGesture.state {
+        case UIGestureRecognizerState.Began:
+            if translation < 0 {
+                self.interactive = true
+                self.exitViewController.presentViewController(RGMainViewController(), animated: true, completion: nil)
+            }
+
+            break
+        case UIGestureRecognizerState.Changed:
+            self.updateInteractiveTransition((1 - translation)/2)
+
+            break
+        default:
+            self.interactive = false
+
+            if translation < AnimationOptions.MinimumPercentagePerformAnimation {
+                self.finishInteractiveTransition()
+            } else {
+                self.cancelInteractiveTransition()
+            }
+        }
+    }
 
     // MARK: UIViewControllerAnimatedTransitioning protocol methods
 
@@ -12,7 +51,7 @@ class CustomTipsTransition: NSObject, UIViewControllerAnimatedTransitioning, UIV
         let screens: (from: UIViewController, to: UIViewController) = (transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!, transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!)
 
         let mainViewController = !self.presenting ? screens.to as! RGMainViewController : screens.from as! RGMainViewController
-        let videoViewController = !self.presenting ? screens.from as! RGTipsViewController : screens.to as! RGTipsViewController
+        let tipsViewController = !self.presenting ? screens.from as! RGTipsViewController : screens.to as! RGTipsViewController
 
         let menuView = tipsViewController.view
         let bottomView = mainViewController.view
@@ -40,20 +79,22 @@ class CustomTipsTransition: NSObject, UIViewControllerAnimatedTransitioning, UIV
     }
 
     func offStageMenuController(tipsViewController: RGTipsViewController) {
-        videoViewController.view.alpha = 0
-        videoViewController.view.transform = CGAffineTransformMakeScale(1.5, 1.5)
+        tipsViewController.view.alpha = 0
     }
 
     func onStageMenuController(tipsViewController: RGTipsViewController) {
-        videoViewController.view.alpha = 1
-        videoViewController.view.transform = CGAffineTransformIdentity
+        tipsViewController.view.alpha = 1
     }
 
-    func transitionDuration(videoViewController: UIViewControllerContextTransitioning) -> NSTimeInterval {
-        return 0.75
+    // MARK: Delegate methods
+
+    func interactionControllerForPresentation(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return self.interactive ? self : nil
     }
 
-    // MARK: UIViewControllerTransitioningDelegate protocol methods
+    func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return self.interactive ? self : nil
+    }
 
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         self.presenting = true
@@ -63,5 +104,9 @@ class CustomTipsTransition: NSObject, UIViewControllerAnimatedTransitioning, UIV
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         self.presenting = false
         return self
+    }
+
+    func transitionDuration(videoViewController: UIViewControllerContextTransitioning) -> NSTimeInterval {
+        return 0.75
     }
 }

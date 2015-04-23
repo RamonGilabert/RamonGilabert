@@ -29,6 +29,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
 
     var exitViewController: RGMenuViewController! {
         didSet {
+            self.soundManager.menuDisplaySound
             self.pinchGestureExit.addTarget(self, action:"onPinchedExitGestureRecognizer:")
             self.exitViewController.view.addGestureRecognizer(self.pinchGestureExit)
             self.exitViewController.mainViewController = self.sourceViewController

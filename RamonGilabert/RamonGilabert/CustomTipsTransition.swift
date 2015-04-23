@@ -17,6 +17,7 @@ class CustomTipsTransition: UIPercentDrivenInteractiveTransition, UIViewControll
 
     var exitViewController: RGTipsViewController! {
         didSet {
+            self.soundManager.menuDisplaySound
             self.panGestureRecognizer.addTarget(self, action:"onPanGestureRecognizer:")
             self.exitViewController.view.addGestureRecognizer(self.panGestureRecognizer)
         }
@@ -43,6 +44,7 @@ class CustomTipsTransition: UIPercentDrivenInteractiveTransition, UIViewControll
             self.interactive = false
 
             if -translation.x/100 > 1.75 {
+                self.soundManager.menuDisplaySound.play()
                 self.finishInteractiveTransition()
             } else {
                 self.cancelInteractiveTransition()

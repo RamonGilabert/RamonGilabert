@@ -73,4 +73,8 @@ class UIFont_WWDC: NSObject {
 
         return UIFont(name: "Libertad", size: 12 * Constant.Size.RelationHeights * 1.55)!
     }
+
+    class internal func titleTips() -> UIFont {
+        return UIFont(name: "AvenirNext-DemiBold", size: 16 * Constant.Size.RelationHeights)!
+    }
 }

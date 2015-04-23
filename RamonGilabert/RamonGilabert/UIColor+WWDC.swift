@@ -25,4 +25,8 @@ class UIColor_WWDC: NSObject {
     class internal func explanationProjectsColor() -> UIColor {
         return UIColor(red:0.36, green:0.37, blue:0.45, alpha:1)
     }
+
+    class internal func tipsColor() -> UIColor {
+        return UIColor(red:0.97, green:0.97, blue:0.97, alpha:1)
+    }
 }

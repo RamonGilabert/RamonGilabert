@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F64895D51AE9402600CC4F9E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64895D41AE9402600CC4F9E /* SoundManager.swift */; };
+		F64895D71AE9418D00CC4F9E /* menu-display.wav in Resources */ = {isa = PBXBuildFile; fileRef = F64895D61AE9418D00CC4F9E /* menu-display.wav */; };
 		F6526E3E1AE2B956007ACF23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E3D1AE2B956007ACF23 /* AppDelegate.swift */; };
 		F6526E451AE2B956007ACF23 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6526E441AE2B956007ACF23 /* Images.xcassets */; };
 		F6526E481AE2B956007ACF23 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6526E461AE2B956007ACF23 /* LaunchScreen.xib */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F64895D41AE9402600CC4F9E /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		F64895D61AE9418D00CC4F9E /* menu-display.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "menu-display.wav"; sourceTree = "<group>"; };
 		F6526E381AE2B956007ACF23 /* RamonGilabert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RamonGilabert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6526E3C1AE2B956007ACF23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6526E3D1AE2B956007ACF23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F64895D81AE9419000CC4F9E /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				F64895D61AE9418D00CC4F9E /* menu-display.wav */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
 		F6526E2F1AE2B956007ACF23 = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +178,7 @@
 		F6A323CA1AE3B5F70026D576 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				F64895D41AE9402600CC4F9E /* SoundManager.swift */,
 				F661171D1AE905FF00A30E55 /* ViewModel.swift */,
 				F6B93C161AE648920085DB2B /* Structures.swift */,
 				F6A323C81AE387AE0026D576 /* CustomControllerTransitions.swift */,
@@ -195,6 +208,7 @@
 		F6C4001C1AE79ED200E1E983 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F64895D81AE9419000CC4F9E /* Sounds */,
 				F66117181AE9056C00A30E55 /* Videos */,
 				F6526E631AE2C77E007ACF23 /* Images */,
 				F6C4001D1AE79EE200E1E983 /* Fonts */,
@@ -291,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F66117171AE9055F00A30E55 /* intro_video.m4v in Resources */,
+				F64895D71AE9418D00CC4F9E /* menu-display.wav in Resources */,
 				F6C4001E1AE79F9B00E1E983 /* Libertad.otf in Resources */,
 				F6526E481AE2B956007ACF23 /* LaunchScreen.xib in Resources */,
 				F6526E451AE2B956007ACF23 /* Images.xcassets in Resources */,
@@ -312,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F66117241AE9060300A30E55 /* RGMainViewController.swift in Sources */,
+				F64895D51AE9402600CC4F9E /* SoundManager.swift in Sources */,
 				F6B69EED1AE81F5B0077BE56 /* UIView+GraphView.swift in Sources */,
 				F661171C1AE905FB00A30E55 /* UIFont+WWDC.swift in Sources */,
 				F66117221AE9060300A30E55 /* RGMenuViewController.swift in Sources */,

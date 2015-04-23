@@ -1,8 +1,10 @@
 import UIKit
+import AVFoundation
 
 class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
 
     let viewModel = ViewModel()
+    let soundManager = SoundManager()
     var tableView = UITableView()
     var blurView = UIImageView()
     var backgroundImageView = UIImageView()

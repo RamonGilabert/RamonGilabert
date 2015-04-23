@@ -15,6 +15,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
 
     private let pinchGesture = UIPinchGestureRecognizer()
     private let pinchGestureExit = UIPinchGestureRecognizer()
+    private let soundManager = SoundManager()
     private var presenting = false
     private var interactive = false
 

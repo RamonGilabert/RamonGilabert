@@ -8,6 +8,10 @@
 
 import UIKit
 
+struct Video {
+    static let MainVideoURL: NSURL = NSBundle.mainBundle().URLForResource("intro_video", withExtension: "m4v")!
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

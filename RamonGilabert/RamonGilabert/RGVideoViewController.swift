@@ -14,12 +14,10 @@ class RGVideoViewController: UIViewController {
         super.viewDidLoad()
 
         self.transitioningDelegate = self.transitionManager
-        
-        let fileURL: NSURL = NSBundle.mainBundle().URLForResource("intro_video", withExtension: "m4v")!
 
         self.session.setCategory(AVAudioSessionCategoryPlayback, error: nil)
 
-        self.moviePlayerController = MPMoviePlayerController(contentURL: fileURL)
+        self.moviePlayerController = MPMoviePlayerController(contentURL: Video.MainVideoURL)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "moviePlayerDidFinishPlaying:" , name: MPMoviePlayerPlaybackDidFinishNotification, object: self.moviePlayerController)
         self.moviePlayerController.scalingMode = MPMovieScalingMode.AspectFill
         self.moviePlayerController.controlStyle = MPMovieControlStyle.None
@@ -48,6 +46,8 @@ class RGVideoViewController: UIViewController {
 
     func onCrossButtonPressed() {
         self.moviePlayerController.pause()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            self.moviePlayerController.stop()
+        })
     }
 }

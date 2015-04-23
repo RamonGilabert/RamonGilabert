@@ -12,14 +12,14 @@ class CustomVideoTransition: NSObject, UIViewControllerAnimatedTransitioning, UI
         let screens : (from:UIViewController, to:UIViewController) = (transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!, transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!)
 
         let mainViewController = !self.presenting ? screens.to as! RGMainViewController : screens.from as! RGMainViewController
-        let menuViewController = !self.presenting ? screens.from as! RGVideoViewController : screens.to as! RGVideoViewController
+        let videoViewController = !self.presenting ? screens.from as! RGVideoViewController : screens.to as! RGVideoViewController
 
-        let menuView = menuViewController.view
+        let menuView = videoViewController.view
         let bottomView = mainViewController.view
 
         // prepare menu items to slide in
         if (self.presenting){
-            self.offStageMenuController(menuViewController)
+            self.offStageMenuController(videoViewController)
         }
 
         container.addSubview(bottomView)
@@ -30,30 +30,26 @@ class CustomVideoTransition: NSObject, UIViewControllerAnimatedTransitioning, UI
         UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: nil, animations: {
 
             if (self.presenting){
-                self.onStageMenuController(menuViewController)
+                self.onStageMenuController(videoViewController)
             } else {
-                self.offStageMenuController(menuViewController)
+                self.offStageMenuController(videoViewController)
             }}, completion: { finished in
 
                 transitionContext.completeTransition(true)
-
+                UIApplication.sharedApplication().keyWindow!.addSubview(screens.from.view)
+                UIApplication.sharedApplication().keyWindow!.addSubview(screens.to.view)
         })
     }
 
-    func offStageMenuController(menuViewController: RGVideoViewController){
-
-        menuViewController.view.alpha = 0
-
-        let topRowOffset  :CGFloat = 300
-        let middleRowOffset :CGFloat = 150
-        let bottomRowOffset  :CGFloat = 50
+    func offStageMenuController(videoViewController: RGVideoViewController){
+        videoViewController.view.alpha = 0
     }
 
-    func onStageMenuController(menuViewController: RGVideoViewController){
-        menuViewController.view.alpha = 1
+    func onStageMenuController(videoViewController: RGVideoViewController){
+        videoViewController.view.alpha = 1
     }
 
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+    func transitionDuration(videoViewController: UIViewControllerContextTransitioning) -> NSTimeInterval {
         return 0.75
     }
 

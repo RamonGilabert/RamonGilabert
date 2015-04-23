@@ -17,8 +17,7 @@ class CustomVideoTransition: NSObject, UIViewControllerAnimatedTransitioning, UI
         let menuView = videoViewController.view
         let bottomView = mainViewController.view
 
-        // prepare menu items to slide in
-        if (self.presenting){
+        if (self.presenting) {
             self.offStageMenuController(videoViewController)
         }
 
@@ -27,26 +26,27 @@ class CustomVideoTransition: NSObject, UIViewControllerAnimatedTransitioning, UI
 
         let duration = self.transitionDuration(transitionContext)
 
-        UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: nil, animations: {
+        UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: nil, animations: {
 
-            if (self.presenting){
+            if (self.presenting) {
                 self.onStageMenuController(videoViewController)
             } else {
                 self.offStageMenuController(videoViewController)
             }}, completion: { finished in
-
                 transitionContext.completeTransition(true)
                 UIApplication.sharedApplication().keyWindow!.addSubview(screens.from.view)
                 UIApplication.sharedApplication().keyWindow!.addSubview(screens.to.view)
         })
     }
 
-    func offStageMenuController(videoViewController: RGVideoViewController){
+    func offStageMenuController(videoViewController: RGVideoViewController) {
         videoViewController.view.alpha = 0
+        videoViewController.view.transform = CGAffineTransformMakeScale(1.5, 1.5)
     }
 
     func onStageMenuController(videoViewController: RGVideoViewController){
         videoViewController.view.alpha = 1
+        videoViewController.view.transform = CGAffineTransformIdentity
     }
 
     func transitionDuration(videoViewController: UIViewControllerContextTransitioning) -> NSTimeInterval {

@@ -28,6 +28,7 @@ class RGMenuViewController: UIViewController {
         instantiateAllButtons()
 
         self.crossButton.addTarget(self, action: "onCrossButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        self.soundManager.menuTappedSound
 
         self.titleLabel = self.viewModel.setTitleLabelInView(self.view)
     }

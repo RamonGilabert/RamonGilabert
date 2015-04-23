@@ -13,6 +13,7 @@
 		F64895E81AE9561600CC4F9E /* CustomVideoTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64895E71AE9561600CC4F9E /* CustomVideoTransition.swift */; };
 		F64895EA1AE9711000CC4F9E /* RGTipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64895E91AE9711000CC4F9E /* RGTipsViewController.swift */; };
 		F64895EC1AE9814B00CC4F9E /* CustomTipsTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64895EB1AE9814B00CC4F9E /* CustomTipsTransition.swift */; };
+		F64895EE1AE9913D00CC4F9E /* dismiss-tips.wav in Resources */ = {isa = PBXBuildFile; fileRef = F64895ED1AE9913D00CC4F9E /* dismiss-tips.wav */; };
 		F6526E3E1AE2B956007ACF23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E3D1AE2B956007ACF23 /* AppDelegate.swift */; };
 		F6526E451AE2B956007ACF23 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6526E441AE2B956007ACF23 /* Images.xcassets */; };
 		F6526E481AE2B956007ACF23 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6526E461AE2B956007ACF23 /* LaunchScreen.xib */; };
@@ -52,6 +53,7 @@
 		F64895E71AE9561600CC4F9E /* CustomVideoTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomVideoTransition.swift; sourceTree = "<group>"; };
 		F64895E91AE9711000CC4F9E /* RGTipsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGTipsViewController.swift; sourceTree = "<group>"; };
 		F64895EB1AE9814B00CC4F9E /* CustomTipsTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTipsTransition.swift; sourceTree = "<group>"; };
+		F64895ED1AE9913D00CC4F9E /* dismiss-tips.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "dismiss-tips.wav"; sourceTree = "<group>"; };
 		F6526E381AE2B956007ACF23 /* RamonGilabert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RamonGilabert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6526E3C1AE2B956007ACF23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6526E3D1AE2B956007ACF23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				F64895D61AE9418D00CC4F9E /* menu-display.wav */,
 				F64895E11AE9496100CC4F9E /* menu-tap.wav */,
+				F64895ED1AE9913D00CC4F9E /* dismiss-tips.wav */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			files = (
 				F66117171AE9055F00A30E55 /* intro_video.m4v in Resources */,
 				F64895D71AE9418D00CC4F9E /* menu-display.wav in Resources */,
+				F64895EE1AE9913D00CC4F9E /* dismiss-tips.wav in Resources */,
 				F6C4001E1AE79F9B00E1E983 /* Libertad.otf in Resources */,
 				F6526E481AE2B956007ACF23 /* LaunchScreen.xib in Resources */,
 				F64895E21AE9496100CC4F9E /* menu-tap.wav in Resources */,

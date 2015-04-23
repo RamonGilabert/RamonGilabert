@@ -100,6 +100,7 @@ class CustomTipsTransition: UIPercentDrivenInteractiveTransition, UIViewControll
         tipsViewController.scrollDownLabel.transform = CGAffineTransformMakeTranslation(400, 0)
         tipsViewController.pinchMenuIcon.transform = CGAffineTransformMakeTranslation(-400, 0)
         tipsViewController.pinchMenuLabel.transform = CGAffineTransformMakeTranslation(-400, 0)
+        tipsViewController.slideToStartLabel.transform = CGAffineTransformMakeTranslation(0, 200)
     }
 
     func onStageMenuController(tipsViewController: RGTipsViewController) {

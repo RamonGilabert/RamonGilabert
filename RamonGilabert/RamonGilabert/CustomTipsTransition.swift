@@ -35,13 +35,13 @@ class CustomTipsTransition: UIPercentDrivenInteractiveTransition, UIViewControll
 
             break
         case UIGestureRecognizerState.Changed:
-            self.updateInteractiveTransition(-translation.y/Constant.Size.DeviceWidth)
+            self.updateInteractiveTransition(-translation.x/(Constant.Size.DeviceWidth * 2))
 
             break
         default:
             self.interactive = false
 
-            if -translation.y/100 > 2.2 {
+            if -translation.x/100 > 2.2 {
                 self.finishInteractiveTransition()
             } else {
                 self.cancelInteractiveTransition()
@@ -71,25 +71,40 @@ class CustomTipsTransition: UIPercentDrivenInteractiveTransition, UIViewControll
 
         let duration = self.transitionDuration(transitionContext)
 
-        UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: nil, animations: {
-
-            if (self.presenting) {
+        UIView.animateWithDuration(duration/1.5, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8, options: nil, animations: {
+            if self.presenting {
                 self.onStageMenuController(tipsViewController)
             } else {
                 self.offStageMenuController(tipsViewController)
             }}, completion: { finished in
-                transitionContext.completeTransition(true)
-                UIApplication.sharedApplication().keyWindow!.addSubview(screens.from.view)
-                UIApplication.sharedApplication().keyWindow!.addSubview(screens.to.view)
+                if transitionContext.transitionWasCancelled() {
+                    transitionContext.completeTransition(false)
+                    UIApplication.sharedApplication().keyWindow!.addSubview(screens.from.view)
+                } else {
+                    transitionContext.completeTransition(true)
+                    UIApplication.sharedApplication().keyWindow!.addSubview(screens.from.view)
+                    UIApplication.sharedApplication().keyWindow!.addSubview(screens.to.view)
+                }
         })
     }
 
     func offStageMenuController(tipsViewController: RGTipsViewController) {
-        tipsViewController.view.alpha = 1
+        tipsViewController.view.alpha = 0
+
+        tipsViewController.swipeSidesIcon.transform = CGAffineTransformMakeTranslation(-200, 0)
+        tipsViewController.swipeSidesLabel.transform = CGAffineTransformMakeTranslation(-200, 0)
+        tipsViewController.scrollDownIcon.transform = CGAffineTransformMakeTranslation(200, 0)
+        tipsViewController.scrollDownLabel.transform = CGAffineTransformMakeTranslation(200, 0)
+        tipsViewController.pinchMenuIcon.transform = CGAffineTransformMakeTranslation(-200, 0)
+        tipsViewController.pinchMenuLabel.transform = CGAffineTransformMakeTranslation(-200, 0)
     }
 
     func onStageMenuController(tipsViewController: RGTipsViewController) {
-        tipsViewController.view.alpha = 0
+        tipsViewController.view.alpha = 0.7
+
+        for view in tipsViewController.view.subviews as! [UIView] {
+            view.transform = CGAffineTransformIdentity
+        }
     }
 
     // MARK: Delegate methods

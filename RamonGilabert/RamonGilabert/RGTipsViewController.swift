@@ -19,14 +19,8 @@ class RGTipsViewController: UIViewController {
         self.swipeSidesIcon.clipsToBounds = true
         self.view.addSubview(self.swipeSidesIcon)
 
-        self.swipeSidesLabel = UILabel(frame: CGRectMake(30 * Constant.Size.RelationHeights, self.swipeSidesIcon.frame.origin.y + self.swipeSidesIcon.frame.height + 15 * Constant.Size.RelationHeights, Constant.Size.DeviceWidth - ((30 * Constant.Size.RelationHeights) * 2), 0))
-        self.swipeSidesLabel.text = "Swipe left / right - Switch between the main views"
-        self.swipeSidesLabel.numberOfLines = 0
-        self.swipeSidesLabel.textAlignment = NSTextAlignment.Center
-        self.swipeSidesLabel.font = UIFont_WWDC.titleTips()
-        self.swipeSidesLabel.textColor = UIColor_WWDC.tipsColor()
-        self.swipeSidesLabel.sizeToFit()
-        self.swipeSidesLabel.frame = CGRectMake(self.swipeSidesLabel.frame.origin.x, self.swipeSidesLabel.frame.origin.y, Constant.Size.DeviceWidth - ((30 * Constant.Size.RelationHeights) * 2), self.swipeSidesLabel.frame.height)
-        self.view.addSubview(self.swipeSidesLabel)
+        self.swipeSidesLabel = self.viewModel.setTipsTitle(self.view, yPosition: self.swipeSidesIcon.frame.origin.y + self.swipeSidesIcon.frame.height + 15, text: "Swipe left / right - Switch between the main views")
+        self.scrollDownLabel = self.viewModel.setTipsTitle(self.view, yPosition: self.scrollDownIcon.frame.origin.y + self.scrollDownIcon.frame.height + 15, text: "Scroll down - Discover the content")
+        self.pinchMenuLabel = self.viewModel.setTipsTitle(self.view, yPosition: self.pinchMenuIcon.frame.origin.y + self.pinchMenuIcon.frame.height + 15, text: "Pinch to see the menu - More fun inside")
     }
 }

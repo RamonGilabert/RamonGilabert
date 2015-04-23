@@ -56,6 +56,17 @@ struct Constant {
         static let HeightBlurView = Constant.ProjectsViewPositioning.HeightImageViewProject / 4.2
         static let LineSpacingStory = 6 * Constant.Size.RelationHeights
     }
+
+    struct TipsViewPositioning {
+        static let MinimumViewPadding = 30 * Constant.Size.RelationHeights
+        static let WidthTipFirstIcon = 98 * Constant.Size.RelationHeights
+        static let HeightTipFirstIcon = 53 * Constant.Size.RelationHeights
+        static let WidthTipSecondIcon = 71 * Constant.Size.RelationHeights
+        static let HeightTipSecondIcon = 83 * Constant.Size.RelationHeights
+        static let WidthTipThirdIcon = 91 * Constant.Size.RelationHeights
+        static let HeightTipThirdIcon = 97 * Constant.Size.RelationHeights
+        static let LabelExplainingWidth = Constant.Size.DeviceWidth - (Constant.TipsViewPositioning.MinimumViewPadding * 2)
+    }
 }
 
 class ViewModel: NSObject {
@@ -349,6 +360,31 @@ class ViewModel: NSObject {
         label.numberOfLines = 0
         label.attributedText = NSAttributedString(string: text, attributes: [NSParagraphStyleAttributeName : paragraphStyle])
         label.sizeToFit()
+
+        view.addSubview(label)
+
+        return label
+    }
+
+    // MARK: Tips layout
+
+    func setTipsIcon(view: UIView, frame: CGRect) -> UIImageView {
+        let imageView = UIImageView(frame: frame)
+
+        view.addSubview(imageView)
+
+        return imageView
+    }
+
+    func setTipsTitle(view: UIView, yPosition: CGFloat, text: String) -> UILabel {
+        let label = UILabel(frame: CGRectMake(30 * Constant.Size.RelationHeights, yPosition, Constant.TipsViewPositioning.LabelExplainingWidth, 0))
+        label.text = text
+        label.numberOfLines = 0
+        label.textAlignment = NSTextAlignment.Center
+        label.font = UIFont_WWDC.titleTips()
+        label.textColor = UIColor_WWDC.tipsColor()
+        label.sizeToFit()
+        label.frame = CGRectMake(label.frame.origin.x, label.frame.origin.y, Constant.TipsViewPositioning.LabelExplainingWidth, label.frame.height)
 
         view.addSubview(label)
 

@@ -88,6 +88,7 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     }
 
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        self.presentViewController(self.tipsViewController, animated: true, completion: nil)
         let pageWidth = CGRectGetWidth(self.scrollView.frame)
         self.currentPage = Int(floor(((self.scrollView.contentOffset.x - Constant.Size.DeviceWidth) / 1) / Constant.Size.DeviceWidth + 1))
 

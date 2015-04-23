@@ -68,11 +68,6 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
             UIView.animateWithDuration(0.7, animations: { () -> Void in
                 cell.separatorView.frame.size = CGSizeMake(Constant.Size.DeviceWidth - (Constant.TableViewSkillVariables.MinimumPadding * 2), 1)
             })
-        } else if indexPath.row == 6 {
-//            cell.bottomImage.transform = CGAffineTransformMakeScale(0.5, 0.5)
-//            UIView.animateWithDuration(0.7, animations: { () -> Void in
-//                cell.bottomImage.transform = CGAffineTransformIdentity
-//            })
         } else if indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 {
             if !self.boolValue {
                 cell.leftGraph.arcEnd = 0

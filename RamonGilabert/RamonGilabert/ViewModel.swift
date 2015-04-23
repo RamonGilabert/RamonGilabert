@@ -66,9 +66,11 @@ struct Constant {
         static let WidthTipThirdIcon = 91 * Constant.Size.RelationHeights
         static let HeightTipThirdIcon = 97 * Constant.Size.RelationHeights
         static let LabelExplainingWidth = Constant.Size.DeviceWidth - (Constant.TipsViewPositioning.MinimumViewPadding * 2)
+        static let PositionPaddingFromBottom = 35 * Constant.Size.RelationHeights
         static let FirstIconImage = "swipe-right-left"
         static let SecondIconImage = "swipe-up-icon"
         static let ThirdIconImage = "menu-icon"
+        static let TextForSlider = "Slide left to start"
     }
 }
 

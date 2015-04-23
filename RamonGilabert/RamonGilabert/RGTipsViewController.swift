@@ -4,6 +4,7 @@ class RGTipsViewController: UIViewController {
 
     let viewModel = ViewModel()
     let transitionManager = CustomTipsTransition()
+    var slideToStartLabel = UILabel()
     var swipeSidesIcon = UIImageView()
     var scrollDownIcon = UIImageView()
     var pinchMenuIcon = UIImageView()
@@ -37,5 +38,7 @@ class RGTipsViewController: UIViewController {
         self.pinchMenuIcon = self.viewModel.setTipsIcon(self.view, frame: CGRectMake((Constant.Size.DeviceWidth - Constant.TipsViewPositioning.WidthTipThirdIcon)/2, self.scrollDownLabel.frame.origin.y + self.scrollDownLabel.frame.height + Constant.TipsViewPositioning.MinimumViewPadding/2, Constant.TipsViewPositioning.WidthTipThirdIcon, Constant.TipsViewPositioning.HeightTipThirdIcon), image: Constant.TipsViewPositioning.ThirdIconImage)
 
         self.pinchMenuLabel = self.viewModel.setTipsTitle(self.view, yPosition: self.pinchMenuIcon.frame.origin.y + self.pinchMenuIcon.frame.height + 15, text: "Pinch to see the menu - More fun inside")
+
+        self.slideToStartLabel = self.viewModel.setTipsTitle(self.view, yPosition: Constant.Size.DeviceHeight - Constant.TipsViewPositioning.PositionPaddingFromBottom, text: Constant.TipsViewPositioning.TextForSlider)
     }
 }

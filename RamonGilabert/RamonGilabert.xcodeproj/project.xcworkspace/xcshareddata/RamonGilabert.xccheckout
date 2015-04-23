@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>F2B196FD-BFC6-45B3-9965-F2556D40E66A</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>RamonGilabert</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>5C764887E3F979BBED53B2F6431653E671305FA0</key>
 		<string>https://github.com/RamonGilabert/RamonGilabert.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>RamonGilabert/RamonGilabert.xcodeproj/project.xcworkspace</string>
+	<string>RamonGilabert/RamonGilabert.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>5C764887E3F979BBED53B2F6431653E671305FA0</key>

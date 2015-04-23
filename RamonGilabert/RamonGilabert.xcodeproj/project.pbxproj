@@ -16,6 +16,7 @@
 		F6526E651AE2C996007ACF23 /* RGStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E641AE2C996007ACF23 /* RGStoryViewController.swift */; };
 		F6526E671AE2C9AF007ACF23 /* RGProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E661AE2C9AF007ACF23 /* RGProjectsViewController.swift */; };
 		F6526E691AE2C9CA007ACF23 /* RGSkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E681AE2C9CA007ACF23 /* RGSkillsViewController.swift */; };
+		F66117171AE9055F00A30E55 /* intro_video.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F66117161AE9055F00A30E55 /* intro_video.m4v */; };
 		F6A323C91AE387AE0026D576 /* CustomControllerTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A323C81AE387AE0026D576 /* CustomControllerTransitions.swift */; };
 		F6A323CC1AE3EDDD0026D576 /* UIColor+WWDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A323CB1AE3EDDD0026D576 /* UIColor+WWDC.swift */; };
 		F6A323CF1AE3F30B0026D576 /* UIFont+WWDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A323CE1AE3F30B0026D576 /* UIFont+WWDC.swift */; };
@@ -51,6 +52,7 @@
 		F6526E641AE2C996007ACF23 /* RGStoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGStoryViewController.swift; sourceTree = "<group>"; };
 		F6526E661AE2C9AF007ACF23 /* RGProjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGProjectsViewController.swift; sourceTree = "<group>"; };
 		F6526E681AE2C9CA007ACF23 /* RGSkillsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGSkillsViewController.swift; sourceTree = "<group>"; };
+		F66117161AE9055F00A30E55 /* intro_video.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro_video.m4v; sourceTree = "<group>"; };
 		F6A323C81AE387AE0026D576 /* CustomControllerTransitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomControllerTransitions.swift; sourceTree = "<group>"; };
 		F6A323CB1AE3EDDD0026D576 /* UIColor+WWDC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+WWDC.swift"; sourceTree = "<group>"; };
 		F6A323CE1AE3F30B0026D576 /* UIFont+WWDC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+WWDC.swift"; sourceTree = "<group>"; };
@@ -150,6 +152,14 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		F66117181AE9056C00A30E55 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				F66117161AE9055F00A30E55 /* intro_video.m4v */,
+			);
+			name = Videos;
+			sourceTree = "<group>";
+		};
 		F6A323CA1AE3B5F70026D576 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +192,7 @@
 		F6C4001C1AE79ED200E1E983 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F66117181AE9056C00A30E55 /* Videos */,
 				F6526E631AE2C77E007ACF23 /* Images */,
 				F6C4001D1AE79EE200E1E983 /* Fonts */,
 			);
@@ -276,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F66117171AE9055F00A30E55 /* intro_video.m4v in Resources */,
 				F6C4001E1AE79F9B00E1E983 /* Libertad.otf in Resources */,
 				F6526E481AE2B956007ACF23 /* LaunchScreen.xib in Resources */,
 				F6526E451AE2B956007ACF23 /* Images.xcassets in Resources */,

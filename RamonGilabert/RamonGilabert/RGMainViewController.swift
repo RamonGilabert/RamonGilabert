@@ -61,7 +61,7 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         let page = Int(floor((self.scrollView.contentOffset.x - Constant.Size.DeviceWidth) / Constant.Size.DeviceWidth + 1))
 
         if self.currentPage == 0 || self.currentPage == 2 {
-            self.skillsViewController.giveAValueToProperties(true)
+            self.skillsViewController.boolValue = true
             self.skillsViewController.tableView.reloadData()
         }
     }
@@ -69,6 +69,11 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         let pageWidth = CGRectGetWidth(self.scrollView.frame)
         self.currentPage = Int(floor(((self.scrollView.contentOffset.x - Constant.Size.DeviceWidth) / 1) / Constant.Size.DeviceWidth + 1))
+
+        if self.currentPage != 1 {
+            self.skillsViewController.boolValue = false
+            self.skillsViewController.tableView.reloadData()
+        }
     }
 
     func scrollViewDidScroll(scrollView: UIScrollView) {

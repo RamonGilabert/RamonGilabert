@@ -35,8 +35,6 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
             view.removeFromSuperview()
         }
 
-        println("Hey")
-
         if indexPath.row == 6 {
             cell.addBottomImage(Skills.ArrayWithSkills[indexPath.row] as! String)
         } else if indexPath.row == 4 {
@@ -78,10 +76,8 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
         } else if indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 {
             if !self.boolValue {
                 cell.leftGraph.arcEnd = 0
-                cell.leftGraph.arcEnd = 0
+                cell.rightGraph.arcEnd = 0
             }
-
-            println("Sup")
             
             cell.leftGraph.startAllAnimations()
             cell.rightGraph.startAllAnimations()
@@ -145,9 +141,5 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
         viewToMove.removeFromSuperview()
         viewToMove.frame.origin.y = origin
         view.addSubview(viewToMove)
-    }
-
-    func giveAValueToProperties(bool: Bool) {
-        self.boolValue = bool
     }
 }

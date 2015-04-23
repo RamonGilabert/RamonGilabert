@@ -13,7 +13,15 @@ class RGTipsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setIconsAndLabels()
+    }
+
+    // MARK: Helper methods
+
+    func setIconsAndLabels {
         self.swipeSidesIcon = self.viewModel.setTipsIcon(self.view, frame: CGRectMake((Constant.Size.DeviceWidth - Constant.TipsViewPositioning.WidthTipFirstIcon)/2, Constant.TipsViewPositioning.MinimumViewPadding, Constant.TipsViewPositioning.WidthTipFirstIcon, Constant.TipsViewPositioning.HeightTipFirstIcon), image: Constant.TipsViewPositioning.FirstIconImage)
+        self.scrollDownIcon = self.viewModel.setTipsIcon(self.view, frame: CGRectMake((Constant.Size.DeviceWidth - Constant.TipsViewPositioning.WidthTipFirstIcon)/2, Constant.TipsViewPositioning.MinimumViewPadding, Constant.TipsViewPositioning.WidthTipFirstIcon, Constant.TipsViewPositioning.HeightTipFirstIcon), image: Constant.TipsViewPositioning.FirstIconImage)
+        self.pinchMenuIcon = self.viewModel.setTipsIcon(self.view, frame: CGRectMake((Constant.Size.DeviceWidth - Constant.TipsViewPositioning.WidthTipFirstIcon)/2, Constant.TipsViewPositioning.MinimumViewPadding, Constant.TipsViewPositioning.WidthTipFirstIcon, Constant.TipsViewPositioning.HeightTipFirstIcon), image: Constant.TipsViewPositioning.FirstIconImage)
 
         self.swipeSidesLabel = self.viewModel.setTipsTitle(self.view, yPosition: self.swipeSidesIcon.frame.origin.y + self.swipeSidesIcon.frame.height + 15, text: "Swipe left / right - Switch between the main views")
         self.scrollDownLabel = self.viewModel.setTipsTitle(self.view, yPosition: self.scrollDownIcon.frame.origin.y + self.scrollDownIcon.frame.height + 15, text: "Scroll down - Discover the content")

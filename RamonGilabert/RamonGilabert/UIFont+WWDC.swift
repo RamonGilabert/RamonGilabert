@@ -71,6 +71,6 @@ class UIFont_WWDC: NSObject {
             return UIFont(name: "Libertad", size: 14 * (Constant.Size.RelationHeights + 0.2))!
         }
 
-        return UIFont(name: "Libertad", size: 12 * floor(Constant.Size.RelationHeights) * 1.55)!
+        return UIFont(name: "Libertad", size: 12 * Constant.Size.RelationHeights * 1.55)!
     }
 }

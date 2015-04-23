@@ -44,7 +44,8 @@ class RGMenuViewController: UIViewController {
         } else if button.tag == 2 {
             self.mainViewController.scrollView.scrollRectToVisible(CGRectMake(Constant.Size.DeviceWidth * 2, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight), animated: true)
         } else if button.tag == 3 {
-
+            self.dismissViewControllerAnimated(true, completion: nil)
+            self.mainViewController.presentViewController(RGVideoViewController(), animated: true, completion: nil)
         } else if button.tag == 4 {
 
         } else {

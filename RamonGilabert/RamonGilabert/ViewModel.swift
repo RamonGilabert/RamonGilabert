@@ -43,13 +43,13 @@ struct Constant {
     }
 
     struct ProjectsViewPositioning {
-        static let MinimumPaddingView = 30 as CGFloat
+        static let MinimumPaddingView = 15 as CGFloat
         static let WidthOfMainView = Constant.Size.DeviceWidth - (Constant.ProjectsViewPositioning.MinimumPaddingView * 2)
         static let HeightOfMainView = Constant.Size.DeviceHeight - (140 * Constant.Size.RelationHeights)
         static let YPositionMainView = (Constant.Size.DeviceHeight - Constant.ProjectsViewPositioning.HeightOfMainView) / 2
         static let HeightImageViewProject = Constant.ProjectsViewPositioning.HeightOfMainView / 1.65
         static let MinimumPaddingInsideView = 15 * Constant.Size.RelationHeights
-        static let YPositionLabelExplanation = Constant.ProjectsViewPositioning.HeightImageViewProject + Constant.ProjectsViewPositioning.MinimumPaddingInsideView/2
+        static let YPositionLabelExplanation = Constant.ProjectsViewPositioning.HeightImageViewProject + Constant.ProjectsViewPositioning.MinimumPaddingInsideView
         static let WidthLabelInside = Constant.ProjectsViewPositioning.WidthOfMainView - (Constant.ProjectsViewPositioning.MinimumPaddingInsideView * 2)
         static let HeightLabelsInside = Constant.ProjectsViewPositioning.HeightOfMainView - Constant.ProjectsViewPositioning.HeightImageViewProject - (Constant.ProjectsViewPositioning.MinimumPaddingInsideView * (1.5))
         static let WidthBlurView = Constant.ProjectsViewPositioning.WidthOfMainView
@@ -349,7 +349,6 @@ class ViewModel: NSObject {
         label.numberOfLines = 0
         label.attributedText = NSAttributedString(string: text, attributes: [NSParagraphStyleAttributeName : paragraphStyle])
         label.sizeToFit()
-        label.frame = CGRectMake(label.frame.origin.x, label.frame.origin.y, label.frame.size.width, Constant.ProjectsViewPositioning.HeightLabelsInside)
 
         view.addSubview(label)
 

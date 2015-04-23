@@ -60,10 +60,6 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
 
-    func giveAValueToProperties(bool: Bool) {
-        self.boolValue = bool
-    }
-
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         var cell = cell as! RGSkillsCustomTableViewCell
 
@@ -73,10 +69,10 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.separatorView.frame.size = CGSizeMake(Constant.Size.DeviceWidth - (Constant.TableViewSkillVariables.MinimumPadding * 2), 1)
             })
         } else if indexPath.row == 6 {
-            cell.bottomImage.transform = CGAffineTransformMakeScale(0.5, 0.5)
-            UIView.animateWithDuration(0.7, animations: { () -> Void in
-                cell.bottomImage.transform = CGAffineTransformIdentity
-            })
+//            cell.bottomImage.transform = CGAffineTransformMakeScale(0.5, 0.5)
+//            UIView.animateWithDuration(0.7, animations: { () -> Void in
+//                cell.bottomImage.transform = CGAffineTransformIdentity
+//            })
         } else if indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 {
             if !self.boolValue {
                 cell.leftGraph.arcEnd = 0
@@ -145,5 +141,9 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
         viewToMove.removeFromSuperview()
         viewToMove.frame.origin.y = origin
         view.addSubview(viewToMove)
+    }
+
+    func giveAValueToProperties(bool: Bool) {
+        self.boolValue = bool
     }
 }

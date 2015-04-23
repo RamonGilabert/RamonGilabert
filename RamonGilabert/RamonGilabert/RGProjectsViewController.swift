@@ -6,8 +6,8 @@ struct AnimatorBehaviour {
     static let SpringAnimationBackgroundDuration = 0.4
     static let SpringAnimationMainViewDuration = 0.6
     static let SpringAnimationDamping = 0.5 as CGFloat
-    static let SpringAnimationInitialVelocity = 0.8 as CGFloat
-    static let InitialScaleValue = 0.3 as CGFloat
+    static let SpringAnimationInitialVelocity = 0 as CGFloat
+    static let InitialScaleValue = 0.6 as CGFloat
 }
 
 class RGProjectsViewController: UIViewController {
@@ -97,13 +97,8 @@ class RGProjectsViewController: UIViewController {
         self.viewModel.setSubtitleProject(self.mainView, text: dictionary["position"] as! String)
 
         UIView.animateWithDuration(AnimatorBehaviour.SpringAnimationBackgroundDuration, animations: { () -> Void in
-            self.backgroundImageView.alpha = 0
-        })
-
-        self.backgroundImageView.image = UIImage(named: "\(imageName)-blur")
-
-        UIView.animateWithDuration(AnimatorBehaviour.SpringAnimationBackgroundDuration, animations: { () -> Void in
             self.backgroundImageView.alpha = 1
+            self.backgroundImageView.image = UIImage(named: "\(imageName)-blur")
         })
 
         self.mainView.addGestureRecognizer(self.panGestureRecognizer)

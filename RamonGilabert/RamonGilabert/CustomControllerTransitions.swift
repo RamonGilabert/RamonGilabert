@@ -116,7 +116,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
                 self.onStageMenuController(menuViewController)
             } else {
                 self.offStageMenuController(menuViewController)
-            } }, completion: { finished in
+            }}, completion: { finished in
                 if transitionContext.transitionWasCancelled() {
                     transitionContext.completeTransition(false)
                     UIApplication.sharedApplication().keyWindow!.addSubview(screens.from.view)

@@ -4,7 +4,9 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     
     let viewModel = ViewModel()
     let transitionManager = CustomControllerTransitions()
+    let transitionVideoManager = CustomVideoTransition()
     let skillsViewController = RGSkillsViewController()
+    let videoViewController = RGVideoViewController()
     var scrollView = UIScrollView()
     var arrayWithControllers = NSMutableArray()
     var currentPage = 0
@@ -24,6 +26,8 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         let menuViewController = RGMenuViewController()
         menuViewController.transitioningDelegate = self.transitionManager
         menuViewController.skillsViewController = self.skillsViewController
+
+        self.videoViewController.transitioningDelegate = self.transitionVideoManager
         
         self.transitionManager.sourceViewController = self
         self.transitionManager.exitViewController = menuViewController

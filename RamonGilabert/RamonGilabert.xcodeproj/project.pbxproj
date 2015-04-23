@@ -10,6 +10,7 @@
 		F64895D51AE9402600CC4F9E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64895D41AE9402600CC4F9E /* SoundManager.swift */; };
 		F64895D71AE9418D00CC4F9E /* menu-display.wav in Resources */ = {isa = PBXBuildFile; fileRef = F64895D61AE9418D00CC4F9E /* menu-display.wav */; };
 		F64895E21AE9496100CC4F9E /* menu-tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = F64895E11AE9496100CC4F9E /* menu-tap.wav */; };
+		F64895E81AE9561600CC4F9E /* CustomVideoTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64895E71AE9561600CC4F9E /* CustomVideoTransition.swift */; };
 		F6526E3E1AE2B956007ACF23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E3D1AE2B956007ACF23 /* AppDelegate.swift */; };
 		F6526E451AE2B956007ACF23 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6526E441AE2B956007ACF23 /* Images.xcassets */; };
 		F6526E481AE2B956007ACF23 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6526E461AE2B956007ACF23 /* LaunchScreen.xib */; };
@@ -46,6 +47,7 @@
 		F64895D41AE9402600CC4F9E /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		F64895D61AE9418D00CC4F9E /* menu-display.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "menu-display.wav"; sourceTree = "<group>"; };
 		F64895E11AE9496100CC4F9E /* menu-tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "menu-tap.wav"; sourceTree = "<group>"; };
+		F64895E71AE9561600CC4F9E /* CustomVideoTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomVideoTransition.swift; sourceTree = "<group>"; };
 		F6526E381AE2B956007ACF23 /* RamonGilabert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RamonGilabert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6526E3C1AE2B956007ACF23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6526E3D1AE2B956007ACF23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				F661171D1AE905FF00A30E55 /* ViewModel.swift */,
 				F6B93C161AE648920085DB2B /* Structures.swift */,
 				F6A323C81AE387AE0026D576 /* CustomControllerTransitions.swift */,
+				F64895E71AE9561600CC4F9E /* CustomVideoTransition.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				F661171A1AE9057C00A30E55 /* RGVideoViewController.swift in Sources */,
 				F66117231AE9060300A30E55 /* RGProjectsViewController.swift in Sources */,
 				F6A323CC1AE3EDDD0026D576 /* UIColor+WWDC.swift in Sources */,
+				F64895E81AE9561600CC4F9E /* CustomVideoTransition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,4 +1,5 @@
 import UIKit
+import AVFoundation
 
 struct Translation {
     static let SideXTranslation = 120 as CGFloat
@@ -144,7 +145,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
 
     func onStageMenuController(menuViewController: RGMenuViewController){
         menuViewController.view.alpha = 1
-
+        self.soundManager.menuDisplaySound.play()
         for view in menuViewController.view.subviews as! [UIView] {
             view.transform = CGAffineTransformIdentity
         }

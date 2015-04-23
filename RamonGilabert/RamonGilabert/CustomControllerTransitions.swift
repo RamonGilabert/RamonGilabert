@@ -56,6 +56,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
 
                 if translation < AnimationOptions.MinimumPercentagePerformAnimation {
                     self.finishInteractiveTransition()
+                    self.soundManager.menuDisplaySound.play()
                 } else {
                     self.cancelInteractiveTransition()
                 }
@@ -145,7 +146,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
 
     func onStageMenuController(menuViewController: RGMenuViewController){
         menuViewController.view.alpha = 1
-        self.soundManager.menuDisplaySound.play()
+
         for view in menuViewController.view.subviews as! [UIView] {
             view.transform = CGAffineTransformIdentity
         }

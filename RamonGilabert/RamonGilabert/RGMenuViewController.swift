@@ -3,6 +3,7 @@ import UIKit
 class RGMenuViewController: UIViewController {
 
     let viewModel = ViewModel()
+    let soundManager = SoundManager()
     var crossButton = UIButton()
     var titleLabel = UILabel()
     var storyButton = UIButton()
@@ -30,6 +31,10 @@ class RGMenuViewController: UIViewController {
         self.titleLabel = self.viewModel.setTitleLabelInView(self.view)
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+
     // MARK: Button handlers
 
     func onCrossButtonPressed() {
@@ -51,6 +56,8 @@ class RGMenuViewController: UIViewController {
         } else {
 
         }
+
+        self.soundManager.menuTappedSound.play()
 
         self.dismissViewControllerAnimated(true, completion: nil)
     }

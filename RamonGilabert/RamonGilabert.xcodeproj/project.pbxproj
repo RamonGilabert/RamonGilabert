@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F64895D51AE9402600CC4F9E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64895D41AE9402600CC4F9E /* SoundManager.swift */; };
 		F64895D71AE9418D00CC4F9E /* menu-display.wav in Resources */ = {isa = PBXBuildFile; fileRef = F64895D61AE9418D00CC4F9E /* menu-display.wav */; };
+		F64895DA1AE945D600CC4F9E /* menu-tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = F64895D91AE945D600CC4F9E /* menu-tap.wav */; };
 		F6526E3E1AE2B956007ACF23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E3D1AE2B956007ACF23 /* AppDelegate.swift */; };
 		F6526E451AE2B956007ACF23 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6526E441AE2B956007ACF23 /* Images.xcassets */; };
 		F6526E481AE2B956007ACF23 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6526E461AE2B956007ACF23 /* LaunchScreen.xib */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		F64895D41AE9402600CC4F9E /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		F64895D61AE9418D00CC4F9E /* menu-display.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "menu-display.wav"; sourceTree = "<group>"; };
+		F64895D91AE945D600CC4F9E /* menu-tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "menu-tap.wav"; sourceTree = "<group>"; };
 		F6526E381AE2B956007ACF23 /* RamonGilabert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RamonGilabert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6526E3C1AE2B956007ACF23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6526E3D1AE2B956007ACF23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				F64895D61AE9418D00CC4F9E /* menu-display.wav */,
+				F64895D91AE945D600CC4F9E /* menu-tap.wav */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				F66117171AE9055F00A30E55 /* intro_video.m4v in Resources */,
 				F64895D71AE9418D00CC4F9E /* menu-display.wav in Resources */,
 				F6C4001E1AE79F9B00E1E983 /* Libertad.otf in Resources */,
+				F64895DA1AE945D600CC4F9E /* menu-tap.wav in Resources */,
 				F6526E481AE2B956007ACF23 /* LaunchScreen.xib in Resources */,
 				F6526E451AE2B956007ACF23 /* Images.xcassets in Resources */,
 			);

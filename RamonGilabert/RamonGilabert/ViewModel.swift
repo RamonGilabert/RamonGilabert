@@ -58,7 +58,7 @@ struct Constant {
     }
 
     struct TipsViewPositioning {
-        static let MinimumViewPadding = 30 * Constant.Size.RelationHeights
+        static let MinimumViewPadding = 25 * Constant.Size.RelationHeights
         static let WidthTipFirstIcon = 98 * Constant.Size.RelationHeights
         static let HeightTipFirstIcon = 53 * Constant.Size.RelationHeights
         static let WidthTipSecondIcon = 71 * Constant.Size.RelationHeights
@@ -374,7 +374,7 @@ class ViewModel: NSObject {
     func setTipsIcon(view: UIView, frame: CGRect, image: String) -> UIImageView {
         let imageView = UIImageView(frame: frame)
         imageView.image = UIImage(named: image)
-        imageView.contentMode = UIViewContentMode.ScaleAspectFill
+        imageView.contentMode = UIViewContentMode.ScaleAspectFit
         imageView.clipsToBounds = true
 
         view.addSubview(imageView)

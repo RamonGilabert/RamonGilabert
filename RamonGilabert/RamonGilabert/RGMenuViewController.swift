@@ -13,6 +13,7 @@ class RGMenuViewController: UIViewController {
     var gameButton = UIButton()
     var contactButton = UIButton()
     var mainViewController = RGMainViewController()
+    var skillsViewController = RGSkillsViewController()
 
     // MARK: View lifecycle
 
@@ -45,6 +46,7 @@ class RGMenuViewController: UIViewController {
         if button.tag == 0 {
             self.mainViewController.scrollView.scrollRectToVisible(CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight), animated: true)
         } else if button.tag == 1 {
+            self.skillsViewController.tableView.reloadData()
             self.mainViewController.scrollView.scrollRectToVisible(CGRectMake(Constant.Size.DeviceWidth, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight), animated: true)
         } else if button.tag == 2 {
             self.mainViewController.scrollView.scrollRectToVisible(CGRectMake(Constant.Size.DeviceWidth * 2, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight), animated: true)

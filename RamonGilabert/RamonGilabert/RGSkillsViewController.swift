@@ -35,6 +35,8 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
             view.removeFromSuperview()
         }
 
+        println("Hey")
+
         if indexPath.row == 6 {
             cell.addBottomImage(Skills.ArrayWithSkills[indexPath.row] as! String)
         } else if indexPath.row == 4 {
@@ -78,6 +80,8 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.leftGraph.arcEnd = 0
                 cell.leftGraph.arcEnd = 0
             }
+
+            println("Sup")
             
             cell.leftGraph.startAllAnimations()
             cell.rightGraph.startAllAnimations()

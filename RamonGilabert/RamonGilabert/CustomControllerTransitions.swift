@@ -42,7 +42,6 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
             case UIGestureRecognizerState.Began:
                 if pinchGesture.velocity < 0 {
                     self.interactive = true
-
                     self.sourceViewController.presentViewController(self.exitViewController, animated: true, completion: nil)
                 }
 

@@ -3,6 +3,7 @@ import UIKit
 class RGMainViewController: UIViewController, UIScrollViewDelegate {
     
     let viewModel = ViewModel()
+    let soundManager = SoundManager()
     let transitionManager = CustomControllerTransitions()
     let skillsViewController = RGSkillsViewController()
     var scrollView = UIScrollView()
@@ -53,6 +54,10 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         } else {
             viewController?.scrollView.setContentOffset(CGPointMake(0, 0), animated: true)
         }
+    }
+
+    func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        self.soundManager.mainScrolling.play()
     }
 
     func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {

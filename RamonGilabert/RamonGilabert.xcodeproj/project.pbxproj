@@ -17,6 +17,7 @@
 		F6526E671AE2C9AF007ACF23 /* RGProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E661AE2C9AF007ACF23 /* RGProjectsViewController.swift */; };
 		F6526E691AE2C9CA007ACF23 /* RGSkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E681AE2C9CA007ACF23 /* RGSkillsViewController.swift */; };
 		F66117171AE9055F00A30E55 /* intro_video.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F66117161AE9055F00A30E55 /* intro_video.m4v */; };
+		F661171A1AE9057C00A30E55 /* RGVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66117191AE9057C00A30E55 /* RGVideoViewController.swift */; };
 		F6A323C91AE387AE0026D576 /* CustomControllerTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A323C81AE387AE0026D576 /* CustomControllerTransitions.swift */; };
 		F6A323CC1AE3EDDD0026D576 /* UIColor+WWDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A323CB1AE3EDDD0026D576 /* UIColor+WWDC.swift */; };
 		F6A323CF1AE3F30B0026D576 /* UIFont+WWDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A323CE1AE3F30B0026D576 /* UIFont+WWDC.swift */; };
@@ -53,6 +54,7 @@
 		F6526E661AE2C9AF007ACF23 /* RGProjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGProjectsViewController.swift; sourceTree = "<group>"; };
 		F6526E681AE2C9CA007ACF23 /* RGSkillsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGSkillsViewController.swift; sourceTree = "<group>"; };
 		F66117161AE9055F00A30E55 /* intro_video.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro_video.m4v; sourceTree = "<group>"; };
+		F66117191AE9057C00A30E55 /* RGVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGVideoViewController.swift; sourceTree = "<group>"; };
 		F6A323C81AE387AE0026D576 /* CustomControllerTransitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomControllerTransitions.swift; sourceTree = "<group>"; };
 		F6A323CB1AE3EDDD0026D576 /* UIColor+WWDC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+WWDC.swift"; sourceTree = "<group>"; };
 		F6A323CE1AE3F30B0026D576 /* UIFont+WWDC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+WWDC.swift"; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				F6526E641AE2C996007ACF23 /* RGStoryViewController.swift */,
 				F6526E681AE2C9CA007ACF23 /* RGSkillsViewController.swift */,
 				F6526E661AE2C9AF007ACF23 /* RGProjectsViewController.swift */,
+				F66117191AE9057C00A30E55 /* RGVideoViewController.swift */,
 				F6A323CA1AE3B5F70026D576 /* Managers */,
 				F6A323CD1AE3EDEA0026D576 /* Override classes */,
 				F6BE1CE11AE517FC0046AFDD /* Custom cells */,
@@ -319,6 +322,7 @@
 				F6B93C171AE648920085DB2B /* Structures.swift in Sources */,
 				F6B93C191AE64B6C0085DB2B /* RGSkillsCustomTableViewCell.swift in Sources */,
 				F6526E651AE2C996007ACF23 /* RGStoryViewController.swift in Sources */,
+				F661171A1AE9057C00A30E55 /* RGVideoViewController.swift in Sources */,
 				F6526E691AE2C9CA007ACF23 /* RGSkillsViewController.swift in Sources */,
 				F6A323CC1AE3EDDD0026D576 /* UIColor+WWDC.swift in Sources */,
 				F6A788B61AE2DCE3001B4B73 /* RGMenuViewController.swift in Sources */,

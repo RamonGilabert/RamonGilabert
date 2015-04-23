@@ -66,6 +66,9 @@ struct Constant {
         static let WidthTipThirdIcon = 91 * Constant.Size.RelationHeights
         static let HeightTipThirdIcon = 97 * Constant.Size.RelationHeights
         static let LabelExplainingWidth = Constant.Size.DeviceWidth - (Constant.TipsViewPositioning.MinimumViewPadding * 2)
+        static let FirstIconImage = "swipe-right-left"
+        static let SecondIconImage = "swipe-up-icon"
+        static let ThirdIconImage = "menu-icon"
     }
 }
 
@@ -368,8 +371,11 @@ class ViewModel: NSObject {
 
     // MARK: Tips layout
 
-    func setTipsIcon(view: UIView, frame: CGRect) -> UIImageView {
+    func setTipsIcon(view: UIView, frame: CGRect, image: String) -> UIImageView {
         let imageView = UIImageView(frame: frame)
+        imageView.image = UIImage(named: image)
+        imageView.contentMode = UIViewContentMode.ScaleAspectFill
+        imageView.clipsToBounds = true
 
         view.addSubview(imageView)
 

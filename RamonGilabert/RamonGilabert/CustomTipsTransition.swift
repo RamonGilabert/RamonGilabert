@@ -1,5 +1,11 @@
 import UIKit
 
+struct PanGestureTranslation {
+    static let SideXTranslation = 120 as CGFloat
+    static let SideYTranslation = 75 as CGFloat
+    static let SideYTranslationTitle = 100 as CGFloat
+}
+
 class CustomTipsTransition: UIPercentDrivenInteractiveTransition, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIViewControllerInteractiveTransitioning {
 
     private var panGestureRecognizer = UIPanGestureRecognizer()
@@ -17,25 +23,25 @@ class CustomTipsTransition: UIPercentDrivenInteractiveTransition, UIViewControll
 
     // MARK: UIPanGestureHandlers
 
-    func onPanGestureRecognizer(panGesture: UIPinchGestureRecognizer) {
-        let translation = panGesture.scale
+    func onPanGestureRecognizer(panGesture: UIPanGestureRecognizer) {
+        let translation = panGesture.translationInView(self.exitViewController.view)
 
         switch panGesture.state {
         case UIGestureRecognizerState.Began:
-            if translation < 0 {
+            if translation.x < 0 {
                 self.interactive = true
-                self.exitViewController.presentViewController(RGMainViewController(), animated: true, completion: nil)
+                self.exitViewController.dismissViewControllerAnimated(true, completion: nil)
             }
 
             break
         case UIGestureRecognizerState.Changed:
-            self.updateInteractiveTransition((1 - translation)/2)
+            self.updateInteractiveTransition(-translation.y/Constant.Size.DeviceWidth)
 
             break
         default:
             self.interactive = false
 
-            if translation < AnimationOptions.MinimumPercentagePerformAnimation {
+            if -translation.y/100 > 2.2 {
                 self.finishInteractiveTransition()
             } else {
                 self.cancelInteractiveTransition()
@@ -79,11 +85,11 @@ class CustomTipsTransition: UIPercentDrivenInteractiveTransition, UIViewControll
     }
 
     func offStageMenuController(tipsViewController: RGTipsViewController) {
-        tipsViewController.view.alpha = 0
+        tipsViewController.view.alpha = 1
     }
 
     func onStageMenuController(tipsViewController: RGTipsViewController) {
-        tipsViewController.view.alpha = 1
+        tipsViewController.view.alpha = 0
     }
 
     // MARK: Delegate methods

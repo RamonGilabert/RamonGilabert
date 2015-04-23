@@ -40,11 +40,6 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         loadScrollViewInPage(2)
     }
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        self.presentViewController(self.tipsViewController, animated: true, completion: nil)
-    }
-
     // MARK: ScrollView methods
 
     func loadScrollViewInPage(page: Int) {
@@ -69,6 +64,7 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     }
 
     func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
+        self.presentViewController(self.tipsViewController, animated: true, completion: nil)
         let pageWidth = CGRectGetWidth(self.scrollView.frame)
         let page = Int(floor((self.scrollView.contentOffset.x - Constant.Size.DeviceWidth) / Constant.Size.DeviceWidth + 1))
 

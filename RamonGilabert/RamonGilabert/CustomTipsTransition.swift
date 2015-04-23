@@ -8,7 +8,8 @@ struct PanGestureTranslation {
 
 class CustomTipsTransition: UIPercentDrivenInteractiveTransition, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIViewControllerInteractiveTransitioning {
 
-    private var panGestureRecognizer = UIPanGestureRecognizer()
+    private let panGestureRecognizer = UIPanGestureRecognizer()
+    private let soundManager = SoundManager()
     private var presenting = false
     private var interactive = false
 
@@ -71,7 +72,7 @@ class CustomTipsTransition: UIPercentDrivenInteractiveTransition, UIViewControll
 
         let duration = self.transitionDuration(transitionContext)
 
-        UIView.animateWithDuration(duration/1.5, delay: 0.0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.8, options: nil, animations: {
+        UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
             if self.presenting {
                 self.onStageMenuController(tipsViewController)
             } else {
@@ -89,7 +90,7 @@ class CustomTipsTransition: UIPercentDrivenInteractiveTransition, UIViewControll
     }
 
     func offStageMenuController(tipsViewController: RGTipsViewController) {
-        tipsViewController.backgroundView.alpha = 0
+        tipsViewController.view.alpha = 0
 
         tipsViewController.swipeSidesIcon.transform = CGAffineTransformMakeTranslation(-400, 0)
         tipsViewController.swipeSidesLabel.transform = CGAffineTransformMakeTranslation(-400, 0)
@@ -100,7 +101,7 @@ class CustomTipsTransition: UIPercentDrivenInteractiveTransition, UIViewControll
     }
 
     func onStageMenuController(tipsViewController: RGTipsViewController) {
-        tipsViewController.backgroundView.alpha = 0.85
+        tipsViewController.view.alpha = 1
 
         for view in tipsViewController.view.subviews as! [UIView] {
             view.transform = CGAffineTransformIdentity

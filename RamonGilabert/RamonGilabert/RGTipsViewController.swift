@@ -16,8 +16,6 @@ class RGTipsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.view.backgroundColor = UIColor.clearColor()
         
         setIconsAndLabels()
     }
@@ -25,8 +23,7 @@ class RGTipsViewController: UIViewController {
     // MARK: Helper methods
 
     func setIconsAndLabels() {
-        self.backgroundView = UIView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight))
-        self.backgroundView.backgroundColor = UIColor.blackColor()
+        self.backgroundView = self.viewModel.setBlurView()
         self.view.addSubview(self.backgroundView)
 
         self.swipeSidesIcon = self.viewModel.setTipsIcon(self.view, frame: CGRectMake((Constant.Size.DeviceWidth - Constant.TipsViewPositioning.WidthTipFirstIcon)/2, Constant.TipsViewPositioning.MinimumViewPadding, Constant.TipsViewPositioning.WidthTipFirstIcon, Constant.TipsViewPositioning.HeightTipFirstIcon), image: Constant.TipsViewPositioning.FirstIconImage)

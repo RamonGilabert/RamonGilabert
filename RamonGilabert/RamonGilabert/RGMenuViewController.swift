@@ -32,10 +32,6 @@ class RGMenuViewController: UIViewController {
         self.titleLabel = self.viewModel.setTitleLabelInView(self.view)
     }
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-
     // MARK: Button handlers
 
     func onCrossButtonPressed() {

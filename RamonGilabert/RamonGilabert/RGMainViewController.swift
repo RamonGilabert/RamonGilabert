@@ -35,6 +35,12 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         loadScrollViewInPage(2)
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        let viewController = RGTipsViewController()
+        self.presentViewController(viewController, animated: true, completion: nil)
+    }
+
     // MARK: ScrollView methods
 
     func loadScrollViewInPage(page: Int) {

@@ -3,6 +3,7 @@ import UIKit
 class RGTipsViewController: UIViewController {
 
     let viewModel = ViewModel()
+    let transitionManager = CustomTipsTransition()
     var swipeSidesIcon = UIImageView()
     var scrollDownIcon = UIImageView()
     var pinchMenuIcon = UIImageView()
@@ -12,7 +13,7 @@ class RGTipsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setIconsAndLabels()
     }
 

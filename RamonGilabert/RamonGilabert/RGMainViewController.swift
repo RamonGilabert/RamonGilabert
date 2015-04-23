@@ -7,6 +7,8 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     let transitionVideoManager = CustomVideoTransition()
     let skillsViewController = RGSkillsViewController()
     let videoViewController = RGVideoViewController()
+    let tipsViewController = RGTipsViewController()
+    let tipsTransitionManager = CustomTipsTransition()
     var scrollView = UIScrollView()
     var arrayWithControllers = NSMutableArray()
     var currentPage = 0
@@ -30,6 +32,9 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         self.transitionManager.sourceViewController = self
         self.transitionManager.exitViewController = menuViewController
 
+        self.tipsViewController.transitioningDelegate = self.tipsTransitionManager
+        self.tipsTransitionManager.exitViewController = self.tipsViewController
+
         loadScrollViewInPage(0)
         loadScrollViewInPage(1)
         loadScrollViewInPage(2)
@@ -37,8 +42,7 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        let viewController = RGTipsViewController()
-        self.presentViewController(viewController, animated: true, completion: nil)
+        self.presentViewController(self.tipsViewController, animated: true, completion: nil)
     }
 
     // MARK: ScrollView methods

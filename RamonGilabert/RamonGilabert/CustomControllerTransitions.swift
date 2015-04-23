@@ -94,7 +94,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         let container = transitionContext.containerView()
 
-        let screens : (from:UIViewController, to:UIViewController) = (transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!, transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!)
+        let screens: (from: UIViewController, to: UIViewController) = (transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!, transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!)
 
         let mainViewController = !self.presenting ? screens.to as! RGMainViewController : screens.from as! RGMainViewController
         let menuViewController = !self.presenting ? screens.from as! RGMenuViewController : screens.to as! RGMenuViewController

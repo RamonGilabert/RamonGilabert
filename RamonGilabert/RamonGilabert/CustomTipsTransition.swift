@@ -1,6 +1,6 @@
 import UIKit
 
-class CustomVideoTransition: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
+class CustomTipsTransition: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
 
     private var presenting = false
 
@@ -12,13 +12,13 @@ class CustomVideoTransition: NSObject, UIViewControllerAnimatedTransitioning, UI
         let screens: (from: UIViewController, to: UIViewController) = (transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!, transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!)
 
         let mainViewController = !self.presenting ? screens.to as! RGMainViewController : screens.from as! RGMainViewController
-        let videoViewController = !self.presenting ? screens.from as! RGVideoViewController : screens.to as! RGVideoViewController
+        let videoViewController = !self.presenting ? screens.from as! RGTipsViewController : screens.to as! RGTipsViewController
 
-        let menuView = videoViewController.view
+        let menuView = tipsViewController.view
         let bottomView = mainViewController.view
 
         if (self.presenting) {
-            self.offStageMenuController(videoViewController)
+            self.offStageMenuController(tipsViewController)
         }
 
         container.addSubview(bottomView)
@@ -29,9 +29,9 @@ class CustomVideoTransition: NSObject, UIViewControllerAnimatedTransitioning, UI
         UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: nil, animations: {
 
             if (self.presenting) {
-                self.onStageMenuController(videoViewController)
+                self.onStageMenuController(tipsViewController)
             } else {
-                self.offStageMenuController(videoViewController)
+                self.offStageMenuController(tipsViewController)
             }}, completion: { finished in
                 transitionContext.completeTransition(true)
                 UIApplication.sharedApplication().keyWindow!.addSubview(screens.from.view)
@@ -39,12 +39,12 @@ class CustomVideoTransition: NSObject, UIViewControllerAnimatedTransitioning, UI
         })
     }
 
-    func offStageMenuController(videoViewController: RGVideoViewController) {
+    func offStageMenuController(tipsViewController: RGTipsViewController) {
         videoViewController.view.alpha = 0
         videoViewController.view.transform = CGAffineTransformMakeScale(1.5, 1.5)
     }
 
-    func onStageMenuController(videoViewController: RGVideoViewController) {
+    func onStageMenuController(tipsViewController: RGTipsViewController) {
         videoViewController.view.alpha = 1
         videoViewController.view.transform = CGAffineTransformIdentity
     }

@@ -37,6 +37,14 @@ class RGWebViewController: UIViewController, UIWebViewDelegate {
         self.forwardButton.enabled = self.webView.canGoForward ? true : false
     }
 
+    func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
+        let viewError = self.viewModel.setErrorMessage(self.view)
+
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            viewError.transform = CGAffineTransformMakeScale(1, 1)
+        })
+    }
+
     // MARK: Button handlers
 
     func onCloseButtonPressed() {

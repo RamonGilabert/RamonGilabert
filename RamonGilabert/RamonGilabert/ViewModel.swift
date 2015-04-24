@@ -522,4 +522,20 @@ class ViewModel: NSObject {
 
         return button
     }
+
+    func setErrorMessage(view: UIView) -> UIView {
+        let viewError = UIView(frame: CGRectMake(0, Constant.Size.DeviceHeight / 9, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight - Constant.Size.DeviceHeight / 9))
+        viewError.transform = CGAffineTransformMakeScale(0, 0)
+        viewError.backgroundColor = UIColor_WWDC.almostBlackColor()
+
+        let labelError = UILabel(frame: viewError.frame)
+        labelError.text = "There was an error loading your web! Try again later!"
+        labelError.font = UIFont_WWDC.menuButtonFont()
+        labelError.textColor = UIColor.whiteColor()
+        viewError.addSubview(labelError)
+
+        view.addSubview(viewError)
+
+        return viewError
+    }
 }

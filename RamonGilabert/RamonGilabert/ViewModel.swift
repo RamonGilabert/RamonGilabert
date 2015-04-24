@@ -77,6 +77,7 @@ struct Constant {
     struct SocialViewPositioning {
         static let HeightOfView = Constant.Size.DeviceHeight / 2.75
         static let SizeOfSocialButtons = 55 * Constant.Size.RelationHeights
+        static let CrossSize = 24 as CGFloat
     }
 }
 
@@ -418,7 +419,7 @@ class ViewModel: NSObject {
     }
 
     func setContainerOfViewSocial(view: UIView) -> UIView {
-        let viewToAdd = UIView(frame: CGRectMake(0, Constant.Size.DeviceHeight - Constant.SocialViewPositioning.HeightOfView, Constant.Size.DeviceWidth, Constant.SocialViewPositioning.HeightOfView))
+        let viewToAdd = UIView(frame: CGRectMake(0, Constant.Size.DeviceHeight - Constant.SocialViewPositioning.HeightOfView, Constant.Size.DeviceWidth, Constant.SocialViewPositioning.HeightOfView * 2))
         viewToAdd.backgroundColor = UIColor_WWDC.almostBlackColor()
         viewToAdd.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
 
@@ -432,6 +433,16 @@ class ViewModel: NSObject {
         view.addSubview(viewToAdd)
 
         return viewToAdd
+    }
+
+    func setCrossButtonSocial(view: UIView) -> UIButton {
+        let button = UIButton(frame: CGRectMake(20, 25, Constant.SocialViewPositioning.CrossSize, Constant.SocialViewPositioning.CrossSize))
+        button.setBackgroundImage(UIImage(named: "cross-button-image"), forState: UIControlState.Normal)
+        button.transform = CGAffineTransformMakeScale(0, 0)
+
+        view.addSubview(button)
+
+        return button
     }
 
     func setButtonSocial(view: UIView, xPosition: CGFloat, button: UIButton) -> UIButton {

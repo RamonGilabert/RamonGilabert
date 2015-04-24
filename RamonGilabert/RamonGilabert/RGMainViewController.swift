@@ -11,6 +11,8 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     var scrollView = UIScrollView()
     var arrayWithControllers = NSMutableArray()
     var currentPage = 0
+    var backgroundViewSocial = UIView()
+    var viewSocial = UIView()
 
     // MARK: View lifecycle
 
@@ -118,15 +120,29 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         }
     }
 
+    // MARK: Button handlers
+
+    func onCrossButtonPressed(sender: UIButton) {
+        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
+            self.backgroundViewSocial.alpha = 0
+            self.viewSocial.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
+            sender.transform = CGAffineTransformMakeScale(0, 0)
+            }, completion: { finished in
+        })
+    }
+
     // MARK: Helper methods
 
     func setAllSocialViews() {
-        let backgroundView = self.viewModel.setBackgroundViewSocial(self.view)
-        let viewSocial = self.viewModel.setContainerOfViewSocial(self.view)
+        self.backgroundViewSocial = self.viewModel.setBackgroundViewSocial(self.view)
+        self.viewSocial = self.viewModel.setContainerOfViewSocial(self.view)
+        let buttonCross = self.viewModel.setCrossButtonSocial(viewSocial)
+        buttonCross.addTarget(self, action: "onCrossButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
 
         UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
-            backgroundView.alpha = 0.6
-            viewSocial.transform = CGAffineTransformIdentity
+            self.backgroundViewSocial.alpha = 0.6
+            self.viewSocial.transform = CGAffineTransformIdentity
+            buttonCross.transform = CGAffineTransformIdentity
         }, completion: { finished in
         })
     }

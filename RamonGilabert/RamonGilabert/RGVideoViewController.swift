@@ -31,16 +31,19 @@ class RGVideoViewController: UIViewController {
     // MARK: Notification methods
 
     func moviePlayerDidFinishPlaying(notification: NSNotification) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            NSNotificationCenter.defaultCenter().postNotificationName(Constant.Setup.NameOfNotification, object: nil)
+        })
     }
 
     // MARK: UIButton handler
 
     func onCrossButtonPressed() {
         self.moviePlayerController.pause()
-        NSNotificationCenter.defaultCenter().postNotificationName(Constant.Setup.NameOfNotification, object: nil)
+
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
             self.moviePlayerController.stop()
+            NSNotificationCenter.defaultCenter().postNotificationName(Constant.Setup.NameOfNotification, object: nil)
         })
     }
 

@@ -39,7 +39,7 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         loadScrollViewInPage(1)
         loadScrollViewInPage(2)
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "moviePlayerFinishedAndDismissed:" , name: Constant.Setup.NameOfNotification, object: self.videoViewController)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "moviePlayerFinishedAndDismissed:" , name: Constant.Setup.NameOfNotification, object: nil)
     }
 
     func moviePlayerFinishedAndDismissed(notification: NSNotification) {

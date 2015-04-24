@@ -2,6 +2,7 @@ import UIKit
 
 class RGWebViewController: UIViewController, UIWebViewDelegate {
 
+    let viewModel = ViewModel()
     let transitionManager = CustomVideoTransition()
     var webView = UIWebView()
     var loadURL = ContactWebs.Website!
@@ -18,26 +19,12 @@ class RGWebViewController: UIViewController, UIWebViewDelegate {
         let headerView = UIView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight/9))
         headerView.backgroundColor = UIColor_WWDC.almostBlackColor()
 
-        let crossButton = UIButton(frame: CGRectMake(20, (headerView.frame.height - 30)/2, 24, 24))
-        crossButton.setBackgroundImage(UIImage(named: "cross-button-image"), forState: UIControlState.Normal)
-        crossButton.addTarget(self, action: "onCloseButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
-        headerView.addSubview(crossButton)
-
-        self.backButton = UIButton(frame: CGRectMake(Constant.Size.DeviceWidth - 28 - 60, (headerView.frame.height - 30)/2, 14, 24))
-        self.backButton.setBackgroundImage(UIImage(named: "back-button-image"), forState: UIControlState.Normal)
-        self.backButton.addTarget(self, action: "onBackButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
-        headerView.addSubview(self.backButton)
-
-        self.forwardButton = UIButton(frame: CGRectMake(Constant.Size.DeviceWidth - 14 - 20, (headerView.frame.height - 30)/2, 14, 24))
-        self.forwardButton.setBackgroundImage(UIImage(named: "forward-button-image"), forState: UIControlState.Normal)
-        self.forwardButton.addTarget(self, action: "onForwardButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
-        headerView.addSubview(self.forwardButton)
+        self.viewModel.setCrossButtonWebView(headerView)
+        self.backButton = self.viewModel.setBackButton(headerView, viewController: self)
+        self.forwardButton = self.viewModel.setForwardButton(headerView, viewController: self)
+        self.webView = self.viewModel.setWebView(self.view, webViewDelegate: self)
 
         self.view.addSubview(headerView)
-
-        self.webView = UIWebView(frame: CGRectMake(0, Constant.Size.DeviceHeight/10, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight - Constant.Size.DeviceHeight/10))
-        self.webView.delegate = self
-        self.view.addSubview(self.webView)
 
         let requestURL = NSURLRequest(URL: self.loadURL)
         self.webView.loadRequest(requestURL)

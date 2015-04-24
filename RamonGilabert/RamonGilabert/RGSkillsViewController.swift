@@ -5,7 +5,6 @@ class RGSkillsViewController: UIViewController, UITableViewDelegate, UITableView
     let viewModel = ViewModel()
     var boolValue = false
     var tableView = UITableView()
-    var scrollView = UIScrollView()
     var imageViewHeader = UIImageView()
     var networkImageView = UIImageView()
     var profileImageView = UIImageView()

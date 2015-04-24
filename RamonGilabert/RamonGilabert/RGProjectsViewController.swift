@@ -15,7 +15,6 @@ class RGProjectsViewController: UIViewController {
     let viewModel = ViewModel()
     var arrayWithProjects = NSMutableArray(array: Projects.ArrayWithProjects)
     var panGestureRecognizer = UIPanGestureRecognizer()
-    var scrollView = UIScrollView()
     var mainView = UIView()
     var backgroundImageView = UIImageView()
     var animator: UIDynamicAnimator!

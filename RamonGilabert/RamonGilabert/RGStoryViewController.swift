@@ -8,7 +8,6 @@ class RGStoryViewController: UIViewController, UIScrollViewDelegate, UITableView
     var tableView = UITableView()
     var blurView = UIImageView()
     var backgroundImageView = UIImageView()
-    var scrollView = UIScrollView()
     var titleLabel = UILabel()
     var subtitleLabel = UILabel()
     var secondaryLabel = UILabel()

@@ -6,7 +6,6 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     let transitionManager = CustomControllerTransitions()
     let transitionVideoManager = CustomVideoTransition()
     let skillsViewController = RGSkillsViewController()
-    let videoViewController = RGVideoViewController()
     let tipsViewController = RGTipsViewController()
     let tipsTransitionManager = CustomTipsTransition()
     var scrollView = UIScrollView()

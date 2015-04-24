@@ -29,10 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     if !checkFirstLunch {
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
+
         mainViewController.presentViewController(RGVideoViewController(), animated: true, completion: nil)
     }
 
     return true
   }
 }
-

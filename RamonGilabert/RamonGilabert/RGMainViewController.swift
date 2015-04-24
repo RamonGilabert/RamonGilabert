@@ -41,12 +41,18 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "moviePlayerFinishedAndDismissed:" , name: Constant.Setup.NameOfNotification, object: nil)
     }
 
-    func moviePlayerFinishedAndDismissed(notification: NSNotification) {
-        let checkFirstLunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunchTips")
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        let checkFirstLunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunch")
 
         if !checkFirstLunch {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
-            self.presentViewController(self.tipsViewController, animated: true, completion: nil)
+
+            let videoViewController = RGVideoViewController()
+            videoViewController.view.removeFromSuperview()
+
+            self.presentViewController(videoViewController, animated: true, completion: nil)
         }
     }
 
@@ -98,6 +104,17 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
             self.scrollView.setContentOffset(CGPointMake(0, 0), animated: false)
         } else if self.scrollView.contentOffset.x > Constant.Size.DeviceWidth * 2 {
             self.scrollView.setContentOffset(CGPointMake(Constant.Size.DeviceWidth * 2, 0), animated: false)
+        }
+    }
+
+    // MARK: Notification methods
+
+    func moviePlayerFinishedAndDismissed(notification: NSNotification) {
+        let checkFirstLunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunchTips")
+
+        if !checkFirstLunch {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
+            self.presentViewController(self.tipsViewController, animated: true, completion: nil)
         }
     }
 

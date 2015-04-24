@@ -105,7 +105,7 @@ class RGMenuViewController: UIViewController {
         self.socialButton = self.viewModel.buttonInMenu(
             Constant.Positioning.XPositionLeftMenuButton,
             yPosition: (Constant.Positioning.MenuButtonsSpacing * 3) + (Constant.Positioning.HeightMenuButton * 2) + 15,
-            image: "game-image",
+            image: "social-image",
             text: "SOCIAL",
             viewController: self,
             tag: 4)

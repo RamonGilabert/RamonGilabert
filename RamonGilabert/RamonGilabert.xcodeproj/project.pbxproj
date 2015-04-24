@@ -141,15 +141,8 @@
 		F6526E3A1AE2B956007ACF23 /* RamonGilabert */ = {
 			isa = PBXGroup;
 			children = (
-				F6526E3D1AE2B956007ACF23 /* AppDelegate.swift */,
-				F66117211AE9060300A30E55 /* RGMainViewController.swift */,
-				F661171F1AE9060300A30E55 /* RGMenuViewController.swift */,
-				F6526E641AE2C996007ACF23 /* RGStoryViewController.swift */,
-				F66117251AE9061600A30E55 /* RGSkillsViewController.swift */,
-				F66117201AE9060300A30E55 /* RGProjectsViewController.swift */,
-				F66117191AE9057C00A30E55 /* RGVideoViewController.swift */,
-				F64895E91AE9711000CC4F9E /* RGTipsViewController.swift */,
-				F6D6BCCE1AEA54F300BE83F9 /* RGWebViewController.swift */,
+				F6E2F3651AEAD47C0095062A /* Delegate */,
+				F6E2F3661AEAD4830095062A /* Controllers */,
 				F6A323CA1AE3B5F70026D576 /* Managers */,
 				F64895EF1AE991B300CC4F9E /* Custom transitions */,
 				F6A323CD1AE3EDEA0026D576 /* Override classes */,
@@ -248,6 +241,29 @@
 				F6C4001B1AE79ECC00E1E983 /* Libertad.otf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		F6E2F3651AEAD47C0095062A /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				F6526E3D1AE2B956007ACF23 /* AppDelegate.swift */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
+		F6E2F3661AEAD4830095062A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F66117211AE9060300A30E55 /* RGMainViewController.swift */,
+				F661171F1AE9060300A30E55 /* RGMenuViewController.swift */,
+				F6526E641AE2C996007ACF23 /* RGStoryViewController.swift */,
+				F66117251AE9061600A30E55 /* RGSkillsViewController.swift */,
+				F66117201AE9060300A30E55 /* RGProjectsViewController.swift */,
+				F66117191AE9057C00A30E55 /* RGVideoViewController.swift */,
+				F64895E91AE9711000CC4F9E /* RGTipsViewController.swift */,
+				F6D6BCCE1AEA54F300BE83F9 /* RGWebViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

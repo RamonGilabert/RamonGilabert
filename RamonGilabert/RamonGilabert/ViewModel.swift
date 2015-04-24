@@ -449,7 +449,7 @@ class ViewModel: NSObject {
     }
 
     func setTwitterButton(view: UIView, viewController: UIViewController) -> UIButton {
-        let button = UIButton(frame: CGRectMake(Constant.SocialViewPositioning.SpacingBetweenViews, (Constant.SocialViewPositioning.HeightOfView - Constant.SocialViewPositioning.SizeOfSocialButtons)/2 + 15, Constant.SocialViewPositioning.SizeOfSocialButtons, Constant.SocialViewPositioning.SizeOfSocialButtons))
+        let button = UIButton(frame: CGRectMake(Constant.SocialViewPositioning.SpacingBetweenViews, (Constant.SocialViewPositioning.HeightOfView - Constant.SocialViewPositioning.SizeOfSocialButtons)/2 + 20, Constant.SocialViewPositioning.SizeOfSocialButtons, Constant.SocialViewPositioning.SizeOfSocialButtons))
         button.setBackgroundImage(UIImage(named: "twitter-icon-social"), forState: UIControlState.Normal)
         button.tag = 0
         button.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
@@ -461,7 +461,7 @@ class ViewModel: NSObject {
     }
 
     func setDribbbleButton(view: UIView, viewController: UIViewController) -> UIButton {
-        let button = UIButton(frame: CGRectMake((Constant.SocialViewPositioning.SpacingBetweenViews * 2) + Constant.SocialViewPositioning.SizeOfSocialButtons, (Constant.SocialViewPositioning.HeightOfView - Constant.SocialViewPositioning.SizeOfSocialButtons)/2 + 15, Constant.SocialViewPositioning.SizeOfSocialButtons, Constant.SocialViewPositioning.SizeOfSocialButtons))
+        let button = UIButton(frame: CGRectMake((Constant.SocialViewPositioning.SpacingBetweenViews * 2) + Constant.SocialViewPositioning.SizeOfSocialButtons, (Constant.SocialViewPositioning.HeightOfView - Constant.SocialViewPositioning.SizeOfSocialButtons)/2 + 20, Constant.SocialViewPositioning.SizeOfSocialButtons, Constant.SocialViewPositioning.SizeOfSocialButtons))
         button.setBackgroundImage(UIImage(named: "dribbble-icon-social"), forState: UIControlState.Normal)
         button.tag = 1
         button.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
@@ -473,7 +473,7 @@ class ViewModel: NSObject {
     }
 
     func setGithubButton(view: UIView, viewController: UIViewController) -> UIButton {
-        let button = UIButton(frame: CGRectMake((Constant.SocialViewPositioning.SpacingBetweenViews * 3) + (Constant.SocialViewPositioning.SizeOfSocialButtons * 2), (Constant.SocialViewPositioning.HeightOfView - Constant.SocialViewPositioning.SizeOfSocialButtons)/2 + 15, Constant.SocialViewPositioning.SizeOfSocialButtons, Constant.SocialViewPositioning.SizeOfSocialButtons))
+        let button = UIButton(frame: CGRectMake((Constant.SocialViewPositioning.SpacingBetweenViews * 3) + (Constant.SocialViewPositioning.SizeOfSocialButtons * 2), (Constant.SocialViewPositioning.HeightOfView - Constant.SocialViewPositioning.SizeOfSocialButtons)/2 + 20, Constant.SocialViewPositioning.SizeOfSocialButtons, Constant.SocialViewPositioning.SizeOfSocialButtons))
         button.setBackgroundImage(UIImage(named: "github-icon-social"), forState: UIControlState.Normal)
         button.tag = 2
         button.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)

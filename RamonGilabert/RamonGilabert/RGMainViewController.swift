@@ -134,11 +134,17 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         setAnimationForButtons(false)
 
         if sender.tag == 0 {
-            UIApplication.sharedApplication().openURL(ContactWebs.Twitter!)
+            let webViewController = RGWebViewController()
+            webViewController.loadURL = ContactWebs.Twitter!
+            self.presentViewController(webViewController, animated: true, completion: nil)
         } else if sender.tag == 1 {
-            UIApplication.sharedApplication().openURL(ContactWebs.Dribbble!)
+            let webViewController = RGWebViewController()
+            webViewController.loadURL = ContactWebs.Dribbble!
+            self.presentViewController(webViewController, animated: true, completion: nil)
         } else {
-            UIApplication.sharedApplication().openURL(ContactWebs.Github!)
+            let webViewController = RGWebViewController()
+            webViewController.loadURL = ContactWebs.Github!
+            self.presentViewController(webViewController, animated: true, completion: nil)
         }
     }
 

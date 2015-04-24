@@ -126,7 +126,7 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
 
     // MARK: Button handlers
 
-    func onCrossButtonPressed(sender: UIButton) {
+    func onCrossButtonPressed() {
         setAnimationForButtons(false)
     }
 

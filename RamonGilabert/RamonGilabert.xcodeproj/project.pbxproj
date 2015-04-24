@@ -202,9 +202,9 @@
 		F6A323CA1AE3B5F70026D576 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				F64895D41AE9402600CC4F9E /* SoundManager.swift */,
 				F661171D1AE905FF00A30E55 /* ViewModel.swift */,
 				F6B93C161AE648920085DB2B /* Structures.swift */,
+				F64895D41AE9402600CC4F9E /* SoundManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";

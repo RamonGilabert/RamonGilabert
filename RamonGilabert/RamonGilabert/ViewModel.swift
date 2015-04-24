@@ -73,6 +73,11 @@ struct Constant {
         static let ThirdIconImage = "menu-icon"
         static let TextForSlider = "Slide left to start"
     }
+
+    struct SocialViewPositioning {
+        static let HeightOfView = Constant.Size.DeviceHeight / 3.25
+        static let SizeOfSocialButtons = 55 * Constant.Size.RelationHeights
+    }
 }
 
 class ViewModel: NSObject {
@@ -398,5 +403,26 @@ class ViewModel: NSObject {
         view.addSubview(label)
 
         return label
+    }
+
+    // MARK: Social
+
+    func setContainerOfViewSocial(view: UIView) -> UIView {
+        let viewToAdd = UIView(frame: CGRectMake(0, Constant.Size.DeviceHeight - Constant.SocialViewPositioning.HeightOfView, Constant.Size.DeviceWidth, Constant.SocialViewPositioning.HeightOfView))
+        viewToAdd.backgroundColor = UIColor_WWDC.almostBlackColor()
+        viewToAdd.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
+
+        view.addSubview(viewToAdd)
+
+        return viewToAdd
+    }
+
+    func setButtonSocial(view: UIView, xPosition: CGFloat, button: UIButton) -> UIButton {
+        let button = UIButton(frame: CGRectMake(xPosition, (view.frame.height - Constant.SocialViewPositioning.SizeOfSocialButtons)/2, Constant.SocialViewPositioning.SizeOfSocialButtons, Constant.SocialViewPositioning.SizeOfSocialButtons))
+        button.setBackgroundImage(UIImage(named: ""), forState: UIControlState.Normal)
+
+        view.addSubview(button)
+
+        return button
     }
 }

@@ -121,9 +121,13 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     // MARK: Helper methods
 
     func setAllSocialViews() {
+        let backgroundView = self.viewModel.setBackgroundViewSocial(self.view)
         let viewSocial = self.viewModel.setContainerOfViewSocial(self.view)
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
+
+        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
+            backgroundView.alpha = 0.6
             viewSocial.transform = CGAffineTransformIdentity
+        }, completion: { finished in
         })
     }
 

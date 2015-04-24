@@ -407,22 +407,27 @@ class ViewModel: NSObject {
 
     // MARK: Social
 
-    func setContainerOfViewSocial(view: UIView) -> UIView {
+    func setBackgroundViewSocial(view: UIView) -> UIView {
         let backgroundView = UIView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight))
         backgroundView.backgroundColor = UIColor.blackColor()
-        backgroundView.alpha = 0.5
+        backgroundView.alpha = 0
 
+        view.addSubview(backgroundView)
+
+        return backgroundView
+    }
+
+    func setContainerOfViewSocial(view: UIView) -> UIView {
         let viewToAdd = UIView(frame: CGRectMake(0, Constant.Size.DeviceHeight - Constant.SocialViewPositioning.HeightOfView, Constant.Size.DeviceWidth, Constant.SocialViewPositioning.HeightOfView))
         viewToAdd.backgroundColor = UIColor_WWDC.almostBlackColor()
         viewToAdd.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
 
-        let labelWithTitle = UILabel(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.SocialViewPositioning.HeightOfView / 2.75))
+        let labelWithTitle = UILabel(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.SocialViewPositioning.HeightOfView / 3))
         labelWithTitle.text = "Social"
         labelWithTitle.font = UIFont_WWDC.titleInProjects()
         labelWithTitle.textColor = UIColor.whiteColor()
         labelWithTitle.textAlignment = NSTextAlignment.Center
 
-        view.addSubview(backgroundView)
         viewToAdd.addSubview(labelWithTitle)
         view.addSubview(viewToAdd)
 

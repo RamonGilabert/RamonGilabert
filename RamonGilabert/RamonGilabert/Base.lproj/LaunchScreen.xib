@@ -9,10 +9,38 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon-launch-screen" translatesAutoresizingMaskIntoConstraints="NO" id="Ech-vG-104">
+                    <rect key="frame" x="174" y="70" width="133" height="147"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="133" id="BxS-Du-dGr"/>
+                        <constraint firstAttribute="height" constant="147" id="ixB-dp-rG7"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RAMON GILABERT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VH8-3j-YBS">
+                    <rect key="frame" x="105" y="246" width="271" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="YBj-14-Ov8"/>
+                        <constraint firstAttribute="width" constant="271" id="qbT-s3-fjU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="28"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <color key="backgroundColor" red="0.11045545212765961" green="0.11045545212765961" blue="0.11045545212765961" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Ech-vG-104" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="70" id="aBU-2P-XXS"/>
+                <constraint firstAttribute="centerX" secondItem="VH8-3j-YBS" secondAttribute="centerX" id="iQC-aa-TRX"/>
+                <constraint firstItem="VH8-3j-YBS" firstAttribute="top" secondItem="Ech-vG-104" secondAttribute="bottom" constant="29" id="w0S-0q-5xa"/>
+                <constraint firstAttribute="centerX" secondItem="Ech-vG-104" secondAttribute="centerX" id="xjt-Ig-Jeb"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon-launch-screen" width="133" height="147"/>
+    </resources>
 </document>

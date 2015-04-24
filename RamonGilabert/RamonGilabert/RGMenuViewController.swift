@@ -53,7 +53,7 @@ class RGMenuViewController: UIViewController {
             self.mainViewController.presentViewController(RGVideoViewController(), animated: true, completion: nil)
             return
         } else if button.tag == 4 {
-
+            self.mainViewController.setAllSocialViews()
         } else {
 
         }

@@ -120,6 +120,13 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
 
     // MARK: Helper methods
 
+    func setAllSocialViews() {
+        let viewSocial = self.viewModel.setContainerOfViewSocial(self.view)
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            viewSocial.transform = CGAffineTransformIdentity
+        })
+    }
+
     func loadViewController(viewController: UIViewController, page: Int) {
         viewController.view.frame = CGRectMake(viewController.view.bounds.width * CGFloat(page), 0, viewController.view.bounds.width, viewController.view.bounds.height)
 

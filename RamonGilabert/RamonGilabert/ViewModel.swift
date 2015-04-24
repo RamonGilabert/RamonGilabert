@@ -75,7 +75,7 @@ struct Constant {
     }
 
     struct SocialViewPositioning {
-        static let HeightOfView = Constant.Size.DeviceHeight / 3.25
+        static let HeightOfView = Constant.Size.DeviceHeight / 2.75
         static let SizeOfSocialButtons = 55 * Constant.Size.RelationHeights
     }
 }
@@ -408,17 +408,29 @@ class ViewModel: NSObject {
     // MARK: Social
 
     func setContainerOfViewSocial(view: UIView) -> UIView {
+        let backgroundView = UIView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight))
+        backgroundView.backgroundColor = UIColor.blackColor()
+        backgroundView.alpha = 0.5
+
         let viewToAdd = UIView(frame: CGRectMake(0, Constant.Size.DeviceHeight - Constant.SocialViewPositioning.HeightOfView, Constant.Size.DeviceWidth, Constant.SocialViewPositioning.HeightOfView))
         viewToAdd.backgroundColor = UIColor_WWDC.almostBlackColor()
         viewToAdd.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
 
+        let labelWithTitle = UILabel(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.SocialViewPositioning.HeightOfView / 2.75))
+        labelWithTitle.text = "Social"
+        labelWithTitle.font = UIFont_WWDC.titleInProjects()
+        labelWithTitle.textColor = UIColor.whiteColor()
+        labelWithTitle.textAlignment = NSTextAlignment.Center
+
+        view.addSubview(backgroundView)
+        viewToAdd.addSubview(labelWithTitle)
         view.addSubview(viewToAdd)
 
         return viewToAdd
     }
 
     func setButtonSocial(view: UIView, xPosition: CGFloat, button: UIButton) -> UIButton {
-        let button = UIButton(frame: CGRectMake(xPosition, (view.frame.height - Constant.SocialViewPositioning.SizeOfSocialButtons)/2, Constant.SocialViewPositioning.SizeOfSocialButtons, Constant.SocialViewPositioning.SizeOfSocialButtons))
+        let button = UIButton(frame: CGRectMake(xPosition, (view.frame.height - Constant.SocialViewPositioning.SizeOfSocialButtons)/2 + (Constant.SocialViewPositioning.HeightOfView / 5), Constant.SocialViewPositioning.SizeOfSocialButtons, Constant.SocialViewPositioning.SizeOfSocialButtons))
         button.setBackgroundImage(UIImage(named: ""), forState: UIControlState.Normal)
 
         view.addSubview(button)

@@ -19,7 +19,7 @@ class RGWebViewController: UIViewController, UIWebViewDelegate {
         let headerView = UIView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight/9))
         headerView.backgroundColor = UIColor_WWDC.almostBlackColor()
 
-        self.viewModel.setCrossButtonWebView(headerView)
+        self.viewModel.setCrossButtonWebView(headerView, viewController: self)
         self.backButton = self.viewModel.setBackButton(headerView, viewController: self)
         self.forwardButton = self.viewModel.setForwardButton(headerView, viewController: self)
         self.webView = self.viewModel.setWebView(self.view, webViewDelegate: self)

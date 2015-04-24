@@ -486,16 +486,16 @@ class ViewModel: NSObject {
 
     // MARK: WebView layout
 
-    func setCrossButtonWebView(view: UIView) {
-        let crossButton = UIButton(frame: CGRectMake(20, (view.frame.height - 30)/2, 24, 24))
+    func setCrossButtonWebView(view: UIView, viewController: UIViewController) {
+        let crossButton = UIButton(frame: CGRectMake(20, (view.frame.height - 24)/2, 24, 24))
         crossButton.setBackgroundImage(UIImage(named: "cross-button-image"), forState: UIControlState.Normal)
-        crossButton.addTarget(self, action: "onCloseButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
-        
+        crossButton.addTarget(viewController, action: "onCloseButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+
         view.addSubview(crossButton)
     }
 
     func setWebView(view: UIView, webViewDelegate: UIWebViewDelegate) -> UIWebView {
-        let webView = UIWebView(frame: CGRectMake(0, Constant.Size.DeviceHeight/10, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight - Constant.Size.DeviceHeight/10))
+        let webView = UIWebView(frame: CGRectMake(0, Constant.Size.DeviceHeight/9, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight - Constant.Size.DeviceHeight/10))
         webView.delegate = webViewDelegate
 
         view.addSubview(webView)
@@ -504,9 +504,9 @@ class ViewModel: NSObject {
     }
 
     func setBackButton(view: UIView, viewController: UIViewController) -> UIButton {
-        let button = UIButton(frame: CGRectMake(Constant.Size.DeviceWidth - 28 - 60, (view.frame.height - 30)/2, 14, 24))
+        let button = UIButton(frame: CGRectMake(Constant.Size.DeviceWidth - 28 - 60, (view.frame.height - 24)/2, 14, 24))
         button.setBackgroundImage(UIImage(named: "back-button-image"), forState: UIControlState.Normal)
-        button.addTarget(self, action: "onBackButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(viewController, action: "onBackButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
 
         view.addSubview(button)
 
@@ -514,9 +514,9 @@ class ViewModel: NSObject {
     }
 
     func setForwardButton(view: UIView, viewController: UIViewController) -> UIButton {
-        let button = UIButton(frame: CGRectMake(Constant.Size.DeviceWidth - 14 - 20, (view.frame.height - 30)/2, 14, 24))
+        let button = UIButton(frame: CGRectMake(Constant.Size.DeviceWidth - 14 - 20, (view.frame.height - 24)/2, 14, 24))
         button.setBackgroundImage(UIImage(named: "forward-button-image"), forState: UIControlState.Normal)
-        button.addTarget(self, action: "onForwardButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(viewController, action: "onForwardButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
 
         view.addSubview(button)
 

@@ -126,13 +126,28 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     // MARK: Button handlers
 
     func onCrossButtonPressed(sender: UIButton) {
-        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
-            self.backgroundViewSocial.alpha = 0
-            self.viewSocial.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
-            sender.transform = CGAffineTransformMakeScale(0, 0)
-            self.twitterButton.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
-            self.dribbbleButton.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
-            self.githubButton.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
+        setAnimationForButtons(false, buttonCross: sender)
+    }
+
+    // MARK: Animation methods
+
+    func setAnimationForButtons(bool: Bool, buttonCross: UIButton) {
+        UIView.animateWithDuration(0.5, delay: bool ? 0 : 0.15, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
+            self.backgroundViewSocial.alpha = bool ? 0.6 : 0
+            self.viewSocial.transform = bool ? CGAffineTransformIdentity : CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
+            buttonCross.transform = bool ? CGAffineTransformIdentity : CGAffineTransformMakeScale(0, 0)
+        }, completion: nil)
+
+        UIView.animateWithDuration(0.5, delay: bool ? 0.1 : 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
+            self.twitterButton.transform = bool ? CGAffineTransformIdentity : CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
+        }, completion: nil)
+
+        UIView.animateWithDuration(0.5, delay: bool ? 0.15 : 0.05, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
+            self.dribbbleButton.transform = bool ? CGAffineTransformIdentity : CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
+        }, completion: nil)
+
+        UIView.animateWithDuration(0.5, delay: bool ? 0.20 : 0.1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
+            self.githubButton.transform = bool ? CGAffineTransformIdentity : CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
         }, completion: nil)
     }
 
@@ -147,23 +162,7 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         self.dribbbleButton = self.viewModel.setDribbbleButton(self.viewSocial)
         self.githubButton = self.viewModel.setGithubButton(self.viewSocial)
 
-        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
-            self.backgroundViewSocial.alpha = 0.6
-            self.viewSocial.transform = CGAffineTransformIdentity
-            buttonCross.transform = CGAffineTransformIdentity
-        }, completion: nil)
-
-        UIView.animateWithDuration(0.5, delay: 0.1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
-            self.twitterButton.transform = CGAffineTransformIdentity
-        }, completion: nil)
-
-        UIView.animateWithDuration(0.5, delay: 0.15, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
-            self.dribbbleButton.transform = CGAffineTransformIdentity
-        }, completion: nil)
-
-        UIView.animateWithDuration(0.5, delay: 0.2, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
-            self.githubButton.transform = CGAffineTransformIdentity
-        }, completion: nil)
+        setAnimationForButtons(true, buttonCross: buttonCross)
     }
 
     func loadViewController(viewController: UIViewController, page: Int) {

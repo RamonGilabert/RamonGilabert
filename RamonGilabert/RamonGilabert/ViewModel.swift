@@ -76,7 +76,7 @@ struct Constant {
 
     struct SocialViewPositioning {
         static let HeightOfView = Constant.Size.DeviceHeight / 2.75
-        static let SizeOfSocialButtons = 55 * Constant.Size.RelationHeights
+        static let SizeOfSocialButtons = 65 * Constant.Size.RelationHeights
         static let CrossSize = 24 as CGFloat
         static let SpacingBetweenViews = (Constant.Size.DeviceWidth - (Constant.SocialViewPositioning.SizeOfSocialButtons * 3)) / 4
     }
@@ -446,33 +446,36 @@ class ViewModel: NSObject {
         return button
     }
 
-    func setTwitterButton(view: UIView) -> UIButton {
-        let button = UIButton(frame: CGRectMake(Constant.SocialViewPositioning.SpacingBetweenViews, (Constant.SocialViewPositioning.HeightOfView - Constant.SocialViewPositioning.SizeOfSocialButtons)/2, Constant.SocialViewPositioning.SizeOfSocialButtons, Constant.SocialViewPositioning.SizeOfSocialButtons))
+    func setTwitterButton(view: UIView, viewController: UIViewController) -> UIButton {
+        let button = UIButton(frame: CGRectMake(Constant.SocialViewPositioning.SpacingBetweenViews, (Constant.SocialViewPositioning.HeightOfView - Constant.SocialViewPositioning.SizeOfSocialButtons)/2 + 10, Constant.SocialViewPositioning.SizeOfSocialButtons, Constant.SocialViewPositioning.SizeOfSocialButtons))
         button.setBackgroundImage(UIImage(named: "twitter-icon-social"), forState: UIControlState.Normal)
         button.tag = 0
         button.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
+        button.addTarget(viewController, action: "onSocialButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
 
         view.addSubview(button)
 
         return button
     }
 
-    func setDribbbleButton(view: UIView) -> UIButton {
-        let button = UIButton(frame: CGRectMake((Constant.SocialViewPositioning.SpacingBetweenViews * 2) + Constant.SocialViewPositioning.SizeOfSocialButtons, (Constant.SocialViewPositioning.HeightOfView - Constant.SocialViewPositioning.SizeOfSocialButtons)/2, Constant.SocialViewPositioning.SizeOfSocialButtons, Constant.SocialViewPositioning.SizeOfSocialButtons))
+    func setDribbbleButton(view: UIView, viewController: UIViewController) -> UIButton {
+        let button = UIButton(frame: CGRectMake((Constant.SocialViewPositioning.SpacingBetweenViews * 2) + Constant.SocialViewPositioning.SizeOfSocialButtons, (Constant.SocialViewPositioning.HeightOfView - Constant.SocialViewPositioning.SizeOfSocialButtons)/2 + 10, Constant.SocialViewPositioning.SizeOfSocialButtons, Constant.SocialViewPositioning.SizeOfSocialButtons))
         button.setBackgroundImage(UIImage(named: "dribbble-icon-social"), forState: UIControlState.Normal)
         button.tag = 1
         button.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
+        button.addTarget(viewController, action: "onSocialButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
 
         view.addSubview(button)
 
         return button
     }
 
-    func setGithubButton(view: UIView) -> UIButton {
-        let button = UIButton(frame: CGRectMake((Constant.SocialViewPositioning.SpacingBetweenViews * 3) + (Constant.SocialViewPositioning.SizeOfSocialButtons * 2), (Constant.SocialViewPositioning.HeightOfView - Constant.SocialViewPositioning.SizeOfSocialButtons)/2, Constant.SocialViewPositioning.SizeOfSocialButtons, Constant.SocialViewPositioning.SizeOfSocialButtons))
+    func setGithubButton(view: UIView, viewController: UIViewController) -> UIButton {
+        let button = UIButton(frame: CGRectMake((Constant.SocialViewPositioning.SpacingBetweenViews * 3) + (Constant.SocialViewPositioning.SizeOfSocialButtons * 2), (Constant.SocialViewPositioning.HeightOfView - Constant.SocialViewPositioning.SizeOfSocialButtons)/2 + 10, Constant.SocialViewPositioning.SizeOfSocialButtons, Constant.SocialViewPositioning.SizeOfSocialButtons))
         button.setBackgroundImage(UIImage(named: "github-icon-social"), forState: UIControlState.Normal)
         button.tag = 2
         button.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
+        button.addTarget(viewController, action: "onSocialButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
 
         view.addSubview(button)
 

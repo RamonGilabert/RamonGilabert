@@ -10,7 +10,7 @@ class RGMenuViewController: UIViewController {
     var projectsButton = UIButton()
     var skillsetButton = UIButton()
     var videoButton = UIButton()
-    var gameButton = UIButton()
+    var socialButton = UIButton()
     var contactButton = UIButton()
     var mainViewController = RGMainViewController()
     var skillsViewController = RGSkillsViewController()
@@ -102,11 +102,11 @@ class RGMenuViewController: UIViewController {
             viewController: self,
             tag: 3)
 
-        self.gameButton = self.viewModel.buttonInMenu(
+        self.socialButton = self.viewModel.buttonInMenu(
             Constant.Positioning.XPositionLeftMenuButton,
             yPosition: (Constant.Positioning.MenuButtonsSpacing * 3) + (Constant.Positioning.HeightMenuButton * 2) + 15,
             image: "game-image",
-            text: "GAME",
+            text: "SOCIAL",
             viewController: self,
             tag: 4)
 

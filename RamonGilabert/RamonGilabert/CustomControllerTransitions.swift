@@ -140,7 +140,7 @@ class CustomControllerTransitions: UIPercentDrivenInteractiveTransition, UIViewC
         menuViewController.projectsButton.transform = CGAffineTransformMakeTranslation(Translation.SideXTranslation, -Translation.SideYTranslation)
         menuViewController.skillsetButton.transform = CGAffineTransformMakeTranslation(-Translation.SideXTranslation, 0)
         menuViewController.videoButton.transform = CGAffineTransformMakeTranslation(Translation.SideXTranslation, 0)
-        menuViewController.gameButton.transform = CGAffineTransformMakeTranslation(-Translation.SideXTranslation, Translation.SideYTranslation)
+        menuViewController.socialButton.transform = CGAffineTransformMakeTranslation(-Translation.SideXTranslation, Translation.SideYTranslation)
         menuViewController.contactButton.transform = CGAffineTransformMakeTranslation(Translation.SideXTranslation, Translation.SideYTranslation)
     }
 

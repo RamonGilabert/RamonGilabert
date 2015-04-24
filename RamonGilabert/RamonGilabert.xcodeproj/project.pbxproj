@@ -34,6 +34,7 @@
 		F6B93C191AE64B6C0085DB2B /* RGSkillsCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B93C181AE64B6C0085DB2B /* RGSkillsCustomTableViewCell.swift */; };
 		F6BE1CE31AE532200046AFDD /* RGStoryCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE1CE21AE532200046AFDD /* RGStoryCustomTableViewCell.swift */; };
 		F6C4001E1AE79F9B00E1E983 /* Libertad.otf in Resources */ = {isa = PBXBuildFile; fileRef = F6C4001B1AE79ECC00E1E983 /* Libertad.otf */; };
+		F6D6BCCB1AEA4BA100BE83F9 /* RGWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D6BCCA1AEA4BA100BE83F9 /* RGWebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		F6B93C181AE64B6C0085DB2B /* RGSkillsCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGSkillsCustomTableViewCell.swift; sourceTree = "<group>"; };
 		F6BE1CE21AE532200046AFDD /* RGStoryCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGStoryCustomTableViewCell.swift; sourceTree = "<group>"; };
 		F6C4001B1AE79ECC00E1E983 /* Libertad.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Libertad.otf; sourceTree = "<group>"; };
+		F6D6BCCA1AEA4BA100BE83F9 /* RGWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGWebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				F66117201AE9060300A30E55 /* RGProjectsViewController.swift */,
 				F66117191AE9057C00A30E55 /* RGVideoViewController.swift */,
 				F64895E91AE9711000CC4F9E /* RGTipsViewController.swift */,
+				F6D6BCCA1AEA4BA100BE83F9 /* RGWebViewController.swift */,
 				F6A323CA1AE3B5F70026D576 /* Managers */,
 				F64895EF1AE991B300CC4F9E /* Custom transitions */,
 				F6A323CD1AE3EDEA0026D576 /* Override classes */,
@@ -365,6 +368,7 @@
 				F6B93C171AE648920085DB2B /* Structures.swift in Sources */,
 				F64895EA1AE9711000CC4F9E /* RGTipsViewController.swift in Sources */,
 				F6B93C191AE64B6C0085DB2B /* RGSkillsCustomTableViewCell.swift in Sources */,
+				F6D6BCCB1AEA4BA100BE83F9 /* RGWebViewController.swift in Sources */,
 				F6526E651AE2C996007ACF23 /* RGStoryViewController.swift in Sources */,
 				F661171A1AE9057C00A30E55 /* RGVideoViewController.swift in Sources */,
 				F66117231AE9060300A30E55 /* RGProjectsViewController.swift in Sources */,

@@ -55,7 +55,8 @@ class RGMenuViewController: UIViewController {
         } else if button.tag == 4 {
             self.mainViewController.setAllSocialViews()
         } else {
-
+            self.dismissViewControllerAnimated(true, completion: nil)
+            self.mainViewController.presentViewController(RGWebViewController(), animated: true, completion: nil)
         }
 
         self.soundManager.menuTappedSound.play()

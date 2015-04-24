@@ -119,7 +119,7 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         let checkFirstLunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunchTips")
 
         if !checkFirstLunch {
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunchTips")
             self.presentViewController(self.tipsViewController, animated: true, completion: nil)
         }
     }

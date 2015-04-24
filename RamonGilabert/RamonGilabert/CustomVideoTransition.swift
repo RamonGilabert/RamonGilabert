@@ -12,7 +12,7 @@ class CustomVideoTransition: NSObject, UIViewControllerAnimatedTransitioning, UI
         let screens: (from: UIViewController, to: UIViewController) = (transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!, transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!)
 
         let mainViewController = !self.presenting ? screens.to as! RGMainViewController : screens.from as! RGMainViewController
-        let videoViewController = !self.presenting ? screens.from as! RGVideoViewController : screens.to as! RGVideoViewController
+        let videoViewController = !self.presenting ? screens.from as UIViewController : screens.to as UIViewController
 
         let menuView = videoViewController.view
         let bottomView = mainViewController.view
@@ -39,12 +39,12 @@ class CustomVideoTransition: NSObject, UIViewControllerAnimatedTransitioning, UI
         })
     }
 
-    func offStageMenuController(videoViewController: RGVideoViewController) {
+    func offStageMenuController(videoViewController: UIViewController) {
         videoViewController.view.alpha = 0
         videoViewController.view.transform = CGAffineTransformMakeScale(1.5, 1.5)
     }
 
-    func onStageMenuController(videoViewController: RGVideoViewController) {
+    func onStageMenuController(videoViewController: UIViewController) {
         videoViewController.view.alpha = 1
         videoViewController.view.transform = CGAffineTransformIdentity
     }

@@ -32,17 +32,16 @@ class RGWebViewController: UIViewController, UIWebViewDelegate {
 
     // MARK: WebView delegate methods
 
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        self.backButton.enabled = self.webView.canGoBack ? true : false
+        self.forwardButton.enabled = self.webView.canGoForward ? true : false
+
+        return true
+    }
+
     func webViewDidFinishLoad(webView: UIWebView) {
         self.backButton.enabled = self.webView.canGoBack ? true : false
         self.forwardButton.enabled = self.webView.canGoForward ? true : false
-    }
-
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
-        let viewError = self.viewModel.setErrorMessage(self.view)
-
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            viewError.transform = CGAffineTransformMakeScale(1, 1)
-        })
     }
 
     // MARK: Button handlers

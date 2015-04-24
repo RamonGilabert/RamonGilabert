@@ -18,8 +18,6 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //self.presentViewController(self.tipsViewController, animated: true, completion: nil)
-
         self.scrollView = self.viewModel.initMainScrollViewInView(view)
         self.scrollView.delegate = self
 
@@ -40,6 +38,17 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         loadScrollViewInPage(0)
         loadScrollViewInPage(1)
         loadScrollViewInPage(2)
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "moviePlayerFinishedAndDismissed:" , name: Constant.Setup.NameOfNotification, object: self.videoViewController)
+    }
+
+    func moviePlayerFinishedAndDismissed(notification: NSNotification) {
+        let checkFirstLunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunchTips")
+
+        if !checkFirstLunch {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
+            self.presentViewController(self.tipsViewController, animated: true, completion: nil)
+        }
     }
 
     // MARK: ScrollView methods

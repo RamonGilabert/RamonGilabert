@@ -7,7 +7,6 @@ class RGVideoViewController: UIViewController {
     let session = AVAudioSession.sharedInstance()
     let transitionManager = CustomVideoTransition()
     var moviePlayerController = MPMoviePlayerController()
-    var mainViewController = RGMainViewController()
 
     // MARK: View lifecycle
 
@@ -33,19 +32,13 @@ class RGVideoViewController: UIViewController {
 
     func moviePlayerDidFinishPlaying(notification: NSNotification) {
         self.dismissViewControllerAnimated(true, completion: nil)
-
-        let checkFirstLunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunchTips")
-
-        if !checkFirstLunch {
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunchTips")
-            RGMainViewController().presentViewController(RGTipsViewController(), animated: true, completion: nil)
-        }
     }
 
     // MARK: UIButton handler
 
     func onCrossButtonPressed() {
         self.moviePlayerController.pause()
+        NSNotificationCenter.defaultCenter().postNotificationName(Constant.Setup.NameOfNotification, object: nil)
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
             self.moviePlayerController.stop()
         })

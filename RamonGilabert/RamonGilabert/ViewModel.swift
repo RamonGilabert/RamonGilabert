@@ -3,6 +3,7 @@ import UIKit
 struct Constant {
     struct Setup {
         static let NumberOfPagesScrolling = 3 as Int
+        static let NameOfNotification = "MovieDismissed"
     }
 
     struct Size {

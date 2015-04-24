@@ -56,7 +56,10 @@ class RGMenuViewController: UIViewController {
             self.mainViewController.setAllSocialViews()
         } else {
             self.dismissViewControllerAnimated(true, completion: nil)
-            self.mainViewController.presentViewController(RGWebViewController(), animated: true, completion: nil)
+            let webViewController = RGWebViewController()
+            webViewController.loadURL = ContactWebs.Website!
+            self.mainViewController.presentViewController(webViewController, animated: true, completion: nil)
+            //UIApplication.sharedApplication().openURL(ContactWebs.Website!)
         }
 
         self.soundManager.menuTappedSound.play()

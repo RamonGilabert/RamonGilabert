@@ -134,11 +134,11 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         setAnimationForButtons(false)
 
         if sender.tag == 0 {
-            // TODO: Perform segues to the webview with links
+            UIApplication.sharedApplication().openURL(ContactWebs.Twitter!)
         } else if sender.tag == 1 {
-
+            UIApplication.sharedApplication().openURL(ContactWebs.Dribbble!)
         } else {
-
+            UIApplication.sharedApplication().openURL(ContactWebs.Github!)
         }
     }
 

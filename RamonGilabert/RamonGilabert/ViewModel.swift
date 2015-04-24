@@ -436,10 +436,11 @@ class ViewModel: NSObject {
         return viewToAdd
     }
 
-    func setCrossButtonSocial(view: UIView) -> UIButton {
+    func setCrossButtonSocial(view: UIView, viewController: UIViewController) -> UIButton {
         let button = UIButton(frame: CGRectMake(20, 25, Constant.SocialViewPositioning.CrossSize, Constant.SocialViewPositioning.CrossSize))
         button.setBackgroundImage(UIImage(named: "cross-button-image"), forState: UIControlState.Normal)
         button.transform = CGAffineTransformMakeScale(0, 0)
+        button.addTarget(viewController, action: "onCrossButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
 
         view.addSubview(button)
 

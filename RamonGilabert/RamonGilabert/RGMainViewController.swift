@@ -16,6 +16,7 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     var twitterButton = UIButton()
     var dribbbleButton = UIButton()
     var githubButton = UIButton()
+    var buttonCrossSocial = UIButton()
 
     // MARK: View lifecycle
 
@@ -126,16 +127,28 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     // MARK: Button handlers
 
     func onCrossButtonPressed(sender: UIButton) {
-        setAnimationForButtons(false, buttonCross: sender)
+        setAnimationForButtons(false)
+    }
+
+    func onSocialButtonPressed {
+        setAnimationForButtons(false)
+
+        if tag == 0 {
+            // TODO: Perform segues to the webview with links
+        } else if tag == 1 {
+
+        } else {
+
+        }
     }
 
     // MARK: Animation methods
 
-    func setAnimationForButtons(bool: Bool, buttonCross: UIButton) {
+    func setAnimationForButtons(bool: Bool) {
         UIView.animateWithDuration(0.5, delay: bool ? 0 : 0.15, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
             self.backgroundViewSocial.alpha = bool ? 0.6 : 0
             self.viewSocial.transform = bool ? CGAffineTransformIdentity : CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
-            buttonCross.transform = bool ? CGAffineTransformIdentity : CGAffineTransformMakeScale(0, 0)
+            self.buttonCrossSocial.transform = bool ? CGAffineTransformIdentity : CGAffineTransformMakeScale(0, 0)
         }, completion: nil)
 
         UIView.animateWithDuration(0.5, delay: bool ? 0.1 : 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
@@ -156,13 +169,12 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     func setAllSocialViews() {
         self.backgroundViewSocial = self.viewModel.setBackgroundViewSocial(self.view)
         self.viewSocial = self.viewModel.setContainerOfViewSocial(self.view)
-        let buttonCross = self.viewModel.setCrossButtonSocial(self.viewSocial)
-        buttonCross.addTarget(self, action: "onCrossButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
-        self.twitterButton = self.viewModel.setTwitterButton(self.viewSocial)
-        self.dribbbleButton = self.viewModel.setDribbbleButton(self.viewSocial)
-        self.githubButton = self.viewModel.setGithubButton(self.viewSocial)
+        self.buttonCrossSocial = self.viewModel.setCrossButtonSocial(self.viewSocial, viewController: self)
+        self.twitterButton = self.viewModel.setTwitterButton(self.viewSocial, viewController: self)
+        self.dribbbleButton = self.viewModel.setDribbbleButton(self.viewSocial, viewController: self)
+        self.githubButton = self.viewModel.setGithubButton(self.viewSocial, viewController: self)
 
-        setAnimationForButtons(true, buttonCross: buttonCross)
+        setAnimationForButtons(true)
     }
 
     func loadViewController(viewController: UIViewController, page: Int) {

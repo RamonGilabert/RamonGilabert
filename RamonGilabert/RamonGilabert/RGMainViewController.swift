@@ -13,6 +13,9 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     var currentPage = 0
     var backgroundViewSocial = UIView()
     var viewSocial = UIView()
+    var twitterButton = UIButton()
+    var dribbbleButton = UIButton()
+    var githubButton = UIButton()
 
     // MARK: View lifecycle
 
@@ -127,6 +130,9 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
             self.backgroundViewSocial.alpha = 0
             self.viewSocial.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
             sender.transform = CGAffineTransformMakeScale(0, 0)
+            self.twitterButton.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
+            self.dribbbleButton.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
+            self.githubButton.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
             }, completion: { finished in
         })
     }
@@ -136,13 +142,19 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     func setAllSocialViews() {
         self.backgroundViewSocial = self.viewModel.setBackgroundViewSocial(self.view)
         self.viewSocial = self.viewModel.setContainerOfViewSocial(self.view)
-        let buttonCross = self.viewModel.setCrossButtonSocial(viewSocial)
+        let buttonCross = self.viewModel.setCrossButtonSocial(self.viewSocial)
         buttonCross.addTarget(self, action: "onCrossButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
-
+        self.twitterButton = self.viewModel.setTwitterButton(self.viewSocial)
+        self.dribbbleButton = self.viewModel.setDribbbleButton(self.viewSocial)
+        self.githubButton = self.viewModel.setGithubButton(self.viewSocial)
+        
         UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
             self.backgroundViewSocial.alpha = 0.6
             self.viewSocial.transform = CGAffineTransformIdentity
             buttonCross.transform = CGAffineTransformIdentity
+            self.twitterButton.transform = CGAffineTransformIdentity
+            self.dribbbleButton.transform = CGAffineTransformIdentity
+            self.githubButton.transform = CGAffineTransformIdentity
         }, completion: { finished in
         })
     }

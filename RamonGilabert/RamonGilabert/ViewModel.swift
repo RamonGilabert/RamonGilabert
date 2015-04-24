@@ -452,7 +452,7 @@ class ViewModel: NSObject {
         button.setBackgroundImage(UIImage(named: "twitter-icon-social"), forState: UIControlState.Normal)
         button.tag = 0
         button.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
-        button.addTarget(viewController, action: "onSocialButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(viewController, action: "onSocialButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
 
         view.addSubview(button)
 
@@ -464,7 +464,7 @@ class ViewModel: NSObject {
         button.setBackgroundImage(UIImage(named: "dribbble-icon-social"), forState: UIControlState.Normal)
         button.tag = 1
         button.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
-        button.addTarget(viewController, action: "onSocialButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(viewController, action: "onSocialButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
 
         view.addSubview(button)
 
@@ -476,7 +476,7 @@ class ViewModel: NSObject {
         button.setBackgroundImage(UIImage(named: "github-icon-social"), forState: UIControlState.Normal)
         button.tag = 2
         button.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
-        button.addTarget(viewController, action: "onSocialButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(viewController, action: "onSocialButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
 
         view.addSubview(button)
 

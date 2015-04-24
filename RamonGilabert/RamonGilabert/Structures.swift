@@ -80,6 +80,13 @@ struct Projects {
     static let ArrayWithProjects = [Projects.Linx, Projects.Ono, Projects.Framer, Projects.Web, Projects.Dribbble, Projects.OpenSource, Projects.Tutorials] as NSArray
 }
 
+struct ContactWebs {
+    static let Website = NSURL(string: "https://ramongilabert.com")
+    static let Twitter = NSURL(string: "https://twitter.com/RamonGilabert")
+    static let Dribbble = NSURL(string: "https://dribbble.com/RamonGilabert")
+    static let Github = NSURL(string: "https://github.com/RamonGilabert")
+}
+
 class Structures: NSObject {
    
 }

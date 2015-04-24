@@ -130,12 +130,12 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         setAnimationForButtons(false)
     }
 
-    func onSocialButtonPressed {
+    func onSocialButtonPressed(sender: UIButton) {
         setAnimationForButtons(false)
 
-        if tag == 0 {
+        if sender.tag == 0 {
             // TODO: Perform segues to the webview with links
-        } else if tag == 1 {
+        } else if sender.tag == 1 {
 
         } else {
 

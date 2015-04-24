@@ -18,6 +18,8 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //self.presentViewController(self.tipsViewController, animated: true, completion: nil)
+
         self.scrollView = self.viewModel.initMainScrollViewInView(view)
         self.scrollView.delegate = self
 
@@ -38,20 +40,6 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         loadScrollViewInPage(0)
         loadScrollViewInPage(1)
         loadScrollViewInPage(2)
-    }
-
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-
-        // TODO: First time in app
-
-//        if !self.checkFirstLunch {
-//            let checkFirstLunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunch")
-//
-//            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
-//            self.presentViewController(self.videoViewController, animated: true, completion: nil)
-//            self.presentViewController(self.tipsViewController, animated: true, completion: nil)
-//        }
     }
 
     // MARK: ScrollView methods

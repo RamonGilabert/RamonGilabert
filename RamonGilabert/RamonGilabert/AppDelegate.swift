@@ -19,11 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
+    let checkFirstLunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunch")
+
     let mainViewController = RGMainViewController()
 
     window = UIWindow(frame: UIScreen.mainScreen().bounds)
     window?.rootViewController = mainViewController
     window?.makeKeyAndVisible()
+
+    if !checkFirstLunch {
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
+        mainViewController.presentViewController(RGVideoViewController(), animated: true, completion: nil)
+    }
 
     return true
   }

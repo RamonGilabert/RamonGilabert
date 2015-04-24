@@ -133,8 +133,7 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
             self.twitterButton.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
             self.dribbbleButton.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
             self.githubButton.transform = CGAffineTransformMakeTranslation(0, Constant.SocialViewPositioning.HeightOfView)
-            }, completion: { finished in
-        })
+        }, completion: nil)
     }
 
     // MARK: Helper methods
@@ -147,16 +146,24 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
         self.twitterButton = self.viewModel.setTwitterButton(self.viewSocial)
         self.dribbbleButton = self.viewModel.setDribbbleButton(self.viewSocial)
         self.githubButton = self.viewModel.setGithubButton(self.viewSocial)
-        
+
         UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
             self.backgroundViewSocial.alpha = 0.6
             self.viewSocial.transform = CGAffineTransformIdentity
             buttonCross.transform = CGAffineTransformIdentity
+        }, completion: nil)
+
+        UIView.animateWithDuration(0.5, delay: 0.1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
             self.twitterButton.transform = CGAffineTransformIdentity
+        }, completion: nil)
+
+        UIView.animateWithDuration(0.5, delay: 0.15, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
             self.dribbbleButton.transform = CGAffineTransformIdentity
+        }, completion: nil)
+
+        UIView.animateWithDuration(0.5, delay: 0.2, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
             self.githubButton.transform = CGAffineTransformIdentity
-        }, completion: { finished in
-        })
+        }, completion: nil)
     }
 
     func loadViewController(viewController: UIViewController, page: Int) {

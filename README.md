@@ -28,3 +28,7 @@ After 5 days working all day in the app and going to classes, I sent the app to 
 ## Done by
 
 This app is under the MIT License and is brought to you by [Ramon Gilabert](http://ramongilabert.com) with love! :)
+
+#### Twitter
+
+Find me on Twitter at: [@RamonGilabert](https://twitter.com/RamonGilabert)

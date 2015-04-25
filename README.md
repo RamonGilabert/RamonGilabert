@@ -15,19 +15,9 @@ An app with an story behind, an app with my life on it. This is my proposal for 
 - Done entirely in Swift.
 - Done with a lot of love.
 
-## Screenshots
+## The app
 
-### How it all begin
-
-![Ramon Gilabert](https://github.com/RamonGilabert/RamonGilabert/blob/master/Resources/first-screenshot.png)
-
-### The skillset
-
-![Ramon Gilabert](https://github.com/RamonGilabert/RamonGilabert/blob/master/Resources/second-screenshot.png)
-
-### Work done
-
-![Ramon Gilabert](https://github.com/RamonGilabert/RamonGilabert/blob/master/Resources/third-screenshot.png)
+![Ramon Gilabert](https://github.com/RamonGilabert/RamonGilabert/blob/master/Resources/screenshots.png)
 
 ## Done by
 

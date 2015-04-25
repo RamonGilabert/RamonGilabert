@@ -304,7 +304,7 @@ class ViewModel: NSObject {
     // MARK: Projects layout
 
     func setBackgroundProjects(view: UIView) -> UIImageView {
-        let imageView = UIImageView(frame: CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight))
+        let imageView = UIImageView(frame: CGRectMake(-15, -15, Constant.Size.DeviceWidth + 30, Constant.Size.DeviceHeight + 30))
         imageView.contentMode = UIViewContentMode.ScaleAspectFill
         imageView.clipsToBounds = true
         imageView.image = UIImage(named: "background-image-menu-simulator")

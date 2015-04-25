@@ -1,6 +1,6 @@
-![Ramon Gilabert]()
+![Ramon Gilabert](https://github.com/RamonGilabert/RamonGilabert/blob/master/Resources/github-header.png)
 
-An app with an story behind, an app with my life on it. This is my proposal for the WWDC 2015 Scholarship program. Build entirely in Swift and handcrafted by me. Feel free to contact me if you have any questions!
+An app with an story behind, an app with my life on it. This is my proposal for the WWDC 2015 Scholarship program. Build entirely in Swift and handcrafted by me. Feel free to (email: contact@ramongilabert.com text: Contact me) if you have any questions!
 
 ## Featuring
 
@@ -19,15 +19,15 @@ An app with an story behind, an app with my life on it. This is my proposal for 
 
 ### How it all begin
 
-![Ramon Gilabert]()
+![Ramon Gilabert](https://github.com/RamonGilabert/RamonGilabert/blob/master/Resources/first-screenshot.png)
 
 ### The skillset
 
-![Ramon Gilabert]()
+![Ramon Gilabert](https://github.com/RamonGilabert/RamonGilabert/blob/master/Resources/second-screenshot.png)
 
 ### Work done
 
-![Ramon Gilabert]()
+![Ramon Gilabert](https://github.com/RamonGilabert/RamonGilabert/blob/master/Resources/third-screenshot.png)
 
 ## Done by
 

@@ -4,7 +4,7 @@ import UIKit
 
 class RGVideoViewController: UIViewController {
 
-    let session = AVAudioSession.sharedInstance()
+    let session = AVAudioSession()
     let transitionManager = CustomVideoTransition()
     var moviePlayerController = MPMoviePlayerController()
 
@@ -15,8 +15,6 @@ class RGVideoViewController: UIViewController {
 
         self.transitioningDelegate = self.transitionManager
 
-        self.session.setCategory(AVAudioSessionCategoryPlayback, error: nil)
-
         self.moviePlayerController = MPMoviePlayerController(contentURL: Video.MainVideoURL)
         self.moviePlayerController.view.frame = CGRectMake(0, 0, Constant.Size.DeviceWidth, Constant.Size.DeviceHeight)
         self.view.addSubview(self.moviePlayerController.view)
@@ -25,12 +23,14 @@ class RGVideoViewController: UIViewController {
         addObserverToMoviePlayer()
         crossButtonLayout()
 
+        self.session.setCategory(AVAudioSessionCategoryPlayback, error: nil)
         self.moviePlayerController.play()
     }
 
     // MARK: Notification methods
 
     func moviePlayerDidFinishPlaying(notification: NSNotification) {
+        self.session.setCategory(AVAudioSessionCategorySoloAmbient, error: nil)
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
             NSNotificationCenter.defaultCenter().postNotificationName(Constant.Setup.NameOfNotification, object: nil)
         })
@@ -40,7 +40,7 @@ class RGVideoViewController: UIViewController {
 
     func onCrossButtonPressed() {
         self.moviePlayerController.pause()
-
+        self.session.setCategory(AVAudioSessionCategorySoloAmbient, error: nil)
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
             self.moviePlayerController.stop()
             NSNotificationCenter.defaultCenter().postNotificationName(Constant.Setup.NameOfNotification, object: nil)

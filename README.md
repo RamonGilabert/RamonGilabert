@@ -22,3 +22,5 @@ An app with an story behind, an app with my life on it. This is my proposal for 
 ## Done by
 
 [Ramon Gilabert](http://ramongilabert.com) with love! :)
+
+This app is under the MIT License.

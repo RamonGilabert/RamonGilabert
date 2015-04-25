@@ -67,11 +67,11 @@ struct Projects {
 
     static let Ono: [String: AnyObject] = ["title": "ONO", "position": "iOS development and design", "image": "ono-app-image", "text": "ONO was an app to record a voice message and send it to your friends. Send friend requests, update your profile, etc. A real social network."]
 
-    static let Framer: [String: AnyObject] = ["title": "FramerJS", "position": "CoffeeScript development", "image": "framer-js-image", "text": "I tried FramerJS first this year, a prototype by code app, I didn't know about CoffeeScript, but I started to learn it, Finally, I was able to do awesome things, like the presentation video of the app!"]
+    static let Framer: [String: AnyObject] = ["title": "FramerJS", "position": "CoffeeScript development", "image": "framer-js-image", "text": "I tried FramerJS first this year, a prototype by code app, I didn't know about CoffeeScript, but I started to learn it, doing awesome things like the presentation video of the app."]
 
     static let Web: [String: AnyObject] = ["title": "Web", "position": "Web development and design", "image": "web-image", "text": "Web was the first thing I wanted to learn since I was a kid, thank's to some tutorials and lots of passion, I released my main web, my main project, my portfolio."]
 
-    static let Dribbble: [String: AnyObject] = ["title": "Dribbble", "position": "Design", "image": "dribbble-image", "text": "Dribbble, the place where I wanted to show my designs, inspire other people as they were doing to me in my designs, being able to enter to that community was amazing."]
+    static let Dribbble: [String: AnyObject] = ["title": "Dribbble", "position": "Design", "image": "dribbble-image", "text": "Dribbble, the place where I wanted to show my designs, inspire other people as they were doing to me, being able to enter to that community was amazing."]
 
     static let OpenSource: [String: AnyObject] = ["title": "Open source", "position": "iOS development", "image": "open-source-app-image", "text": "Two months ago I started to contribute to some cool open source iOS projects that could help other people. I'll open source various parts of this app, and the app itself!"]
 

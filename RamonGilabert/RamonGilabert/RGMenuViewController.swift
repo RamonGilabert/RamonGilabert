@@ -31,6 +31,8 @@ class RGMenuViewController: UIViewController {
         self.soundManager.menuTappedSound
 
         self.titleLabel = self.viewModel.setTitleLabelInView(self.view)
+
+        self.videoButton.enabled = false
     }
 
     // MARK: Button handlers

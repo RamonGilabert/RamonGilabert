@@ -50,15 +50,11 @@ class RGMainViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
 
-        let checkFirstLunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunch")
+        let checkFirstLunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunchTips")
 
         if !checkFirstLunch {
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
-
-            let videoViewController = RGVideoViewController()
-            videoViewController.view.removeFromSuperview()
-
-            self.presentViewController(videoViewController, animated: true, completion: nil)
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunchTips")
+            self.presentViewController(self.tipsViewController, animated: true, completion: nil)
         }
     }
 

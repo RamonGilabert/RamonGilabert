@@ -19,7 +19,6 @@
 		F6526E481AE2B956007ACF23 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6526E461AE2B956007ACF23 /* LaunchScreen.xib */; };
 		F6526E541AE2B956007ACF23 /* RamonGilabertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E531AE2B956007ACF23 /* RamonGilabertTests.swift */; };
 		F6526E651AE2C996007ACF23 /* RGStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6526E641AE2C996007ACF23 /* RGStoryViewController.swift */; };
-		F66117171AE9055F00A30E55 /* intro_video.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F66117161AE9055F00A30E55 /* intro_video.m4v */; };
 		F661171A1AE9057C00A30E55 /* RGVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66117191AE9057C00A30E55 /* RGVideoViewController.swift */; };
 		F661171C1AE905FB00A30E55 /* UIFont+WWDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F661171B1AE905FB00A30E55 /* UIFont+WWDC.swift */; };
 		F661171E1AE905FF00A30E55 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F661171D1AE905FF00A30E55 /* ViewModel.swift */; };
@@ -64,7 +63,6 @@
 		F6526E521AE2B956007ACF23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6526E531AE2B956007ACF23 /* RamonGilabertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamonGilabertTests.swift; sourceTree = "<group>"; };
 		F6526E641AE2C996007ACF23 /* RGStoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGStoryViewController.swift; sourceTree = "<group>"; };
-		F66117161AE9055F00A30E55 /* intro_video.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro_video.m4v; sourceTree = "<group>"; };
 		F66117191AE9057C00A30E55 /* RGVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGVideoViewController.swift; sourceTree = "<group>"; };
 		F661171B1AE905FB00A30E55 /* UIFont+WWDC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+WWDC.swift"; sourceTree = "<group>"; };
 		F661171D1AE905FF00A30E55 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -190,7 +188,6 @@
 		F66117181AE9056C00A30E55 /* Videos */ = {
 			isa = PBXGroup;
 			children = (
-				F66117161AE9055F00A30E55 /* intro_video.m4v */,
 			);
 			name = Videos;
 			sourceTree = "<group>";
@@ -346,7 +343,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F66117171AE9055F00A30E55 /* intro_video.m4v in Resources */,
 				F64895D71AE9418D00CC4F9E /* menu-display.wav in Resources */,
 				F64895EE1AE9913D00CC4F9E /* dismiss-tips.wav in Resources */,
 				F6C4001E1AE79F9B00E1E983 /* Libertad.otf in Resources */,
